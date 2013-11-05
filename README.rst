@@ -1,7 +1,5 @@
-astropy-APEs
-------------
-
-A repository storing the Astropy Proposals for Enhancement.
+APEs: Astropy Proposals for Enhancement
+---------------------------------------
 
 APEs are used to address non-trivial enhancements that require much discussion
 and thought. This is intended to mirror the long-standing Python Enhancement 
