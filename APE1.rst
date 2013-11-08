@@ -41,26 +41,26 @@ But more seriously.
 
 There are three kinds of APE:
 
-A Standards Track APE describes a new feature or implementation for Astropy.
-It may also describe an interoperability standard that will be supported
-outside the standard library for current Astropy versions before a subsequent
-APE adds standard library support in a future version.
+* A "Standards Track" APE describes a new feature or implementation for 
+  Astropy. It may also describe an interoperability standard that will be 
+  supported outside the standard library for current Astropy versions before 
+  a subsequent APE adds standard library support in a future version.
 
-An Informational APE describes a Astropy design issue, or provides general
-guidelines or information to the Python community, but does not propose a new
-feature. Informational APEs do not necessarily represent an Astropy community
-consensus or recommendation, so users and implementers are free to ignore
-Informational APEs or follow their advice. We await a Zen of Astropy APE.
+* An "Informational" APE describes a Astropy design issue, or provides general
+  guidelines or information to the Python community, but does not propose a new
+  feature. Informational APEs do not necessarily represent an Astropy community
+  consensus or recommendation, so users and implementers are free to ignore
+  Informational APEs or follow their advice. We await a Zen of Astropy APE.
 
-A Process APE describes a process surrounding Astropy, or proposes a change to
-(or an event in) a process. Process APEs are like Standards Track APEs but
-apply to areas other than the Astropy package itself. They may propose an
-implementation, but not to Astropy's codebase; they often require community
-consensus; unlike Informational PEPs, they are more than recommendations, and
-users are typically not free to ignore them. Examples include procedures,
-guidelines, changes to the decision-making process, and changes to the tools
-or environment used in Astropy development. Any meta-APE is also considered a
-Process APE.
+* A "Process" APE describes a process surrounding Astropy, or proposes a change
+  to (or an event in) a process. Process APEs are like Standards Track APEs but
+  apply to areas other than the Astropy package itself. They may propose an
+  implementation, but not to Astropy's codebase; they often require community
+  consensus; unlike Informational PEPs, they are more than recommendations, and
+  users are typically not free to ignore them. Examples include procedures,
+  guidelines, changes to the decision-making process, and changes to the tools
+  or environment used in Astropy development. Any meta-APE is also considered a
+  Process APE.
 
 Submitting an APE 
 .................
@@ -109,6 +109,7 @@ though usually a consensus in the development is sufficient (but in unusual
 cases may be overridden by the coordinating committee). The decision may
 require changes to the APE and any implementation. Final acceptance is not
 done until the required changes are made to the APE and implementation.
+
 
 Branches and Pull requests 
 --------------------------
