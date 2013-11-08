@@ -1,7 +1,8 @@
 .. contents:: Table of Contents .. _APETemplate:
 https://github.com/astropy/astropy/wiki/APETemplate
 
-APE Purpose and Process -----------------------
+APE Purpose and Process 
+-----------------------
 
 author: Perry Greenfield
 
@@ -11,7 +12,8 @@ type: process
 
 status: Discussion
 
-Abstract --------
+Abstract 
+--------
 
 APE stands for Astropy Proposal for Enhancement. An APE is a design document
 providing information to the Astropy community, or describing a new feature
@@ -27,9 +29,11 @@ Because the APEs are maintained as text files in a versioned repository
 (indirectly since this wiki is versioned within github), their revision
 history is the historical record of the feature proposal
 
-Detailed description --------------------
+Detailed description 
+--------------------
 
-APE Types .........
+APE Types 
+.........
 
 Chimp, Gorilla, Bonobo...
 
@@ -58,7 +62,8 @@ guidelines, changes to the decision-making process, and changes to the tools
 or environment used in Astropy development. Any meta-APE is also considered a
 Process APE.
 
-Submitting an APE .................
+Submitting an APE 
+.................
 
 The APE process begins with a new idea for Astropy. It is highly recommended
 that a single APE contain a single key proposal or new idea. Small
@@ -108,7 +113,8 @@ to provide that code is via a github pull request either to the
 `astropy/astropy-api <https://github.com/astropy/astropy-api>`_, as
 appropriate.
 
-APE Review ..........
+APE Review 
+..........
 
 Normally APEs are discussed on astropy-dev and perhaps in other forums.
 Sometimes APEs will grow out of an existing pull request, but it's better to
@@ -119,22 +125,27 @@ cases may be overridden by the coordinating committee). The decision may
 require changes to the APE and any implementation. Final acceptance is not
 done until the required changes are made to the APE and implementation.
 
-Branches and Pull requests --------------------------
+Branches and Pull requests 
+--------------------------
 
 N/A
 
-Implementation --------------
+Implementation 
+--------------
 
 N/A
 
-Backward compatibility ----------------------
+Backward compatibility 
+----------------------
 
 N/A
 
-Alternatives ------------
+Alternatives 
+------------
 
 N/A
 
-Decision Rationale ------------------
+Decision Rationale 
+------------------
 
 The coordinating committee thought it was a honking great idea.
