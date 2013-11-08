@@ -79,28 +79,13 @@ champion (a.k.a. Author) should first attempt to ascertain whether the idea is
 APE-able. Posting to the astropy-dev mailing list is the best way to go about
 doing this.
 
-Vetting an idea publicly before going as far as writing a APE is meant to save
-the potential author time. Many ideas have been brought forward for changing
-Astropy that have been rejected for various reasons. Asking the Astropy
-community first if an idea is original helps prevent too much time being spent
-on something that is guaranteed to be rejected based on prior discussions
-(searching the internet does not always do the trick). It also helps to make
-sure the idea is applicable to the entire community and not just the author.
-Just because an idea sounds good to the author does not mean it will work for
-most people in most areas where Astropy is used.
-
-Once the champion has asked the Astropy community as to whether an idea has
-any chance of acceptance, a draft APE should be presented to astropy-dev. This
-gives the author a chance to flesh out the draft APE to make properly
-formatted, of high quality, and to address initial concerns about the
-proposal.
-
 Following a discussion on astropy-dev, the proposal should be submitted as a
 Pull Request to astropy-APEs with the name APE<n>.rst where <n> is an
 appropriately assigned number. The draft must use the APEtemplate.rst file.
+That a formal proposal has been submitted as a PR should be announced to the 
+astropy-dev list.
 
-As updates are necessary, the APE author can update the APE as needed (noting
-edit dates in the APE).
+The APE author may update the APE as needed.
 
 Standards Track APEs consist of two parts, a design document and a reference
 implementation. It is generally recommended that at least a prototype
