@@ -110,6 +110,33 @@ cases may be overridden by the coordinating committee). The decision may
 require changes to the APE and any implementation. Final acceptance is not
 done until the required changes are made to the APE and implementation.
 
+APE Status
+..........
+
+An APE's status can 
+
+* "Discussion": New APE pull requests should always start in this status.  This
+  means the APE is currently being considered and a decision has not been made
+  regarding what should be done.
+
+* "Accepted": If an APE is accepted, it will be merged - either the original
+  author can do this if they wish to fill in the "decision rationale" section,
+  or the coordination committee member who merges it can change the status and
+  write the rationale.  Regardless, if the APE is an informational or process
+  APE, it is now done. If it is standard track, this status means it is in the
+  process of being implemented.
+
+* "Implemented": Only valid for a standards track APE.  This means the feature
+  discussed in the APE is complete and has been fully merged into the main
+  Astropy repository.
+
+* "Rejected": If it is decided that an APE should be rejected, the person
+  who merges it should change its status to "Rejected."  The "decision
+  rationale" should also be filled in, either by the merger, the original
+  author, or another community member who voiced objections to the APE.
+  The goal is to try to reflect the overall community opinion in these
+  rationales, so that new community members can understand why a decision was
+  made.
 
 Branches and Pull requests 
 --------------------------
