@@ -1,5 +1,5 @@
-APE Purpose and Process
------------------------
+APE Template
+------------
 
 author: <your name>
 
