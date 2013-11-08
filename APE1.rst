@@ -5,9 +5,9 @@ author: Perry Greenfield
 
 date: 2013 October 11
 
-type: process
+type: Process
 
-status: Discussion
+status: Accepted
 
 Abstract
 --------
