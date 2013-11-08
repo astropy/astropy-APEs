@@ -1,6 +1,3 @@
-.. contents:: Table of Contents .. _APETemplate:
-https://github.com/astropy/astropy/wiki/APETemplate
-
 APE Purpose and Process
 -----------------------
 
