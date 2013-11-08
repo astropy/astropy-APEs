@@ -41,10 +41,10 @@ But more seriously.
 
 There are three kinds of APE:
 
-* A "Standards Track" APE describes a new feature or implementation for 
+* A "Standard Track" APE describes a new feature or implementation for 
   Astropy. It may also describe an interoperability standard that will be 
-  supported outside the standard library for current Astropy versions before 
-  a subsequent APE adds standard library support in a future version.
+  supported  in current Astropy versions before a subsequent APE adds the 
+  feature in the future.
 
 * An "Informational" APE describes a Astropy design issue, or provides general
   guidelines or information to the Python community, but does not propose a new
@@ -53,7 +53,7 @@ There are three kinds of APE:
   Informational APEs or follow their advice. We await a Zen of Astropy APE.
 
 * A "Process" APE describes a process surrounding Astropy, or proposes a change
-  to (or an event in) a process. Process APEs are like Standards Track APEs but
+  to (or an event in) a process. Process APEs are like Standard Track APEs but
   apply to areas other than the Astropy package itself. They may propose an
   implementation, but not to Astropy's codebase; they often require community
   consensus; unlike Informational PEPs, they are more than recommendations, and
@@ -87,7 +87,7 @@ astropy-dev list.
 
 The APE author may update the APE as needed.
 
-Standards Track APEs consist of two parts, a design document and a reference
+Standard Track APEs consist of two parts, a design document and a reference
 implementation. It is generally recommended that at least a prototype
 implementation be co-developed with the APE, as ideas that sound good in
 principle sometimes turn out to be impractical when subjected to the test of
@@ -126,7 +126,7 @@ An APE's status can
   APE, it is now done. If it is standard track, this status means it is in the
   process of being implemented.
 
-* "Implemented": Only valid for a standards track APE.  This means the feature
+* "Implemented": Only valid for a Standard Track APE.  This means the feature
   discussed in the APE is complete and has been fully merged into the main
   Astropy repository.
 
