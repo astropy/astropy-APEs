@@ -3,7 +3,7 @@ Astropy Release Cycle and Version Numbering
 
 author: Erik Tollerud
 
-date: <date the APE was submitted>
+date: Nov 18, 2013
 
 type: Process
 
@@ -21,7 +21,7 @@ releases.
 Detailed description
 --------------------
 
-...
+
 
 Branches and Pull requests
 --------------------------
