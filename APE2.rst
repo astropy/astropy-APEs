@@ -32,6 +32,8 @@ critical bugfixes if it is not the latest version.  This was voiced as a conern
 because facilities will not always want to upgrade to the latest version, but
 do want to be sure major bugs will get addressed.
 
+Release scheduling and LTS
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 These issues were discussed in the 2013 Coordination Meeting, and the following
 proposal represents a consensus from that meeting on the solution.  Starting
 with the version after v0.3, Astropy will have a feature release every six
