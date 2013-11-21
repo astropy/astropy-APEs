@@ -25,12 +25,12 @@ The release plan through version 0.3 has been somewhat haphazard, with releases
 when a certain set of features are judged "ready", but without a clear sense of
 how long those features will take.  This has lead to concerns that new features
 are spending a long time in the development version because *other* features are
-not yet complete.  At the same time, some larger institutions and facilities have
-expressed concern that there is not a clearly-stated support cycle for Astropy
-versions.  That is, it is not clear if a given version will be supported via
-critical bugfixes if it is not the latest version.  This was voiced as a conern
-because facilities will not always want to upgrade to the latest version, but
-do want to be sure major bugs will get addressed.
+not yet complete.  At the same time, some larger institutions and facilities
+have expressed concern that there is not a clearly-stated support cycle for
+Astropy versions.  That is, it is not clear if a given version will be supported
+via critical bugfixes if it is not the latest version.  This was voiced as a
+concern because facilities will not always want to upgrade to the latest
+version, but do want to be sure major bugs will get addressed.
 
 Release scheduling and LTS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -123,7 +123,7 @@ Implementation
 
 If this APE is ratified, a few trivial steps will be required:
 
-* The currently under-develpment version that is currently called "v0.4" will
+* The currently under-development version that is currently called "v0.4" will
   be re-named "v1.0".  This will require updating the milestone name on github
   and changing the version number in the ``CHANGES.rst`` file.
 * A decision will need to be made for when to "start the clock" for v1.0, as
@@ -153,7 +153,7 @@ the project".
 
 Another alternative is to use `semantic versioning <http://semver.org/>`_.
 The disadvantage of that approach for Astropy is that it is very likely that
-*all* versions in the forseeable future will break backwards compatibility to
+*all* versions in the foreseeable future will break backwards compatibility to
 some extent.  In semantic versioning, this would mean all versions would need
 to be of the form ``x.0.y``, rendering the minor version number meaningless.
 
