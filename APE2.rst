@@ -47,7 +47,7 @@ bugfixes for two years (i.e., typically 3 regular feature releases will
 follow an LTS release).  This addresses the first issue by applying a
 time-based release cycle, meaning no feature will need to wait more than six
 months before reaching users.  Simultaneously, it addresses the second
-concern by providing a gurantee to facilities that if they use at LTS, they
+concern by providing a guarantee to facilities that if they use an LTS, they
 can count on releases fixing critical bugs for at least two years.
 
 Version numbering
@@ -87,7 +87,7 @@ a release will be:
 * -1 week: release candidate
 
 This is not meant to be an exactly strict calendar, as the day of the
-week, existence of holidays, and dgree of rediness of key features or
+week, existence of holidays, and degree of readiness of key features or
 critical bug fixes necessitate slop in the exact timing.  So more what you'd
 call guidelines than actual rules.
 
