@@ -22,7 +22,7 @@ problem that it is trying to solve and why this APE makes the situation better.
 It should include examples of how the new functionality would be used and
 perhaps some use cases.
 
-Branches and Pull requests
+Branches and pull requests
 --------------------------
 
 Any pull requests or development branches containing work on this APE should be
@@ -50,7 +50,7 @@ Alternatives
 If there were any alternative solutions to solving the same problem, they should
 be discussed here, along with a justification for the chosen approach.
 
-Decision Rationale
+Decision rationale
 ------------------
 
 <To be filled in when the APE is accepted or rejected>
