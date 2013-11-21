@@ -14,7 +14,7 @@ Abstract
 
 This APE describes the general plan for timing of releases and their version
 numbers.  The basic premise is a 6-month cycle for new feature releases, with
-releases designed "long-term support" (LTS) releases every two years.  Bugfix
+releases designated "long-term support" (LTS) releases every two years.  Bugfix
 releases occur as needed, on both the current feature release and the LTS
 releases.
 
@@ -53,7 +53,7 @@ can count on releases fixing critical bugs for at least two years.
 Version numbering
 ^^^^^^^^^^^^^^^^^
 To match this release plan, Astropy will adopt a version numbering scheme
-of the form ``x.y.z``, where ``z`` is avanced on a bugfix release, ``y`` is
+of the form ``x.y.z``, where ``z`` is advanced on a bugfix release, ``y`` is
 advanced for a feature release that is *not* an LTS release, and ``x`` is
 advanced on an LTS (which also resets ``y`` to 0).  So starting from the
 first LTS release, the version number schedule might be::
@@ -75,7 +75,7 @@ first LTS release, the version number schedule might be::
 Feature freeze/ testing calendar
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Because bug checking/fixing and preperation for release take time, a
+Because bug checking/fixing and preparation for release take time, a
 feature freeze will need to be enacted *before* the time of a given feature
 release.  Such a feature freeze will mean no more major new feature pull
 requests will be accepted for that version, but minor improvements, bugfixes,
@@ -110,7 +110,7 @@ codes to transition to the new interface.
 
 
 
-Branches and Pull requests
+Branches and pull requests
 --------------------------
 
 N/A
@@ -154,7 +154,7 @@ The disadvantage of that approach for Astropy is that it is very likely that
 some extent.  In semantic versioning, this would mean all versions would need
 to be of the form ``x.0.y``, rendering the minor version number meaningless.
 
-Decision Rationale
+Decision rationale
 ------------------
 
 <To be filled in when the APE is accepted or rejected>
