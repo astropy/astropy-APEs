@@ -94,11 +94,14 @@ call guidelines than actual rules.
 
 Releases and backwards compatibility
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-As defined here, a "bugfix" release must not break backwards compatibility
-as defined by the public API, and it also should not introduce new major
-features.  But it can include documentation improvements, and in the
-future there may be some sort of "sandbox" package to act as a preview or
-testbed for new additions to come in the next feature release.
+
+As defined here, a "bugfix" release must not break backwards compatibility as
+defined by the public API, and it also should not introduce new major features.
+The exception to this is cases where the API has an actual mistake that needs to
+be fixed, such as a function argument that is missing but was clearly intended
+to be there. Further, a bugfix release *can* include documentation improvements,
+and in the future there may be some sort of "sandbox" package to act as a
+preview or testbed for new additions to come in the next feature release.
 
 Feature releases do *not* guarantee backwards compatibility with previous
 releases.  However, all backwards incompatible changes should always be
