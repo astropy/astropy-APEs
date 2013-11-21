@@ -37,8 +37,11 @@ Release scheduling and LTS
 These issues were discussed in the 2013 Coordination Meeting, and the following
 proposal represents a consensus from that meeting on the solution.  Starting
 with the version after v0.3, Astropy will have a feature release every six
-months.  Only the *latest* feature release will receive bugfixes in between
-these releases.  Additionally, some feature releases will be designated
+months.  Releases between feature releases will only contain bugfixes, not new
+features. (See the "Releases and backwards compatibility" section below for more
+on what is considered bugfixes).
+
+Additionally, some feature releases will be designated
 "long-term support" (LTS) releases, and these will continue to receive
 bugfixes for two years (i.e., typically 3 regular feature releases will
 follow an LTS release).  This addresses the first issue by applying a
@@ -55,7 +58,7 @@ advanced for a feature release that is *not* an LTS release, and ``x`` is
 advanced on an LTS (which also resets ``y`` to 0).  So starting from the
 first LTS release, the version number schedule might be::
 
-* 1.0.0
+* 1.0.0 (LTS release)
 * 1.0.1
 * 1.0.2
 * 1.1.0 (six months after 1.0.0)
@@ -67,7 +70,7 @@ first LTS release, the version number schedule might be::
 * 1.3.0 (six months after 1.2.0)
 * 1.0.4
 * 1.3.1
-* 2.0.0 (six months after 1.3.0)
+* 2.0.0 (LTS release, six months after 1.3.0)
 
 Feature freeze/ testing calendar
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
