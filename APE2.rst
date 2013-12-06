@@ -108,8 +108,9 @@ releases.  However, all backwards incompatible changes should always be
 mentioned in the release notes for a new version.  Furthermore, when
 possible, a backwards incompatible change should generate an
 `AstropyDeprecationWarning` for at least one feature release version before
-actually making the change permanent, to allow an opportunity for
-codes to transition to the new interface.
+actually making the change permanent, to allow codes to
+transition to the new interface. A future APE may add to or change this with a
+more concrete policy on when and for how long something should be deprecated.
 
 
 
