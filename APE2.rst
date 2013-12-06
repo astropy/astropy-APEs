@@ -37,7 +37,7 @@ Release scheduling and LTS
 These issues were discussed in the 2013 Coordination Meeting, and the following
 proposal represents a consensus from that meeting on the solution, with some
 modifications based on community feedback after the meeting.  Starting
-with the version after v0.3, Astropy will have a feature release every six
+with  version 0.4 , Astropy will have a feature release every six
 months.  Releases between feature releases will only contain bugfixes, not new
 features. (See the "Releases and backwards compatibility" section below for more
 on what is considered bugfixes).
@@ -123,17 +123,21 @@ N/A
 Implementation
 --------------
 
-If this APE is ratified, a few trivial steps will be required:
+If this APE is accepted, a few organizational steps will be required:
 
-* The currently under-development version that is currently called "v0.4" will
-  be re-named "v1.0".  This will require updating the milestone name on github
-  and changing the version number in the ``CHANGES.rst`` file.
-* A decision will need to be made for when to "start the clock" for v1.0, as
-  some features in the works may not have been planned fully assuming the six
-  month release cycle.
+* The currently under-development version "v0.4" will be the first following
+  the release cycle.  Because v0.3 was released On the last Monday in Nov 2013,
+  the feature freeze and beta for v0.4 will be scheduled for the last Monday in
+  April 2014, With a release at the end of May 2014.  The milestone on github
+  will thus need to be updated to match this.
+* The first LTS release (v1.0) will then come six months after v0.4, so an
+  appropriate milestone will need to be added to github.  Following that,
+  milestones should be added as needed to reflect the versioning scheme
+  described in this APE.
 * The documentation should be updated to mention the existence of LTS releases
   and make it clear that they come with a promise of two years of bugfixes (as
-  needed).
+  needed). It should also add a link to this APE so that those interested in the
+  numbering scheme can look here for details.
 
 
 Backward compatibility
