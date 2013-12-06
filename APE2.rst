@@ -39,10 +39,10 @@ Release scheduling and LTS
 These issues were discussed in the 2013 Coordination Meeting, and the following
 proposal represents a consensus from that meeting on the solution, with some
 modifications based on community feedback after the meeting.  Starting
-with  version 0.4 , Astropy will have a feature release every six
-months.  Releases between feature releases will only contain bugfixes, not new
-features. (See the "Releases and backwards compatibility" section below for more
-on what is considered bugfixes).
+with  version 0.4 , Astropy will have a feature release at least as often as
+every six months.  Releases between feature releases will only contain bugfixes,
+not new features. (See the "Releases and backwards compatibility" section below
+for more on what are considered bugfixes).
 
 Additionally, some feature releases will be designated
 "long-term support" (LTS) releases, and these will continue to receive
@@ -52,6 +52,17 @@ time-based release cycle, meaning no feature will need to wait more than six
 months before reaching users.  Simultaneously, it addresses the second
 concern by providing a guarantee to facilities that if they use an LTS, they
 can count on releases fixing critical bugs for at least two years.
+
+This plan does not exclude the possibility of releases *more* frequent than
+every six months, although the six months should be considered the default
+timeline (to be changed only with specific reasons). For example, if a new
+feature is perceived by the Astropy developer community as being of great
+importance, and is completed only two months after the v1.0 release, a v1.1
+release could occur at that time, even thought the six month timeline has not
+elapsed.  Once that release has completed, the release clock is "reset", so v1.2
+would be released six months after v1.1, even though it is not yet 12 months
+after v1.0. Regardless, v1.0 will be the LTS for two years, even if there have
+been more than 3 non-LTS releases in the meantime.
 
 Version numbering
 ^^^^^^^^^^^^^^^^^
