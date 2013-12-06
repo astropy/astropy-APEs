@@ -9,6 +9,7 @@ type: Process
 
 status: Discussion
 
+
 Abstract
 --------
 
@@ -17,6 +18,7 @@ numbers.  The basic premise is a 6-month cycle for new feature releases, with
 releases designated "long-term support" (LTS) releases every two years.  Bugfix
 releases occur as needed, on both the current feature release and the LTS
 releases.
+
 
 Detailed description
 --------------------
@@ -73,8 +75,8 @@ first LTS release, the version number schedule might be::
 * 1.3.1
 * 2.0.0 (LTS release, six months after 1.3.0)
 
-Feature freeze/ testing calendar
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Feature freeze/testing calendar
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Because bug checking/fixing and preparation for release take time, a
 feature freeze will need to be enacted *before* the time of a given feature
@@ -114,11 +116,11 @@ transition to the new interface. A future APE may add to or change this with a
 more concrete policy on when and for how long something should be deprecated.
 
 
-
 Branches and pull requests
 --------------------------
 
 N/A
+
 
 Implementation
 --------------
@@ -145,6 +147,7 @@ Backward compatibility
 
 N/A
 
+
 Alternatives
 ------------
 
@@ -162,6 +165,7 @@ The disadvantage of that approach for Astropy is that it is very likely that
 *all* versions in the foreseeable future will break backwards compatibility to
 some extent.  In semantic versioning, this would mean all versions would need
 to be of the form ``x.0.y``, rendering the minor version number meaningless.
+
 
 Decision rationale
 ------------------
