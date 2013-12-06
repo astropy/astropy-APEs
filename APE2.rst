@@ -36,22 +36,23 @@ version, but do want to be sure major bugs will get addressed.
 
 Release scheduling and LTS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 These issues were discussed in the 2013 Coordination Meeting, and the following
 proposal represents a consensus from that meeting on the solution, with some
-modifications based on community feedback after the meeting.  Starting
-with  version 0.4 , Astropy will have a feature release at least as often as
-every six months.  Releases between feature releases will only contain bugfixes,
-not new features. (See the "Releases and backwards compatibility" section below
-for more on what is considered a bug fix).
+modifications based on community feedback after the meeting.  Starting with
+version 0.4 , Astropy will have a feature release at least as often as every six
+months.  Releases between feature releases will only contain bugfixes, not new
+features. (See the "Releases and backwards compatibility" section below for more
+on what is considered a bug fix).
 
-Additionally, some feature releases will be designated
-"long-term support" (LTS) releases, and these will continue to receive
-bugfixes for two years (i.e., typically 3 regular feature releases will
-follow an LTS release).  This addresses the first issue by applying a
-time-based release cycle, meaning no feature will need to wait more than six
-months before reaching users.  Simultaneously, it addresses the second
-concern by providing a guarantee to facilities that if they use an LTS, they
-can count on releases fixing critical bugs for at least two years.
+Additionally, some feature releases will be designated "long-term support" (LTS)
+releases, and these will continue to receive bugfixes for two years (i.e.,
+typically 3 regular feature releases will follow an LTS release).  This
+addresses the first issue by applying a time-based release cycle, meaning no
+feature will need to wait more than six months before reaching users.
+Simultaneously, it addresses the second concern by providing a guarantee to
+facilities that if they use an LTS, they can count on releases fixing critical
+bugs for at least two years.
 
 This plan does not exclude the possibility of releases *more* frequent than
 every six months, although the six months should be considered the default
@@ -66,11 +67,12 @@ been more than 3 non-LTS releases in the meantime.
 
 Version numbering
 ^^^^^^^^^^^^^^^^^
-To match this release plan, Astropy will adopt a version numbering scheme
-of the form ``x.y.z``, where ``z`` is advanced on a bugfix release, ``y`` is
-advanced for a feature release that is *not* an LTS release, and ``x`` is
-advanced on an LTS (which also resets ``y`` to 0).  So starting from the
-first LTS release, the version number schedule might be::
+
+To match this release plan, Astropy will adopt a version numbering scheme of the
+form ``x.y.z``, where ``z`` is advanced on a bugfix release, ``y`` is advanced
+for a feature release that is *not* an LTS release, and ``x`` is advanced on an
+LTS (which also resets ``y`` to 0).  So starting from the first LTS release, the
+version number schedule might be::
 
 * 1.0.0 (LTS release)
 * 1.0.1
@@ -89,21 +91,20 @@ first LTS release, the version number schedule might be::
 Feature freeze/testing calendar
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Because bug checking/fixing and preparation for release take time, a
-feature freeze will need to be enacted *before* the time of a given feature
-release.  Such a feature freeze will mean no more major new feature pull
-requests will be accepted for that version, but minor improvements, bug fixes,
-or documentation additions are still acceptable.  The standard calendar for
-a release will be:
+Because bug checking/fixing and preparation for release take time, a feature
+freeze will need to be enacted *before* the time of a given feature release.
+Such a feature freeze will mean no more major new feature pull requests will be
+accepted for that version, but minor improvements, bug fixes, or documentation
+additions are still acceptable.  The standard calendar for a release will be:
 
 * -6 months: previous release
 * -1 month: feature freeze, beta release, branch created
 * -1 week: release candidate
 
-This is not meant to be an exactly strict calendar, as the day of the
-week, existence of holidays, and degree of readiness of key features or
-critical bug fixes necessitate slop in the exact timing.  So more what you'd
-call guidelines than actual rules.
+This is not meant to be an exactly strict calendar, as the day of the week,
+existence of holidays, and degree of readiness of key features or critical bug
+fixes necessitate slop in the exact timing.  So more what you'd call guidelines
+than actual rules.
 
 
 Releases and backwards compatibility
@@ -119,12 +120,12 @@ preview or testbed for new additions to come in the next feature release.
 
 Feature releases do *not* guarantee backwards compatibility with previous
 releases.  However, all backwards incompatible changes should always be
-mentioned in the release notes for a new version.  Furthermore, when
-possible, a backwards incompatible change should generate an
-`AstropyDeprecationWarning` for at least one feature release version before
-actually making the change permanent, to allow codes to
-transition to the new interface. A future APE may add to or change this with a
-more concrete policy on when and for how long something should be deprecated.
+mentioned in the release notes for a new version.  Furthermore, when possible, a
+backwards incompatible change should generate an `AstropyDeprecationWarning` for
+at least one feature release version before actually making the change
+permanent, to allow codes to transition to the new interface. A future APE may
+add to or change this with a more concrete policy on when and for how long
+something should be deprecated.
 
 
 Branches and pull requests
@@ -163,19 +164,18 @@ Alternatives
 ------------
 
 An alternative version numbering scheme mentioned on astropy-dev was to continue
-the current scheme of ``0.x.y``, and simply append `-LTS` for LTS releases.
-The disadvantage of this approach is that the first version number is then
-rendered essentially meaningless.  That is, given its nature as a research
-library, it is unlikely to ever be "feature-complete", and hence there is no
-clear break point for a 1.0 version.  The scheme proposed here simply assigns
-a different meaning to the major version as "number of LTSs since the start of
-the project".
+the current scheme of ``0.x.y``, and simply append `-LTS` for LTS releases. The
+disadvantage of this approach is that the first version number is then rendered
+essentially meaningless.  That is, given its nature as a research library, it is
+unlikely to ever be "feature-complete", and hence there is no clear break point
+for a 1.0 version.  The scheme proposed here simply assigns a different meaning
+to the major version as "number of LTSs since the start of the project".
 
-Another alternative is to use `semantic versioning <http://semver.org/>`_.
-The disadvantage of that approach for Astropy is that it is very likely that
-*all* versions in the foreseeable future will break backwards compatibility to
-some extent.  In semantic versioning, this would mean all versions would need
-to be of the form ``x.0.y``, rendering the minor version number meaningless.
+Another alternative is to use `semantic versioning <http://semver.org/>`_. The
+disadvantage of that approach for Astropy is that it is very likely that *all*
+versions in the foreseeable future will break backwards compatibility to some
+extent.  In semantic versioning, this would mean all versions would need to be
+of the form ``x.0.y``, rendering the minor version number meaningless.
 
 
 Decision rationale
