@@ -30,7 +30,7 @@ are spending a long time in the development version because *other* features are
 not yet complete.  At the same time, some larger institutions and facilities
 have expressed concern that there is not a clearly-stated support cycle for
 Astropy versions.  That is, it is not clear if a given version will be supported
-via critical bugfixes if it is not the latest version.  This was voiced as a
+via critical bug fixes if it is not the latest version.  This was voiced as a
 concern because facilities will not always want to upgrade to the latest
 version, but do want to be sure major bugs will get addressed.
 
@@ -42,7 +42,7 @@ modifications based on community feedback after the meeting.  Starting
 with  version 0.4 , Astropy will have a feature release at least as often as
 every six months.  Releases between feature releases will only contain bugfixes,
 not new features. (See the "Releases and backwards compatibility" section below
-for more on what are considered bugfixes).
+for more on what is considered a bug fix).
 
 Additionally, some feature releases will be designated
 "long-term support" (LTS) releases, and these will continue to receive
@@ -92,7 +92,7 @@ Feature freeze/testing calendar
 Because bug checking/fixing and preparation for release take time, a
 feature freeze will need to be enacted *before* the time of a given feature
 release.  Such a feature freeze will mean no more major new feature pull
-requests will be accepted for that version, but minor improvements, bugfixes,
+requests will be accepted for that version, but minor improvements, bug fixes,
 or documentation additions are still acceptable.  The standard calendar for
 a release will be:
 
@@ -109,7 +109,7 @@ call guidelines than actual rules.
 Releases and backwards compatibility
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As defined here, a "bugfix" release must not break backwards compatibility as
+As defined here, a "bugfix release" must not break backwards compatibility as
 defined by the public API, and it also should not introduce new major features.
 The exception to this is cases where the API has an actual mistake that needs to
 be fixed, such as a function argument that is missing but was clearly intended
@@ -148,7 +148,7 @@ If this APE is accepted, a few organizational steps will be required:
   milestones should be added as needed to reflect the versioning scheme
   described in this APE.
 * The documentation should be updated to mention the existence of LTS releases
-  and make it clear that they come with a promise of two years of bugfixes (as
+  and make it clear that they come with a promise of two years of bug fixes (as
   needed). It should also add a link to this APE so that those interested in the
   numbering scheme can look here for details.
 
