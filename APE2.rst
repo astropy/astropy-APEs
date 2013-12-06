@@ -35,7 +35,8 @@ version, but do want to be sure major bugs will get addressed.
 Release scheduling and LTS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 These issues were discussed in the 2013 Coordination Meeting, and the following
-proposal represents a consensus from that meeting on the solution.  Starting
+proposal represents a consensus from that meeting on the solution, with some
+modifications based on community feedback after the meeting.  Starting
 with the version after v0.3, Astropy will have a feature release every six
 months.  Releases between feature releases will only contain bugfixes, not new
 features. (See the "Releases and backwards compatibility" section below for more
