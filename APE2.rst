@@ -46,24 +46,13 @@ features. (See the "Releases and backwards compatibility" section below for more
 on what is considered a bug fix).
 
 Additionally, some feature releases will be designated "long-term support" (LTS)
-releases, and these will continue to receive bugfixes for two years (i.e.,
-typically 3 regular feature releases will follow an LTS release).  This
+releases, and these will continue to receive bugfixes for at least two years
+(i.e., typically 3 regular feature releases will follow an LTS release).  This
 addresses the first issue by applying a time-based release cycle, meaning no
 feature will need to wait more than six months before reaching users.
 Simultaneously, it addresses the second concern by providing a guarantee to
 facilities that if they use an LTS, they can count on releases fixing critical
 bugs for at least two years.
-
-This plan does not exclude the possibility of releases *more* frequent than
-every six months, although the six months should be considered the default
-timeline (to be changed only with specific reasons). For example, if a new
-feature is perceived by the Astropy developer community as being of great
-importance, and is completed only two months after the v1.0 release, a v1.1
-release could occur at that time, even though the six month timeline has not
-elapsed.  Once that release has completed, the release clock is "reset", so v1.2
-would be released six months after v1.1, even though it is not yet 12 months
-after v1.0. Regardless, v1.0 will be the LTS for two years, even if there have
-been more than 3 non-LTS releases in the meantime.
 
 Version numbering
 ^^^^^^^^^^^^^^^^^
@@ -106,6 +95,24 @@ existence of holidays, and degree of readiness of key features or critical bug
 fixes necessitate slop in the exact timing.  So more what you'd call guidelines
 than actual rules.
 
+Rapid Feature Releases
+^^^^^^^^^^^^^^^^^^^^^^
+
+This plan is not meant to exclude the possibility of releases *more* frequent
+than every six months.  Six months should be considered both the maximum and the
+default timeline, but a *shorter* time between releases is allowable, if the
+community agrees it is worthwhile. When/if this happens, the subsequent LTS
+release should be timed such that is at least two years after the last LTS, even
+though that may mean there are more than 3 releases between the LTSs.
+
+For example, if a new feature is perceived by the Astropy developer community as
+being of great importance, and is completed only three months after the v1.0
+release, a v1.1 release could occur at that time.  Once that release has
+completed, the release clock is "reset", so v1.2 would be released six months
+after v1.1, even though it is not yet 12 months after v1.0. The next two
+releases would then be v1.3 and v1.4, because v1.4 would only be 21 months after
+v1.0. v2.0 would then either come three months or six months later, depending on
+how much work is planned to be new in v2.0.
 
 Releases and backwards compatibility
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
