@@ -59,7 +59,7 @@ every six months, although the six months should be considered the default
 timeline (to be changed only with specific reasons). For example, if a new
 feature is perceived by the Astropy developer community as being of great
 importance, and is completed only two months after the v1.0 release, a v1.1
-release could occur at that time, even thought the six month timeline has not
+release could occur at that time, even though the six month timeline has not
 elapsed.  Once that release has completed, the release clock is "reset", so v1.2
 would be released six months after v1.1, even though it is not yet 12 months
 after v1.0. Regardless, v1.0 will be the LTS for two years, even if there have
@@ -142,10 +142,10 @@ If this APE is accepted, a few organizational steps will be required:
 * The currently under-development version "v0.4" will be the first following
   the release cycle.  Because v0.3 was released On the last Monday in Nov 2013,
   the feature freeze and beta for v0.4 will be scheduled for the last Monday in
-  April 2014, With a release at the end of May 2014.  The milestone on github
+  April 2014, With a release at the end of May 2014.  The milestone on GitHub
   will thus need to be updated to match this.
 * The first LTS release (v1.0) will then come six months after v0.4, so an
-  appropriate milestone will need to be added to github.  Following that,
+  appropriate milestone will need to be added to GitHub.  Following that,
   milestones should be added as needed to reflect the versioning scheme
   described in this APE.
 * The documentation should be updated to mention the existence of LTS releases
