@@ -1,5 +1,5 @@
-APE Template
-------------
+<APE title here>
+----------------
 
 author: <your name>
 
@@ -9,10 +9,12 @@ type: <one of these three: Standard Track, Informational, Process>
 
 status: Discussion
 
+
 Abstract
 --------
 
 The abstract should be a short description of what the APE will achieve.
+
 
 Detailed description
 --------------------
@@ -22,6 +24,7 @@ problem that it is trying to solve and why this APE makes the situation better.
 It should include examples of how the new functionality would be used and
 perhaps some use cases.
 
+
 Branches and pull requests
 --------------------------
 
@@ -29,6 +32,7 @@ Any pull requests or development branches containing work on this APE should be
 linked to from here.  (An APE does not need to be implemented in a single pull
 request if it makes sense to implement it in discrete phases). If no code is yet
 implemented, just put "N/A"
+
 
 Implementation
 --------------
@@ -44,11 +48,13 @@ Backward compatibility
 
 This section describes the ways in which the APE breaks backward compatibility.
 
+
 Alternatives
 ------------
 
 If there were any alternative solutions to solving the same problem, they should
 be discussed here, along with a justification for the chosen approach.
+
 
 Decision rationale
 ------------------
