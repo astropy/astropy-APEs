@@ -7,7 +7,7 @@ date: Nov 18, 2013
 
 type: Process
 
-status: Discussion
+status: Accepted
 
 
 Abstract
@@ -188,4 +188,10 @@ of the form ``x.0.y``, rendering the minor version number meaningless.
 Decision rationale
 ------------------
 
-<To be filled in when the APE is accepted or rejected>
+There was a fair amount of discussion on  `the GitHub PR
+<https://github.com/astropy/astropy-APEs/pull/2>`_, but mainly specific details,
+rather than objections to the general scheme.  The largest change from the
+original proposal was the addition of the idea that *less than* six month
+releases were acceptable. The above content reflects those suggestions, and the
+APE was accepted 12/10/13, as there were no significant objections from the
+community.
