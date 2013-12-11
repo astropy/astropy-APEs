@@ -52,7 +52,8 @@ addresses the first issue by applying a time-based release cycle, meaning no
 feature will need to wait more than six months before reaching users.
 Simultaneously, it addresses the second concern by providing a guarantee to
 facilities that if they use an LTS, they can count on releases fixing critical
-bugs for at least two years.
+bugs for at least two years.  Finally, the LTS releases also act as a convenient
+time to submit new Astropy journal papers.
 
 Version numbering
 ^^^^^^^^^^^^^^^^^
