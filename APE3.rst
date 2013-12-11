@@ -13,7 +13,7 @@ Abstract
 --------
 
 We need a new approach to configuration that makes it easier to modify
-and extend configuration overtime, plays well with other tools in the
+and extend configuration over time, plays well with other tools in the
 Python ecosystem, and most importantly, encourages the reproducibility of
 science results.
 
