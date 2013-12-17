@@ -3,7 +3,9 @@ APE Purpose and Process
 
 author: Perry Greenfield
 
-date: 2013 October 11
+date-created: 2013 October 11
+
+date-last-revised: 2013 November 8
 
 type: Process
 
