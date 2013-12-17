@@ -14,8 +14,8 @@ Abstract
 
 We need a new approach to configuration that makes it easier to modify
 and extend configuration over time, plays well with other tools in the
-Python ecosystem, and most importantly, encourages the reproducibility of
-science results.
+Python ecosystem, and most importantly, encourages the reproducibility
+of science results.
 
 Detailed description
 --------------------
@@ -24,43 +24,43 @@ Toward a configuration policy
 `````````````````````````````
 
 The most important goal of the configuration system should be the
-reproducibility of scientific results.  It's important to note that of
-the existing configuration parameters, some relate to peculiarities of
-platforms and environments (let's call this "platform configuration"),
-and others relate to actual scientific data processing (let's call
-this "science state").  This APE argues that the existing
-configuration system is well-suited to platform configuration
-(providing that some modest enhancements are made), whereas scientific
-state should be handled in a more directly in code in a way that keeps
-those settings closer to a given application and not in user- or
-machine-global settings.
+reproducibility of scientific results.  Some of the existing
+configuration parameters relate to peculiarities of platforms and
+environments (let's call this "platform configuration"), and others
+relate to actual scientific data processing (let's call this "science
+state").  This APE argues that the existing configuration system is
+well-suited to platform configuration (providing that some modest
+enhancements are made), whereas scientific state should be handled in
+more directly in code in a way that keeps those settings closer to a
+given application and not in user- or machine-global settings.
 
-For example, `utils.console.use_color` configures whether ANSI color
+For example, ``utils.console.use_color`` configures whether ANSI color
 codes will be output to the terminal.  This might be changed to
-`False` if the user's system did not support them, but that would have
-no bearing on the output of science processing.  In contrast,
-`cosmology.core.default_cosmology` changes the default cosmology to
-use.
+``False`` if the user's system does not support them, but that would
+have no bearing on the output of science processing.  In contrast,
+``cosmology.core.default_cosmology`` changes the default cosmology to
+use, which could put sources in different locations, changing the
+ultimate science result.
 
-Global state that relates to scientific results should be discouraged
-wherever possible, but there are cases where it is just too
-convenient.  An example might be the list of URLs to use in a `vo`
-query (the configuration item `vo.validator.validate.cs_urls`).
-Another example of global state that doesn't currently use the
-configuration system is the set of active units
-(`astropy.units.set_enabled_units`).  These sorts of things should be
-settable from Python code, and ideally have context managers, but
-should not use the configuration system, since storing them in user-
-and machine-global files reduces reproducibility.  We should instead
-encourage the use of Python code, and the various facilities that
-Python has to reuse code, rather than config files.
+Global state of any kind (not just in a config file) that relates to
+scientific results should be discouraged wherever possible, but there
+are cases where it is just too convenient.  An example might be the
+list of URLs to use in a ``vo`` query (the configuration item
+``vo.validator.validate.cs_urls``).  Another example of global state
+that doesn't currently use the configuration system is the set of
+active units (``astropy.units.set_enabled_units``).  These sorts of
+things should be settable from Python code, and ideally have context
+managers, but should not use the configuration system, since storing
+them in user- and machine-global files hinders reproducibility.  We
+should instead encourage the use of Python code, and the various
+facilities that Python has to reuse code, rather than config files.
 
 Current system
 ``````````````
 
-The current configuration system stores uses the `ConfigObj` library
+The current configuration system stores uses the ``ConfigObj`` library
 to store configuration in a file in the user's home directory
-(`~/.astropy` or `~/.config/astropy`, depending on platform and
+(``~/.astropy`` or ``~/.config/astropy``, depending on platform and
 configuration).  The configuration items are defined within each
 subpackage using declarations that look like::
 
@@ -71,26 +71,24 @@ subpackage using declarations that look like::
                         cfgtype='string_list')
 
 At build time, all of these configuration items are collated into a
-template configuration file that is copied to the user's home
-directory (if it doesn't already exist) upon first import of astropy.
+template config file that is copied to the user's home directory (if
+it doesn't already exist) upon first import of astropy.
 
 Configuration items may be set and saved to disk directly from
 Python::
 
     In [1]: from astropy.coordinates import name_resolve
-
     In [2]: name_resolve.NAME_RESOLVE_TIMEOUT.set(42)
-
     In [3]: name_resolve.NAME_RESOLVE_TIMEOUT.save()
 
-The configuration file may also be edited by hand.  It provides a
-convenient summary and description of each the available options.
+The config file may also be edited by hand.  It provides a convenient
+summary and description of each the available options.
 
 There are some things about this system that would be nice to retain:
 
     - It's easy to save values to the file from Python.
 
-    - It's easy to edit the configuration file by hand.
+    - It's easy to edit the config file by hand.
 
     - It can be loaded very early on during the import of astropy so
       it can affect things, such as logging, that are not very
@@ -112,11 +110,12 @@ However, there are number of shortcomings of this approach:
       created with, so we can't update it when astropy is updated.
 
 Unrelated to the system itself, but to how it's been used thus far, it
-is confusing to find the configuration items from Python, since many
-are defined rather "deep" within the subpackages.  For example, we
-have `cosmology.core.DEFAULT_COSMOLOGY` instead of
-`cosmology.DEFAULT_COSMOLOGY`.  All of these configuration items
-should be moved to the `config` namespace within each subpackage.
+is difficult to find the configuration items using introspection in
+Python, since many are defined rather "deep" within the subpackages.
+For example, we have ``cosmology.core.DEFAULT_COSMOLOGY`` instead of
+``cosmology.DEFAULT_COSMOLOGY``.  All of these configuration items
+should be moved to the ``config`` namespace within each subpackage.
+To use this example, ``cosmology.config.DEFAULT_COSMOLOGY``.
 
 Branches and pull requests
 --------------------------
@@ -126,37 +125,65 @@ N/A
 Implementation
 --------------
 
-The following improvements to the base configuration system will be made:
+The following improvements to the base configuration system will be
+made:
 
-    - Each `astropy` package will declare its configuration options in
-      a declarative file (probably a `ConfigObj` spec file, if that is
-      sufficient), at the root of each package.  This, rather than
-      importing Python code itself, will be used to build the template
-      configuration file.
+    - Since, as a result of this APE, the number of configuration
+      options will be much smaller, we will just include a template
+      config file directly in the source code repository, install that
+      alongside the source code, and copy that into the user's
+      configuration directory upon first import (see below for the
+      details of how and when it is copied to the user's config
+      directory).  Obviously, it will require some care to keep it in
+      sync with the declaration of the configuration options in the
+      source code.  However, it is the simplest possible thing that
+      can work and resolves the issues with generating the config file
+      template at build time.
 
-    - [optional]: Rather than building the template file at build
-      time, we could collate it from the declarative files at import
-      time, and only if the config file doesn't exist in the user's
-      home directory.  This would reduce the amount of code that needs
-      to run during the build process in `astropy_helpers`.
+    - The template config file will have all key/value pairs commented
+      out by default.  This way, default values can be changed in
+      astropy and will only be overridden by the config file if the
+      user explicitly does so.
 
-    - The template configuration file will have all key/value pairs
-      commented out by default.  This way, default values can be
-      changed in astropy and will only be overridden by the config
-      file if the user explicitly does so.
+    - Store a version string in the config file.  This, at a later
+      date, but not as part of this APE, may allow for graceful
+      automatic upgrades of the config file.  This version should
+      correspond to the release version of astropy, and not include a
+      githash.
 
-    - Store a version in the config file.  We can then write functions
-      that will upgrade the config file from a previous version of
-      astropy to a newer one.  When an old version of a config file is
-      encountered, a warning is displayed.  It is then a manual
-      process (`astropy.update_config_file()`), which would save a
-      backup copy of the current config file and perform any upgrades
-      on it in place.  For the case of upgrading from astropy 0.3 to
-      0.4, if no version is found in the config file, it will be
-      assumed to be a 0.3 format config file, and upgrading it will
-      comment out all of the key/value pairs that were not changed
-      from the 0.3 defaults, and remove any items that were declare
-      "science" configuration.
+    - Upgrading of the config file will roughly follow the `Debian
+      configuration file guidelines
+      <http://raphaelhertzog.com/2010/09/21/debian-conffile-configuration-file-managed-by-dpkg/>`__,
+      which strikes a good balance between safety and simplicity.  It
+      prevents the user's config file changes from being accidentally
+      overwritten, but doesn't try to be too clever about
+      automatically updating the content.  In short:
+
+      - If there is no user config file, copy the one from astropy's
+        current version.
+
+      - If there is a user config file, and it matches *exactly* the
+        config file template from any previous version of astropy,
+        overwrite it with the one from astropy's current version.
+        This implies that hashes of previously released configuration
+        templates must be stored somewhere.  A simplification to that
+        might be to just determine if everything in the config file is
+        commented out, and if so, overwrite the file.  (This will not
+        work for an astropy 0.3.x config file where the values were
+        not commented out, but should work going forward.)
+
+      - If the user config file is different from the config file
+        template of a previous astropy version, don't touch it.
+        Install alongside it ``astropy.cfg.ver`` where ``ver`` is the
+        current version.  Optionally, install a
+        ``astropy.cfg.ver.diff`` which is a diff of the user's config
+        file and the current config file template.  Display a warning
+        that the config file has changed and the user may want to
+        manually resolve the differences between their file and the
+        new one.  This warning should only be displayed once (when
+        ``astropy.cfg.ver`` doesn't already exist) so that user's who
+        frequently switch between versions of astropy are not
+        bombarded with warnings.
 
 Once doing that, each existing configuration item will be determined
 to be either "platform" or "science".  (That will be done in this APE
@@ -164,15 +191,20 @@ in a subsequent revision).
 
 For "platform" configuration items:
 
-    - Define the item within the new declarative file.
+    - Include the item within the new config file template in the
+      source repository.
 
-    - This will automatically make it available from Python in the
-      `subpackage.config` namespace (which will be a class instance of
-      some sort).
+    - Move the configuration item to the ``subpackage.config``
+      namespace (which may be a class instance of some sort or a real
+      module, TBD).
 
     - For backward compatibility, keep special delegation objects that
       delegate from the existing location to the new location and
       raise deprecation warnings when used.
+
+    - The configuration items may still be set by their old keys in
+      the config file for one major release cycle, but a deprecation
+      warning will be shown.
 
     - The configuration item should be documented in the subpackages
       documentation in a standardized section ("Configuration")
@@ -180,8 +212,8 @@ For "platform" configuration items:
 For "science" configuration items:
 
     - Define a standard Python context manager for setting the global
-      state associated with each configuration item.  For example, this
-      should work::
+      state associated with each configuration item.  For example,
+      this should work::
 
           from astropy import cosmology
           with cosmology.set_default_cosmology('WMAP9'):
@@ -209,7 +241,8 @@ For "science" configuration items:
 
 To support the new way of dealing with scientific configuration, ways
 of conveniently running Python code at the start of every script
-should be documented.  This should include:
+should be documented.  This should include, in order of increasing
+"broadness":
 
     - Making state changes at the top of your script.
 
@@ -222,9 +255,18 @@ should be documented.  This should include:
       plague the current configuration system).
 
 For a subsequent release, we will remove all of the deprecated
-backward-compatibility delegation objects.  The warnings about
-existing contents of the configuration file will probably need to be
-retained indefinitely.
+backward-compatibility delegation objects.
+
+A set of guidelines about the difference between "platform
+configuration" and "science state" will be added to the relevant
+developer documentation.
+
+As an optional follow-on to all of the above, a
+``astropy.reset_science_defaults()`` function may be added, that will
+reset all of the science state to their defaults.  If all of the
+science state context managers inherit from the same base class,
+presumably providing that should be fairly automatic and
+straightforward.
 
 Backward compatibility
 ----------------------
@@ -245,6 +287,14 @@ recommended for user- or machine-wide configuration and which things
 may lead to scripts and applications not being portable.  In the
 present proposal it's obvious: the config file is for user-global
 stuff; everything else is just Python code.
+
+The first draft of this APE surmised an elaborate automatic
+configuration file update system.  This draft proposes much like
+package upgrading on Debian, which preserves the state of a
+user-modified configuration file, while otherwise staying out of the
+way and providing manual intervention to upgrade the config file.
+That should probably be "good enough" and is far simpler, and
+presumable less prone to errors or surprising bugs.
 
 Decision rationale
 ------------------
