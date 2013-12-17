@@ -3,7 +3,9 @@ Astropy Release Cycle and Version Numbering
 
 author: Erik Tollerud
 
-date: Nov 18, 2013
+date-created: 2013 November 18
+
+date-last-revised: 2013 December 11
 
 type: Process
 

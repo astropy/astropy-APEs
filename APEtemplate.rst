@@ -3,7 +3,9 @@
 
 author: <your name>
 
-date: <date the APE was submitted>
+date-created: 2013 November 5 <replace with the date you submit the APE>
+
+date-last-revised: 2013 December 17 <keep this up to date anytime something changes>
 
 type: <one of these three: Standard Track, Informational, Process>
 
