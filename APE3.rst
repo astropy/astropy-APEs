@@ -47,20 +47,22 @@ Because of the likelihood of confusion between theses
 meanings of "coordinate system", this APE (and the associated coordinates API) will avoid this
 terminology, and instead adopt the following meanings (loosely inspired by the IAU2000 resolutions on celestial coordinate systems):
 
-* "Coordinate representations" are particular ways of describing unique points
-  in a vector space. (Here, this means three-dimensional space, but future
+* A "Coordinate Representation" is a particular way of describing a unique
+  point in a vector space. (Here, this means three-dimensional space, but future
   extensions might have different dimensionality, particularly if relativistic
   effects are desired.)  Examples include Cartesian coordinates, cylindrical
   polar, or latitude/longitude spherical polar coordinates.
 
-* "Reference Systems" are a scheme for orienting points in a space and
-  describing how they are transformed to other systems.  Examples include the
-  ICRS, equatorial coordinates with mean equinox, or the WGS84 geoid for
+* A "Reference System" is a scheme for orienting points in a space and
+  describing how they transforms to other systems.  Examples include the ICRS,
+  equatorial coordinates with mean equinox, or the WGS84 geoid for
   latitude/longitude on the Earth.
 
-* "Coordinate frames" are a specific realization of a reference system - e.g.,
-  the ICRF, or J2000 equatorial coordinates.  For some systems, there may be
-  only one meaningful frame, while others may have many different frames.
+* A "Coordinate Frame" or "Reference Frame" is a specific realization of a
+  reference system - e.g., the ICRF, or J2000 equatorial coordinates.For some
+  systems, there may be only one meaningful frame, while others may have many
+  different frames (differentiated by something like a different equinox, or a
+  different set of reference points).
 
 * A "Coordinate" is a combination of all of the above that specifies a unique
   point.
