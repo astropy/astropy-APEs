@@ -29,7 +29,7 @@ or double-backticks depending on the rendering is used to refer to the actual
 Python module of the same name, while "astropy_helpers" unadorned refers to
 the project as a whole.
 
-*TODO*: Consider renaming the project to "astropy-helpers" with a hyphen
+**TODO**: Consider renaming the project to "astropy-helpers" with a hyphen
 instead of "astropy_helpers".  Although admittedly confusing, it is how
 setuptools normalizes distribution names.
 
@@ -111,7 +111,7 @@ Branches and pull requests
 A repository for the astropy_helpers project has already been created on GitHub
 at https://github.com/astropy/astropy_helpers.
 
-astropy_helpers PR `#1 <https://github.com/astropy/astropy_helpers/pull/1>`
+astropy_helpers PR `#1 <https://github.com/astropy/astropy_helpers/pull/1>`_
 contains an initial implementation of the ``astropy_helpers`` package as
 described in the `Implementation`_ section below.
 
@@ -120,13 +120,13 @@ the necessary changes to Astropy for it to use ``astropy_helpers`` is its
 ``setup.py``.  It also includes the entire astropy_helpers repository as a
 git submodule in the Astropy repository.
 
-*TODO*: Currently the astropy_helpers submodule in #1563 references `my fork of
-astropy_helpers <https://github.com/embray/astropy_helpers>`_ rather than the
-main astropy_helpers repository.  Once the initial version of astropy_helpers
-is in place the ``.gitmodules`` file in #1563 should be updated to use the URL
-of the main astropy_helpers repository.
+**TODO**: Currently the astropy_helpers submodule in #1563 references `my fork
+of astropy_helpers <https://github.com/embray/astropy_helpers>`_ rather than
+the main astropy_helpers repository.  Once the initial version of
+astropy_helpers is in place the ``.gitmodules`` file in #1563 should be updated
+to use the URL of the main astropy_helpers repository.
 
-*TODO*: Create a PR to the package-template for affiliated packages to use
+**TODO**: Create a PR to the package-template for affiliated packages to use
 astropy_helpers.
 
 
