@@ -244,7 +244,7 @@ available and up to date when developers build IPython.  In Astropy and
 affiliated packages we can do something similar.  But rather than copy/paste
 the same boilerplate into every ``setup.py``, we provide a bootstrap script
 that projects can include in their repositories that handles this for us.
-See `astropy_helpers boostrap script`_ below.
+See `astropy_helpers bootstrap script`_ below.
 
 By automating the process of updating submodules, most Astropy developers need
 not even be aware of the use of submodules unless they are actively involved
@@ -305,8 +305,8 @@ it does not need to download the package from PyPI, and thus can be used for
 offline installations.
 
 
-astropy_helpers boostrap script
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+astropy_helpers bootstrap script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To simplify integration of packages with astropy_helpers, a "bootstrap" script,
 tentatively named ``ah_bootstrap.py``, is provided.  This is similar in some
