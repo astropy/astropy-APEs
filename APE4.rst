@@ -256,7 +256,7 @@ astropy_helpers via setup_requires
 
 As explained earlier in this APE, setuptools provides a mechanism for listing
 build-time dependencies that must be satisfied in order to run ``setup.py``
-commands for that project.  If the user's system does not already satisify
+commands for that project.  If the user's system does not already satisfy
 that dependency, it is downloaded from PyPI (by default), extracted from its
 source archive, and installed to a temporary location that is added to
 ``sys.path`` for use only for the duration of installation of the package that
@@ -352,6 +352,45 @@ case the script fails with instructions to the user that they need
 astropy_helpers installed, and how to do that.
 
 
+The future
+^^^^^^^^^^
+
+This APE and the proposed initial implementation do not, for now, make many
+significant changes to the modules being moved from ``astropy`` to
+``astropy_heleprs``.  This will help make for a smoother transition.  But
+having an astropy_helpers project does open the door to future improvements.
+
+In particular, although ``astropy_helpers`` provides many useful utilities,
+correct use of those utilities still requires a significant amount of
+boilerplate in the ``setup.py`` of every project that uses them--beyond just
+the ``import ah_bootscript`` part.  In fact, almost all of the ``setup.py`` of
+both Astropy and the affiliated package template is boilerplate.  See, for
+example, `the latest released version as of writing
+<https://github.com/astropy/astropy/blob/v0.3/setup.py>`_.  With a little
+refactoring this boilerplate could be significantly simplified, while at the
+same time giving developers *more* control.  This APE does not propose any
+specific refactoring plans, however.
+
+Another possibility to consider is adoption of d2to1_ or its descendant pbr_.
+These are projects inspired by the since-canceled distutils2 project.  They aim
+to provide a solution to the previously mentioned problem that all of a Python
+project's metadata is listed in executable code.  Instead, the project is
+described in plain text through an extension to the ``setup.cfg`` file.  The
+project's ``setup.py`` is reduced to a stub that calls out to code that reads
+the metadata from that file.
+
+Although this sounds less flexible, it still gives developers a fair amount of
+control over the process through the use of various scriptable hook points.
+This is where a project like ``astropy_helpers`` comes in:  It can provide a
+set of common hook scripts for use with d2to1_.  For an example of an existing
+project that fits this mold, see `stsci.distutils`_.  Astropy has enough
+complexities that d2to1_ may require a few enhancements before it can be used
+effectively with Astropy.  These include the ability to collate multiple
+``setup.cfg`` files (so that each subpackage can provide its own ``setup.cfg``)
+and `support for environment markers
+<https://github.com/embray/d2to1/issues/2>`_.
+
+
 
 Backward compatibility
 ----------------------
@@ -372,8 +411,35 @@ recommend removing them by the Astropy 1.0 release.
 Alternatives
 ------------
 
-If there were any alternative solutions to solving the same problem, they should
-be discussed here, along with a justification for the chosen approach.
+The issue that first motivated this discussion was `#31
+<https://github.com/astropy/package-template/issues/31>`_ in the package
+template repository.  It brought up the fact that an affiliated package
+using Astropy in its ``setup.py`` could not even be installed via a
+``pip-requirements`` file if Astropy is not already installed.  This is because
+pip runs the ``setup.py egg_info`` command to determine the dependencies of
+each requirement before installing them.  This command in turn fails if Astropy
+has not already been installed.  One solution to that was provided, which
+returns from ``setup.py egg_info`` early without trying to ``import astropy``,
+so that the command can at least partially work in this specific case.  But
+that solution only increases the complexity of the boilerplate ``setup.py``,
+and leads to other problems.
+
+There was also some discussion as to whether what we are now calling
+astropy_helpers should be developed in the main Astropy repository, or should
+be broken out into a separate repository.  It was decided that the latter
+option would be easier for use by affiliated packages, in particular through
+the use of submodules as explained earlier.
+
+Finally, there has been some objection to the naming of "astropy_helpers"--in
+particular to using "astropy" in the name at all.  The objection stems from the
+fact that little to non of the functionality in astropy_helpers is specific to
+Astropy, or even to astronomy-related software, and that it could be more
+broadly useful for other scientific packages.  It was agreed that this line of
+thinking is sound in principle, but that for now we do not want the additional
+support overhead involved in advertising a tool for use by the broader
+scientific community.  As the product matures through use with Astropy it might
+become easier to do this, at which point either the name can be changed, or the
+project can be forked by anyone who wishes to champion such a project.
 
 
 Decision rationale
@@ -384,3 +450,6 @@ Decision rationale
 
 .. _distutils: http://docs.python.org/2/library/distutils.html
 .. _setuptools: http://pythonhosted.org/setuptools/
+.. _d2to1: https://pypi.python.org/pypi/d2to1
+.. _pbr: https://pypi.python.org/pypi/pbr
+.. _stsci.distutils: https://pypi.python.org/pypi/stsci.distutils
