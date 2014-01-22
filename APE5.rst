@@ -3,7 +3,7 @@ Coordinates Subpackage Plan
 
 authors: Erik Tollerud, Adrian Price-Whelan, Thomas Aldcroft, Thomas Robitalle
 
-date: <date the APE was submitted>
+date: 2014 January 22
 
 type: Standard Track
 
@@ -142,14 +142,17 @@ existing coordinates classes will be sub-divided into three pieces:
 
 By separating the coordinates into these three domains, the aforementioned
 problems will either be addressed, or made easier to address by dividing the
-code more logically.
+code more logically. Additionally, the new API takes advantage of features that
+were not available when `coordinates` was first designed to simplify passing in
+units (specifically, the use of `Quantity` objects.)
 
 Branches and pull requests
 --------------------------
 
-`PR #xxx <>`_ to the astropy-api repository contains the file
-`coordinates_api_2.py` that outlines the actual API, and is thus a crucial part
-of this APE.  The PR will be merged if this APE is accepted.
+`PR #12 <http://github.com/astropy/astropy-api/pull/12>`_ in the astropy-api 
+repository contains the file `coordinates_api_2.py` that outlines the actual
+API, and is thus a crucial part of this APE.  The PR will be merged if this APE
+is accepted.
 
 
 Implementation
