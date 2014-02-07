@@ -135,10 +135,13 @@ existing coordinates classes will be sub-divided into three pieces:
    pure frame if it does not have position data, but if it does, is actually a
    coordinate.
  
-3. Classes that contains low-level classes, but provide additional functionality
-   to make them easier to use.  Initially this will be a single class,
-   `SkyCoordinate`, but might later be expanded for systems that are not
-   necessarily celestial coordinates.
+3. Classes that are containers for the low-level classes, but provide additional
+   functionality to make them easier to use.  For example, if created in the FK5
+   system, it would contain `equinox` information even if trasnformed into ICRS
+   (which has no concept of equinox), allowing  the high-level class to round-
+   trip transformations. Initially this will be a single class, `SkyCoordinate`,
+   but might later be expanded to other coordinates that are  spatial, but not
+   necessarily celestial (e.g., locations on the surface of the Earth).
 
 By separating the coordinates into these three domains, the aforementioned
 problems will either be addressed, or made easier to address by dividing the
