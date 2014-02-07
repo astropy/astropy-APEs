@@ -16,7 +16,7 @@ This APE provides a high-level overview of the planned architecture of the
 `astropy.coordinates` subpackage for v0.4 and beyond.  It is a synthesis of a
 feedback received from previous versions of the `coordinates` subpackage and
 related discussion on astropy-dev and coordinates-related pull requests.  The
-base idea is to split the current coordinate class heirarchy into three sets of
+base idea is to split the current coordinate class hierarchy into three sets of
 classes.  data "representation" classes, "low-level" classes that serve both as
 descriptions of coordinate frames *and* containers around the data, and a "high-
 level"  class that uses the low-level classes for actual functionality, but
@@ -78,7 +78,7 @@ The current (Astropy v0.2/0.3) `coordinates` subpackage effectively provides
 classes to represent common celestial coordinates and transformations between
 them.  It also makes all of  the machinery available for subclassing, allowing
 users to define their own  coordinate frames and provide transformations to and
-from the builtin frames. 
+from the built-in frames. 
 
 In this scheme (motivated mainly by ease of implementation), coordinate
 representations, reference systems, and frames are mixed together in classes
@@ -92,12 +92,12 @@ this system has revealed a number of shortcomings regarding this architecture:
 
 * There is no reasonable way to define new representations.Some reference
   systems may be more naturally expressed in e.g. cylindrical coordinates, but
-  defining such a class would require re-implementing nearly everythin in the
+  defining such a class would require re-implementing nearly everything in the
   current coordinate classes (which are based on spherical polar coordinates).
   
 * There has been a large amount of debate and (in some cases, wasted)
   implementation effort on parsing and formatting coordinate strings.Similarly,
-  parsing of units for coordinate imputs has been subject to debate, change, and
+  parsing of units for coordinate inputs has been subject to debate, change, and
   confusion.
 
 * In the current system, one person is often a bottleneck for development of the
@@ -125,7 +125,7 @@ existing coordinates classes will be sub-divided into three pieces:
    the methods necessary to transform points from one representation to another,
    and a single method for invoking these transformations.
 
-2. A class heirarchy for specifying reference systems and frames (their
+2. A class hierarchy for specifying reference systems and frames (their
    realization) - the "low-level" coordinate classes.  These will be subclasses
    of `CoordinateFrame`. While it may at first make sense to separate specifying
    frames from the actual representations in those frames, doing so would result
@@ -137,7 +137,7 @@ existing coordinates classes will be sub-divided into three pieces:
  
 3. Classes that are containers for the low-level classes, but provide additional
    functionality to make them easier to use.  For example, if created in the FK5
-   system, it would contain `equinox` information even if trasnformed into ICRS
+   system, it would contain `equinox` information even if transformed into ICRS
    (which has no concept of equinox), allowing  the high-level class to round-
    trip transformations. Initially this will be a single class, `SkyCoordinate`,
    but might later be expanded to other coordinates that are  spatial, but not
@@ -164,29 +164,29 @@ Implementation
 This APE can be implemented in separate parts:
 
 * The low-level classes can be implemented by writing a representation class
-  for spherical and cartesian coordinates, and then adapting the existing
-  coordinate systems to the new heirarchy. Much of the algorithmic side of the
+  for spherical and Cartesian coordinates, and then adapting the existing
+  coordinate systems to the new hierarchy. Much of the algorithmic side of the
   code should be reusable, particularly the transformation functions themselves.
   This could possibly be done by two people (one working on the representations,
   another on the frame classes), but it may be more efficient for a single
   developer to do this.
 
 * In parallel, the high-level classes can be developed, ideally by an additional
-  developer. This interface with the low-level classes is inteded to separate
+  developer. This interface with the low-level classes is intended to separate
   concerns, and is specified in the API document (although some details will no
   doubt need to be worked out when the coding actually begins).
 
 The above will complete the framework described in this APE.  The immediate
 follow-on work that should be enabled by this will be:
 
-* Defining locations on the Earth as part of the transform heirarchy.  Such
+* Defining locations on the Earth as part of the transform hierarchy.  Such
   location objects will be useful in `astropy.time`, as well as a planned 
   subpackage for storing observatory locations.
  
 * Implementing the full ICRS <-> Alt/Az transformation stack, following the
   IAU2000 algorithms, mostly as implemented in ERFA.This will be simplified
   greatly by the re-organization described in this APE, as it will be easier to
-  define new referebnce system/frames, and the IAU2000 stack requires a whole
+  define new reference system/frames, and the IAU2000 stack requires a whole
   series  of such intermediate systems.
 
 
@@ -219,7 +219,7 @@ some valuable parts.
   quite a bit of code in the high-level class customized for particular low-
   level classes.This is mainly because different reference systems have
   different "preferred" representations (e.g., equatorial systems are
-  traditionally represented in RA/Dec and possibly distance, not cartesian
+  traditionally represented in RA/Dec and possibly distance, not Cartesian
   coordinates). without a way for the frame to convert to its preferred system,
   there's no easy way to delegate operations like generating reasonable-looking
   strings or `__repr__`.
@@ -235,7 +235,7 @@ some valuable parts.
   as there is no need to  transform to/from the "preferred"
   representation.However, it makes it very difficult to switch between
   representations, a task that is crucial for transformations (in most cases
-  they are defined only on cartesian representations).It also  results in more
+  they are defined only on Cartesian representations).It also  results in more
   work for any user that wants a custom system but wants to be able to use
   multiple representations.
 
