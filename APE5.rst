@@ -150,6 +150,25 @@ were not available when `coordinates` was first designed to simplify passing in
 units (specifically, the use of `Quantity` objects.)
 
 
+Connection to "generalized WCS"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A parallel effort currently being pursued by Astropy is an attempt to
+create a "generalized WCS" subpackage.  While still in the planning
+stages, the basic idea is that this would provide functionality similar
+to the existing FITS-based World Coordinate System (WCS), but with a
+generalized Python framework that will help make it easier to map
+"pixel"/detector coordinates to many different kinds of real-world
+coordinate frames.
+
+This APE is not intended to replace or duplicate that functionality.
+Rather, the coordinates API is intended to provide an interface with
+convenience features that users will find  straightforward to work with.
+At the same time, the cleaner separation of  functionality proposed by
+this APE should make it easier for the generalized WCS subpackage to re-
+use coordinates functionality.
+
+
 Branches and pull requests
 --------------------------
 
