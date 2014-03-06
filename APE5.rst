@@ -68,7 +68,7 @@ IAU2000 resolutions on celestial coordinate systems):
 * A "Coordinate" is a combination of all of the above that specifies a unique
   point.
 
-This terminology is used by this APE and the associated API document. 
+This terminology is used by this APE and the associated API document.
 
 
 Problems with current `coordinates` subpackage
@@ -78,12 +78,12 @@ The current (Astropy v0.2/0.3) `coordinates` subpackage effectively provides
 classes to represent common celestial coordinates and transformations between
 them.  It also makes all of  the machinery available for subclassing, allowing
 users to define their own  coordinate frames and provide transformations to and
-from the built-in frames. 
+from the built-in frames.
 
 In this scheme (motivated mainly by ease of implementation), coordinate
 representations, reference systems, and frames are mixed together in classes
 just called e.g., `ICRS` or `FK5`. However, comments following implementation of
-this system has revealed a number of shortcomings regarding this architecture:  
+this system has revealed a number of shortcomings regarding this architecture:
 
 * Quite a bit of boilerplate copy-and-pasting is necessary to define a new
   reference systems. While some minor modifications might simplify this, it is
@@ -94,7 +94,7 @@ this system has revealed a number of shortcomings regarding this architecture:
   systems may be more naturally expressed in e.g. cylindrical coordinates, but
   defining such a class would require re-implementing nearly everything in the
   current coordinate classes (which are based on spherical polar coordinates).
-  
+
 * There has been a large amount of debate and (in some cases, wasted)
   implementation effort on parsing and formatting coordinate strings.Similarly,
   parsing of units for coordinate inputs has been subject to debate, change, and
@@ -106,7 +106,7 @@ this system has revealed a number of shortcomings regarding this architecture:
 
 The description below and the API associated with this APE present an approach
 that addresses these concerns by separating `coordinates` functionality into a
-few different class heirarchies, and using it to re-organize (without wasting)
+few different class hierarchies, and using it to re-organize (without wasting)
 the existing code base.
 
 
@@ -134,7 +134,7 @@ existing coordinates classes will be sub-divided into three pieces:
    representations.  Hence, here we combine them into a single class that is a
    pure frame if it does not have position data, but if it does, is actually a
    coordinate.
- 
+
 3. Classes that are containers for the low-level classes, but provide additional
    functionality to make them easier to use.  For example, if created in the FK5
    system, it would contain `equinox` information even if transformed into ICRS
@@ -149,10 +149,11 @@ code more logically. Additionally, the new API takes advantage of features that
 were not available when `coordinates` was first designed to simplify passing in
 units (specifically, the use of `Quantity` objects.)
 
+
 Branches and pull requests
 --------------------------
 
-`PR #12 <http://github.com/astropy/astropy-api/pull/12>`_ in the astropy-api 
+`PR #12 <http://github.com/astropy/astropy-api/pull/12>`_ in the astropy-api
 repository contains the file `coordinates_api_2.py` that outlines the actual
 API, and is thus a crucial part of this APE.  The PR will be merged if this APE
 is accepted.
@@ -180,9 +181,9 @@ The above will complete the framework described in this APE.  The immediate
 follow-on work that should be enabled by this will be:
 
 * Defining locations on the Earth as part of the transform hierarchy.  Such
-  location objects will be useful in `astropy.time`, as well as a planned 
+  location objects will be useful in `astropy.time`, as well as a planned
   subpackage for storing observatory locations.
- 
+
 * Implementing the full ICRS <-> Alt/Az transformation stack, following the
   IAU2000 algorithms, mostly as implemented in ERFA.This will be simplified
   greatly by the re-organization described in this APE, as it will be easier to
@@ -207,7 +208,7 @@ Alternatives
 ------------
 
 A number of different alternatives have been discussed or considered.  Below I
-address a few that led to this APE due to being imperfect solutions, but with 
+address a few that led to this APE due to being imperfect solutions, but with
 some valuable parts.
 
 * Keep the current system. This is problematic due to reasons described in the
