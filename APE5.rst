@@ -7,7 +7,7 @@ date: 2014 January 22
 
 type: Standard Track
 
-status: Discussion
+status: Accepted
 
 Abstract
 --------
@@ -263,4 +263,6 @@ some valuable parts.
 Decision rationale
 ------------------
 
-<To be filled in when the APE is accepted or rejected>
+There has been a fair bit of discussion on the API itself, but no objections
+have been raised for this APE, and it is therefore uncontroversial and has been
+accepted on March 9th 2014.
