@@ -397,7 +397,25 @@ does not hang while trying to connect to the internet.
 It should be noted that if all methods of bootstrapping astropy_helpers fail
 it is generally not possible to continue the ``setup.py`` script.  In this
 case the script fails with instructions to the user that they need
-astropy_helpers installed, and how to do that.
+``astropy_helpers`` installed, and how to do that.
+
+
+Miscellaneous
+^^^^^^^^^^^^^
+
+Issues and bug reports pertaining to astropy-helpers should be submitted to
+the main Astropy issue tracker.  Support for issues on the astropy-helpers
+GitHub project will be disabled.  This is both so that more developer eyes
+are on the issues, and so that users are not confused as to where to submit
+issues.  Disabling issue tracking support in a GitHub project does *not*
+disable pull requests.  Pull requests against the astropy-helpers repository
+will still be the preferred method to submit changes to astropy-helpers.
+
+On the other hand, astropy-helpers will have its own documentation which will
+be hosted on astropy.org.  This will allow its documentation to evolve with
+each release, thus not tying it down to any release of Astropy.  The Astropy
+developer documentation will mention astropy-helpers and provide a link to its
+current stable documentation.
 
 
 The future
