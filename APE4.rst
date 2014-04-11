@@ -141,11 +141,12 @@ Implementation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The initial version of this proposal recommends moving the
-``astropy.setup_helpers`` and ``astropy.version_helpers`` modules into the
-``astropy_helpers`` package.  These modules need not retain the same names
-within the ``astropy_helpers`` and their contents may be subdivided into new
-modules.  A sample implementation including these modules is provided along
-with this APE (see `Branches and pull requests`_ below).
+``astropy.setup_helpers``, ``astropy.version_helpers``, and ``astropy.sphinx``
+modules into the ``astropy_helpers`` package.  These modules need not retain
+the same names within the ``astropy_helpers`` and their contents may be
+subdivided into new modules in later versions of astropy-helpers..  A sample
+implementation including these modules is provided along with this APE (see
+`Branches and pull requests`_ below).
 
 A brief overview of the functionality in these modules includes:
 
@@ -181,23 +182,30 @@ A brief overview of the functionality in these modules includes:
 
   - A ``bdist_dmg`` command for building DMG distributions of Astropy for OSX.
 
-The ``astropy_helpers`` package should also provide a template based on the
-``astropy.utils._compiler`` module, the purpose of which is to record
-information about the compiler used to compile C extension modules.  Currently,
-affiliated packages that wish to have this functionality must include their
-own ``packagename.utils._compiler`` module as a standard part of the affiliated
-package template.  But this module could just as easily be provided by
-``astropy_helpers`` just as it generates the ``packagename.version`` module.
+* All Sphinx extensions used to build the Astropy and affiliated package
+  documentation, including the HTML template used for the Astropy
+  documentation.  Including the Sphinx extensions allows affiliated packages
+  to run automated documentation builds without requiring all of Astropy as a
+  prerequisite.
 
-There remain open questions whether parts of the ``astropy.tests`` and
-``astropy.sphinx`` subpackages should be moved into ``astropy_helpers``, and if
-so which parts.  Although these packages are also highly reusable by affiliated
-packages to implement their own testing and documentation, they are not
-required to build or install the package.  Testing and documentation build can
-be performed post-installation, when we may also require Astropy to be
-installed as a runtime dependency.  They are also activities mostly performed
-by developers/contributors, who can be reasonably expected to already have
-Astropy installed in their development environment.
+The ``astropy_helpers`` package also provides a ``._compiler`` module based
+(and intended to replace) the ``astropy.utils._compiler`` module, the purpose
+of which is to record information about the compiler used to compile C
+extension modules.  Currently, affiliated packages that wish to have this
+functionality must include their own ``packagename._compiler`` module as a
+standard part of the affiliated package template.  Instead, it can now be
+provided by ``astropy_helpers`` just as it generates the
+``packagename.version`` module.
+
+Astropy's bundled copy of py.test and associated plug-ins are *not* distributed
+as part of astropy-helpers.  All functionality in astropy-helpers is intended
+for use only when building and installing a package, that is, running its
+``setup.py``.  As Astropy and most affiliated packages provide a
+``packagename.test()`` facility that can be used with installed versions of
+the package, the test runner should be considered a runtime dependency that
+should always be installed on the host system.  Furthermore, as most Astropy
+affiliated packages depend on Astropy itself to run, it is reasonable to
+require Astropy to be installed in order to run the tests.
 
 
 Integration with astropy_helpers
@@ -297,17 +305,23 @@ astropy_helpers as a bundled source archive
 +++++++++++++++++++++++++++++++++++++++++++
 
 Although not used by Astropy itself, projects wishing to require
-astropy_helpers also have the option of including an archive containing
-astropy_helpers (such as a gzipped tarball or egg file) in their repository
-and/or source distribution.  This has the advantage of pinning to a
-"known good" version of astropy_helpers, though it loses the advantage to their
-users of automatically using the most up to date astropy_helpers.  Nonetheless
-the option is provided for completeness.
+astropy-helpers also have the option of including an archive containing the
+``astropy_helpers`` package (such as a gzipped tarball or egg file) in their
+repository and/or source distribution.  This has the advantage of pinning to a
+"known good" version of astropy-helpers.
 
-This works exactly the same as ``setup_requires`` in that the source archive
-is unpacked and installed to a temporary location.  The only difference is that
-it does not need to download the package from PyPI, and thus can be used for
+This works exactly the same as ``setup_requires`` in that the source archive is
+unpacked and installed to a temporary location.  The only difference is that it
+does not need to download the package from PyPI, and thus can be used for
 offline installations.
+
+One disadvantage of this approach (or any other that involves "bundling"
+astropy-helpers with one's source code, is that the bundled version may be
+missing critical bug fixes.  To address this shortcoming, a mechanism in
+provided in the `astropy_helpers boostrap script`_ to automatically update to
+the latest bugfix release of astropy-helpers available on PyPI if it is newer
+than the bundled version.  This auto-upgrade feature can be disabled for
+offline installation.
 
 
 astropy_helpers bootstrap script
@@ -322,6 +336,21 @@ Projects wishing to use astropy_helpers should copy ``ah_bootstrap.py`` to the
 root of their project's repository.  Then they should add to the beginning of
 their ``setup.py`` (before any modules from ``distutils`` or ``setuptools`` are
 imported)::
+
+    import ah_bootstrap
+
+And in their ``setup.cfg`` they should add::
+
+    [ah_bootstrap]
+    auto_use = True
+
+By default simply importing ``ah_bootstrap`` does not do anything but read the
+``setup.cfg`` and read options out of the ``[ah_bootstrap]`` section.  These
+options are used to provide arguments to a function called
+``ah_bootstrap.use_astropy_helpers()``.  But this function is not actually
+called without the ``auto_use = True`` option.  Alternatively, one can forgo
+the ``auto_use`` feature and explicitly call ``use_astropy_helpers()`` in their
+``setup.py`` like so::
 
     from ah_bootstrap import use_astropy_helpers
     use_astropy_helpers()
