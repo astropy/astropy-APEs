@@ -362,23 +362,37 @@ root of the repository.  If found, it ensures that submodule is initialized and
 up to date, then inserts it on ``sys.path`` so that the ``astropy_helpers``
 package can be imported from it.  If run from an unpacked source archive, that
 does not include ``astropy_helpers``, it uses the ``setup_requires`` mechanism
-to install astropy_helpers from PyPI as explained in the previous section.
+to install astropy-helpers from PyPI as explained in the previous section.
 
-The sample implementation of ``use_astropy_helpers()`` supports three optional
-arguments that allow package developers to control its behavior:
+The sample implementation of ``use_astropy_helpers()`` supports several
+optional arguments that allow package developers to control its behavior:
 
 * ``path``: By default ``'astropy_helpers'``, this is the path (relative to the
   to ``setup.py``) of the astropy_helpers Git submodule if it exists.
   Alternatively, this may be a path to a source archive file containing
   astropy_helpers, allowing support for the bundled source archive approach to
-  supporting astropy_helpers.
+  supporting astropy-helpers.
 
 * ``download_if_needed``: ``True`` by default, this allows downloading
   astropy_helpers from an online package index using the ``setup_requires``
   method as described earlier.  By default this means downloading from PyPI.
 
-* index_url: This allows specifying a URL to an alternative package index
+* ``index_url``: This allows specifying a URL to an alternative package index
   from PyPI.  This option is ignored if ``download_if_needed`` is ``False``.
+
+* ``use_git``: Set to ``False`` to disable all use of git commands by
+  ``ah_bootstrap``.  This effectively disables support for submodule
+  initialization/updates, and is mostly useful for testing.
+
+* ``auto_upgrade``: If set to ``False`` disables checking on PyPI for newer
+  versions of astropy-helpers before using any already available versions.  By
+  default the auto-upgrade feature is enabled.
+
+Finally, although not an option to ``use_astropy_helpers()``, the
+``ah_bootstrap`` module also recognizes a ``--offline`` command-line argument
+when running ``setup.py``.  This disables all features that try to access the
+internet.  This may be useful for offline installations, so that the process
+does not hang while trying to connect to the internet.
 
 It should be noted that if all methods of bootstrapping astropy_helpers fail
 it is generally not possible to continue the ``setup.py`` script.  In this
