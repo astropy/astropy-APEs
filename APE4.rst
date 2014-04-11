@@ -5,7 +5,7 @@ author: Erik M. Bray
 
 date-created: 2013-12-26
 
-date-last-revised: 2013-12-26
+date-last-revised: 2014-04-11
 
 type: Process
 
@@ -24,14 +24,14 @@ by Astropy itself, as well as by Astropy affiliated packages.
 install Astropy itself and other packages that may or may not depend on
 Astropy.
 
-Note: Throughout the rest of this APE the term ``astropy_helpers`` in teletype
-or double-backticks depending on the rendering is used to refer to the actual
-Python module of the same name, while "astropy_helpers" unadorned refers to
-the project as a whole.
+.. note::
 
-**TODO**: Consider renaming the project to "astropy-helpers" with a hyphen
-instead of "astropy_helpers".  Although admittedly confusing, it is how
-setuptools normalizes distribution names.
+    Throughout the rest of this APE the term ``astropy_helpers`` in teletype or
+    double-backticks depending on the rendering is used to refer to the actual
+    Python module of the same name, while "astropy-helpers" with a hyphen
+    instead of an underscore refers to the project as it is distributed on
+    PyPI.  This is partly due to a historically pecularity in Python project
+    naming that prefers hyphens over underscores.
 
 
 Detailed description
@@ -41,10 +41,10 @@ Rationale
 ^^^^^^^^^
 
 Astropy uses the standard Python tools of distutils_ with extensions from
-setuptools_ and other third-party extensions to handle tasks related to
-build and installing Astropy, as well as creating and uploading source and
-binary distributions of Astropy.  Interaction with these tools is primarily
-through the ``setup.py`` script that is commonly shipped with Python projects.
+setuptools_ and other third-party extensions to handle tasks related to build
+and installing Astropy, as well as creating and uploading source and binary
+distributions of Astropy.  Interaction with these tools is primarily through
+the ``setup.py`` script that is commonly shipped with Python projects.
 
 Astropy also includes a collection of "helpers" that extend and enhance the
 built-in functionality of distutils and setuptools, as well incorporate
