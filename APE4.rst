@@ -54,8 +54,8 @@ In particular, when both ``pip`` and ``easy_install`` install a package from a
 source distribution, they first run the ``setup.py egg_info`` command, which
 generates all the project's metadata in a plain-text format.  The wisdom of
 requiring essentially arbitrary code to be executed in order to determine a
-package's metadata can easily be debated, but it is currently the reality we
-have to work with.
+package's metadata is doubtful, but it is currently the reality we have to work
+with.
 
 Requiring the ``astropy`` package in its entirety to be importable for that
 purpose places an unnecessary burden on affiliated packages that wish to take
