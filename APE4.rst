@@ -24,15 +24,6 @@ by Astropy itself, as well as by Astropy affiliated packages.
 install Astropy itself and other packages that may or may not depend on
 Astropy.
 
-.. note::
-
-    Throughout the rest of this APE the term ``astropy_helpers`` in teletype or
-    double-backticks depending on the rendering is used to refer to the actual
-    Python module of the same name, while "astropy-helpers" with a hyphen
-    instead of an underscore refers to the project as it is distributed on
-    PyPI.  This is partly due to a historically pecularity in Python project
-    naming that prefers hyphens over underscores.
-
 
 Detailed description
 --------------------
@@ -74,7 +65,7 @@ package only has ``astropy`` as an optional runtime dependency.  This makes it
 difficult to impossible for developers of affiliated packages to be able to
 provide their users a simple set of instructions such as ``pip install
 <projectname>`` for installing their product.  As it is, ``pip install
-Astropy`` is always a prerequisite step.
+astropy`` is always a prerequisite step.
 
 There is a feature of setuptools that allows a project's ``setup.py`` to
 provide a list of ``setup_requires`` packages--these are packages that must
@@ -88,21 +79,31 @@ However, Astropy is a rather large and cumbersome package to use in the
 context of ``setup_requires``.  Because using Astropy requires a number of
 C extensions to be compiled and other complexities it is entirely possible
 for it to fail even temporary installation, leading to further confusion by
-users who may just be trying to install an affiliated package.  Therefore we
-propose separating all of Astropy's build/installation helpers into a
-separate project/Python package tentatively named ``astropy_helpers`` that is
-released and distributed independently of Astropy itself.  It is intended to
-be used as a ``setup_requires`` package for use by Astropy's own ``setup.py``,
-and equivalently by that of affiliated packages.
+users who may just be trying to install an affiliated package.
 
-A major advantage of having an independent release cycle for astropy_helpers
-is that we can respond quickly to installation problems by releasing a new
-astropy_helpers bugfix version without having to do a full new release of
-Astropy itself.  Then any affiliated packages that use astropy_helpers
-immediately benefit as well.  This is especially useful for responding to
-installation bugs introduced by external factors such as changes in pip or
-setuptools, or platform-specific issues (such as OSX changing the default
-compiler).
+For the above reasons we propose separating all of Astropy's build/installation
+helpers into a separate project/Python package tentatively named
+``astropy_helpers`` that is released and distributed independently of Astropy
+itself.  It is intended to be used as a ``setup_requires`` package for use by
+Astropy's own ``setup.py``, and equivalently by that of affiliated packages.
+
+A major advantage of having an independent release cycle for
+``astropy_helpers`` is that we can respond quickly to installation problems by
+deploying a new astropy-helpers bugfix release without having to do a full new
+release of Astropy itself.  Then any affiliated packages that use
+astropy-helpers immediately benefit as well.  This is especially useful for
+responding to installation bugs introduced by external factors such as changes
+in pip or setuptools, or platform-specific issues (such as OSX changing the
+default compiler).
+
+.. note::
+
+    Throughout the rest of this APE the term ``astropy_helpers`` in teletype or
+    double-backticks depending on the rendering is used to refer to the actual
+    Python module of the same name, while "astropy-helpers" with a hyphen
+    instead of an underscore refers to the project as it is distributed on
+    PyPI.  This is partly due to a historically pecularity in Python project
+    naming that prefers hyphens over underscores.
 
 
 Branches and pull requests
@@ -220,20 +221,21 @@ subdirectory of another Git repository as a means of "vendoring" other
 projects.  In this case, as astropy_helpers is developed in its own
 repository, it can be included in Astropy's main repository as a submodule.
 
-This solution is intended primarily for Astropy developers:  When they clone
-the Astropy repository they will get astropy_helpers as a submodule.  When
-running Astropy's ``setup.py`` the path of the astropy_helpers Git submodule is
-added to ``sys.path`` so that the ``astropy_helpers`` package is importable.
-This copy of astropy_helpers would *not* be included in the official source
-distributions of Astropy as released on PyPI.
+This solution is intended primarily for Astropy and affiliated package
+developers:  When they clone the Astropy repository they will get
+astropy_helpers as a submodule.  When running Astropy's ``setup.py`` the path
+of the astropy_helpers Git submodule is added to ``sys.path`` so that the
+``astropy_helpers`` package is importable.  This copy of ``astropy_helpers``
+would *not* be included in the official source distributions of Astropy as
+released on PyPI.
 
 There is one complexity of using Git submodules in this manner:  When one
 clones a Git repository containing submodules, by default the submodules are
 not initialized.  Instead they are left as empty directories in the repository
 until the user manually runs ``git submodule update --init`` in order to clone
 the submodules.  Furthermore, during normal development they must manually run
-``git submodule update`` to ensure they are always using the latest revision
-of the submodule required by Astropy.
+``git submodule update`` to ensure they are always using the latest revision of
+the submodule required by Astropy.
 
 However, there is a workaround to this complexity that takes a lot of thinking
 out of it.  It has been pointed out that the IPython project, which has also
@@ -262,9 +264,9 @@ source archive, and installed to a temporary location that is added to
 ``sys.path`` for use only for the duration of installation of the package that
 requested it.
 
-This is the generally preferred approach for providing astropy_helpers to users
+This is the generally preferred approach for providing astropy-helpers to users
 installing Astropy or affiliated packages.  In general, the user does not need
-to be aware of astropy_helpers or to go through an extra step of installing it
+to be aware of astropy-helpers or to go through an extra step of installing it
 first.  So long as they are connected to the internet it will *just work*.
 That said, it should still be mentioned in the documentation, in particular for
 the benefit of users who need to be able to perform offline installations.
