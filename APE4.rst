@@ -121,14 +121,17 @@ the necessary changes to Astropy for it to use ``astropy_helpers`` is its
 ``setup.py``.  It also includes the entire astropy_helpers repository as a
 git submodule in the Astropy repository.
 
+Finally, a PR to the package-template repostory,
+`#46 <https://github.com/astropy/package-template/pull/46>`, updates the
+affiliated package template to use the machinery availabe in ``astropy_helpers``
+rather than depending on ``astropy`` itself.
+
 **TODO**: Currently the astropy_helpers submodule in #1563 references `my fork
 of astropy_helpers <https://github.com/embray/astropy_helpers>`_ rather than
 the main astropy_helpers repository.  Once the initial version of
 astropy_helpers is in place the ``.gitmodules`` file in #1563 should be updated
-to use the URL of the main astropy_helpers repository.
-
-**TODO**: Create a PR to the package-template for affiliated packages to use
-astropy_helpers.
+to use the URL of the main astropy_helpers repository.  This should happen only
+once this APE is given final approval.
 
 
 Implementation
