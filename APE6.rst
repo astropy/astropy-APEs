@@ -18,8 +18,7 @@ Abstract
 APE6 is primarily a specification of a new standard for the interchange of
 tabular data in a text-only format.  The proposed format handles the key issue
 of serializing column specifications and table metadata by using a JSON-encoded
-data structure which is included in the file as a series of ``#``-prefixed
-comment lines.  The actual tabular data are stored in a standard
+data structure.  The actual tabular data are stored in a standard
 comma-separated-values (CSV) format, giving compatibility with a wide variety of
 non-specialized CSV table readers.  Using JSON makes it extremely easy for
 applications to read both the standardized data format elements (e.g. column
@@ -38,8 +37,10 @@ The well-known `XKCD comic <https://xkcd.com/927/>`_ aptly mocks the
 introduction of new standards.  Let's just stipulate that this standard may be a
 bad idea, but talk about it anyway.  Following the lead of the astronomical data
 community in recently documenting shortcomings of the FITS standard, we start by
-discussing existing widely-used standards and why they are
-lacking.
+discussing existing widely-used standards and why they are lacking.
+
+Note that the existing `Tabular Data Package`_ standard, while not
+used widely in astronomy, may be entirely suitable for our purposes.
 
 CSV
 ^^^^^
@@ -166,8 +167,25 @@ parsing and validation for text serialization.
 Others
 ^^^^^^^^
 
-We are not aware of other widely-used standards for text representation of
-tabular data.
+We are not aware of other widely-used standards in the astronomical
+community for text representation of tabular data.
+
+Tabular Data Package
+^^^^^^^^^^^^^^^^^^^^^
+
+Though not widely used in the astronomical community, since initially drafting
+this APE we have become aware of a very similar standard known as the
+`Tabular Data Package
+<http://dataprotocols.org/tabular-data-package/>`_.  This provides a
+fully-formed protocol for publishing and sharing tabular-style data
+which is conceptually very similar to the proposed DTIF format, with
+the exception of using two files, one pure JSON for the header and one
+pure CSV for the data.  The JSON header follows a schema defined by
+the `JSON Table Schema
+<http://dataprotocols.org/json-table-schema/>`_.
+
+On balance the Tabular Data Package and associated standards seem
+quite suited to our purpose.
 
 
 Detailed description
@@ -180,6 +198,29 @@ overall structure:
   and provide the table definition via a JSON-encoded data structure.
 - A CSV-formatted data section in which the first line contains the column names
   and subsequent lines contains the data values
+
+As mentioned, subsequent to initially drafting this APE we have become
+aware of the `Tabular Data Package`_.  For the purposes of this APE we
+still will refer to the proposed standard as DTIF, but the TDP is very
+similar and already exists as a well-defined standard that we would
+*very much* like to leverage.
+
+The key issue is that it uses two files to represent the tabular data:
+
+- A header file with pure JSON and a reference to the data file name.
+- A data file with pure CSV and (presumably) no # comments or features
+  that otherwise deviate from strict CSV standards.
+
+Using two files instead of one complicates data management and allows for
+header and data files to become decoupled.  However, using pure JSON
+and CSV files does bring the advantage of enhanced interoperability.
+There is some heritage for the two (or more) file solution from CDS.
+So despite hesitation about going down this path, an honest discussion
+
+.. Note::
+   The subsequent example and details do not reflect consideration of
+   the `Tabular Data Package`_ format.  These will be modified if
+   needed based on community inputs on the direction to follow.
 
 Why JSON?
 ^^^^^^^^^^
