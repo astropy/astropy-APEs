@@ -359,9 +359,9 @@ the results then takes more effort.
 Branches and pull requests
 --------------------------
 
-PR# 2319: "Implement support for the DTIF format proposed in APE6"
+`PR# 2319 <https://github.com/astropy/astropy/pull/2319>`_: "Implement support for the DTIF format proposed in APE6"
 
-PR# 683: Initial version "Support table metadata in io.ascii"
+`PR# 683 <https://github.com/astropy/astropy/pull/683>`_: Initial version "Support table metadata in io.ascii"
 
 
 Implementation
