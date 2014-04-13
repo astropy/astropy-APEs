@@ -38,7 +38,7 @@ The well-known `XKCD comic <https://xkcd.com/927/>`_ aptly mocks the
 introduction of new standards.  Let's just stipulate that this standard may be a
 bad idea, but talk about it anyway.  Following the lead of the astronomical data
 community in recently documenting shortcomings of the FITS standard, we start by
-discussing existing widely-used standards and why they are substantially
+discussing existing widely-used standards and why they are
 lacking.
 
 CSV
@@ -339,6 +339,22 @@ standard CSV rules.
 In this example above the delimiter is the space character.  Details of
 delimiters, quote characters, etc that should be allowed / supported are TBD.
 
+Multidimensional columns
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+None of the available text data formats supports multidimensional columns
+with more than one element per row.  Although in many cases
+having such data would indicate using a binary storage format, there is
+utility in supporting this for cases where the column shape is "reasonable",
+perhaps with no more than about 10 elements.
+
+In this case one could store the individual data elements as a series of
+columns with a naming convention such as ``<name>__<index0>_<index1>_...``.
+In this case one would include a keyword in the column specification that
+indicates the column is one element of a multidimensional column ``<name>``.
+The specifics might need iteration, but again the idea is to maintain the
+ability to always read a DTIF file with a simple CSV reader, even if using
+the results then takes more effort.
 
 Branches and pull requests
 --------------------------
