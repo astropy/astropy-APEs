@@ -1,4 +1,4 @@
-Data Table Text Interchange Format
+Data-table Text Interchange Format
 ----------------------------------
 
 author: Tom Aldcroft
@@ -173,23 +173,184 @@ tabular data.
 Detailed description
 ---------------------
 
+The proposed Data-table Text Interchange Format (DTIF) has the following
+overall structure:
+
+- A header section which consists of lines that start with the "#" character
+  and provide the table definition via a JSON-encoded data structure.
+- A CSV-formatted data section in which the first line contains the column names
+  and subsequent lines contains the data values
+
+Why JSON?
+^^^^^^^^^^
+
+The fundamental issue which the CDS and IPAC formats try to address is
+serializing the information which specifies the table column definitions and
+other relevant metadata.  Those formats essentially invent custom serialization
+specifications that must be carefully implemented from scratch by any
+reader/writer application.
+
+DTIF takes the approach of defining a minimal standard for the the underlying
+data structure that is needed to define a table.  Then that structure is
+encoded or decoded using JSON.  Libraries for encoding and decoding JSON are
+widely used, very efficient, and easily available in all the most-frequently
+used programming languages.
+
+Translating to / from the data structure provided by a DTIF header into the native
+structure that an application uses should generally be quite easy because the
+functional elements (e.g. column name, type) are ubiquitous.  Generally
+speaking manipulating data structures programmatically is easier than parsing
+textual data structure fields.
+
+The DTIF standard does not require that the JSON encoding be "pretty", but it
+is highly-recommended that applications format the JSON header to be legible
+to humans.
+
+Example
+^^^^^^^^^^
+
+A quick example will put this in context.  First let's create a table
+and give it some custom attributes::
+
+  >>> from astropy.table import Table
+  >>> t = Table([[1, 4], [2, 3]], names=['a', 'b'])
+  >>> t['a'].unit = 'm/s'
+  >>> t['a'].format = '%03d'
+  >>> t['b'].description = 'This is column b'
+  >>> t['b'].unit = 'km'
+  >>> print t
+    a    b 
+  m / s  km
+  ----- ---
+    001   2
+    004   3
+
+Now we write this to a file using the DTIF format and print it::
+
+  >>> t.write('example.dtif', format='ascii.dtif')
+  >>> cat example.dtif
+  # <DTIF encoding=ascii>
+  # {
+  #   "version": 1.0,
+  #   "schema": "astropy.table",
+  #   "table_meta": {},
+  #   "columns": [
+  #     {
+  #       "name": "a",
+  #       "unit": "m / s",
+  #       "format": "%03d",
+  #       "description": null,
+  #       "type": "int64",
+  #       "meta": {}
+  #     },
+  #     {
+  #       "name": "b",
+  #       "unit": "km",
+  #       "format": null,
+  #       "description": "This is column b",
+  #       "type": "int64",
+  #       "meta": {}
+  #     }
+  #   ]
+  # }
+  a b
+  001 2
+  004 3
+
+We see that header starts with a sentinel to identify the format and provide a
+required character encoding argument.  After that comes the JSON data structure
+with top-level keywords and column definitions.  Finally the column names and
+data values are included in CSV format with a space delimiter.
+
+Now we can read back the table and see that it has survived the round-trip
+to a text file::
+
+  >>> t2 = Table.read('example.dtif', format='ascii.dtif')
+  >>> print t
+    a    b 
+  m / s  km
+  ----- ---
+    001   2
+
+
+Header details
+^^^^^^^^^^^^^^^^
+
+The table header contains the necessary information to define the table columns
+and metadata.  This is expressed as a JSON-encoded data structure which has a
+small set of required keywords and standard specifiers.  Beyond the minimal
+standard, applications are free to create a custom data structure as needed.
+The specification of a corresponding ``schema`` keyword to allow interpretation
+and validation of the custom data is highly encouraged.
+
+Standard keywords are:
+
+``version``: required
+   Version of the DTIF standard.
+
+``columns``: required
+   List of column specifiers.
+
+``schema``: optional
+   Schema name defining any data structure elements not specified in the
+   minimal DTIF standard.  Details TBD.
+
+``table_meta``: optional
+   Table meta-data as an arbitrary dictionary or list type data structure.
+   TDB: keywords etc as part of ``table_meta``?
+
+OTHERS?
+   Keywords, Comments, History, ???  Should these be standard?
+
+Each column specifier is a dictionary structure with the following keys:
+
+``name``: required
+   Column name
+
+``unit``: optional
+   Data unit (unit system could be part of schema?)
+
+``format``: optional
+   C-style formatting specification for outputting column values.  This does
+   not imply or require that the values in this table are formatted
+   accordingly.
+
+``description``: optional
+   Text description of column
+
+``type``: optional
+   If provided this specifies the column data type.  If not available then
+   automatic type inference is performed.
+
+Data details
+^^^^^^^^^^^^^
+
+The data section follows immediately after the header.
+
+The first line in the data section contains the column names formatted
+according to the CSV writer being used.  This allows most CSV reader
+applications to successfully read DTIF files and automatically infer the
+correct column names.  DTIF readers should validate that the column names in
+this line match those in the header.
+
+Following the column name line the data values are serialized according to
+standard CSV rules.
+
+In this example above the delimiter is the space character.  Details of
+delimiters, quote characters, etc that should be allowed / supported are TBD.
+
 
 Branches and pull requests
 --------------------------
 
-Any pull requests or development branches containing work on this APE should be
-linked to from here.  (An APE does not need to be implemented in a single pull
-request if it makes sense to implement it in discrete phases). If no code is yet
-implemented, just put "N/A"
+PR# XXXX
 
 
 Implementation
 --------------
 
-This section lists the major steps required to implement the APE.  Where
-possible, it should be noted where one step is dependent on another, and which
-steps may be optionally omitted.  Where it makes sense, each  step should
-include a link related pull requests as the implementation progresses.
+Much of the implementation is done in PR# XXXX.  Further work is pending
+discussion of APE6.
 
 
 Backward compatibility
@@ -201,8 +362,9 @@ This section describes the ways in which the APE breaks backward compatibility.
 Alternatives
 ------------
 
-If there were any alternative solutions to solving the same problem, they should
-be discussed here, along with a justification for the chosen approach.
+Alternative existing formats that support some degree of metadata have been
+discussed, but none provide the necessary framework for serialization and
+interchange of astropy Tables.
 
 
 Decision rationale
