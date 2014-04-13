@@ -15,7 +15,7 @@ status: Discussion
 Abstract
 --------
 
-This APE is primarily a specification of a new standard for the interchange of
+APE6 is primarily a specification of a new standard for the interchange of
 tabular data in a text-only format.  The proposed format handles the key issue
 of serializing column specifications and table metadata by using a JSON-encoded
 data structure which is included in the file as a series of ``#``-prefixed
@@ -359,14 +359,16 @@ the results then takes more effort.
 Branches and pull requests
 --------------------------
 
-PR# XXXX
+PR# 2319: "Implement support for the DTIF format proposed in APE6"
+
+PR# 683: Initial version "Support table metadata in io.ascii"
 
 
 Implementation
 --------------
 
-Much of the implementation is done in PR# XXXX.  Further work is pending
-discussion of APE6.
+Much of the implementation is done in PR# 2319, which was based on PR# 683.
+Further work is pending discussion of APE6.
 
 
 Backward compatibility
