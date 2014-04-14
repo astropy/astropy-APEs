@@ -317,7 +317,7 @@ offline installations.
 
 One disadvantage of this approach (or any other that involves "bundling"
 astropy-helpers with one's source code, is that the bundled version may be
-missing critical bug fixes.  To address this shortcoming, a mechanism in
+missing critical bug fixes.  To address this shortcoming, a mechanism is
 provided in the `astropy_helpers boostrap script`_ to automatically update to
 the latest bugfix release of astropy-helpers available on PyPI if it is newer
 than the bundled version.  This auto-upgrade feature can be disabled for
@@ -496,15 +496,15 @@ be broken out into a separate repository.  It was decided that the latter
 option would be easier for use by affiliated packages, in particular through
 the use of submodules as explained earlier.
 
-Finally, there has been some objection to the naming of "astropy_helpers"--in
+Finally, there has been some objection to the naming of "astropy-helpers"--in
 particular to using "astropy" in the name at all.  The objection stems from the
-fact that little to non of the functionality in astropy_helpers is specific to
-Astropy, or even to astronomy-related software, and that it could be more
-broadly useful for other scientific packages.  It was agreed that this line of
-thinking is sound in principle, but that for now we do not want the additional
-support overhead involved in advertising a tool for use by the broader
-scientific community.  As the product matures through use with Astropy it might
-become easier to do this, at which point either the name can be changed, or the
+fact that none of the functionality in astropy-helpers is specific to Astropy,
+or even to astronomy-related software, and that it could be more broadly useful
+for other scientific packages.  It was agreed that this line of thinking is
+sound in principle, but that for now we do not want the additional support
+overhead involved in advertising a tool for use by the broader scientific
+community.  As the product matures through use with Astropy it might become
+easier to do this, at which point either the name can be changed, or the
 project can be forked by anyone who wishes to champion such a project.
 
 
