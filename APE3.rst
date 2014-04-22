@@ -82,7 +82,7 @@ Python::
     In [3]: name_resolve.NAME_RESOLVE_TIMEOUT.save()
 
 The config file may also be edited by hand.  It provides a convenient
-summary and description of each the available options.
+summary and description of each of the available options.
 
 There are some things about this system that would be nice to retain:
 
@@ -120,7 +120,7 @@ To use this example, ``cosmology.config.DEFAULT_COSMOLOGY``.
 Branches and pull requests
 --------------------------
 
-N/A
+#2094
 
 Implementation
 --------------
