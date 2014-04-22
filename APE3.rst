@@ -94,12 +94,13 @@ There are some things about this system that would be nice to retain:
       it can affect things, such as logging, that are not very
       dynamic.
 
-However, there are number of shortcomings of this approach:
+However, there are a number of shortcomings of this approach:
 
     - The entire astropy package must be imported to determine what
       the config items are, and generate the template configuration
-      file.  This is slow, and can place unnecessary restrictions on
-      the code in order to make it importable at build time.
+      file.  This is slow, and can place otherwise unnecessary
+      restrictions on the code in order to make it importable at build
+      time.
 
     - The template config file is copied to the user's home directory
       with all values uncommented.  This means we don't know which
@@ -162,15 +163,12 @@ made:
       - If there is no user config file, copy the one from astropy's
         current version.
 
-      - If there is a user config file, and it matches *exactly* the
-        config file template from any previous version of astropy,
-        overwrite it with the one from astropy's current version.
-        This implies that hashes of previously released configuration
-        templates must be stored somewhere.  A simplification to that
-        might be to just determine if everything in the config file is
-        commented out, and if so, overwrite the file.  (This will not
-        work for an astropy 0.3.x config file where the values were
-        not commented out, but should work going forward.)
+      - If there is a user config file, and it is entirely commented
+        out, the file is overwritten.
+
+      - If there is a user config file and its contents match exactly
+        those of a stock astropy release prior to this APE (prior to
+        astropy 0.4), it is overwritten.
 
       - If the user config file is different from the config file
         template of a previous astropy version, don't touch it.
@@ -181,22 +179,21 @@ made:
         that the config file has changed and the user may want to
         manually resolve the differences between their file and the
         new one.  This warning should only be displayed once (when
-        ``astropy.cfg.ver`` doesn't already exist) so that user's who
+        ``astropy.cfg.ver`` doesn't already exist) so that users who
         frequently switch between versions of astropy are not
         bombarded with warnings.
 
 Once doing that, each existing configuration item will be determined
-to be either "platform" or "science".  (That will be done in this APE
-in a subsequent revision).
+to be either "platform" or "science".
 
 For "platform" configuration items:
 
     - Include the item within the new config file template in the
       source repository.
 
-    - Move the configuration item to the ``subpackage.config``
-      namespace (which may be a class instance of some sort or a real
-      module, TBD).
+    - Move the configuration item to the ``subpackage.conf``
+      namespace, which is a subclass of a base class for managing
+      configuration items.
 
     - For backward compatibility, keep special delegation objects that
       delegate from the existing location to the new location and
@@ -207,7 +204,7 @@ For "platform" configuration items:
       warning will be shown.
 
     - The configuration item should be documented in the subpackages
-      documentation in a standardized section ("Configuration")
+      documentation in a standardized section ("Configuration").
 
 For "science" configuration items:
 
@@ -267,6 +264,161 @@ reset all of the science state to their defaults.  If all of the
 science state context managers inherit from the same base class,
 presumably providing that should be fairly automatic and
 straightforward.
+
+Specific configuration setting changes
+``````````````````````````````````````
+
+The following configuration items have been moved/renamed or converted
+to science state:
+
+.. list-table:: Renamed configuration parameters
+   :widths: 20 20 20 20
+   :header-rows: 1
+
+   * - Old config file location
+     - Old Python location
+     - New config file location
+     - New Python location
+   * - ``[] unicode_output``
+     - ``UNICODE_OUTPUT``
+     - unchanged
+     - ``conf.unicode_output``
+   * - ``[coordinates.name_resolve] name_resolve_timeout``
+     - ``coordinates.name_resolve.NAME_RESOLVE_TIMEOUT``
+     - ``[astropy.utils.data] remote_timeout``
+     - ``astropy.utils.data.conf.remote_timeout``
+   * - ``[coordinates.name_resolve] sesame_url``
+     - ``coordinates.name_resolve.SESAME_URL``
+     - removed
+     - ``coordinates.name_resolve.sesame_url.get/set``
+   * - ``[coordinates.name_resolve] sesame_database``
+     - ``coordinates.name_resolve.SESAME_DATABASE``
+     - removed
+     - ``coordinates.name_resolve.sesame_database.get/set``
+   * - ``[cosmology.core] default_cosmology``
+     - ``cosmology.core.DEFAULT_COSMOLOGY``
+     - removed
+     - ``cosmology.default_cosmology.get/set``
+   * - ``[io.fits] enable_record_valued_keyword_cards``
+     - ``io.fits.ENABLE_RECORD_VALUED_KEYWORD_CARDS``
+     - unchanged
+     - ``io.fits.conf.enable_record_valued_keyword_cards``
+   * - ``[io.fits] extension_name_case_sensitive``
+     - ``io.fits.EXTENSION_NAME_CASE_SENSITIVE``
+     - unchanged
+     - ``io.fits.conf.extension_name_case_sensitive``
+   * - ``[io.fits] strip_header_whitespace``
+     - ``io.fits.STRIP_HEADER_WHITESPACE``
+     - unchanged
+     - ``io.fits.conf.strip_header_whitespace``
+   * - ``[io.fits] use_memmap``
+     - ``io.fits.USE_MEMMAP``
+     - unchanged
+     - ``io.fits.conf.use_memmap``
+   * - ``[io.votable.table] pedantic``
+     - ``io.votable.table.PEDANTIC``
+     - ``[io.votable] pedantic``
+     - ``io.votable.conf.pedantic``
+   * - ``[logger] log_exceptions``
+     - ``logger.LOG_EXCEPTIONS``
+     - unchanged
+     - ``logger.conf.log_exceptions``
+   * - ``[logger] log_file_format``
+     - ``logger.LOG_FILE_FORMAT``
+     - unchanged
+     - ``logger.conf.log_file_format``
+   * - ``[logger] log_file_level``
+     - ``logger.LOG_FILE_LEVEL``
+     - unchanged
+     - ``logger.conf.log_file_level``
+   * - ``[logger] log_file_path``
+     - ``logger.LOG_FILE_PATH``
+     - unchanged
+     - ``logger.conf.log_file_path``
+   * - ``[logger] log_level``
+     - ``logger.LOG_LEVEL``
+     - unchanged
+     - ``logger.conf.log_level``
+   * - ``[logger] log_to_file``
+     - ``logger.LOG_TO_FILE``
+     - unchanged
+     - ``logger.conf.log_to_file``
+   * - ``[logger] log_warnings``
+     - ``logger.LOG_WARNINGS``
+     - unchanged
+     - ``logger.conf.log_warnings``
+   * - ``[logger] use_color``
+     - ``logger.USE_COLOR``
+     - ``[] use_color``
+     - ``conf.use_color``
+   * - ``[nddata.nddata] warn_unsupported_correlated``
+     - ``nddata.nddata.WARN_UNSUPPORTED_CORRELATED``
+     - ``[nddata] warn_unsupported_correlated``
+     - ``nddata.conf.warn_unsupported_correlated``
+   * - ``[table.column] auto_colname``
+     - ``table.column.AUTO_COLNAME``
+     - ``[table] auto_colname``
+     - ``table.conf.auto_colname``
+   * - ``[table.pprint] max_lines``
+     - ``table.pprint.MAX_LINES``
+     - ``[table] max_lines``
+     - ``table.conf.max_lines``
+   * - ``[table.pprint] max_width``
+     - ``table.pprint.MAX_WIDTH``
+     - ``[table] max_width``
+     - ``table.conf.max_width``
+   * - ``[utils.console] use_color``
+     - ``utils.console.USE_COLOR``
+     - ``[] use_color``
+     - ``conf.use_color``
+   * - ``[utils.data] compute_hash_block_size``
+     - ``astropy.utils.data.COMPUTE_HASH_BLOCK_SIZE``
+     - unchanged
+     - ``astropy.utils.data.conf.compute_hash_block_size``
+   * - ``[utils.data] dataurl``
+     - ``astropy.utils.data.DATAURL``
+     - unchanged
+     - ``astropy.utils.data.conf.dataurl``
+   * - ``[utils.data] delete_temporary_downloads_at_exit``
+     - ``astropy.utils.data.DELETE_TEMPORARY_DOWNLOADS_AT_EXIT``
+     - unchanged
+     - ``astropy.utils.data.conf.delete_temporary_downloads_at_exit``
+   * - ``[utils.data] download_cache_block_size``
+     - ``astropy.utils.data.DOWNLOAD_CACHE_BLOCK_SIZE``
+     - unchanged
+     - ``astropy.utils.data.conf.download_cache_block_size``
+   * - ``[utils.data] download_cache_lock_attempts``
+     - ``astropy.utils.data.download_cache_lock_attempts``
+     - unchanged
+     - ``astropy.utils.data.conf.download_cache_lock_attempts``
+   * - ``[utils.data] remote_timeout``
+     - ``astropy.utils.data.REMOTE_TIMEOUT``
+     - unchanged
+     - ``astropy.utils.data.conf.remote_timeout``
+   * - ``[vo.client.conesearch] conesearch_dbname``
+     - ``vo.client.conesearch.CONESEARCH_DBNAME``
+     - ``[vo] conesearch_dbname``
+     - ``vo.conf.conesearch_dbname``
+   * - ``[vo.client.vos_catalog] vos_baseurl``
+     - ``vo.client.vos_catalog.BASEURL``
+     - ``[vo] vos_baseurl``
+     - ``vo.conf.vos_baseurl``
+   * - ``[vo.samp.utils] use_internet``
+     - ``vo.samp.utils.ALLOW_INTERNET``
+     - ``[vo.samp] use_internet``
+     - ``vo.samp.conf.use_internet``
+   * - ``[vo.validator.validate] cs_mstr_list``
+     - ``vo.validator.validate.CS_MSTR_LIST``
+     - ``[vo.validator] conesearch_master_list``
+     - ``vo.validator.conf.conesearch_master_list``
+   * - ``[vo.validator.validate] cs_urls``
+     - ``vo.validator.validate.CS_URLS``
+     - ``[vo.validator] conesearch_urls``
+     - ``vo.validator.conf.conesearch_urls``
+   * - ``[vo.validator.validate] noncrit_warnings``
+     - ``vo.validator.validate.noncrit_warnings``
+     - ``[vo.validator] noncritical_warnings``
+     - ``vo.validator.conf.noncritical_warnings``
 
 Backward compatibility
 ----------------------
