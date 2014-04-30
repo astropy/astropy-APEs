@@ -7,7 +7,7 @@ date: 2013-12-10
 
 type: Standard Track
 
-status: Discussion
+status: Accepted
 
 Abstract
 --------
@@ -451,4 +451,5 @@ presumable less prone to errors or surprising bugs.
 Decision rationale
 ------------------
 
-<To be filled in when the APE is accepted or rejected>
+No objections have been raised to this APE in its current form, and it has
+therefore been accepted on April 30th 2014.
