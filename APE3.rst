@@ -121,7 +121,7 @@ To use this example, ``cosmology.config.DEFAULT_COSMOLOGY``.
 Branches and pull requests
 --------------------------
 
-#2094
+https://github.com/astropy/astropy/pull/2094
 
 Implementation
 --------------
@@ -129,127 +129,127 @@ Implementation
 The following improvements to the base configuration system will be
 made:
 
-    - Since, as a result of this APE, the number of configuration
-      options will be much smaller, we will just include a template
-      config file directly in the source code repository, install that
-      alongside the source code, and copy that into the user's
-      configuration directory upon first import (see below for the
-      details of how and when it is copied to the user's config
-      directory).  Obviously, it will require some care to keep it in
-      sync with the declaration of the configuration options in the
-      source code.  However, it is the simplest possible thing that
-      can work and resolves the issues with generating the config file
-      template at build time.
+- Since, as a result of this APE, the number of configuration
+  options will be much smaller, we will just include a template
+  config file directly in the source code repository, install that
+  alongside the source code, and copy that into the user's
+  configuration directory upon first import (see below for the
+  details of how and when it is copied to the user's config
+  directory).  Obviously, it will require some care to keep it in
+  sync with the declaration of the configuration options in the
+  source code.  However, it is the simplest possible thing that
+  can work and resolves the issues with generating the config file
+  template at build time.
 
-    - The template config file will have all key/value pairs commented
-      out by default.  This way, default values can be changed in
-      astropy and will only be overridden by the config file if the
-      user explicitly does so.
+- The template config file will have all key/value pairs commented
+  out by default.  This way, default values can be changed in
+  astropy and will only be overridden by the config file if the
+  user explicitly does so.
 
-    - Store a version string in the config file.  This, at a later
-      date, but not as part of this APE, may allow for graceful
-      automatic upgrades of the config file.  This version should
-      correspond to the release version of astropy, and not include a
-      githash.
+- Store a version string in the config file.  This, at a later
+  date, but not as part of this APE, may allow for graceful
+  automatic upgrades of the config file.  This version should
+  correspond to the release version of astropy, and not include a
+  githash.
 
-    - Upgrading of the config file will roughly follow the `Debian
-      configuration file guidelines
-      <http://raphaelhertzog.com/2010/09/21/debian-conffile-configuration-file-managed-by-dpkg/>`__,
-      which strikes a good balance between safety and simplicity.  It
-      prevents the user's config file changes from being accidentally
-      overwritten, but doesn't try to be too clever about
-      automatically updating the content.  In short:
+- Upgrading of the config file will roughly follow the `Debian
+  configuration file guidelines
+  <http://raphaelhertzog.com/2010/09/21/debian-conffile-configuration-file-managed-by-dpkg/>`__,
+  which strikes a good balance between safety and simplicity.  It
+  prevents the user's config file changes from being accidentally
+  overwritten, but doesn't try to be too clever about
+  automatically updating the content.  In short:
 
-      - If there is no user config file, copy the one from astropy's
-        current version.
+  - If there is no user config file, copy the one from astropy's
+    current version.
 
-      - If there is a user config file, and it is entirely commented
-        out, the file is overwritten.
+  - If there is a user config file, and it is entirely commented
+    out, the file is overwritten.
 
-      - If there is a user config file and its contents match exactly
-        those of a stock astropy release prior to this APE (prior to
-        astropy 0.4), it is overwritten.
+  - If there is a user config file and its contents match exactly
+    those of a stock astropy release prior to this APE (prior to
+    astropy 0.4), it is overwritten.
 
-      - If the user config file is different from the config file
-        template of a previous astropy version, don't touch it.
-        Install alongside it ``astropy.cfg.ver`` where ``ver`` is the
-        current version.  Optionally, install a
-        ``astropy.cfg.ver.diff`` which is a diff of the user's config
-        file and the current config file template.  Display a warning
-        that the config file has changed and the user may want to
-        manually resolve the differences between their file and the
-        new one.  This warning should only be displayed once (when
-        ``astropy.cfg.ver`` doesn't already exist) so that users who
-        frequently switch between versions of astropy are not
-        bombarded with warnings.
+  - If the user config file is different from the config file
+    template of a previous astropy version, don't touch it.
+    Install alongside it ``astropy.cfg.ver`` where ``ver`` is the
+    current version.  Optionally, install a
+    ``astropy.cfg.ver.diff`` which is a diff of the user's config
+    file and the current config file template.  Display a warning
+    that the config file has changed and the user may want to
+    manually resolve the differences between their file and the
+    new one.  This warning should only be displayed once (when
+    ``astropy.cfg.ver`` doesn't already exist) so that users who
+    frequently switch between versions of astropy are not
+    bombarded with warnings.
 
 Once doing that, each existing configuration item will be determined
 to be either "platform" or "science".
 
 For "platform" configuration items:
 
-    - Include the item within the new config file template in the
-      source repository.
+- Include the item within the new config file template in the
+  source repository.
 
-    - Move the configuration item to the ``subpackage.conf``
-      namespace, which is a subclass of a base class for managing
-      configuration items.
+- Move the configuration item to the ``subpackage.conf``
+  namespace, which is a subclass of a base class for managing
+  configuration items.
 
-    - For backward compatibility, keep special delegation objects that
-      delegate from the existing location to the new location and
-      raise deprecation warnings when used.
+- For backward compatibility, keep special delegation objects that
+  delegate from the existing location to the new location and
+  raise deprecation warnings when used.
 
-    - The configuration items may still be set by their old keys in
-      the config file for one major release cycle, but a deprecation
-      warning will be shown.
+- The configuration items may still be set by their old keys in
+  the config file for one major release cycle, but a deprecation
+  warning will be shown.
 
-    - The configuration item should be documented in the subpackages
-      documentation in a standardized section ("Configuration").
+- The configuration item should be documented in the subpackages
+  documentation in a standardized section ("Configuration").
 
 For "science" configuration items:
 
-    - Define a standard Python context manager for setting the global
-      state associated with each configuration item.  For example,
-      this should work::
+- Define a standard Python context manager for setting the global
+  state associated with each configuration item.  For example,
+  this should work::
 
-          from astropy import cosmology
-          with cosmology.set_default_cosmology('WMAP9'):
-              # do something
+      from astropy import cosmology
+      with cosmology.set_default_cosmology('WMAP9'):
+          # do something
 
-          # This also works, but doesn't automatically "reset" itself
-          # at the end of the block
-          cosmology.set_default_cosmology('WMAP9')
+      # This also works, but doesn't automatically "reset" itself
+      # at the end of the block
+      cosmology.set_default_cosmology('WMAP9')
 
-    - These context managers will be documented in the API section of
-      the subpackage in the standard way along with the rest of the
-      API.
+- These context managers will be documented in the API section of
+  the subpackage in the standard way along with the rest of the
+  API.
 
-    - Retain special delegation objects at the existing location of
-      the configuration items that call these new Python context
-      managers.  These will raise deprecation warnings describing how
-      to update code.
+- Retain special delegation objects at the existing location of
+  the configuration items that call these new Python context
+  managers.  These will raise deprecation warnings describing how
+  to update code.
 
-    - When these configuration items are found in the config file,
-      deprecation warnings will be shown, but only if they are
-      different from the defaults as specified in astropy 0.3.  Doing
-      this without checking against the defaults would give everyone a
-      warning, since all users currently have an astropy 0.3 config
-      file with all values set.
+- When these configuration items are found in the config file,
+  deprecation warnings will be shown, but only if they are
+  different from the defaults as specified in astropy 0.3.  Doing
+  this without checking against the defaults would give everyone a
+  warning, since all users currently have an astropy 0.3 config
+  file with all values set.
 
 To support the new way of dealing with scientific configuration, ways
 of conveniently running Python code at the start of every script
 should be documented.  This should include, in order of increasing
 "broadness":
 
-    - Making state changes at the top of your script.
+- Making state changes at the top of your script.
 
-    - Having a Python module that all your scripts explicitly import.
+- Having a Python module that all your scripts explicitly import.
 
-    - Using IPython's "profiles"
+- Using IPython's "profiles"
 
-    - Using Python's "sitecustomize" (though this would be the least
-      desirable, as it has many of the reproducibility problems that
-      plague the current configuration system).
+- Using Python's "sitecustomize" (though this would be the least
+  desirable, as it has many of the reproducibility problems that
+  plague the current configuration system).
 
 For a subsequent release, we will remove all of the deprecated
 backward-compatibility delegation objects.
