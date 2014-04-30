@@ -86,29 +86,29 @@ summary and description of each of the available options.
 
 There are some things about this system that would be nice to retain:
 
-    - It's easy to save values to the file from Python.
+- It's easy to save values to the file from Python.
 
-    - It's easy to edit the config file by hand.
+- It's easy to edit the config file by hand.
 
-    - It can be loaded very early on during the import of astropy so
-      it can affect things, such as logging, that are not very
-      dynamic.
+- It can be loaded very early on during the import of astropy so
+  it can affect things, such as logging, that are not very
+  dynamic.
 
 However, there are a number of shortcomings of this approach:
 
-    - The entire astropy package must be imported to determine what
-      the config items are, and generate the template configuration
-      file.  This is slow, and can place otherwise unnecessary
-      restrictions on the code in order to make it importable at build
-      time.
+- The entire astropy package must be imported to determine what
+  the config items are, and generate the template configuration
+  file.  This is slow, and can place otherwise unnecessary
+  restrictions on the code in order to make it importable at build
+  time.
 
-    - The template config file is copied to the user's home directory
-      with all values uncommented.  This means we don't know which
-      values the user has explicitly changed, and can't change default
-      values in future versions of astropy.
+- The template config file is copied to the user's home directory
+  with all values uncommented.  This means we don't know which
+  values the user has explicitly changed, and can't change default
+  values in future versions of astropy.
 
-    - We don't know the version of astropy that the config file was
-      created with, so we can't update it when astropy is updated.
+- We don't know the version of astropy that the config file was
+  created with, so we can't update it when astropy is updated.
 
 Unrelated to the system itself, but to how it's been used thus far, it
 is difficult to find the configuration items using introspection in
