@@ -126,12 +126,10 @@ Finally, a PR to the package-template repostory,
 affiliated package template to use the machinery availabe in ``astropy_helpers``
 rather than depending on ``astropy`` itself.
 
-**TODO**: Currently the astropy_helpers submodule in #1563 references `my fork
-of astropy_helpers <https://github.com/embray/astropy_helpers>`_ rather than
-the main astropy_helpers repository.  Once the initial version of
-astropy_helpers is in place the ``.gitmodules`` file in #1563 should be updated
-to use the URL of the main astropy_helpers repository.  This should happen only
-once this APE is given final approval.
+These PRs have already been merged into the master branches of their respective
+repositories.  It was determined that prior to final acceptance of this APE we
+should see how the proposed implementation works in pracice so that any tweaks
+can be made if necessary.
 
 
 Implementation
@@ -261,7 +259,9 @@ See `astropy_helpers bootstrap script`_ below.
 
 By automating the process of updating submodules, most Astropy developers need
 not even be aware of the use of submodules unless they are actively involved
-in updating astropy_helpers.
+in updating astropy_helpers.  When testing changes to astropy_helpers against
+Astropy itself it may be useful to disable the automatic git submodule updates.
+Options for this are discussed later in this APE.
 
 
 astropy_helpers via setup_requires
@@ -365,7 +365,10 @@ does not include ``astropy_helpers``, it uses the ``setup_requires`` mechanism
 to install astropy-helpers from PyPI as explained in the previous section.
 
 The sample implementation of ``use_astropy_helpers()`` supports several
-optional arguments that allow package developers to control its behavior:
+optional arguments that allow package developers to control its behavior.  It
+should be clarified that defaults for all of these arguments can be provided as
+options in the ``setup.cfg`` file under the ``[ah_bootstrap]`` section, using
+the same names:
 
 * ``path``: By default ``'astropy_helpers'``, this is the path (relative to the
   to ``setup.py``) of the astropy_helpers Git submodule if it exists.
@@ -382,17 +385,24 @@ optional arguments that allow package developers to control its behavior:
 
 * ``use_git``: Set to ``False`` to disable all use of git commands by
   ``ah_bootstrap``.  This effectively disables support for submodule
-  initialization/updates, and is mostly useful for testing.
+  initialization/updates, and is mostly useful for testing.  For example, when
+  testing a new astropy_helpers version in the context of the Astropy
+  repository, add this to setup.cfg
 
 * ``auto_upgrade``: If set to ``False`` disables checking on PyPI for newer
   versions of astropy-helpers before using any already available versions.  By
   default the auto-upgrade feature is enabled.
 
-Finally, although not an option to ``use_astropy_helpers()``, the
-``ah_bootstrap`` module also recognizes a ``--offline`` command-line argument
-when running ``setup.py``.  This disables all features that try to access the
-internet.  This may be useful for offline installations, so that the process
-does not hang while trying to connect to the internet.
+Although not an option to ``use_astropy_helpers()``, the ``ah_bootstrap``
+module also recognizes a ``--offline`` command-line argument when running
+``setup.py``.  This disables all features that try to access the internet.
+This may be useful for offline installations, so that the process does not hang
+while trying to connect to the internet.
+
+Similarly, one may provide a ``--no-git`` command-line argument that disables
+all calls to git by the bootstrap script.  As this will prevent running ``git
+submodule update``, it is very useful for testing changes to astropy_helpers
+against Astropy or another affiliated package that uses it.
 
 It should be noted that if all methods of bootstrapping astropy_helpers fail
 it is generally not possible to continue the ``setup.py`` script.  In this
