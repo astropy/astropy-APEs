@@ -413,19 +413,26 @@ case the script fails with instructions to the user that they need
 Miscellaneous
 ^^^^^^^^^^^^^
 
-Issues and bug reports pertaining to astropy-helpers should be submitted to
-the main Astropy issue tracker.  Support for issues on the astropy-helpers
-GitHub project will be disabled.  This is both so that more developer eyes
-are on the issues, and so that users are not confused as to where to submit
-issues.  Disabling issue tracking support in a GitHub project does *not*
-disable pull requests.  Pull requests against the astropy-helpers repository
-will still be the preferred method to submit changes to astropy-helpers.
+Issues pertaining to astropy-helpers may be submitted either to the
+astropy-helpers issue tracker on GitHub, *or* to the main astropy repository's
+issue tracker.  Issues that developers know are definitely with astropy-helpers
+in particular, and not just astropy, should lean on the side of submitting the
+issue to astropy-helpers.
+
+If an issue submitted to the main astropy repository turns out to be an
+astropy-helpers issue, a related issue should be opened in the astropy-helpers
+issue tracker.  Once the issue is fixed and the astropy-helpers submodule
+updated in the main astropy repository, the original issue can be closed.
 
 On the other hand, astropy-helpers will have its own documentation which will
 be hosted on astropy.org.  This will allow its documentation to evolve with
 each release, thus not tying it down to any release of Astropy.  The Astropy
 developer documentation will mention astropy-helpers and provide a link to its
 current stable documentation.
+
+The initial released version of astropy-helpers will be v0.4.  Its major and
+minor version numbers will try to track with the versions of Astropy itself.
+However, astropy-helpers will always have its own bugfix version.
 
 
 The future
@@ -505,6 +512,12 @@ astropy_helpers should be developed in the main Astropy repository, or should
 be broken out into a separate repository.  It was decided that the latter
 option would be easier for use by affiliated packages, in particular through
 the use of submodules as explained earlier.
+
+Previous drafts of this APE recommended disabling the issue tracker for the
+astropy-helpers repository, opting instead to only accept reports for issues
+with astropy-helpers directly on the main astropy repository.  In practice it
+has turned out to be helpful to have astropy-helpers-specific issues in its
+own issue tracker.
 
 Finally, there has been some objection to the naming of "astropy-helpers"--in
 particular to using "astropy" in the name at all.  The objection stems from the
