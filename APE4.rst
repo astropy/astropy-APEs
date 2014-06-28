@@ -5,11 +5,11 @@ author: Erik M. Bray
 
 date-created: 2013-12-26
 
-date-last-revised: 2014-04-11
+date-last-revised: 2014-06-28
 
 type: Process
 
-status: Discussion
+status: Accepted
 
 
 Abstract
@@ -534,8 +534,9 @@ project can be forked by anyone who wishes to champion such a project.
 Decision rationale
 ------------------
 
-<To be filled in when the APE is accepted or rejected>
-
+No objections were raised to this idea. We merged in the pull requests relating
+to this, and after ironing out initial issues, this works well, so we decided
+to go ahead and use it for Astropy 0.4, and accept this APE.
 
 .. _distutils: http://docs.python.org/2/library/distutils.html
 .. _setuptools: http://pythonhosted.org/setuptools/
