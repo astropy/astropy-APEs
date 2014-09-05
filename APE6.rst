@@ -5,7 +5,7 @@ author: Tom Aldcroft
 
 date-created: 2014 April 12
 
-date-last-revised: 2014 APR 12
+date-last-revised: 2014 September 5
 
 type: Standard Track
 
@@ -17,14 +17,15 @@ Abstract
 
 APE6 is primarily a specification of a new standard for the interchange of
 tabular data in a text-only format.  The proposed format handles the key issue
-of serializing column specifications and table metadata by using a JSON-encoded
+of serializing column specifications and table metadata by using a YAML-encoded
 data structure.  The actual tabular data are stored in a standard
 comma-separated-values (CSV) format, giving compatibility with a wide variety of
-non-specialized CSV table readers.  Using JSON makes it extremely easy for
-applications to read both the standardized data format elements (e.g. column
-name, type, description) as well as complex metadata structures.  Support for
-schemas to describe and validate the metadata is part of the standard along with
-support for non-ASCII unicode character encoding.
+non-specialized CSV table readers.
+
+Using YAML makes it extremely easy for applications *and humans* to read both
+the standardized data format elements (e.g. column name, type, description) as
+well as complex metadata structures.  YAML also lends itself to simple table
+modifications by humans in a plain text editor.
 
 The implementation in ``astropy.io.ascii`` is relatively straightforward and
 will provide a significant benefit of allowing text serialization of most astropy
@@ -184,8 +185,11 @@ pure CSV for the data.  The JSON header follows a schema defined by
 the `JSON Table Schema
 <http://dataprotocols.org/json-table-schema/>`_.
 
-On balance the Tabular Data Package and associated standards seem
-quite suited to our purpose.
+
+After evaluation and discussion with that community, we find that the Tabular
+Data Package and associated standards would require a fair degree of
+modification to fully suit our needs.  More crucially, the decision to rely on
+YAML instead of JSON for serialization precludes direct use of the TDP.
 
 
 Detailed description
@@ -195,34 +199,13 @@ The proposed Data-table Text Interchange Format (DTIF) has the following
 overall structure:
 
 - A header section which consists of lines that start with the "#" character
-  and provide the table definition via a JSON-encoded data structure.
+  and provide the table definition via a YAML-encoded data structure.
+- An initial line in the header section which identifies the file as DTIF and
+  provides a version number.
 - A CSV-formatted data section in which the first line contains the column names
   and subsequent lines contains the data values
 
-As mentioned, subsequent to initially drafting this APE we have become
-aware of the `Tabular Data Package`_.  For the purposes of this APE we
-still will refer to the proposed standard as DTIF, but the TDP is very
-similar and already exists as a well-defined standard that we would
-*very much* like to leverage.
-
-The key issue is that it uses two files to represent the tabular data:
-
-- A header file with pure JSON and a reference to the data file name.
-- A data file with pure CSV and (presumably) no # comments or features
-  that otherwise deviate from strict CSV standards.
-
-Using two files instead of one complicates data management and allows for
-header and data files to become decoupled.  However, using pure JSON
-and CSV files does bring the advantage of enhanced interoperability.
-There is some heritage for the two (or more) file solution from CDS.
-So despite hesitation about going down this path, an honest discussion
-
-.. Note::
-   The subsequent example and details do not reflect consideration of
-   the `Tabular Data Package`_ format.  These will be modified if
-   needed based on community inputs on the direction to follow.
-
-Why JSON?
+Why YAML?
 ^^^^^^^^^^
 
 The fundamental issue which the CDS and IPAC formats try to address is
@@ -233,9 +216,9 @@ reader/writer application.
 
 DTIF takes the approach of defining a minimal standard for the the underlying
 data structure that is needed to define a table.  Then that structure is
-encoded or decoded using JSON.  Libraries for encoding and decoding JSON are
+encoded or decoded using YAML.  Libraries for encoding and decoding YAML are
 widely used, very efficient, and easily available in all the most-frequently
-used programming languages.
+used programming languages (with the notable exception of IDL).
 
 Translating to / from the data structure provided by a DTIF header into the native
 structure that an application uses should generally be quite easy because the
@@ -243,15 +226,16 @@ functional elements (e.g. column name, type) are ubiquitous.  Generally
 speaking manipulating data structures programmatically is easier than parsing
 textual data structure fields.
 
-The DTIF standard does not require that the JSON encoding be "pretty", but it
-is highly-recommended that applications format the JSON header to be legible
-to humans.
+The DTIF standard does not require that the YAML encoding be "pretty", but it
+is highly-recommended that applications format the YAML header to be legible
+to humans.  This is important because a key feature of YAML is that it is
+meant to be easily readable, and thus modifiable, by humans.
 
 Example
 ^^^^^^^^^^
 
-A quick example will put this in context.  First let's create a table
-and give it some custom attributes::
+A couple of quick examples will put this in context.  First let's create a
+table and give it some custom attributes::
 
   >>> from astropy.table import Table
   >>> t = Table([[1, 4], [2, 3]], names=['a', 'b'])
@@ -259,7 +243,7 @@ and give it some custom attributes::
   >>> t['a'].format = '%03d'
   >>> t['b'].description = 'This is column b'
   >>> t['b'].unit = 'km'
-  >>> print t
+  >>> print(t)
     a    b 
   m / s  km
   ----- ---
@@ -270,55 +254,81 @@ Now we write this to a file using the DTIF format and print it::
 
   >>> t.write('example.dtif', format='ascii.dtif')
   >>> cat example.dtif
-  # <DTIF encoding=ascii>
-  # {
-  #   "version": 1.0,
-  #   "schema": "astropy.table",
-  #   "table_meta": {},
-  #   "columns": [
-  #     {
-  #       "name": "a",
-  #       "unit": "m / s",
-  #       "format": "%03d",
-  #       "description": null,
-  #       "type": "int64",
-  #       "meta": {}
-  #     },
-  #     {
-  #       "name": "b",
-  #       "unit": "km",
-  #       "format": null,
-  #       "description": "This is column b",
-  #       "type": "int64",
-  #       "meta": {}
-  #     }
-  #   ]
-  # }
+  # %DTIF 1.0
+  # ---
+  # columns:
+  # - {name: a, unit: m / s, type: int64, format: '%03d'}
+  # - {name: b, unit: km, type: int64, description: This is column b}
   a b
   001 2
   004 3
 
-We see that header starts with a sentinel to identify the format and provide a
-required character encoding argument.  After that comes the JSON data structure
-with top-level keywords and column definitions.  Finally the column names and
-data values are included in CSV format with a space delimiter.
+We see that header starts with a header line and YAML block marker to identify
+the format and the beginning of the data block.  After that comes the YAML data
+structure with column definitions.  Finally the column names and data values
+are included in CSV format with a space delimiter.
 
 Now we can read back the table and see that it has survived the round-trip
 to a text file::
 
   >>> t2 = Table.read('example.dtif', format='ascii.dtif')
-  >>> print t
+  >>> print(t2)
     a    b 
   m / s  km
   ----- ---
     001   2
+    004   3
 
+To illustrate the full features of DTIF we create a table with meta data
+(keywords and comments) as well as more detailed column meta data::
+
+  >>> from astropy.utils import OrderedDict
+  >>> t = Table([[1, 4], [2, 3]], names=['a', 'b'])
+  >>> t.meta['keywords'] = OrderedDict([('z_key1', 'val1'), ('a_key2', 'val2')])
+  >>> t.meta['comments'] = ['Comment 1', 'Comment 2', 'Comment 3']
+  >>> t['a'].unit = u.m / u.s
+  >>> t['a'].format = '%5.2f'
+  >>> t['a'].description = 'Column A'
+  >>> t['b'].meta = dict(column_meta={'a':1, 'b': 2})
+
+Now we write the table to standard out::
+
+  >>> import sys
+  >>> t.write(sys.stdout, format='ascii.dtif')
+  # %DTIF 1.0
+  # ---
+  # columns:
+  # - {name: a, unit: m / s, type: int64, format: '%5.2f', description: Column A}
+  # - name: b
+  #   type: int64
+  #   meta:
+  #     column_meta: {a: 1, b: 2}
+  # table_meta: !!omap
+  # - keywords: !!omap
+  #   - {z_key1: val1}
+  #   - {a_key2: val2}
+  # - comments: [Comment 1, Comment 2, Comment 3]
+  a b
+  1.00 2
+  4.00 3
+
+In this case there are Ordered dictionary elements which must be preserved
+during serialization.  This is done via the ``!!omap`` element tag.  The
+reference Python implementation in Astropy uses custom Loader and Dumper
+classes to allow serialization to and from the Python ``OrderedDict`` class.
+Other implementations must likewise use an ordered mapping when reading and the
+``!!omap`` tag when writing for ordered mappings in the data structure.
+
+In addition, the reference Python implementation outputs the column attributes
+in the order ``'name'``, ``'unit'``, ``'type'``, ``'format'``,
+``'description'``, and ``'meta'``.  This is not a DTIF requirement but is
+recommended for humans accessibility.
 
 Header details
 ^^^^^^^^^^^^^^^^
 
 The table header contains the necessary information to define the table columns
-and metadata.  This is expressed as a JSON-encoded data structure which has a
+and metadata.  This is expressed as a YAML-encoded data structure which has a
 small set of required keywords and standard specifiers.  Beyond the minimal
 standard, applications are free to create a custom data structure as needed.
 The specification of a corresponding ``schema`` keyword to allow interpretation
@@ -326,22 +336,12 @@ and validation of the custom data is highly encouraged.
 
 Standard keywords are:
 
-``version``: required
-   Version of the DTIF standard.
-
 ``columns``: required
    List of column specifiers.
 
-``schema``: optional
-   Schema name defining any data structure elements not specified in the
-   minimal DTIF standard.  Details TBD.
-
 ``table_meta``: optional
    Table meta-data as an arbitrary dictionary or list type data structure.
-   TDB: keywords etc as part of ``table_meta``?
-
-OTHERS?
-   Keywords, Comments, History, ???  Should these be standard?
+   Keywords, comments, history and so forth should be part of ``table_meta``.
 
 Each column specifier is a dictionary structure with the following keys:
 
@@ -361,7 +361,8 @@ Each column specifier is a dictionary structure with the following keys:
 
 ``type``: optional
    If provided this specifies the column data type.  If not available then
-   automatic type inference is performed.
+   automatic type inference is performed.  It is recommended that DTIF
+   writers always emit the ``type``.
 
 Data details
 ^^^^^^^^^^^^^
