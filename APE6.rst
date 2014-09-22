@@ -1,5 +1,5 @@
-Data-table Text Interchange Format
-----------------------------------
+Enhanced Character-Separated-Values format
+-----------------------------------
 
 author: Tom Aldcroft
 
@@ -19,7 +19,7 @@ APE6 is primarily a specification of a new standard for the interchange of
 tabular data in a text-only format.  The proposed format handles the key issue
 of serializing column specifications and table metadata by using a YAML-encoded
 data structure.  The actual tabular data are stored in a standard
-comma-separated-values (CSV) format, giving compatibility with a wide variety of
+character-separated-values (CSV) format, giving compatibility with a wide variety of
 non-specialized CSV table readers.
 
 Using YAML makes it extremely easy for applications *and humans* to read both
@@ -27,21 +27,16 @@ the standardized data format elements (e.g. column name, type, description) as
 well as complex metadata structures.  YAML also lends itself to simple table
 modifications by humans in a plain text editor.
 
-The implementation in ``astropy.io.ascii`` is relatively straightforward and
+The reference Python implementation in ``astropy.io.ascii`` is relatively straightforward and
 will provide a significant benefit of allowing text serialization of most astropy
 Table objects, persistent storage, and subsequent interchange with other users.
 
 Existing standards
 --------------------
 
-The well-known `XKCD comic <https://xkcd.com/927/>`_ aptly mocks the
-introduction of new standards.  Let's just stipulate that this standard may be a
-bad idea, but talk about it anyway.  Following the lead of the astronomical data
-community in recently documenting shortcomings of the FITS standard, we start by
-discussing existing widely-used standards and why they are lacking.
-
-Note that the existing `Tabular Data Package`_ standard, while not
-used widely in astronomy, may be entirely suitable for our purposes.
+Following the lead of the astronomical data community in recently
+documenting shortcomings of the FITS standard, we start by discussing
+existing widely-used standards and why they are lacking.
 
 CSV
 ^^^^^
@@ -179,7 +174,7 @@ this APE we have become aware of a very similar standard known as the
 `Tabular Data Package
 <http://dataprotocols.org/tabular-data-package/>`_.  This provides a
 fully-formed protocol for publishing and sharing tabular-style data
-which is conceptually very similar to the proposed DTIF format, with
+which is conceptually very similar to the proposed ECSV format, with
 the exception of using two files, one pure JSON for the header and one
 pure CSV for the data.  The JSON header follows a schema defined by
 the `JSON Table Schema
@@ -195,15 +190,16 @@ YAML instead of JSON for serialization precludes direct use of the TDP.
 Detailed description
 ---------------------
 
-The proposed Data-table Text Interchange Format (DTIF) has the following
+The proposed Enhanced CSV (ECSV) format has the following
 overall structure:
 
-- A header section which consists of lines that start with the "#" character
-  and provide the table definition via a YAML-encoded data structure.
-- An initial line in the header section which identifies the file as DTIF and
+- A header section which consists of lines that start with the ``#`` character
+  and provide the table definition and data format via a YAML-encoded data structure.
+- An initial line in the header section which identifies the file as ECSV and
   provides a version number.
 - A CSV-formatted data section in which the first line contains the column names
-  and subsequent lines contains the data values
+  and subsequent lines contains the data values.
+
 
 Why YAML?
 ^^^^^^^^^^
@@ -214,19 +210,19 @@ other relevant metadata.  Those formats essentially invent custom serialization
 specifications that must be carefully implemented from scratch by any
 reader/writer application.
 
-DTIF takes the approach of defining a minimal standard for the the underlying
+ECSV takes the approach of defining a minimal standard for the the underlying
 data structure that is needed to define a table.  Then that structure is
 encoded or decoded using YAML.  Libraries for encoding and decoding YAML are
 widely used, very efficient, and easily available in all the most-frequently
 used programming languages (with the notable exception of IDL).
 
-Translating to / from the data structure provided by a DTIF header into the native
+Translating to / from the data structure provided by a ECSV header into the native
 structure that an application uses should generally be quite easy because the
 functional elements (e.g. column name, type) are ubiquitous.  Generally
 speaking manipulating data structures programmatically is easier than parsing
 textual data structure fields.
 
-The DTIF standard does not require that the YAML encoding be "pretty", but it
+The ECSV standard does not require that the YAML encoding be "pretty", but it
 is highly-recommended that applications format the YAML header to be legible
 to humans.  This is important because a key feature of YAML is that it is
 meant to be easily readable, and thus modifiable, by humans.
@@ -234,8 +230,9 @@ meant to be easily readable, and thus modifiable, by humans.
 Example
 ^^^^^^^^^^
 
-A couple of quick examples will put this in context.  First let's create a
-table and give it some custom attributes::
+A couple of quick examples using the reference Python implementation
+will put this in context.  First let's create a table and give it some
+custom attributes::
 
   >>> from astropy.table import Table
   >>> t = Table([[1, 4], [2, 3]], names=['a', 'b'])
@@ -250,11 +247,11 @@ table and give it some custom attributes::
     001   2
     004   3
 
-Now we write this to a file using the DTIF format and print it::
+Now we write this to a file using the ECSV format and print it::
 
-  >>> t.write('example.dtif', format='ascii.dtif')
-  >>> cat example.dtif
-  # %DTIF 1.0
+  >>> t.write('example.ecsv', format='ascii.ecsv')
+  >>> cat example.ecsv
+  # %ECSV 1.0
   # ---
   # columns:
   # - {name: a, unit: m / s, type: int64, format: '%03d'}
@@ -271,7 +268,7 @@ are included in CSV format with a space delimiter.
 Now we can read back the table and see that it has survived the round-trip
 to a text file::
 
-  >>> t2 = Table.read('example.dtif', format='ascii.dtif')
+  >>> t2 = Table.read('example.ecsv', format='ascii.ecsv')
   >>> print(t2)
     a    b 
   m / s  km
@@ -279,7 +276,7 @@ to a text file::
     001   2
     004   3
 
-To illustrate the full features of DTIF we create a table with meta data
+To illustrate the full features of ECSV we create a table with meta data
 (keywords and comments) as well as more detailed column meta data::
 
   >>> from astropy.utils import OrderedDict
@@ -294,8 +291,8 @@ To illustrate the full features of DTIF we create a table with meta data
 Now we write the table to standard out::
 
   >>> import sys
-  >>> t.write(sys.stdout, format='ascii.dtif')
-  # %DTIF 1.0
+  >>> t.write(sys.stdout, format='ascii.ecsv')
+  # %ECSV 1.0
   # ---
   # columns:
   # - {name: a, unit: m / s, type: int64, format: '%5.2f', description: Column A}
@@ -303,7 +300,7 @@ Now we write the table to standard out::
   #   type: int64
   #   meta:
   #     column_meta: {a: 1, b: 2}
-  # table_meta: !!omap
+  # meta: !!omap
   # - keywords: !!omap
   #   - {z_key1: val1}
   #   - {a_key2: val2}
@@ -321,62 +318,99 @@ Other implementations must likewise use an ordered mapping when reading and the
 
 In addition, the reference Python implementation outputs the column attributes
 in the order ``'name'``, ``'unit'``, ``'type'``, ``'format'``,
-``'description'``, and ``'meta'``.  This is not a DTIF requirement but is
+``'description'``, and ``'meta'``.  This is not a ECSV requirement but is
 recommended for humans accessibility.
 
 Header details
 ^^^^^^^^^^^^^^^^
 
-The table header contains the necessary information to define the table columns
-and metadata.  This is expressed as a YAML-encoded data structure which has a
-small set of required keywords and standard specifiers.  Beyond the minimal
-standard, applications are free to create a custom data structure as needed.
-The specification of a corresponding ``schema`` keyword to allow interpretation
-and validation of the custom data is highly encouraged.
+An ECSV file begins with the the table header which contains the
+necessary information to define the table columns and metadata.  This
+is expressed as a YAML-encoded data structure which has a small set of
+required keywords and standard specifiers.
+
+Each line of the YAML-encoded data structure must start with the two
+characters ``# `` (hash followed by space) to indicate the presence of
+header content.  The first line which does not start with ``#``
+signifies the end of the header.  Subsequent lines starting with ``#``
+are treated as file comment lines.
+
+Within the header section, lines which start with ``##`` are treated as
+comments and can be ignored by readers.  There is no requirement for
+ECSV writers to emit such comment data.  Relevant comment strings
+should be serialized within the ``meta`` keyword structure.
+
+Beyond the minimal standard, applications are free to
+create a custom data structure as needed using the top-level ``meta``
+keyword.  The specification of a corresponding ``schema`` keyword to
+allow interpretation and validation of the custom data is highly
+encouraged.
 
 Standard keywords are:
 
-``columns``: required
+``columns``: list, required
    List of column specifiers.
 
-``table_meta``: optional
-   Table meta-data as an arbitrary dictionary or list type data structure.
-   Keywords, comments, history and so forth should be part of ``table_meta``.
+``delimiter``: one-character string, optional, default=``space``
+   Delimiter character used to separate the data fields.  Allowed
+   delimiter values are the characters ``space`` or ``comma``.
+
+``meta``: structure, optional
+   Table meta-data as an arbitrary data structure consisting
+   purely of data types that can be encoded and decoded with the YAML
+   "safe" dumper and loader, respectively.  Typically the top level
+   structure is a mapping (dict) or list.  Keywords, comments,
+   history and so forth should be part of ``meta``.
+
+``schema``: string, optional
+   This provides a reference to a schema that can allow interpretation
+   and validation of the ``meta`` values and column definitions.
+   Further details of this keyword are TBD and expected in version 1.1
+   of the ECSV standard.
 
 Each column specifier is a dictionary structure with the following keys:
 
-``name``: required
+``name``: string, required
    Column name
 
-``unit``: optional
-   Data unit (unit system could be part of schema?)
+``type``: string, required
+  Column data type.  Allowed types are: ``bool``, ``int8``,
+  ``int16``, ``int32``, ``int64``, ``uint8``, ``uint16``, ``uint32``,
+  ``uint64``, ``float16``, ``float32``, ``float64``, ``float128``,
+  ``complex64``, ``complex128``, ``complex256``, and ``string8``.
 
-``format``: optional
-   C-style formatting specification for outputting column values.  This does
-   not imply or require that the values in this table are formatted
-   accordingly.
+``unit``: string, optional
+   Data unit (unit system could be part of schema?).
 
-``description``: optional
-   Text description of column
+``format``: string, optional
+   C-style formatting specification for outputting column values.
+   This does not imply nor require that the values in this table are
+   formatted accordingly.
 
-``type``: optional
-   If provided this specifies the column data type.  If not available then
-   automatic type inference is performed.  It is recommended that DTIF
-   writers always emit the ``type``.
+``description``: string, optional
+   Text description of column.
+
+``meta``: structure, optional
+   Column meta-data as an arbitrary data structure consisting
+   purely of data types that can be encoded and decoded with the YAML
+   "safe" dumper and loader, respectively.
+
 
 Data details
 ^^^^^^^^^^^^^
 
-The data section follows immediately after the header.
+The data section follows immediately after the header.  Lines in the
+data section consisting only of zero or more whitespace characters
+(space and/or tab) are ignored.
 
-The first line in the data section contains the column names formatted
-according to the CSV writer being used.  This allows most CSV reader
-applications to successfully read DTIF files and automatically infer the
-correct column names.  DTIF readers should validate that the column names in
-this line match those in the header.
+The first non-blank line in the data section must contain the column
+names formatted according to the CSV writer being used.  This allows
+most CSV reader applications to successfully read ECSV files and
+automatically infer the correct column names.  ECSV readers should
+validate that the column names in this line match those in the header.
 
 Following the column name line the data values are serialized according to
-standard CSV rules.
+the following rules:
 
 In this example above the delimiter is the space character.  Details of
 delimiters, quote characters, etc that should be allowed / supported are TBD.
@@ -395,13 +429,13 @@ columns with a naming convention such as ``<name>__<index0>_<index1>_...``.
 In this case one would include a keyword in the column specification that
 indicates the column is one element of a multidimensional column ``<name>``.
 The specifics might need iteration, but again the idea is to maintain the
-ability to always read a DTIF file with a simple CSV reader, even if using
+ability to always read a ECSV file with a simple CSV reader, even if using
 the results then takes more effort.
 
 Branches and pull requests
 --------------------------
 
-`PR# 2319 <https://github.com/astropy/astropy/pull/2319>`_: "Implement support for the DTIF format proposed in APE6"
+`PR# 2319 <https://github.com/astropy/astropy/pull/2319>`_: "Implement support for the ECSV format proposed in APE6"
 
 `PR# 683 <https://github.com/astropy/astropy/pull/683>`_: Initial version "Support table metadata in io.ascii"
 
