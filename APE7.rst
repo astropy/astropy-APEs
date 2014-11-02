@@ -98,14 +98,6 @@ such that it essentially does only the following things:
 The ``NDData`` class should **not** define any arithmetic operations, which are
 impossible to generalize.
 
-In practice, users would very rarely use the ``NDData`` class directly,
-instead using sub-classes, such as ``Image`` or ``Spectrum`` for example
-(although this APE does not specify what sub-classes should exist, and these
-are given purely as illustrative examples). In addition, developers would not
-need to write functions that can take fully generic ``NDData`` objects, but
-could restrict themselves to specific sub-classes such as ``Image`` or
-``Spectrum``.
-
 The following properties should be included in the base class:
 
 * ``data`` - the data itself. No restrictions are placed on the type of this
@@ -229,11 +221,11 @@ Faciliating the use of ``NDData`` sub-classes
 One question that has come up as part of several affiliated packages is how
 to deal with ``NDData`` objects in functions. For example, if we consider a
 ``downsample`` function that can downsample an image, should the function
-accept only ``Image`` objects (which inherit from ``NDData``)? Should it also
+accept only ``NDData`` (or sub-class) objects? Should it also
 accept plain Numpy arrays? If so, how do we pass any additional meta-data
 such as WCS? Should we return a downsampled Numpy array and downsampled WCS,
-or a single downsampled ``Image`` instance? In this example, one option would
-be to provide two APIs, one for ``Image`` and one for separate Numpy arrays
+or a single downsampled ``NDData`` (or sub-class) instance? In this example, one option would
+be to provide two APIs, one for ``NDData`` and/or sub-classes and one for separate Numpy arrays
 and attributes, but maintinaing two parallel APIs is not an ideal solution.
 An alternative is for each function to encode the logic of checking the input
 type and deciding on the output type based on the output type. However, this
@@ -241,9 +233,9 @@ means repeating a lot of similar code such as::
 
     def downsample(data, wcs=None)
 
-        if isinstance(data, Image):
+        if isinstance(data, NDData):
             if wcs is not None:
-                raise ValueError("wcs cannot be specified if Image instance was passed")
+                raise ValueError("wcs cannot be specified if NDData instance was passed")
             wcs = data.wcs
             data = data.data
 
@@ -290,13 +282,13 @@ to accept a list which gives the name of the output values::
 Finally, the decorator could be made to restrict input to specific ``NDData``
 sub-classes (and sub-classes of those)::
 
-    @support_nddata(accepts=Image, returns=['data', 'wcs'])
+    @support_nddata(accepts=CCDImage, returns=['data', 'wcs'])
     def test(data, wcs=None, unit=None, n_iterations=3):
         ...
 
 With this decorator, the functions could be seamlessly used either with
 separate arguments (e.g. Numpy array and WCS) or with subclasses of
-``NDData`` such as ``Image``.
+``NDData`` such as ``CCDImage``.
 
 Branches and pull requests
 --------------------------
