@@ -130,7 +130,8 @@ developed as mix-in classes that can be used by ``NDData`` sub-classes.
 
 Note that no ``uncertainty`` attribute has been included here but could be
 added to the list of 'core' attributes in future once we settle on an
-infrastructure for handling uncertainties.
+infrastructure for handling uncertainties. If sub-classes implement support
+for uncertainties, they should use the name ``uncertainty``.
 
 The base class would **not** include methods such as ``__array__``,
 ``__array_prepare__``, and so on which allow a class to be treated as a Numpy
@@ -159,22 +160,22 @@ Implementation
 ^^^^^^^^^^^^^^^^
 
 The ``NDData`` class should be dramatically simplified to comply with the
-proposal above. It should contain very little apart from the property
-definitions. For example, for the WCS, it should simply contain::
+proposal above. It should contain very little apart from the read-only
+property definitions. For example, for the WCS, it should simply contain::
 
     @property
     def wcs(self):
         return self._wcs
 
-    @wcs.setter
-    def wcs(self, value):
-        self._wcs = value
+where ``self._wcs`` was initially set in ``__init__``. We will not include
+setters because it is ambiguous what the meaning of setting e.g. the unit or
+WCS after initialization means: it could either mean to change the unit or
+WCS, or it could mean that the user wants to convert the data to this new
+unit or WCS. Given this ambiguity, it is safer to not have setters for the
+core attributes and this is consistent with e.g. ``Quantity``.
 
-The only exception to this is that the type of the unit should be checked (it
-should be an Astropy Unit), but otherwise all the properties listed above
-should follow this simple template.
-
-The ``read`` and ``write`` methods can be adapted from the ``Table`` class.
+The ``read`` and ``write`` methods can be adapted from the ``Table`` class or
+can be included via a mixin class.
 
 The only other functionality this APE suggests adding is slicing. This could be
 done by simply having code similar to the following inside ``__getitem__``::
@@ -195,20 +196,9 @@ done by simply having code similar to the following inside ``__getitem__``::
 
 Note that this is only meant as an illustration of the idea suggested here,
 and the final implementation will likely differ from this - but the basic
-idea is that the slicing would be delegated to the member attributes.
-
-That is, the slicing is simply delegated to the objects. This requires two
-things:
-
-* An internal list of which properties should be sliced (for example ``meta``
-  should not be sliced). ``NDData`` and its sub-classes could contain a
-  ``_slicable`` class attribute that lists properties that should be sliced
-  (even if it does not guarantee they are slicable in practice).
-
-* Slicing capability on the objects stored inside the properties. If the WCS
-  object is not slicable, then an error should be raised since the slicing
-  cannot be successfully carried out. The example code above could include a
-  nice error message if a property is not slicable.
+idea is that the slicing would be delegated to the member attributes. For
+example, the WCS class would need to define itself how it should be sliced.
+Some attributes (such as ``meta``) would not necessarily need to be sliceable.
 
 Note that slicing does not always have to return an array - for example in the
 case of WCS, it would return a new WCS object that would map the pixel
@@ -268,7 +258,8 @@ An error could be raised if an ``NDData`` property is set but the function does
 not accept it - for example, if ``wcs`` is set, but the function cannot support
 WCS objects, an error would be raised. On the other hand, if an argument in the
 function does not exist in the ``NDData`` object or is not set, it is simply
-left to its default value.
+left to its default value. This behavior could be customizable but the
+details are beyond the scope of this APE document.
 
 If the function call succeeds, then the decorator will make a new ``NDData``
 object (with the correct class) and will populate the properties as needed. In
@@ -290,6 +281,15 @@ With this decorator, the functions could be seamlessly used either with
 separate arguments (e.g. Numpy array and WCS) or with subclasses of
 ``NDData`` such as ``CCDImage``.
 
+Further implementation considerations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+One idea that has been suggested is to have an abstract base class below
+``NDData`` that could be used to give ``NDData``-like behavior to other
+classes (for example one based on ``Quantity``). This however does not affect
+the behavior of the ``NDData`` class itself, so we leave this as a point of
+future discussion beyond this APE.
+
 Branches and pull requests
 --------------------------
 
@@ -304,7 +304,6 @@ This APE will require packages such as ``specutils`` and ``ccdproc`` to
 completely refactor how they use the ``NDData`` class. This will also break
 compatibility with users currently using ``NDData`` directly, but this is
 assumed to be a very small fraction (if any) of users.
-
 
 Alternatives
 ------------
