@@ -185,13 +185,13 @@ done by simply having code similar to the following inside ``__getitem__``::
         new = self.__class__()
 
         if self.data is not None:
-            new.data = self.data[slice]
+            new._data = self.data[slice]
 
         if self.mask is not None:
-            new.mask = self.mask[slice]
+            new._mask = self.mask[slice]
 
         if self.wcs is not None:
-            new.wcs = self.wcs[slice]
+            new._wcs = self.wcs[slice]
         ...
 
 Note that this is only meant as an illustration of the idea suggested here,
