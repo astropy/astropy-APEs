@@ -311,6 +311,9 @@ assumed to be a very small fraction (if any) of users.
 Alternatives
 ------------
 
+Eliminate ``NDData``
+^^^^^^^^^^^^^^^^^^^^
+
 One alternative is to remove the ``NDData`` class altogether and to start
 the base classes at the level of ``Spectrum`` or ``Image``. In this case many
 of this ideas of this APE (including the attribute names, decorators, etc.)
@@ -338,6 +341,34 @@ framework and define attributes like ``unmasked_data``. Of course, we should
 aim to make this more compliant with what is decided here, but this is just
 to demonstrate that this type of flexibility may be lost. However, this may
 be a good thing as it enforces consistency for users.
+
+Subclass NDData from ``astropy.units.Quantity`` or ``numpy.ndarray``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The original implementation of the ``NDData`` class behaved like a numpy
+``ndarray``; an alternative to making ``NDData`` a more generic container is
+to make it a full-fledged subclass of ``ndarray`` or of ``Quantity``. The
+advantage of this approach is that it potentially reduces duplication of code
+by using the infrastructure of ``Quantity`` and/or ``nddata``.
+
+It has the disadvantage of reducing the flexibility of ``NDData`` and presents
+the challenge of handling the attributes (especially ``meta``, ``mask`` and
+``wcs``) in a sensible way for arbitrary operations on an ``NDData``. Even in
+one of the most straightforward cases, the addition of two ``NDData`` objects
+with metadata, it is unclear what the ``meta`` of the result should be.
+
+There is a need for a more generic container with metadata than would be
+possible if subclassing from ``ndarray``. In addition, it would be
+straightforward to implement a subclass of the ``NDData`` proposed in this APE
+that ties the ``unit`` and (when they are available in ```Quantity``) ``mask``
+and ``uncertainty`` to those properties of the ``data`` attribute. In other
+words, a subclass which is essentially a ``Quantity`` with ``meta`` wrapped in
+the ``NDData`` interface is straightforward.
+
+If ``NDData`` subclasses from ``ndarray`` then it will be difficult or
+impossible to subclass a more generic container from it, which is likely to
+lead, down the road, to the need for the type of generic container proposed in
+this APE.
 
 Decision rationale
 ------------------
