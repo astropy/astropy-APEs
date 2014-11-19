@@ -39,7 +39,7 @@ able to converge on a stable API. Part of this is due to the fact that there is
 in fact a huge variety of 'n-dimensional datasets' and that there is very
 little in common for example between a spectrum and an image, in terms of what
 can be done with them. This has prevented the ``NDData`` class from including
-much functionality, and in fact we have been adding functonality then removing
+much functionality, and in fact we have been adding functionality then removing
 it after we have realized that it is not general enough.
 
 An example to illustrate this issue is that of arithmetic - what happens when
@@ -65,7 +65,7 @@ possible answers:
    data can be accessed with ``data``.
 
 2. By providing a common base class which can define a unified I/O interface
-   which taps into the astropy I/O registry, we can seamlesstly make it that
+   which taps into the astropy I/O registry, we can seamlessly make it that
    all data objects have ``read`` and ``write`` methods that behave
    consistently.
 
@@ -127,6 +127,9 @@ The following properties should be included in the base class:
 
 Specific functionality such as uncertainty handling and arithmetic can be
 developed as mix-in classes that can be used by ``NDData`` sub-classes.
+
+The only **required** attribute is ``data``; all others default to ``None`` if
+not initialized or overridden in a subclass.
 
 Note that no ``uncertainty`` attribute has been included here but could be
 added to the list of 'core' attributes in future once we settle on an
@@ -205,8 +208,8 @@ case of WCS, it would return a new WCS object that would map the pixel
 coordinates in the subset to world coordinates, so it would simply be an
 updated transformation rather than an array slice.
 
-Faciliating the use of ``NDData`` sub-classes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Facilitating the use of ``NDData`` sub-classes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 One question that has come up as part of several affiliated packages is how
 to deal with ``NDData`` objects in functions. For example, if we consider a
@@ -216,7 +219,7 @@ accept plain Numpy arrays? If so, how do we pass any additional meta-data
 such as WCS? Should we return a downsampled Numpy array and downsampled WCS,
 or a single downsampled ``NDData`` (or sub-class) instance? In this example, one option would
 be to provide two APIs, one for ``NDData`` and/or sub-classes and one for separate Numpy arrays
-and attributes, but maintinaing two parallel APIs is not an ideal solution.
+and attributes, but maintaining two parallel APIs is not an ideal solution.
 An alternative is for each function to encode the logic of checking the input
 type and deciding on the output type based on the output type. However, this
 means repeating a lot of similar code such as::
@@ -308,6 +311,9 @@ assumed to be a very small fraction (if any) of users.
 Alternatives
 ------------
 
+Eliminate ``NDData``
+^^^^^^^^^^^^^^^^^^^^
+
 One alternative is to remove the ``NDData`` class altogether and to start
 the base classes at the level of ``Spectrum`` or ``Image``. In this case many
 of this ideas of this APE (including the attribute names, decorators, etc.)
@@ -335,6 +341,34 @@ framework and define attributes like ``unmasked_data``. Of course, we should
 aim to make this more compliant with what is decided here, but this is just
 to demonstrate that this type of flexibility may be lost. However, this may
 be a good thing as it enforces consistency for users.
+
+Subclass NDData from ``astropy.units.Quantity`` or ``numpy.ndarray``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The original implementation of the ``NDData`` class behaved like a numpy
+``ndarray``; an alternative to making ``NDData`` a more generic container is
+to make it a full-fledged subclass of ``ndarray`` or of ``Quantity``. The
+advantage of this approach is that it potentially reduces duplication of code
+by using the infrastructure of ``Quantity`` and/or ``nddata``.
+
+It has the disadvantage of reducing the flexibility of ``NDData`` and presents
+the challenge of handling the attributes (especially ``meta``, ``mask`` and
+``wcs``) in a sensible way for arbitrary operations on an ``NDData``. Even in
+one of the most straightforward cases, the addition of two ``NDData`` objects
+with metadata, it is unclear what the ``meta`` of the result should be.
+
+There is a need for a more generic container with metadata than would be
+possible if subclassing from ``ndarray``. In addition, it would be
+straightforward to implement a subclass of the ``NDData`` proposed in this APE
+that ties the ``unit`` and (when they are available in ```Quantity``) ``mask``
+and ``uncertainty`` to those properties of the ``data`` attribute. In other
+words, a subclass which is essentially a ``Quantity`` with ``meta`` wrapped in
+the ``NDData`` interface is straightforward.
+
+If ``NDData`` subclasses from ``ndarray`` then it will be difficult or
+impossible to subclass a more generic container from it, which is likely to
+lead, down the road, to the need for the type of generic container proposed in
+this APE.
 
 Decision rationale
 ------------------
