@@ -128,6 +128,9 @@ The following properties should be included in the base class:
 Specific functionality such as uncertainty handling and arithmetic can be
 developed as mix-in classes that can be used by ``NDData`` sub-classes.
 
+The only **required** attribute is ``data``; all others default to ``None`` if
+not initialized or overridden in a subclass.
+
 Note that no ``uncertainty`` attribute has been included here but could be
 added to the list of 'core' attributes in future once we settle on an
 infrastructure for handling uncertainties. If sub-classes implement support
