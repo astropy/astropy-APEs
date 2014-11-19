@@ -39,7 +39,7 @@ able to converge on a stable API. Part of this is due to the fact that there is
 in fact a huge variety of 'n-dimensional datasets' and that there is very
 little in common for example between a spectrum and an image, in terms of what
 can be done with them. This has prevented the ``NDData`` class from including
-much functionality, and in fact we have been adding functonality then removing
+much functionality, and in fact we have been adding functionality then removing
 it after we have realized that it is not general enough.
 
 An example to illustrate this issue is that of arithmetic - what happens when
@@ -65,7 +65,7 @@ possible answers:
    data can be accessed with ``data``.
 
 2. By providing a common base class which can define a unified I/O interface
-   which taps into the astropy I/O registry, we can seamlesstly make it that
+   which taps into the astropy I/O registry, we can seamlessly make it that
    all data objects have ``read`` and ``write`` methods that behave
    consistently.
 
@@ -208,8 +208,8 @@ case of WCS, it would return a new WCS object that would map the pixel
 coordinates in the subset to world coordinates, so it would simply be an
 updated transformation rather than an array slice.
 
-Faciliating the use of ``NDData`` sub-classes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Facilitating the use of ``NDData`` sub-classes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 One question that has come up as part of several affiliated packages is how
 to deal with ``NDData`` objects in functions. For example, if we consider a
@@ -219,7 +219,7 @@ accept plain Numpy arrays? If so, how do we pass any additional meta-data
 such as WCS? Should we return a downsampled Numpy array and downsampled WCS,
 or a single downsampled ``NDData`` (or sub-class) instance? In this example, one option would
 be to provide two APIs, one for ``NDData`` and/or sub-classes and one for separate Numpy arrays
-and attributes, but maintinaing two parallel APIs is not an ideal solution.
+and attributes, but maintaining two parallel APIs is not an ideal solution.
 An alternative is for each function to encode the logic of checking the input
 type and deciding on the output type based on the output type. However, this
 means repeating a lot of similar code such as::
