@@ -92,9 +92,6 @@ such that it essentially does only the following things:
 * It provides generic ``read`` and ``write`` methods that connect to the I/O
   registry, as for the ``Table`` class.
 
-* It defines generic slicing capabilities, because this is a general operation
-  that one should be able to do on a regular n-dimensional dataset.
-
 The ``NDData`` class should **not** define any arithmetic operations, which are
 impossible to generalize.
 
@@ -139,6 +136,9 @@ The following properties should be included in the base class:
 
 Specific functionality such as uncertainty handling and arithmetic can be
 developed as mix-in classes that can be used by ``NDData`` sub-classes.
+
+Generic slicing capabilities, further described in `Implementation`_, will be
+provided as a mixin class called ``NDSlicing``
 
 The only **required** attribute is ``data``; all others default to ``None`` if
 not initialized or overridden in a subclass.
@@ -187,8 +187,12 @@ core attributes and this is consistent with e.g. ``Quantity``.
 The ``read`` and ``write`` methods can be adapted from the ``Table`` class or
 can be included via a mixin class.
 
-The only other functionality this APE suggests adding is slicing. This could be
-done by simply having code similar to the following inside ``__getitem__``::
+Slicing mixin
+^^^^^^^^^^^^^
+
+This APE suggests adding a mixin class, ``NDSlicing``, to handle basic
+slicing. This could be done by simply having code similar to the following
+inside ``__getitem__``::
 
     def __getitem__(self, slice):
 
@@ -331,9 +335,9 @@ are that:
 * The ``NDData`` class enforces the naming of the base properties to ensure
   consistency across all sub-classes.
 
-* It allows slicing to be implemented at the core level, whereas this would
-  need to be repeated in each base class if we had e.g. ``Spectrum``,
-  ``Image``, ``SpectralCube`` as the base classes.
+* It allows slicing to be implemented at the core level as a mixin, whereas
+  this would need to be repeated in each base class if we had e.g.
+  ``Spectrum``, ``Image``, ``SpectralCube`` as the base classes.
 
 * It allows the connection to the unified I/O framework to be defined once,
   whereas this would also need to be repeated in each base class otherwise.
