@@ -125,16 +125,23 @@ The following properties should be included in the base class:
   This could be a plain Python dict, an ordered dict, a FITS Header object, and
   so on, provided that it offers dict-like item access and iteration.
 
+* ``uncertainty`` -- an object that represents the uncertainty in the data.
+  NDData places no restriction on what type of uncertainty this is
+  (e.g. variance or standard deviation) and does not require it be set at
+  all. It places only one restriction on ``uncertainty``: the
+  ``uncertainty`` object must have an attribute ``uncertainty_type``. Though
+  not required, it is strongly recommended that the string
+  ``uncertainty_type`` follows the convention that, when possible, the name
+  matches the name of the corresponding function in numpy (e.g. ``'std'`` for
+  standard deviation, ``"var"`` for variance), with the prefix ``i`` to
+  indicate that it is the inverse of the function (e.g. ``"ivar"`` for inverse
+  variance).
+
 Specific functionality such as uncertainty handling and arithmetic can be
 developed as mix-in classes that can be used by ``NDData`` sub-classes.
 
 The only **required** attribute is ``data``; all others default to ``None`` if
 not initialized or overridden in a subclass.
-
-Note that no ``uncertainty`` attribute has been included here but could be
-added to the list of 'core' attributes in future once we settle on an
-infrastructure for handling uncertainties. If sub-classes implement support
-for uncertainties, they should use the name ``uncertainty``.
 
 The base class would **not** include methods such as ``__array__``,
 ``__array_prepare__``, and so on which allow a class to be treated as a Numpy
