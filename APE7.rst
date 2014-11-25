@@ -304,12 +304,12 @@ handling.
 
 Because subclassing from ``numpy.ndarray`` involves subtleties that differ
 from typical subclassing in python, an example subclass called ``NDQuantity``
-will be implemented as part of ``astropy.nddata``. Should it turn out to be
-unreasonably difficult to do, an attempt will be made to implement a class
+may be implemented as part of ``astropy.nddata``. Should it turn out to be
+unreasonably difficult to do, an attempt may be made to implement a class
 which uses ``Quantity`` as the data store, with the ability to link ``NDData``
 properties like ``unit`` to the underlying properties in ``Quantity``. Should
 that also prove to be unworkable, an explanation of the issues that prevented
-implementation will be provided in the documentation for ``NDData``.
+implementation may be provided in the documentation for ``NDData``.
 
 Further implementation considerations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
