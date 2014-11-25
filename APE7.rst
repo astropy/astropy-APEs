@@ -295,6 +295,21 @@ With this decorator, the functions could be seamlessly used either with
 separate arguments (e.g. Numpy array and WCS) or with subclasses of
 ``NDData`` such as ``CCDImage``.
 
+Example of subclassing from both NDData and Quantity
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``Quantity`` class  would benefit from the ability to share the same
+interface that NDData provides and to tap into NDData's metadata and WCS
+handling.
+
+Because subclassing from ``numpy.ndarray`` involves subtleties that
+differ from typical subclassing in python, an example subclass called
+``NDQuantity`` will be implemented as part of ``astropy.nddata``. Should it
+turn out to be unreasonably difficult to do a class which uses ``Quantity``
+as the data store, with the ability to link ``NDData`` properties like
+``unit`` to the underlying properties in ``Quantity``, will be implemented
+instead.
+
 Further implementation considerations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
