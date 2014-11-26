@@ -92,9 +92,6 @@ such that it essentially does only the following things:
 * It provides generic ``read`` and ``write`` methods that connect to the I/O
   registry, as for the ``Table`` class.
 
-* It defines generic slicing capabilities, because this is a general operation
-  that one should be able to do on a regular n-dimensional dataset.
-
 The ``NDData`` class should **not** define any arithmetic operations, which are
 impossible to generalize.
 
@@ -125,16 +122,26 @@ The following properties should be included in the base class:
   This could be a plain Python dict, an ordered dict, a FITS Header object, and
   so on, provided that it offers dict-like item access and iteration.
 
+* ``uncertainty`` -- an object that represents the uncertainty in the data.
+  NDData places no restriction on what type of uncertainty this is
+  (e.g. variance or standard deviation) and does not require it be set at
+  all. It places only one restriction on ``uncertainty``: the
+  ``uncertainty`` object must have an attribute ``uncertainty_type``. Though
+  not required, it is strongly recommended that the string
+  ``uncertainty_type`` follows the convention that, when possible, the name
+  matches the name of the corresponding function in numpy (e.g. ``'std'`` for
+  standard deviation, ``"var"`` for variance), with the prefix ``i`` to
+  indicate that it is the inverse of the function (e.g. ``"ivar"`` for inverse
+  variance).
+
 Specific functionality such as uncertainty handling and arithmetic can be
 developed as mix-in classes that can be used by ``NDData`` sub-classes.
 
+Generic slicing capabilities, further described in `Implementation`_, will be
+provided as a mixin class called ``NDSlicing``
+
 The only **required** attribute is ``data``; all others default to ``None`` if
 not initialized or overridden in a subclass.
-
-Note that no ``uncertainty`` attribute has been included here but could be
-added to the list of 'core' attributes in future once we settle on an
-infrastructure for handling uncertainties. If sub-classes implement support
-for uncertainties, they should use the name ``uncertainty``.
 
 The base class would **not** include methods such as ``__array__``,
 ``__array_prepare__``, and so on which allow a class to be treated as a Numpy
@@ -180,8 +187,12 @@ core attributes and this is consistent with e.g. ``Quantity``.
 The ``read`` and ``write`` methods can be adapted from the ``Table`` class or
 can be included via a mixin class.
 
-The only other functionality this APE suggests adding is slicing. This could be
-done by simply having code similar to the following inside ``__getitem__``::
+Slicing mixin
+^^^^^^^^^^^^^
+
+This APE suggests adding a mixin class, ``NDSlicing``, to handle basic
+slicing. This could be done by simply having code similar to the following
+inside ``__getitem__``::
 
     def __getitem__(self, slice):
 
@@ -284,6 +295,22 @@ With this decorator, the functions could be seamlessly used either with
 separate arguments (e.g. Numpy array and WCS) or with subclasses of
 ``NDData`` such as ``CCDImage``.
 
+Example of subclassing from both NDData and Quantity
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``Quantity`` class  would benefit from the ability to share the same
+interface that NDData provides and to tap into NDData's metadata and WCS
+handling.
+
+Because subclassing from ``numpy.ndarray`` involves subtleties that differ
+from typical subclassing in python, an example subclass called ``NDQuantity``
+may be implemented as part of ``astropy.nddata``. Should it turn out to be
+unreasonably difficult to do, an attempt may be made to implement a class
+which uses ``Quantity`` as the data store, with the ability to link ``NDData``
+properties like ``unit`` to the underlying properties in ``Quantity``. Should
+that also prove to be unworkable, an explanation of the issues that prevented
+implementation may be provided in the documentation for ``NDData``.
+
 Further implementation considerations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -324,9 +351,9 @@ are that:
 * The ``NDData`` class enforces the naming of the base properties to ensure
   consistency across all sub-classes.
 
-* It allows slicing to be implemented at the core level, whereas this would
-  need to be repeated in each base class if we had e.g. ``Spectrum``,
-  ``Image``, ``SpectralCube`` as the base classes.
+* It allows slicing to be implemented at the core level as a mixin, whereas
+  this would need to be repeated in each base class if we had e.g.
+  ``Spectrum``, ``Image``, ``SpectralCube`` as the base classes.
 
 * It allows the connection to the unified I/O framework to be defined once,
   whereas this would also need to be repeated in each base class otherwise.
