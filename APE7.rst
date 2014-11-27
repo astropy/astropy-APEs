@@ -122,17 +122,24 @@ The following properties should be included in the base class:
   This could be a plain Python dict, an ordered dict, a FITS Header object, and
   so on, provided that it offers dict-like item access and iteration.
 
-* ``uncertainty`` -- an object that represents the uncertainty in the data.
-  NDData places no restriction on what type of uncertainty this is
-  (e.g. variance or standard deviation) and does not require it be set at
-  all. It places only one restriction on ``uncertainty``: the
-  ``uncertainty`` object must have an attribute ``uncertainty_type``. Though
-  not required, it is strongly recommended that the string
-  ``uncertainty_type`` follows the convention that, when possible, the name
-  matches the name of the corresponding function in numpy (e.g. ``'std'`` for
-  standard deviation, ``"var"`` for variance), with the prefix ``i`` to
-  indicate that it is the inverse of the function (e.g. ``"ivar"`` for inverse
-  variance).
+* ``uncertainty`` -- an object that represents the uncertainty in the
+  data for each element on the array.  This APE places no restriction on
+  what type of uncertainty this is (e.g. variance,  standard deviation,
+  or posisson count rate), nor does it require the attribute to be set
+  at all (other than defaulting to None). It places only one restriction
+  on ``uncertainty``: it must have an attribute ``uncertainty_type``,
+  which should be a human-readable string.
+
+  While not a requirement, the following ``uncertainty_type`` strings
+  are strongly recommended for common ways of specifying normal
+  distributions:
+
+  * ``"std"``: if ``uncertainty`` stores the standard deviation/sigma
+    (either a single value or on a per-pixel basis).
+  * ``"var"``: if ``uncertainty`` stores the variance (either a single
+    value or on a per-pixel basis).
+  * ``"ivar"``: if ``uncertainty`` stores the inverse variance (either a
+    single value or on a per-pixel basis).
 
 Specific functionality such as uncertainty handling and arithmetic can be
 developed as mix-in classes that can be used by ``NDData`` sub-classes.
