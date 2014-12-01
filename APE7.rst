@@ -99,9 +99,9 @@ The following properties should be included in the base class:
 
 * ``data`` - the data itself. No restrictions are placed on the type of this
   data. For example, it could be a plain Numpy array, masked Numpy array, an
-  Astropy Quantity, or an h5py data buffer. However, we could require for
-  example that ``data`` provides a ``shape`` attribute in order to 'prove' that
-  it is an n-dimensional data object.
+  Astropy Quantity, or an h5py data buffer. However, we could require, for
+  example, that ``data`` provides a ``shape`` attribute and/or be sliceable
+  in order to 'prove' that it is an n-dimensional data object.
 
 * ``mask`` - the mask of the data, following the Numpy convention of `True`
   meaning masked, and `False` meaning unmasked. Sub-classes could choose to
@@ -111,7 +111,10 @@ The following properties should be included in the base class:
 
 * ``unit`` - the unit of the data values, which will be internally
   represented as an Astropy Unit. Sub-classes could choose to connect this to
-  ``data.unit``
+  ``data.unit``. If present, subclasses should try to ensure numerical
+  operations properly take into account and propagate units. Sub-classes could
+  choose to connect this to ``data.unit``, in which case data should be a
+  ``Quantity`` or behave like it.
 
 * ``wcs`` - an object that can be used to describe the relationship between
   positions in 'pixel' space, and world coordinates. This can (but does not
@@ -185,11 +188,12 @@ property definitions. For example, for the WCS, it should simply contain::
         return self._wcs
 
 where ``self._wcs`` was initially set in ``__init__``. We will not include
-setters because it is ambiguous what the meaning of setting e.g. the unit or
-WCS after initialization means: it could either mean to change the unit or
-WCS, or it could mean that the user wants to convert the data to this new
-unit or WCS. Given this ambiguity, it is safer to not have setters for the
-core attributes and this is consistent with e.g. ``Quantity``.
+setters for properties except ``mask`` and ``uncertainty`` because it is
+ambiguous what the meaning of setting e.g. the unit or WCS after
+initialization means: it could either mean to change the unit or WCS, or it
+could mean that the user wants to convert the data to this new unit or WCS.
+Given this ambiguity, it is safer to not have setters for the core attributes
+and this is consistent with e.g. ``Quantity``.
 
 The ``read`` and ``write`` methods can be adapted from the ``Table`` class or
 can be included via a mixin class.
