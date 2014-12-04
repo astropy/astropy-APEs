@@ -5,7 +5,7 @@ author: Thomas Robitaille, Perry Greenfield, Matt Craig
 
 date-created:
 
-date-last-revised: 2014 October 2
+date-last-revised: 2014 December 3
 
 type: Standard Track
 
@@ -80,28 +80,33 @@ enforce this and factor out some boilerplate code, and as described in
 `Alternatives`_, the questions raised here would apply to a base ``Image``
 class that was sub-classed as ``XRayImage``, ``CCDImage``, and so on.
 
-Proposal for the ``NDData`` class
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Proposal for an ``NDDataBase`` abstract base class
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The proposal in this APE is to simplify the ``NDData`` class to the extreme,
+The first proposal in this APE is to separate a definition of the ``NDData``
+interface from concrete realizations of ``NDData``-like objects by creating an
+abstract base class called ``NDDataBase``.
+
+The proposed ``NDDataBase`` simplifies the current ``NDData`` class to the extreme,
 such that it essentially does only the following things:
 
 * It defines properties that will be in common to all ``NDData`` sub-classes,
-  but does not do any input validation.
+  but does only very limited input validation.
 
 * It provides generic ``read`` and ``write`` methods that connect to the I/O
   registry, as for the ``Table`` class.
 
-The ``NDData`` class should **not** define any arithmetic operations, which are
+The ``NDDataBase`` class should **not** define any arithmetic operations, which are
 impossible to generalize.
 
 The following properties should be included in the base class:
 
 * ``data`` - the data itself. No restrictions are placed on the type of this
-  data. For example, it could be a plain Numpy array, masked Numpy array, an
-  Astropy Quantity, or an h5py data buffer. However, we could require for
-  example that ``data`` provides a ``shape`` attribute in order to 'prove' that
-  it is an n-dimensional data object.
+  data in the ABC. Subclasses could, for example, make it a plain Numpy array,
+  masked Numpy array, an   Astropy Quantity, or an h5py data buffer. Subclasses
+  could also require, for   example, that ``data`` provides a ``shape``
+  attribute and/or be sliceable   in order to 'prove' that it is an
+  n-dimensional data object.
 
 * ``mask`` - the mask of the data, following the Numpy convention of `True`
   meaning masked, and `False` meaning unmasked. Sub-classes could choose to
@@ -111,12 +116,16 @@ The following properties should be included in the base class:
 
 * ``unit`` - the unit of the data values, which will be internally
   represented as an Astropy Unit. Sub-classes could choose to connect this to
-  ``data.unit``
+  ``data.unit``. If present, subclasses should try to ensure numerical
+  operations properly take into account and propagate units. Sub-classes could
+  choose to connect this to ``data.unit``, in which case data should be a
+  ``Quantity`` or behave like it.
 
 * ``wcs`` - an object that can be used to describe the relationship between
   positions in 'pixel' space, and world coordinates. This can (but does not
   have to) be an Astropy WCS object. Once the generalized WCS system is in
-  place in Astropy, we could require this to be such an object.
+  place in Astropy, we could require this to be such an object. Subclasses are
+  free to be more restrictive in what they permit for the ``wcs`` object.
 
 * ``meta`` - a dict-like object that can be used to contain arbitrary metadata.
   This could be a plain Python dict, an ordered dict, a FITS Header object, and
@@ -126,7 +135,7 @@ The following properties should be included in the base class:
   data for each element on the array.  This APE places no restriction on
   what type of uncertainty this is (e.g. variance,  standard deviation,
   or posisson count rate), nor does it require the attribute to be set
-  at all (other than defaulting to None). It places only one restriction
+  at all (other than defaulting to ``None``). It places only one restriction
   on ``uncertainty``: it must have an attribute ``uncertainty_type``,
   which should be a human-readable string.
 
@@ -141,20 +150,32 @@ The following properties should be included in the base class:
   * ``"ivar"``: if ``uncertainty`` stores the inverse variance (either a
     single value or on a per-pixel basis).
 
-Specific functionality such as uncertainty handling and arithmetic can be
-developed as mix-in classes that can be used by ``NDData`` sub-classes.
-
-Generic slicing capabilities, further described in `Implementation`_, will be
-provided as a mixin class called ``NDSlicing``
-
 The only **required** attribute is ``data``; all others default to ``None`` if
 not initialized or overridden in a subclass.
+
+Proposal for the ``NDData`` class
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``NDData`` class would be a concrete class that is far less restrictive
+than the current ``NDData`` while still providing some basic functionality as
+a container. It will place loose restrictions on what ``data`` can be set to
+and is described further in `Implementation`_.
+
 
 The base class would **not** include methods such as ``__array__``,
 ``__array_prepare__``, and so on which allow a class to be treated as a Numpy
 array. This behavior has been identified as being potentially ambiguous in
 the general case because it will depend on the details of e.g. how masks are
 handled and also does not make it explicit in what units the data is required.
+
+Proposal for mixin classes to provide additional functionality
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Specific functionality such as uncertainty handling and arithmetic can be
+developed as mix-in classes that can be used by ``NDData`` sub-classes.
+
+Generic slicing capabilities, further described in `Implementation`_, will be
+provided as a mixin class called ``NDSlicing``
 
 Handling of ``NDData`` in Astropy and affiliated packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -173,26 +194,33 @@ that we then provide a way for users to be able to call these functions with
 Implementation
 --------------
 
-``NDData`` class
-^^^^^^^^^^^^^^^^
+``NDDataBase`` class
+^^^^^^^^^^^^^^^^^^^^
 
-The ``NDData`` class should be dramatically simplified to comply with the
-proposal above. It should contain very little apart from the read-only
-property definitions. For example, for the WCS, it should simply contain::
+``NDDataBase`` will be implemented as an abstract base class. The only input
+validation it will provide is enforcing the existence of an
+``uncertainty_type`` attribute if ``uncertainty`` is not ``None``, as described
+above.
 
-    @property
-    def wcs(self):
-        return self._wcs
-
-where ``self._wcs`` was initially set in ``__init__``. We will not include
-setters because it is ambiguous what the meaning of setting e.g. the unit or
-WCS after initialization means: it could either mean to change the unit or
-WCS, or it could mean that the user wants to convert the data to this new
-unit or WCS. Given this ambiguity, it is safer to not have setters for the
-core attributes and this is consistent with e.g. ``Quantity``.
+We will not include setters for properties except ``mask`` and ``uncertainty``
+because it is ambiguous what the meaning of setting e.g. the unit or WCS after
+initialization means: it could either mean to change the unit or WCS, or it
+could mean that the user wants to convert the data to this new unit or WCS.
+Given this ambiguity, it is safer to not have setters for the core attributes
+and this is consistent with e.g. ``Quantity``.
 
 The ``read`` and ``write`` methods can be adapted from the ``Table`` class or
 can be included via a mixin class.
+
+``NDData`` class
+^^^^^^^^^^^^^^^^
+
+``NDData`` will be a concrete subclass of ``NDDataBase`` that provides some logic for handling the setting of ``data``:
+
+* If the object passed in as ``data`` has a ``shape`` attribute and is
+  sliceable then ``NDData.data`` will be set to that object.
+* Otherwise, ``NDData`` will attempt to create a ``numpy.ndarray`` from the
+  input ``data`` and use that as the internal representation of the data.
 
 Slicing mixin
 ^^^^^^^^^^^^^
@@ -225,6 +253,12 @@ Note that slicing does not always have to return an array - for example in the
 case of WCS, it would return a new WCS object that would map the pixel
 coordinates in the subset to world coordinates, so it would simply be an
 updated transformation rather than an array slice.
+
+Arithmetic mixin
+^^^^^^^^^^^^^^^^
+
+The arithmetic methods currently in ``NDData`` will be implemented in a mixin
+called ``NDArithmetic``.
 
 Facilitating the use of ``NDData`` sub-classes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
