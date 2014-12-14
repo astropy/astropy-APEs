@@ -124,7 +124,7 @@ The following properties should be included in the base class:
   ``Quantity`` or behave like it.
 
 * ``wcs`` - an object that can be used to describe the relationship between
-  positions in 'pixel' space, and world coordinates. This can (but does not
+  input and world coordinates. This can (but does not
   have to) be an Astropy WCS object. Once the generalized WCS system is in
   place in Astropy, we will probably require this to be such an object.
   Subclasses are free to be more restrictive in what they permit for the
@@ -212,8 +212,6 @@ could mean that the user wants to convert the data to this new unit or WCS.
 Given this ambiguity, it is safer to not have setters for the core attributes
 and this is consistent with e.g. ``Quantity``.
 
-The ``read`` and ``write`` methods can be adapted from the ``Table`` class or
-can be included via a mixin class.
 
 ``NDData`` class
 ^^^^^^^^^^^^^^^^
@@ -225,6 +223,11 @@ can be included via a mixin class.
   a numpy array, then ``NDData.data`` will be set to that object.
 * Otherwise, ``NDData`` will attempt to create a ``numpy.ndarray`` from the
   input ``data`` and use that as the internal representation of the data.
+
+I/O mixin
+^^^^^^^^^
+
+The ``read`` and ``write`` methods will be developed via a mixin class.
 
 Slicing mixin
 ^^^^^^^^^^^^^
@@ -253,10 +256,9 @@ idea is that the slicing would be delegated to the member attributes. For
 example, the WCS class would need to define itself how it should be sliced.
 Some attributes (such as ``meta``) would not necessarily need to be sliceable.
 
-Note that slicing does not always have to return an array - for example in the
-case of WCS, it would return a new WCS object that would map the pixel
-coordinates in the subset to world coordinates, so it would simply be an
-updated transformation rather than an array slice.
+Note the effect of slicing on attributes presumably returns a similar object,
+e.g., for wcs, it returns a new WCS appropriate to the sliced data attribute.
+
 
 Arithmetic mixin
 ^^^^^^^^^^^^^^^^
