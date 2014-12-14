@@ -356,15 +356,6 @@ properties like ``unit`` to the underlying properties in ``Quantity``. Should
 that also prove to be unworkable, an explanation of the issues that prevented
 implementation may be provided in the documentation for ``NDData``.
 
-Further implementation considerations
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-One idea that has been suggested is to have an abstract base class below
-``NDData`` that could be used to give ``NDData``-like behavior to other
-classes (for example one based on ``Quantity``). This however does not affect
-the behavior of the ``NDData`` class itself, so we leave this as a point of
-future discussion beyond this APE.
-
 Branches and pull requests
 --------------------------
 
