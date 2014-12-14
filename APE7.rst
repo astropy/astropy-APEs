@@ -17,7 +17,9 @@ Abstract
 This APE is intended to provide a long-term plan for the ``astropy.nddata``
 sub-package. The package has been the subject of continuous debate since the
 start of the astropy project, and has changed in scope several times, so this
-APE is aimed at agreeing on the scope and future of the sub-package.
+APE is aimed at agreeing on the scope and future of the sub-package and
+providing a well-structured foundation on which future development of
+``astropy.nddata`` can occur.
 
 Detailed description
 --------------------
@@ -124,8 +126,9 @@ The following properties should be included in the base class:
 * ``wcs`` - an object that can be used to describe the relationship between
   positions in 'pixel' space, and world coordinates. This can (but does not
   have to) be an Astropy WCS object. Once the generalized WCS system is in
-  place in Astropy, we could require this to be such an object. Subclasses are
-  free to be more restrictive in what they permit for the ``wcs`` object.
+  place in Astropy, we will probably require this to be such an object.
+  Subclasses are free to be more restrictive in what they permit for the
+  ``wcs`` object.
 
 * ``meta`` - a dict-like object that can be used to contain arbitrary metadata.
   This could be a plain Python dict, an ordered dict, a FITS Header object, and
@@ -162,7 +165,7 @@ a container. It will place loose restrictions on what ``data`` can be set to
 and is described further in `Implementation`_.
 
 
-The base class would **not** include methods such as ``__array__``,
+The ``NDData`` class would **not** include methods such as ``__array__``,
 ``__array_prepare__``, and so on which allow a class to be treated as a Numpy
 array. This behavior has been identified as being potentially ambiguous in
 the general case because it will depend on the details of e.g. how masks are
@@ -217,8 +220,9 @@ can be included via a mixin class.
 
 ``NDData`` will be a concrete subclass of ``NDDataBase`` that provides some logic for handling the setting of ``data``:
 
-* If the object passed in as ``data`` has a ``shape`` attribute and is
-  sliceable then ``NDData.data`` will be set to that object.
+* If the object passed in as ``data`` has a ``shape`` attribute, is
+  sliceable, and has an ``__array__`` method, so that it can be easily used as
+  a numpy array, then ``NDData.data`` will be set to that object.
 * Otherwise, ``NDData`` will attempt to create a ``numpy.ndarray`` from the
   input ``data`` and use that as the internal representation of the data.
 
