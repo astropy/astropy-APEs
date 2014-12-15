@@ -90,13 +90,7 @@ interface from concrete realizations of ``NDData``-like objects by creating an
 abstract base class called ``NDDataBase``.
 
 The proposed ``NDDataBase`` simplifies the current ``NDData`` class to the extreme,
-such that it essentially does only the following things:
-
-* It defines properties that will be in common to all ``NDData`` sub-classes,
-  but does only very limited input validation.
-
-* It provides generic ``read`` and ``write`` methods that connect to the I/O
-  registry, as for the ``Table`` class.
+such that it only defines which properties are needed for ``NDData``.
 
 The ``NDDataBase`` class should **not** define any arithmetic operations, which are
 impossible to generalize.
