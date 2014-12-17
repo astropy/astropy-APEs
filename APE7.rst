@@ -111,11 +111,10 @@ The following properties should be included in the base class:
   on-the-fly.
 
 * ``unit`` - the unit of the data values, which will be internally
-  represented as an Astropy Unit. Sub-classes could choose to connect this to
-  ``data.unit``. If present, subclasses should try to ensure numerical
-  operations properly take into account and propagate units. Sub-classes could
-  choose to connect this to ``data.unit``, in which case data should be a
-  ``Quantity`` or behave like it.
+  represented as an Astropy Unit. If present, subclasses should try to ensure
+  numerical operations properly take into account and propagate units.
+  Sub-classes could choose to connect this to ``data.unit``, in which case data
+  should be a ``Quantity`` or behave like it.
 
 * ``wcs`` - an object that can be used to describe the relationship between
   input and world coordinates. This can (but does not
