@@ -1,15 +1,15 @@
 NDData Plan
 -----------
 
-author: Thomas Robitaille, Perry Greenfield, Matt Craig
+authors: Thomas Robitaille, Perry Greenfield, Matt Craig
 
-date-created:
+date-created: 2014 October 30
 
-date-last-revised: 2014 December 3
+date-last-revised: 2014 December 17
 
 type: Standard Track
 
-status: Discussion
+status: Accepted
 
 Abstract
 --------
@@ -431,4 +431,9 @@ this APE.
 Decision rationale
 ------------------
 
-<To be filled in when the APE is accepted or rejected>
+This APE led to lengthy discussion both
+`on the mailing list <https://groups.google.com/forum/#!topic/astropy-dev/3KeYQqbNblo>`_
+and in the `astropy-APEs Pull Request <https://github.com/astropy/astropy-APEs/pull/8>`_.
+This produced some major changes to the APE, leading to the current form.
+A final vote was held, with unanimous support.  Hence this APE was accepted
+2014 December 17.
