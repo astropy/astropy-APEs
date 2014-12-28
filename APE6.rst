@@ -1,5 +1,5 @@
 Enhanced Character-Separated-Values format
------------------------------------
+------------------------------------------
 
 author: Tom Aldcroft
 
@@ -227,6 +227,10 @@ is highly-recommended that applications format the YAML header to be legible
 to humans.  This is important because a key feature of YAML is that it is
 meant to be easily readable, and thus modifiable, by humans.
 
+The highly readable nature of YAML is key driver for using this over JSON.
+In simple cases the column definitions serialize on a single line which
+makes for a compact and useful representation.
+
 Example
 ^^^^^^^^^^
 
@@ -377,7 +381,8 @@ Each column specifier is a dictionary structure with the following keys:
   Column data type.  Allowed types are: ``bool``, ``int8``,
   ``int16``, ``int32``, ``int64``, ``uint8``, ``uint16``, ``uint32``,
   ``uint64``, ``float16``, ``float32``, ``float64``, ``float128``,
-  ``complex64``, ``complex128``, ``complex256``, and ``string8``.
+  ``complex64``, ``complex128``, ``complex256``, and ``string``.
+  Some implementations may not support all types.
 
 ``unit``: string, optional
    Data unit (unit system could be part of schema?).
@@ -412,11 +417,20 @@ validate that the column names in this line match those in the header.
 Following the column name line the data values are serialized according to
 the following rules:
 
-In this example above the delimiter is the space character.  Details of
-delimiters, quote characters, etc that should be allowed / supported are TBD.
+- Each row must contain the same number of delimiter-separated fields.
+- Fields are separated by the delimiter character, which can be either the
+  space or comma character.
+- Any field may be quoted with double quotes.
+- Fields containing a line-break, double-quote, and/or the delimiter character
+  must be quoted
+- Boolean fields are represented as the string ``False`` or ``True``.
+- A double quote character in a field must be represented by two double quote
+  characters.
 
 Multidimensional columns
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Multidimensional columns are not supported in version 1.0 of the ECSV format.
 
 None of the available text data formats supports multidimensional columns
 with more than one element per row.  Although in many cases
@@ -424,13 +438,14 @@ having such data would indicate using a binary storage format, there is
 utility in supporting this for cases where the column shape is "reasonable",
 perhaps with no more than about 10 elements.
 
-In this case one could store the individual data elements as a series of
-columns with a naming convention such as ``<name>__<index0>_<index1>_...``.
-In this case one would include a keyword in the column specification that
+One possible solution is to store the individual data elements as a series of
+columns with a naming convention such as ``<name>__<index0>_<index1>_...``.  In
+this case one would include a keyword in the column specification that
 indicates the column is one element of a multidimensional column ``<name>``.
 The specifics might need iteration, but again the idea is to maintain the
-ability to always read a ECSV file with a simple CSV reader, even if using
-the results then takes more effort.
+ability to always read a ECSV file with a simple CSV reader, even if using the
+results then takes more effort.
+
 
 Branches and pull requests
 --------------------------
