@@ -5,7 +5,7 @@ author: Tom Aldcroft
 
 date-created: 2014 April 12
 
-date-last-revised: 2014 September 5
+date-last-revised: 2014 December 28
 
 type: Standard Track
 
@@ -200,6 +200,9 @@ overall structure:
 - A CSV-formatted data section in which the first line contains the column names
   and subsequent lines contains the data values.
 
+Version 1.0 of the ECSV format specification and the reference Python
+implementation assumes ASCII-encoded header and data sections.  Support
+for unicode (in particular UTF-8) may be added in subsequent versions.
 
 Why YAML?
 ^^^^^^^^^^
@@ -427,6 +430,7 @@ the following rules:
 - A double quote character in a field must be represented by two double quote
   characters.
 
+
 Multidimensional columns
 """"""""""""""""""""""""
 
@@ -445,7 +449,6 @@ indicates the column is one element of a multidimensional column ``<name>``.
 The specifics might need iteration, but again the idea is to maintain the
 ability to always read a ECSV file with a simple CSV reader, even if using the
 results then takes more effort.
-
 
 Branches and pull requests
 --------------------------
