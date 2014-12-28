@@ -1,4 +1,4 @@
-Enhanced Character-Separated-Values format
+Enhanced Character Separated Values format
 ------------------------------------------
 
 author: Tom Aldcroft
@@ -19,7 +19,7 @@ APE6 is primarily a specification of a new standard for the interchange of
 tabular data in a text-only format.  The proposed format handles the key issue
 of serializing column specifications and table metadata by using a YAML-encoded
 data structure.  The actual tabular data are stored in a standard
-character-separated-values (CSV) format, giving compatibility with a wide variety of
+character separated values (CSV) format, giving compatibility with a wide variety of
 non-specialized CSV table readers.
 
 Using YAML makes it extremely easy for applications *and humans* to read both
@@ -323,7 +323,7 @@ Other implementations must likewise use an ordered mapping when reading and the
 In addition, the reference Python implementation outputs the column attributes
 in the order ``'name'``, ``'unit'``, ``'type'``, ``'format'``,
 ``'description'``, and ``'meta'``.  This is not a ECSV requirement but is
-recommended for humans accessibility.
+recommended for human accessibility.
 
 Header details
 ^^^^^^^^^^^^^^^^
@@ -428,7 +428,7 @@ the following rules:
   characters.
 
 Multidimensional columns
-^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""
 
 Multidimensional columns are not supported in version 1.0 of the ECSV format.
 
