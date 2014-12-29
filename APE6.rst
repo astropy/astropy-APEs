@@ -89,8 +89,7 @@ non-regular format that requires tricky regex parsing and logic to fully interpr
 
 A few options for `reading MRT files
 <https://aas.org/authors/machine-readable-table-programs>`_ are available, but
-none of them are full-featured.  [QUESTION: does TOPCAT directly read CDS?  It
-isn't explicitly listed as a supported format].  As far as we know the version
+none of them are full-featured.  As far as we know the version
 in Astropy is the only one being currently maintained.  It supports much of the
 standard with regards to the data values and column definitions, but makes no
 attempt to parse any of the other table metadata.  Getting an MRT file directly
@@ -153,7 +152,7 @@ serialization of complex data structures, including tablular data sets.  The
 issue in this context is in simplicity and data interchange with the broader
 community.  In essence if someone wants to read or write a VOTable then they
 must use one of a small number of implementations of this protocol.  It is not
-possible for someoneto directly read such a table into Excel.  Writing an
+possible for someone to directly read such a table into Excel.  Writing an
 implementation of VOTable in a new language (e.g. R, Julia, or Perl) to read/write
 VOTable is a major undertaking.
 
@@ -360,7 +359,7 @@ Standard keywords are:
 
 ``delimiter``: one-character string, optional, default=``space``
    Delimiter character used to separate the data fields.  Allowed
-   delimiter values are the characters ``space`` or ``comma``.
+   delimiter values are the single characters ``space`` or ``comma``.
 
 ``meta``: structure, optional
    Table meta-data as an arbitrary data structure consisting
