@@ -1,5 +1,5 @@
-Enhanced Character Separated Values format
-------------------------------------------
+Enhanced Character Separated Values table format
+------------------------------------------------
 
 author: Tom Aldcroft
 
@@ -15,8 +15,14 @@ status: Discussion
 Abstract
 --------
 
-APE6 is primarily a specification of a new standard for the interchange of
-tabular data in a text-only format.  The proposed format handles the key issue
+Data tables in astronomical analysis frequently contain additional metadata
+beyond just the column names and data values.  Common attributes include the
+numerical data type, the physical unit, and a longer textual description of the
+column content.  These attributes can be reprented in binary formats such as
+FITS, but the available options for a text-only format are inadequate.
+
+APE6 proposes to fill this void by specification of a standard for the interchange of
+tabular data in a text-only format.  The format handles the key issue
 of serializing column specifications and table metadata by using a YAML-encoded
 data structure.  The actual tabular data are stored in a standard
 character separated values (CSV) format, giving compatibility with a wide variety of
@@ -27,9 +33,14 @@ the standardized data format elements (e.g. column name, type, description) as
 well as complex metadata structures.  YAML also lends itself to simple table
 modifications by humans in a plain text editor.
 
-The reference Python implementation in ``astropy.io.ascii`` is relatively straightforward and
-will provide a significant benefit of allowing text serialization of most astropy
-Table objects, persistent storage, and subsequent interchange with other users.
+The reference Python implementation in ``astropy.io.ascii`` is relatively
+straightforward and will provide a significant benefit of allowing text
+serialization of most astropy Table objects, persistent storage, and subsequent
+interchange with other users.
+
+Although developed in the context of Astropy, there is nothing
+astronomy-specific in this format and it could be useful for other domains or
+languages.  However, promoting that is beyond the scope of this APE.
 
 Existing standards
 --------------------
@@ -180,10 +191,12 @@ the `JSON Table Schema
 <http://dataprotocols.org/json-table-schema/>`_.
 
 
-After evaluation and discussion with that community, we find that the Tabular
-Data Package and associated standards would require a fair degree of
-modification to fully suit our needs.  More crucially, the decision to rely on
-YAML instead of JSON for serialization precludes direct use of the TDP.
+After evaluation and a brief ``discussion with that community
+<https://lists.okfn.org/pipermail/data-protocols/2014-April/000093.html>`_, we
+find that the Tabular Data Package and associated standards would require a
+fair degree of modification to fully suit our needs.  More crucially, the
+decision to rely on YAML instead of JSON for serialization precludes direct use
+of the TDP.
 
 
 Detailed description
@@ -467,7 +480,7 @@ Further work is pending discussion of APE6.
 Backward compatibility
 ----------------------
 
-This section describes the ways in which the APE breaks backward compatibility.
+This is a new feature and there are no issues with backward compatibility.
 
 
 Alternatives
