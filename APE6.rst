@@ -191,7 +191,7 @@ the `JSON Table Schema
 <http://dataprotocols.org/json-table-schema/>`_.
 
 
-After evaluation and a brief ``discussion with that community
+After evaluation and a brief `discussion with that community
 <https://lists.okfn.org/pipermail/data-protocols/2014-April/000093.html>`_, we
 find that the Tabular Data Package and associated standards would require a
 fair degree of modification to fully suit our needs.  More crucially, the
