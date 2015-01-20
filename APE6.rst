@@ -5,7 +5,7 @@ author: Tom Aldcroft
 
 date-created: 2014 April 12
 
-date-last-revised: 2014 December 28
+date-last-revised: 2015 January 20
 
 type: Standard Track
 
@@ -233,7 +233,7 @@ used programming languages (with the notable exception of IDL).
 
 Translating to / from the data structure provided by a ECSV header into the native
 structure that an application uses should generally be quite easy because the
-functional elements (e.g. column name, type) are ubiquitous.  Generally
+functional elements (e.g. column name, data type) are ubiquitous.  Generally
 speaking manipulating data structures programmatically is easier than parsing
 textual data structure fields.
 
@@ -272,9 +272,9 @@ Now we write this to a file using the ECSV format and print it::
   >>> cat example.ecsv
   # %ECSV 1.0
   # ---
-  # columns:
-  # - {name: a, unit: m / s, type: int64, format: '%03d'}
-  # - {name: b, unit: km, type: int64, description: This is column b}
+  # datatype:
+  # - {name: a, unit: m / s, datatype: int64, format: '%03d'}
+  # - {name: b, unit: km, datatype: int64, description: This is column b}
   a b
   001 2
   004 3
@@ -313,10 +313,10 @@ Now we write the table to standard out::
   >>> t.write(sys.stdout, format='ascii.ecsv')
   # %ECSV 1.0
   # ---
-  # columns:
+  # datatype:
   # - {name: a, unit: m / s, type: int64, format: '%5.2f', description: Column A}
   # - name: b
-  #   type: int64
+  #   datatype: int64
   #   meta:
   #     column_meta: {a: 1, b: 2}
   # meta: !!omap
@@ -336,7 +336,7 @@ Other implementations must likewise use an ordered mapping when reading and the
 ``!!omap`` tag when writing for ordered mappings in the data structure.
 
 In addition, the reference Python implementation outputs the column attributes
-in the order ``'name'``, ``'unit'``, ``'type'``, ``'format'``,
+in the order ``'name'``, ``'unit'``, ``'datatype'``, ``'format'``,
 ``'description'``, and ``'meta'``.  This is not a ECSV requirement but is
 recommended for human accessibility.
 
@@ -367,8 +367,8 @@ encouraged.
 
 Standard keywords are:
 
-``columns``: list, required
-   List of column specifiers.
+``datatype``: list, required
+   Top-level data type specification as a list of column specifiers.
 
 ``delimiter``: one-character string, optional, default=``space``
    Delimiter character used to separate the data fields.  Allowed
@@ -392,7 +392,7 @@ Each column specifier is a dictionary structure with the following keys:
 ``name``: string, required
    Column name
 
-``type``: string, required
+``datatype``: string, required
   Column data type.  Allowed types are: ``bool``, ``int8``,
   ``int16``, ``int32``, ``int64``, ``uint8``, ``uint16``, ``uint32``,
   ``uint64``, ``float16``, ``float32``, ``float64``, ``float128``,
