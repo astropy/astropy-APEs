@@ -11,6 +11,8 @@ type: Standard Track
 
 status: Discussion
 
+version: 0.9
+
 
 Abstract
 --------
@@ -212,7 +214,7 @@ overall structure:
 - A CSV-formatted data section in which the first line contains the column names
   and subsequent lines contains the data values.
 
-Version 1.0 of the ECSV format specification and the reference Python
+Version 0.9 of the ECSV format specification and the reference Python
 implementation assumes ASCII-encoded header and data sections.  Support
 for unicode (in particular UTF-8) may be added in subsequent versions.
 
@@ -270,7 +272,7 @@ Now we write this to a file using the ECSV format and print it::
 
   >>> t.write('example.ecsv', format='ascii.ecsv')
   >>> cat example.ecsv
-  # %ECSV 1.0
+  # %ECSV 0.9
   # ---
   # datatype:
   # - {name: a, unit: m / s, datatype: int64, format: '%03d'}
@@ -311,7 +313,7 @@ Now we write the table to standard out::
 
   >>> import sys
   >>> t.write(sys.stdout, format='ascii.ecsv')
-  # %ECSV 1.0
+  # %ECSV 0.9
   # ---
   # datatype:
   # - {name: a, unit: m / s, type: int64, format: '%5.2f', description: Column A}
@@ -446,7 +448,7 @@ the following rules:
 Multidimensional columns
 """"""""""""""""""""""""
 
-Multidimensional columns are not supported in version 1.0 of the ECSV format.
+Multidimensional columns are not supported in version 0.9 of the ECSV format.
 
 None of the available text data formats supports multidimensional columns
 with more than one element per row.  Although in many cases
