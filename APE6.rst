@@ -352,14 +352,16 @@ required keywords and standard specifiers.
 
 Each line of the YAML-encoded data structure must start with the two
 characters ``# `` (hash followed by space) to indicate the presence of
-header content.  The first line which does not start with ``#``
-signifies the end of the header.  Subsequent lines starting with ``#``
-are treated as file comment lines.
+header content.  All content within this header section must be parseable
+as a single YAML document.  The first line which does not start with ``#``
+signifies the end of the header and the start of the data section.  Subsequent
+lines within the data section starting with ``#`` are to be ignored by the
+parser and not provided in the header output.
 
 Within the header section, lines which start with ``##`` are treated as
-comments and can be ignored by readers.  There is no requirement for
-ECSV writers to emit such comment data.  Relevant comment strings
-should be serialized within the ``meta`` keyword structure.
+comments and must be ignored by readers.  ECSV writers shall not emit such
+comment data.  Relevant comment strings should be serialized within the
+``meta`` keyword structure.
 
 Beyond the minimal standard, applications are free to
 create a custom data structure as needed using the top-level ``meta``
@@ -430,6 +432,9 @@ names formatted according to the CSV writer being used.  This allows
 most CSV reader applications to successfully read ECSV files and
 automatically infer the correct column names.  ECSV readers should
 validate that the column names in this line match those in the header.
+A mismatch of the number of columns will be an error.  If there is a
+name mismatch then it is recommended that the reader issue a warning,
+but implementations are free to be either less or more strict.
 
 Following the column name line the data values are serialized according to
 the following rules:
@@ -440,7 +445,8 @@ the following rules:
 - Any field may be quoted with double quotes.
 - Fields containing a line-break, double-quote, and/or the delimiter character
   must be quoted
-- Boolean fields are represented as the string ``False`` or ``True``.
+- Boolean fields are represented as the case-sensitive string ``False`` or
+  ``True``.
 - A double quote character in a field must be represented by two double quote
   characters.
 
