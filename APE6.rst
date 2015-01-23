@@ -5,11 +5,11 @@ author: Tom Aldcroft
 
 date-created: 2014 April 12
 
-date-last-revised: 2015 January 20
+date-last-revised: 2015 January 23
 
 type: Standard Track
 
-status: Discussion
+status: Accepted
 
 version: 0.9
 
@@ -502,4 +502,10 @@ interchange of astropy Tables.
 Decision rationale
 ------------------
 
-<To be filled in when the APE is accepted or rejected>
+This was discussed via pull request #7, with calls for comment sent out to the
+astropy, astropy-dev, and apps@ivoa.net mailing lists.  The general consensus
+was that this is a useful format that will be beneficial to the astronomy
+community.  A number of good suggestions and ideas were incorporated,
+particularly related to compatibility with the ASDF standard.  All comments
+from interested parties were agreeably resolved.  Therefore this APE was
+accepted on January 23rd 2015.
