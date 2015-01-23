@@ -481,8 +481,7 @@ Branches and pull requests
 Implementation
 --------------
 
-Much of the implementation is done in PR# 2319, which was based on PR# 683.
-Further work is pending discussion of APE6.
+The implementation is done in PR# 2319, which was based on PR# 683.
 
 
 Backward compatibility
