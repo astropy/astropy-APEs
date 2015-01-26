@@ -5,7 +5,7 @@ author: Tom Aldcroft
 
 date-created: 2014 April 12
 
-date-last-revised: 2015 January 23
+date-last-revised: 2015 January 26
 
 type: Standard Track
 
@@ -90,14 +90,14 @@ its heritage as a catalog descriptor format, it includes table metadata
 like ADC_Keywords, Literature Reference, table description, authors, notes,
 and comments.  Within that context it provides a well-documented standard.
 
-However, the CDS format does not include support for keyword values like FITS, 
+However, the CDS format does not include support for keyword values like FITS,
 nor arbitrary table metadata.  This limits the fidelity of serialization
 for tables that have rich metadata (e.g. WCS).
 
 As a tool for data interchange, CDS is far from ideal.  Despite the name "Machine
 Readable Table", the format is quite difficult for machines to read.  This
 stems from the format of the `ReadMe file
-<http://vizier.u-strasbg.fr/doc/catstd-3.1.htx>`_, which has a 
+<http://vizier.u-strasbg.fr/doc/catstd-3.1.htx>`_, which has a
 non-regular format that requires tricky regex parsing and logic to fully interpret.
 
 A few options for `reading MRT files
@@ -262,7 +262,7 @@ custom attributes::
   >>> t['b'].description = 'This is column b'
   >>> t['b'].unit = 'km'
   >>> print(t)
-    a    b 
+    a    b
   m / s  km
   ----- ---
     001   2
@@ -291,7 +291,7 @@ to a text file::
 
   >>> t2 = Table.read('example.ecsv', format='ascii.ecsv')
   >>> print(t2)
-    a    b 
+    a    b
   m / s  km
   ----- ---
     001   2
@@ -501,10 +501,16 @@ interchange of astropy Tables.
 Decision rationale
 ------------------
 
-This was discussed via pull request #7, with calls for comment sent out to the
-astropy, astropy-dev, and apps@ivoa.net mailing lists.  The general consensus
-was that this is a useful format that will be beneficial to the astronomy
-community.  A number of good suggestions and ideas were incorporated,
+This APE was discussed in
+`astropy-APEs PR 7 <https://github.com/astropy/astropy-APEs/pull/7>`_, with
+calls for comment sent out to the astropy, astropy-dev, and apps@ivoa.net
+mailing lists.  There was some concern that this proposal duplicates
+functionality that exists elsewhere (e.g., those discussed above), but the
+general consensus of the discussion participants was that this proposal
+provides a format with features that are sufficiently different from
+older options that it is worth implementing.
+
+A number of good suggestions and ideas were incorporated from the discussion,
 particularly related to compatibility with the ASDF standard.  All comments
-from interested parties were agreeably resolved.  Therefore this APE was
-accepted on January 23rd 2015.
+from interested parties were agreeably resolved.  As a result, the coordination
+committee unanimously agreed to accept this APE on 2015 January 26.
