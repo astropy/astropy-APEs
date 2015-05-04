@@ -15,7 +15,7 @@ status: Discussion
 Abstract
 --------
 
-This docuemnt and APE grew out of discussion at the April 2015 Lorentz Center
+This document and APE grew out of discussion at the April 2015 Lorentz Center
 meeting on Python in Astronomy, prompted both by meetings involving a
 substantial group from this community, of well as the addition of commenting
 capabilities to the Astropy Tutorials page.  We believe that our community has
@@ -38,7 +38,7 @@ The community of participants in open source Astronomy projects is made up of me
 As members of the community,
 
 * We pledge to treat all people with respect and provide a harassment- and bullying-free environment, regardless of sex, sexual orientation and/or gender identity, disability, physical appearance, body size, race, nationality, ethnicity, and religion. In particular, sexual language and imagery, sexist, racist,  or exclusionary jokes are not appropriate.
-* We pledge to respect the work of others by recognizing acknowledgement/citation requests of original authors. As authors, we pledge to be explicit about how we want our own work to be cited or acknowledged.
+* We pledge to respect the work of others by recognizing acknowledgment/citation requests of original authors. As authors, we pledge to be explicit about how we want our own work to be cited or acknowledged.
 * We pledge to welcome those interested in joining the community, and realize that including people with a variety of opinions will only serve to enrich our community. In particular, discussions relating to pros/cons of various technologies, programming languages, and so on are welcome, but these should be done with respect, taking proactive measure to ensure that all participants are heard and feel confident that they can freely express their opinions.
 * We pledge to welcome questions and answer them respectfully, paying particular attention to those new to the community. We pledge to provide respectful criticisms and feedback in forums, especially in discussion threads resulting from code contributions.
 * We pledge to be conscientious of the perceptions of the wider community and to respond to criticism respectfully. We will strive to model behaviors that encourage productive debate and disagreement, both within our community and where we are criticized. We will treat those outside our community with the same respect as people within our community.
