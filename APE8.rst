@@ -17,7 +17,7 @@ Abstract
 
 This document and APE grew out of discussion at the April 2015 Lorentz Center
 meeting on Python in Astronomy, prompted both by meetings involving a
-substantial group from this community, of well as the addition of commenting
+substantial group from this community, as well as the addition of commenting
 capabilities to the Astropy Tutorials page.  We believe that our community has
 developed to the point that we should have a code of conduct specific to the
 Astropy project (and other projects of similar mind).  This APE provides the
