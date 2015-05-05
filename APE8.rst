@@ -1,5 +1,5 @@
-Astropy Code of Conduct
------------------------
+Astropy Community Code of Conduct
+---------------------------------
 
 authors: Kelle Cruz, Alex Hagen, Thomas Robitaille, Erik Tollerud, Alexa Villaume
 
