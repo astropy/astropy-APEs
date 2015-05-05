@@ -22,7 +22,9 @@ capabilities to the Astropy Tutorials page.  We believe that our community has
 developed to the point that we should have a code of conduct specific to the
 Astropy project (and other projects of similar mind).  This APE provides the
 text of just such a code of conduct, which will be adopted by the project to
-provide guidance to the community.
+provide guidance to the community. The code of conduct will be licensed using
+the Creative Commons Attribution license, allowing other projects to use this
+code or adapt it to their needs.
 
 
 Detailed description
@@ -47,6 +49,11 @@ As members of the community,
 This code of conduct applies to all community situations online and offline, including mailing lists, forums, social media, conferences, meetings, associated social events, and one-to-one interactions.
 
 Parts of this code of conduct have been adapted from the `PSF code of conduct <https://www.python.org/psf/codeofconduct/>`_.
+
+The Astropy Community Code of Conduct is licensed under a
+Creative Commons Attribution 4.0 International License.
+You should have received a copy of the license along with this
+work. If not, see http://creativecommons.org/licenses/by/4.0/.
 
 
 Branches and pull requests
