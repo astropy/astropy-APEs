@@ -60,9 +60,13 @@ Implementation
 
 If this APE is accepted, the code of conduct shown above will be added to the
 astropy.org web site.  Note that this is *not* intended to mean that the text
-cannot be revised in the future. Future changes can be made using the standard
-astropy Pull Request procedure, so the "authoritative" copy will be the one on
-the web site.
+cannot be revised in the future. After this APE is accepted, the authoritative
+copy of the code of conduct will be the one on the web site, so future changes
+can be made using pull requests to that version.  However, any such pull
+requests should be advertised to the community via standard communication
+channels like the mailing lists, allowing at least one week for feedback from
+the community.
+
 
 
 Backward compatibility
