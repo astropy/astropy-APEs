@@ -50,10 +50,7 @@ This code of conduct applies to all community situations online and offline, inc
 
 Parts of this code of conduct have been adapted from the `PSF code of conduct <https://www.python.org/psf/codeofconduct/>`_.
 
-The Astropy Community Code of Conduct is licensed under a
-Creative Commons Attribution 4.0 International License.
-You should have received a copy of the license along with this
-work. If not, see http://creativecommons.org/licenses/by/4.0/.
+The Astropy Community Code of Conduct is licensed under a `Creative Commons Attribution 4.0 International License <http://creativecommons.org/licenses/by/4.0/>`_.
 
 
 Branches and pull requests
