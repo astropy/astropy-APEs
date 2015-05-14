@@ -56,7 +56,7 @@ The Astropy Community Code of Conduct is licensed under a `Creative Commons Attr
 Branches and pull requests
 --------------------------
 
-None.
+* `astropy.github.com#75 <https://github.com/astropy/astropy.github.com/pull/75>`_: adds the Code of Conduct to the astropy web site.
 
 
 Implementation
