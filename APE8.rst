@@ -88,4 +88,10 @@ None.
 Decision rationale
 ------------------
 
-<To be filled in by the coordinating committee when the APE is accepted or rejected>
+This APE was discussed extensively in person at the Python in Astronomy
+workshop, so the version proposed in this APE was already close to final.
+Only a few minor changes were made during the APE review process, and in
+particular a clause was added that future changes to the code of conduct do
+not require a new APE, but do require a period of one week for anyone to
+raise objections to proposed changes. No objections were raised for this APE,
+and it was therefore accepted on May 17th 2015.
