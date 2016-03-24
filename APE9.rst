@@ -51,17 +51,20 @@ which is more related to Astronomy:
 #. Astropy unit support
 #. Propagation of uncertainties
 #. Support for background subtraction
+#. Support variable width time bins.
 
+
+It is proposed that this functionality be implemented via a subclass of the
+``QTable`` class, with a few requirements specific to the timeseries class:
+
+#. A 'Time' index column exists which enforces unique indexes.
+#. The table is always sorted in terms of increasing time.
 
 
 Branches and pull requests
 --------------------------
 
-**TODO:**
-Any pull requests or development branches containing work on this APE should be
-linked to from here.  (An APE does not need to be implemented in a single pull
-request if it makes sense to implement it in discrete phases). If no code is yet
-implemented, just put "N/A"
+N/A
 
 
 Implementation
