@@ -36,12 +36,15 @@ either sampling a continuous variable at fixed times or counting some events
 binned into time windows. These types of applications require some basic
 functionality:
 
-#. Extending / concatenating timeseries'
+#. Extending timeseries with extra rows
+#. Concatenating multiple timeseries objects
 #. Sorting
-#. Slicing / selecting time ranges
-#. Re-binning timeseries
+#. Slicing / selecting time ranges (indexing)
+#. Re-binning and re-sampling timeseries
 #. Interpolating to different time stamps.
 #. Masking
+#. Support for subtraction and addition.
+#. Plotting and visualisation.
 
 While this functionality is found in non-domain specific packages such as
 pandas, a timeseries object in Astropy would also provide some functionality
@@ -49,16 +52,30 @@ which is more related to Astronomy:
 
 #. Converting between time systems
 #. Astropy unit support
-#. Propagation of uncertainties
-#. Support for background subtraction
 #. Support variable width time bins.
-
 
 It is proposed that this functionality be implemented via a subclass of the
 ``QTable`` class, with a few requirements specific to the timeseries class:
 
 #. A 'Time' index column exists which enforces unique indexes.
 #. The table is always sorted in terms of increasing time.
+
+
+Binned Data vs Sampled Data
+###########################
+
+There are two different types of data that a timeseries class or classes would
+have to support, sampled data and binned data. Sampled data is taken at a
+precise time stamp whereas binned data is a number of counts contained within a
+some time window. These two different types of timeseries data require different
+handling of methods such as re-binning or re-sampling, as well as for sampled
+data the width of the bins must be stored.
+
+This APE proposes that we place the following restrictions on binned data:
+
+#. Contiguious bins, i.e. the start of the i+1th bin is the end of the ith bin.
+#. The width of the bins is stored in a second column containing ``TimeDelta`` objects.
+
 
 
 Branches and pull requests
