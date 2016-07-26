@@ -189,7 +189,9 @@ Binary Operations on Masks
 When applying binary operations two different mask objects 
 objects, the result should be:
 
-1. the boolean result of the default boolean combination of the two masks
+
+1. The boolean result of the boolean combination of the default boolean
+representation of the two input masks.
 
 2. For bitplane masks:
 the boolean result of matched bit planes (by label) for those that have matches 
