@@ -214,7 +214,7 @@ resolved and more time for developers to make the transition to Python 3. On
 the other hand, if we want users to all be using Python 3 by 2020, then it does
 not make sense to delay the proposed release plan in this way, since the
 developers and infrastructure need to be ready for Python 3-only releases
-before the users are.
+before the users are. This APE therefore does not recommend this alternative.
 
 Decision rationale
 ------------------
