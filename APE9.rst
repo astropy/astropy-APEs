@@ -177,11 +177,11 @@ The returned boolean array must be broadcastable to the underlying data array
 
 As an example for bitplane masks:
 
-- nda.dmask() returns a boolean array
+- ``nda.dmask()`` returns a boolean array
 
-- nda.dmask.apply_flags(…) sets how the bit planes are to be used to generate a boolean result when ndd.dmask() is used
+- ``nda.dmask.apply_flags(…)`` sets how the bit planes are to be used to generate a boolean result when ``ndd.dmask()`` is used
 
-- nda.dmask(select=nda.dmask.bitplanes['saturated'] + nda.dmask.bitplanes['dead_pixels'])
+- ``nda.dmask(select=nda.dmask.bitplanes['saturated'] + nda.dmask.bitplanes['dead_pixels'])``
 
 Binary Operations on Masks
 ++++++++++++++++++++++++++
