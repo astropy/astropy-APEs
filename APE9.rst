@@ -119,13 +119,14 @@ NDData Details
 ++++++++++++++
 
 Composition instead of Inheritance
-++++++++++++++++++++++++++++++++++
+----------------------------------
 
 NDData will not be a subclass of NDArr. Instead it will contain references
-to an NDArr object.
+to an NDArr object. To avoid confusion, the attribute that contains the 
+NDArr object will be .arr
 
 Need for ExposureInfo object?
-+++++++++++++++++++++++++++++
+-----------------------------
 
 This is used by LSST to store information about the exposure such as filters,
 exposure time, etc. but all that is really needed is an isomorphic mapping
@@ -189,14 +190,15 @@ When applying binary operations two different mask objects
 objects, the result should be:
 
 1. the boolean result of the default boolean combination of the two masks
-1. For bitplane masks:
-the boolean result of matched bit planes (by label) for those that have matche 
+
+2. For bitplane masks:
+the boolean result of matched bit planes (by label) for those that have matches 
 and simple propagation of bitplanes that don’t match. An error results if the
 total required bit planes exceeds 64 (until larger int sizes are supported 
 universally in numpy or we build an interface to a higher dimensionality of
 int arrays to support more bit planes).
 
-2. For all other masks the result is a boolean array combination of the 
+3. For all other masks the result is a boolean array combination of the 
 default callable mask for each of the two inputs. In the case of a bit plane 
 combined with any other type of mask, the boolean will be applied to each 
 bitplane.
@@ -205,8 +207,10 @@ Uncertainty (the eternal tar pit)
 +++++++++++++++++++++++++++++++++
 
 The NDArr object shall have a "variance" attribute (too bad for those that
-standard deviation as an option). A value of None is not permitted (a scalar
-0 is just as convenient). It shall be broadcastable to the data array.
+desire standard deviation as an option; though for backward compatibility
+this will remain a possibility; it just won't be stored this way). 
+A value of None is not permitted 
+(a scalar 0 is just as convenient). It shall be broadcastable to the data array.
 
 By default it will propagate, though NDArr objects shall have an attribute 
 (and method to set it) to turn off automatic propagation.
@@ -215,21 +219,6 @@ WCS
 +++
 
 There does not appear to be any change needed for how WCS will be handled.
-
-User Interface Changes
-++++++++++++++++++++++
-
-Where NDObs is used (presuming composition instead of inheritance), one now must add
-an extra attribute layer to get at lower level items such the numpy array. For example
-if ndo is an instance of NDObs
-
-ndo.data returns the NDData instance
-ndo.data.arr returns the underlying numpy array
-ndo.data.mask returns the underlying boolean mask
-ndo.data.uncertainty
-ndo.wcs
-ndo.meta
-ndo.unit (or ndo.data.unit?)
 
 
 Branches and pull requests
@@ -255,8 +244,17 @@ include a link related pull requests as the implementation progresses.
 Backward compatibility
 ----------------------
 
-[TBD, depends on resolution of discussion]
-This section describes the ways in which the APE breaks backward compatibility.
+While this APE proposes a different internal model for NDData, nothing appears
+to preclude supporting the older interface to NDData. In effect, all the old
+attributes and methods will continue to work if used in straighforward ways
+(there are always ways to break something with changes of this size; for example
+the new attributes may conflict with existing code that extends NDData, though
+given the level of use of NDData, this is highly unlikely). This backwards 
+compatibility layer may result in some computed items that previously were not
+computed (e.g., computing stddev from variance).
+
+Whether the backward compatibility is temporary or permanent is not yet 
+determined.
 
 
 Alternatives
