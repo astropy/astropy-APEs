@@ -132,23 +132,52 @@ Packages on PyPI
 ^^^^^^^^^^^^^^^^^
 
 If we upload Astropy v3.0 to PyPI, and it does not support Python 2, then if
-Python 2.7 users try and pip install Astropy, the install or import will fail.
-This is because PyPI does not compare the current Python version to the PyPI
-meta-data for the package (which may indicate for example whether the package
-is Python 2-compatible), and will download Astropy v3.0 regardless of the
-active Python version. One possible solution is described in the
+Python 2.7 users try and pip install Astropy, the install or import will fail
+(with the current version of pip). This is because PyPI does not compare the
+current Python version to the PyPI meta-data for the package (which may
+indicate for example whether the package is Python 2-compatible), and will
+download Astropy v3.0 regardless of the active Python version.
+
+`PEP 345 <https://www.python.org/dev/peps/pep-0345/#requires-python>`_ defines
+the ``Requires-Python`` metadata field for Python packages, which can be used
+to explicitly specify which Python versions a package is compatible with.
+Support for this was added to `setuptools v24.2
+<https://github.com/pypa/setuptools/blob/master/CHANGES.rst#v2420>`_ via the
+``python_requires`` keyword argument to ``setup``::
+
+    setup(name=...,
+          version=...,
+          python_requires='>=2.7',
+          ...
+         )
+
+This metadata is not yet exposed by the Python Package Index (PyPI) but it is
+being worked on. Finally, support for this is `being implemented into pip
+<https://github.com/pypa/pip/pull/3877>`_. These changes will likely be merged
+soon, which means that versions of pip supporting this will be around in the
+wild for a little more than a year before Astropy v3.0 (the first release
+incompatible with Python 2) is out. Nevertheless, a fraction of Python 2 users
+may still be using old versions of pip by then and run the risk of installing a
+version of Astropy not compatible with Python 2.
+
+One possible solution is described in the
 `Jupyter roadmap
-<https://github.com/jupyter/roadmap/blob/master/accepted/migration-to-python-3-only.md#multiple-source-distributions>`_, which is to upload tar files that have
-a ``-py3.x`` suffix (one file per Python 3.x version, e.g.
-``astropy-3.0-py3.5.tar.gz``), or, if this is fixed in `pip
-<https://pip.pypa.io/en/stable/>`_, a single file with a ``-py3`` suffix (e.g.
-``astropy-3.0-py3.tar.gz``). This is currently `under discussion
-<https://github.com/pypa/pip/pull/3847>`_ with the pip developers. In any case,
-there will likely be a solution in place by early 2017 for IPython 6.0, so that
-this should not be a problem by the end of December 2017 for the v3.0 release
-of Astropy.
+<https://github.com/jupyter/roadmap/blob/master/accepted/migration-to-python-3-only.md#multiple-source-distributions>`_,
+which is to upload tar files that have a ``-py3.x`` suffix (one file per Python
+3.x version, e.g. ``astropy-3.0-py3.5.tar.gz``). We could choose to do this if
+we believe that the fraction of users with old pip installations is too high.
 
+We will re-assess this in the weeks coming up to the v3.0 release. If we
+believe that enough users have a recent enough pip installation, then we simply
+need to include ``python_requires='>=3'`` in the metadata for the v3.0 release.
+Otherwise, we can additionally make sure we add the ``-py3.x`` suffix to the
+files we upload to PyPI. By that time, the IPython 6.0 release (incompatible
+with Python 2) will be out, so we will also have the benefit of seeing how that
+release went and whether it caused any issues for users.
 
+Note that this will not be an issue for users using other package managers
+(either built in to their operating system, or e.g. conda), since these are
+normally always explicit about Python version requirements.
 
 Current pull requests
 ^^^^^^^^^^^^^^^^^^^^^
@@ -176,7 +205,7 @@ There are several benefits to following the plan proposed above:
 
 * Maintaining a Python 3-only code base will be significantly easier, because
   developers won't have to know both 2.x and 3.x (and the `six
-  <https://pypi.python.org/pypi/six>`_ package).
+  <https://pypi.python.org/pypi/six>`__ package).
 
 * We will be able to start using Python 3-only features internally, including
   for example function annotations (e.g., for units), matrix multiplication
