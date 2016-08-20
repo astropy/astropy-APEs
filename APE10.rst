@@ -152,9 +152,10 @@ Support for this was added to `setuptools v24.2
          )
 
 This metadata is not yet exposed by the Python Package Index (PyPI) but it is
-being worked on. Finally, support for this is `being implemented into pip
-<https://github.com/pypa/pip/pull/3877>`_. These changes will likely be merged
-soon, which means that versions of pip supporting this will be around in the
+being worked on. Finally, support for this `was implemented into pip
+<https://github.com/pypa/pip/pull/3877>`_ on August 11th 2016, which
+means that versions of pip released after this date will support this,
+and will have been around in the
 wild for a little more than a year before Astropy v3.0 (the first release
 incompatible with Python 2) is out. Nevertheless, a fraction of Python 2 users
 may still be using old versions of pip by then and run the risk of installing a
