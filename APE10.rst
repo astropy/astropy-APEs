@@ -5,11 +5,11 @@ author: Tom Robitaille
 
 date-created: 2016 July 13
 
-date-last-revised: 2016 August 9
+date-last-revised: 2016 August 22
 
 type: Process
 
-status: Draft
+status: Accepted
 
 Abstract
 --------
@@ -232,7 +232,7 @@ Version      Planned release date     Notes
 ==========   ======================   ==========================================
 v1.3         December 2016
 v2.0 - LTS   June 2017                Supported with bug fixes until end of 2019
-v2.1         December 2017            
+v2.1         December 2017
 v2.2         June 2018
 v2.3         December 2018
 v2.4         June 2019                Last release to support Python 2.7
@@ -249,4 +249,10 @@ before the users are. This APE therefore does not recommend this alternative.
 Decision rationale
 ------------------
 
-<To be filled in by the coordinating committee when the APE is accepted or rejected>
+This APE was advertised on the astropy-dev mailing list, the "Python users in
+Astronomy" Facebook group, and twitter, with a roughly 3 week comment period.
+No objections were raised by the community, and the proposal received positive
+feedback (some of which led to minor adjustments particularly regarding the PyPI
+issues.  Because of this apparent support by the community and agreement from
+the coordination committee with the goals of this APE, it was accepted Aug 22,
+2016.
