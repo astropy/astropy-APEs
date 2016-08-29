@@ -140,7 +140,10 @@ download Astropy v3.0 regardless of the active Python version.
 
 `PEP 345 <https://www.python.org/dev/peps/pep-0345/#requires-python>`_ defines
 the ``Requires-Python`` metadata field for Python packages, which can be used
-to explicitly specify which Python versions a package is compatible with.
+to explicitly specify which Python versions a package is compatible with. The
+format of this ``Requires-Python`` metadata is further refined on
+`PEP 440  <https://www.python.org/dev/peps/pep-0440/>`_ which is slightly more
+restrictive on the version format.
 Support for this was added to `setuptools v24.2
 <https://github.com/pypa/setuptools/blob/master/CHANGES.rst#v2420>`_ via the
 ``python_requires`` keyword argument to ``setup``::
@@ -170,7 +173,9 @@ we believe that the fraction of users with old pip installations is too high.
 
 We will re-assess this in the weeks coming up to the v3.0 release. If we
 believe that enough users have a recent enough pip installation, then we simply
-need to include ``python_requires='>=3'`` in the metadata for the v3.0 release.
+need to include ``python_requires='~=3.0'``  (indicating the release is
+"Compatible with" version 3.0 of Python, which is equivalent to
+``python_requires='>=3.0,<4'``) in the metadata for the v3.0 release.
 Otherwise, we can additionally make sure we add the ``-py3.x`` suffix to the
 files we upload to PyPI. By that time, the IPython 6.0 release (incompatible
 with Python 2) will be out, so we will also have the benefit of seeing how that
