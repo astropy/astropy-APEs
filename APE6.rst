@@ -317,7 +317,7 @@ Now we write the table to standard out::
   # %ECSV 0.9
   # ---
   # datatype:
-  # - {name: a, unit: m / s, type: int64, format: '%5.2f', description: Column A}
+  # - {name: a, unit: m / s, datatype: int64, format: '%5.2f', description: Column A}
   # - name: b
   #   datatype: int64
   #   meta:
