@@ -21,6 +21,9 @@ This APE proposes migrating the `package-template
 to the package template to ease use of the package template and to make it easy
 for other projects to customise the template for their users.
 
+This APE proposes major changes to the current layout of the package-template
+repository, potentially breaking existing user workflows, hence the APE.
+
 
 Detailed description
 --------------------
@@ -45,6 +48,69 @@ repository while not including it in the code that the person setting up a new
 project receives. This is because only the templated directory in the repository
 gets processed by Cookiecutter.
 
+An example of using cookiecutter with the package template is below. This
+example uses the `Cadair/pacakage-template <https://github.com/Cadair/package-template/tree/cookiecutter>`_
+``cookiecutter`` branch, if this work was to be merged the command would be
+``cookiecutter gh:astropy/package-template`` as the ``-c`` option specifies a
+non-master branch.
+
+.. image:: https://asciinema.org/a/7ilbwr10g0rj561clfkedui4j.png
+    :target: https://asciinema.org/a/7ilbwr10g0rj561clfkedui4j
+
+
+.. code-block::
+
+    ❯ cookiecutter gh:astropy/package-template
+    Cloning into 'package-template'...
+    remote: Counting objects: 952, done.
+    remote: Compressing objects: 100% (65/65), done.
+    remote: Total 952 (delta 38), reused 0 (delta 0), pack-reused 880
+    Receiving objects: 100% (952/952), 258.38 KiB | 0 bytes/s, done.
+    Resolving deltas: 100% (505/505), done.
+    Branch cookiecutter set up to track remote branch cookiecutter from origin.
+    Switched to a new branch 'cookiecutter'
+
+    package_name [packagename]: CadairPy
+
+    module_name [cadairpy]:
+
+    short_description [CadairPy]: CadairPy is code written about a mountain.
+
+    long_description []: Cadair Idris or Cader Idris is a mountain in Gwynedd, Wales, which lies at the southern end of the Snowdonia National Park near the town of Dolgellau. The peak, which is one of the most popular in Wales for walkers and hikers, is composed largely of Ordovician igneous rocks, with classic glacial erosion features such as cwms, moraines, striated rocks, and roches moutonnées.
+
+    author_name [Astropy Developers]: Stuart Mumford
+
+    author_email []: stuart@cadair.com
+
+    Select license:
+    1 - BSD 3-Clause
+    2 - GNU GPL v3+
+    3 - Apache Software Licence 2.0
+    4 - BSD 2-Clause
+    5 - Other
+    Choose from 1, 2, 3, 4, 5 [1]:
+
+    project_url [http://astropy.org]: http://cadair.com
+
+    project_version [0.0.dev]: 0.0.1.dev
+   
+    include_example_code [y]:
+
+    include_cextern_folder [n]:
+
+    edit_on_github_extension [False]: True
+
+    github_project [astropy/astropy]: cadair/cadairpy
+
+    use_travis_ci [y]:
+
+    use_appveyor_ci [y]:
+
+    use_read_the_docs [y]:
+
+    sphinx_theme [astropy-boostrap]:
+
+
 
 Branches and pull requests
 --------------------------
@@ -64,6 +130,12 @@ The changes to the package template are to move the template into a subdirectory
 and to change all occurrences of ``packagename`` and other user modifiable
 variables to Jinja template placeholders such as ``{{ cookiecutter.package_name }}``.
 
+A draft implementation is `here <https://github.com/Cadair/package-template/tree/cookiecutter>`_.
+
+As well as the changes to the package template the documentation in the Astropy
+docs regarding the package template will be significantly signified.
+
+
 Backward compatibility
 ----------------------
 
@@ -75,12 +147,18 @@ a git remote will no longer be able to pull updates from the
 generating a rendered version of the package template in another git repository
 or in a different branch.
 
+
 Alternatives
 ------------
+
+Keeping the current solution. This prevents any trouble for anyone using the
+'git update' method at the moment, but it does not provide any of the templating
+benefits presented above.
 
 Cookiecutter is not the only project templating system, others such as
 `diecutter <https://diecutter.readthedocs.io/>`_ could be used. Cookiecutter was
 chosen due to wide adoption and implementation in Python.
+
 
 Decision rationale
 ------------------
