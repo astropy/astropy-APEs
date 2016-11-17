@@ -151,7 +151,9 @@ The changes to the package template are to move the template into a subdirectory
 and to change all occurrences of ``packagename`` and other user modifiable
 variables to Jinja template placeholders such as ``{{ cookiecutter.package_name }}``.
 
-A draft implementation is `here <https://github.com/Cadair/package-template/tree/cookiecutter>`_.
+A draft implementation is `here <https://github.com/Cadair/package-template/tree/cookiecutter>`_. Which is in
+`PR #202 <https://github.com/astropy/package-template/pull/202>`_ to the
+package-template repository.
 
 As well as the changes to the package template the documentation in the Astropy
 docs regarding the package template will be significantly simplified.
