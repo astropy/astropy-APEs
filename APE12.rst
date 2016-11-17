@@ -154,7 +154,7 @@ variables to Jinja template placeholders such as ``{{ cookiecutter.package_name 
 A draft implementation is `here <https://github.com/Cadair/package-template/tree/cookiecutter>`_.
 
 As well as the changes to the package template the documentation in the Astropy
-docs regarding the package template will be significantly signified.
+docs regarding the package template will be significantly simplified.
 
 
 Backward compatibility
