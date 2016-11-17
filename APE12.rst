@@ -110,6 +110,27 @@ non-master branch.
 
     sphinx_theme [astropy-boostrap]:
 
+    ❯ ls -la
+    total 116K
+    drwxr-xr-x  5 stuart users 4.0K Nov 17 14:41 ./
+    drwx------ 69 stuart users 4.0K Nov 17 14:41 ../
+    -rw-r--r--  1 stuart users  36K Nov 17 14:41 ah_bootstrap.py
+    -rw-r--r--  1 stuart users 1.8K Nov 17 14:41 appveyor.yml
+    drwxr-xr-x  6 stuart users 4.0K Nov 17 14:41 cadairpy/
+    drwxr-xr-x  4 stuart users 4.0K Nov 17 14:41 docs/
+    -rw-r--r--  1 stuart users  13K Nov 17 14:41 ez_setup.py
+    -rw-r--r--  1 stuart users  655 Nov 17 14:41 .gitignore
+    -rw-r--r--  1 stuart users  108 Nov 17 14:41 .gitmodules
+    drwxr-xr-x  2 stuart users 4.0K Nov 17 14:41 licenses/
+    -rw-r--r--  1 stuart users 1.1K Nov 17 14:41 MANIFEST.in
+    -rw-r--r--  1 stuart users  742 Nov 17 14:41 README.md
+    -rw-r--r--  1 stuart users   71 Nov 17 14:41 readthedocs.yml
+    -rw-r--r--  1 stuart users  160 Nov 17 14:41 .rtd-environment.yml
+    -rw-r--r--  1 stuart users 1.2K Nov 17 14:41 setup.cfg
+    -rwxr-xr-x  1 stuart users 4.0K Nov 17 14:41 setup.py*
+    -rw-r--r--  1 stuart users 4.8K Nov 17 14:41 .travis.yml
+
+
 
 
 Branches and pull requests
