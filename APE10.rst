@@ -30,7 +30,7 @@ packages will drop support for Python 2 no later than 2020. For instance, the
 IPython developers have now released `IPython 5.0
 <http://blog.jupyter.org/2016/07/08/ipython-5-0-released/>`_, which will be the
 last major release to support Python 2. This APE proposes that the Astropy
-project should also sign the Python 3 statement statement, and provides a
+project should also sign the Python 3 statement, and provides a
 target roadmap for future releases.
 
 It is important to note that ending support for Python 2 by the end of 2019
@@ -253,6 +253,6 @@ This APE was advertised on the astropy-dev mailing list, the "Python users in
 Astronomy" Facebook group, and twitter, with a roughly 3 week comment period.
 No objections were raised by the community, and the proposal received positive
 feedback (some of which led to minor adjustments particularly regarding the PyPI
-issues.  Because of this apparent support by the community and agreement from
+issues).  Because of this apparent support by the community and agreement from
 the coordination committee with the goals of this APE, it was accepted Aug 22,
 2016.
