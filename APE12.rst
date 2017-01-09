@@ -17,9 +17,11 @@ Abstract
 
 This APE proposes migrating the `package-template
 <https://github.com/astropy/package-template/>`_ to use the `Cookiecutter
-<http://cookiecutter.readthedocs.io/>`_ project to provide templating facilities
-to the package template to ease use of the package template and to make it easy
-for other projects to customise the template for their users.
+<http://cookiecutter.readthedocs.io/>`_ project to provide templating. This
+would enable users to be able to customise the package template for their
+package from the command line, in a much simpler manner than the current manual
+process. As well as this, having a templating system makes it easier for other
+projects to change the branding or default settings of the package template.
 
 This APE proposes major changes to the current layout of the package-template
 repository, potentially breaking existing user workflows, hence the APE.
@@ -43,10 +45,11 @@ extensive changes to the actual package template, thereby making it easy to pull
 in changes from the Astropy template without lots of complex merging.
 
 There are also secondary advantages to using a Cookiecutter project, such as
-being able to include code, such as tests, in the ``package-template``
-repository while not including it in the code that the person setting up a new
-project receives. This is because only the templated directory in the repository
-gets processed by Cookiecutter.
+being able to include code i.e. tests, in the `package-template
+<https://github.com/astropy/package-template/>`_ repository while not including
+it in the code that the person setting up a new project receives. This is
+because only the templated directory in the repository gets processed by
+Cookiecutter.
 
 An example of using cookiecutter with the package template is below. This
 example uses the `Cadair/pacakage-template <https://github.com/Cadair/package-template/tree/cookiecutter>`_
@@ -181,6 +184,9 @@ benefits presented above.
 Cookiecutter is not the only project templating system, others such as
 `diecutter <https://diecutter.readthedocs.io/>`_ could be used. Cookiecutter was
 chosen due to wide adoption and implementation in Python.
+
+Finally, a custom templating system could be developed and maintained for the
+Astropy project.
 
 
 Decision rationale
