@@ -9,6 +9,26 @@ take place using existing mechanisms (astropy-dev, github, hangouts, etc), and
 eventually a decision is made regarding whether the proposal should be 
 accepted, rejected, or modified.
 
+Accepted APEs
+^^^^^^^^^^^^^
+
+== ================================================= ===========
+#     Title                                             Date
+== ================================================= ===========
+1  APE Purpose and Process                           2013-Nov-08
+2  Astropy Release Cycle and Version Numbering       2013-Dec-11
+3  Configuration                                     2013-Dec-10
+4  Astropy Setup Helpers                             2014-Jun-28
+5  Coordinates Subpackage Plan                       2014-Jan-22
+6  Enhanced Character Separated Values table format  2015-Jan-26
+7  NDData Plan                                       2014-Dec-17
+8  Astropy Community Code of Conduct                 2015-May-04
+10 Roadmap for Python 3-only support                 2016-Aug-22
+== ================================================= ===========
+
+Proposing a new APE
+^^^^^^^^^^^^^^^^^^^
+
 It is important to note is that there is not much point to making proposals
 unless someone or some group has signed up to implement it if it is accepted
 (normally this would involve the author or authors of the APE).  Just issuing
