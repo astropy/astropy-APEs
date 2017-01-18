@@ -210,6 +210,9 @@ as well as the latest feature release. E.g., the change of the keyword
 ``clobber`` to ``overwrite`` in version 1.3 caused code that needed to support
 both 1.0.x and 1.3 a choice of (1) living with giving the users deprecation
 warnings in 1.3 by sticking to ``clobber``; (2) not supporting 1.0.x by moving
-to ``overwrite``; or (3) inserting astropy version checks. Such problems can
-be avoided by adding the deprecating warnings only in LTS versions n.0.0, and
-then doing the actual removal at the next feature release n.1.0.
+to ``overwrite``; or (3) inserting astropy version checks.
+
+These problems should be avoided by adding the deprecating warnings only in
+LTS versions (n.0.0), and then doing the actual removal at the next feature
+release (n.1.0). Feature releases beyond that should not remove or deprecate
+code (i.e., they should just introduce new features).
