@@ -135,7 +135,7 @@ backwards incompatible change should generate an `AstropyDeprecationWarning` for
 at least one feature release version before actually making the change
 permanent, to allow codes to transition to the new interface. A future APE may
 add to or change this with a more concrete policy on when and for how long
-something should be deprecated.
+something should be deprecated. [SEE ADDENDA]
 
 
 Branches and pull requests
@@ -198,3 +198,18 @@ original proposal was the addition of the idea that *less than* six month
 releases were acceptable. The above content reflects those suggestions, and the
 APE was accepted 12/10/13, as there were no significant objections from the
 community.
+
+Addenda
+-------
+
+2017 January: In the original text above, feature releases are allowed to make
+backwards incompatible changes, as long as this is mentioned in the changelog.
+In practice, this poses difficulties for packages that rely on astropy 
+(affiliated or otherwise), which generally try to support both the LTS release
+as well as the latest feature release. E.g., the change of the keyword
+``clobber`` to ``overwrite`` in version 1.3 caused code that needed to support
+both 1.0.x and 1.3 a choice of (1) living with giving the users deprecation
+warnings in 1.3 by sticking to ``clobber``; (2) not supporting 1.0.x by moving
+to ``overwrite``; or (3) inserting astropy version checks. Such problems can
+be avoided by adding the deprecating warnings only in LTS versions n.0.0, and
+then doing the actual removal at the next feature release n.1.0.
