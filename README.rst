@@ -12,19 +12,29 @@ accepted, rejected, or modified.
 Accepted APEs
 ^^^^^^^^^^^^^
 
-== ================================================= ===========
+=== =================================================== ===========
 #     Title                                             Date
-== ================================================= ===========
-1  APE Purpose and Process                           2013-Nov-08
-2  Astropy Release Cycle and Version Numbering       2013-Dec-11
-3  Configuration                                     2013-Dec-10
-4  Astropy Setup Helpers                             2014-Jun-28
-5  Coordinates Subpackage Plan                       2014-Jan-22
-6  Enhanced Character Separated Values table format  2015-Jan-26
-7  NDData Plan                                       2014-Dec-17
-8  Astropy Community Code of Conduct                 2015-May-04
-10 Roadmap for Python 3-only support                 2016-Aug-22
-== ================================================= ===========
+=== =================================================== ===========
+1   `APE Purpose and Process`_                          2013-Nov-08
+2   `Astropy Release Cycle and Version Numbering`_      2013-Dec-11
+3   `Configuration`_                                    2013-Dec-10
+4   `Astropy Setup Helpers`_                            2014-Jun-28
+5   `Coordinates Subpackage Plan`_                      2014-Jan-22
+6   `Enhanced Character Separated Values table format`_ 2015-Jan-26
+7   `NDData Plan`_                                      2014-Dec-17
+8   `Astropy Community Code of Conduct`_                2015-May-04
+10  `Roadmap for Python 3-only support`_                2016-Aug-22
+=== =================================================== ===========
+
+.. _APE Purpose and Process: https://github.com/astropy/astropy-APEs/blob/master/APE1.rst
+.. _Astropy Release Cycle and Version Numbering: https://github.com/astropy/astropy-APEs/blob/master/APE2.rst
+.. _Configuration: https://github.com/astropy/astropy-APEs/blob/master/APE3.rst
+.. _Astropy Setup Helpers: https://github.com/astropy/astropy-APEs/blob/master/APE4.rst
+.. _Coordinates Subpackage Plan: https://github.com/astropy/astropy-APEs/blob/master/APE5.rst
+.. _Enhanced Character Separated Values table format: https://github.com/astropy/astropy-APEs/blob/master/APE6.rst
+.. _NDData Plan: https://github.com/astropy/astropy-APEs/blob/master/APE7.rst
+.. _Astropy Community Code of Conduct: https://github.com/astropy/astropy-APEs/blob/master/APE8.rst
+.. _Roadmap for Python 3-only support: https://github.com/astropy/astropy-APEs/blob/master/APE10.rst
 
 Proposing a new APE
 ^^^^^^^^^^^^^^^^^^^
