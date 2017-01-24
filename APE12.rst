@@ -5,7 +5,7 @@ author: Stuart Mumford, Thomas Robitaille
 
 date-created: 2016 November 17
 
-date-last-revised: 2016 November 17
+date-last-revised: 2017 January 24
 
 type: Standard Track
 
@@ -169,17 +169,26 @@ As implemented in
 `Cadair/package-template <https://github.com/Cadair/package-template/tree/cookiecutter>`_
 users who have followed the instructions where they use the package template as
 a git remote will no longer be able to pull updates from the
-``package_template`` git repository. This could be mitigated by automatically
-generating a rendered version of the package template in another git repository
-or in a different branch.
+``package_template`` git repository. To mitigate this lack of backwards
+compatibility a new repository will be created which holds an automatically
+rendered version of the template with the default settings. This will result in
+a repository that looks like the current package-template repository. This could
+then be used as a git remote for people who wish to continue using this update
+method.
+
+In the longer term, using cookiecutter could make the implementation of an
+update helper, or automatic update process easier. This is mainly due to the
+fact that cookiecutter can be called with the settings used to originally create
+the project, i.e the correct name and other options. This will lead to smaller
+more relevant diffs when updating and therefore make any automation easier.
 
 
 Alternatives
 ------------
 
-Keeping the current solution. This prevents any trouble for anyone using the
-'git update' method at the moment, but it does not provide any of the templating
-benefits presented above.
+Keeping the current solution. This removes any need for changes for anyone using
+the 'git update' method at the moment, but it does not provide any of the
+templating benefits presented above.
 
 Cookiecutter is not the only project templating system, others such as
 `diecutter <https://diecutter.readthedocs.io/>`_ could be used. Cookiecutter was
