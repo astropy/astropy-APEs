@@ -56,3 +56,20 @@ to perform without some assurance it will be accepted, we can issue provisional
 acceptance. For serious consideration it is usually good to show that detailed
 technical aspects have been played with in real code rather (even if it isn't a
 complete implementation).
+
+Accepting APEs
+^^^^^^^^^^^^^^
+
+The final decision on accepting or regjecting APEs lies with the Astropy
+Coordination Committee.  Once the community discussion on the APE has wound
+down, the committee discusses the APE and makes a final decision on acceptance
+or rejection.  One of the committee members should then:
+
+1. Fill in the "Decision rationale" section of the APE with a description of why
+   the APE was accepted or rejected, including a summary of the community's
+   discussion as relevant.
+2. Update the "date-last-revised" to the day of merging and "status" to
+   "Accepted" or "Rejected".
+3. If the APE is accepted, add a commit to the APE which puts the APE into the
+   "Accepted APEs" table of the repository's README.
+4. Merge the PR with the above changes.
