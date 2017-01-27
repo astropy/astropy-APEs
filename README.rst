@@ -1,13 +1,13 @@
 APEs: Astropy Proposals for Enhancement
 ---------------------------------------
 
-APEs are used to address non-trivial enhancements that require much discussion
-and thought. This is intended to mirror the long-standing Python Enhancement 
-Proposal process, but generally not quite as formally. Normally a proposal goes
-through various phases of consideration. Normally discussion is expected to 
-take place using existing mechanisms (astropy-dev, github, hangouts, etc), and
-eventually a decision is made regarding whether the proposal should be 
-accepted, rejected, or modified.
+APEs are documents to address non-trivial enhancements that require discussion
+and thought beyond a single Pull Request. This is intended to mirror the
+long-standing Python Enhancement  Proposal process, but generally not quite as
+formally. Normally a proposal goes through various phases of consideration.
+Discussion is expected to take place using existing mechanisms (astropy-dev,
+github, hangouts, etc), and eventually a decision is made regarding whether the
+proposal should be accepted, rejected, or modified.
 
 Accepted APEs
 ^^^^^^^^^^^^^
