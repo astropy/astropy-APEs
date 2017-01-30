@@ -60,7 +60,7 @@ complete implementation).
 Accepting APEs
 ^^^^^^^^^^^^^^
 
-The final decision on accepting or regjecting APEs lies with the Astropy
+The final decision on accepting or rejecting APEs lies with the Astropy
 Coordination Committee.  Once the community discussion on the APE has wound
 down, the committee discusses the APE and makes a final decision on acceptance
 or rejection.  One of the committee members should then:
