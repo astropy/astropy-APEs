@@ -1,13 +1,13 @@
 APEs: Astropy Proposals for Enhancement
 ---------------------------------------
 
-APEs are used to address non-trivial enhancements that require much discussion
-and thought. This is intended to mirror the long-standing Python Enhancement 
-Proposal process, but generally not quite as formally. Normally a proposal goes
-through various phases of consideration. Normally discussion is expected to 
-take place using existing mechanisms (astropy-dev, github, hangouts, etc), and
-eventually a decision is made regarding whether the proposal should be 
-accepted, rejected, or modified.
+APEs are documents to address non-trivial enhancements that require discussion
+and thought beyond a single Pull Request. This is intended to mirror the
+long-standing Python Enhancement  Proposal process, but generally not quite as
+formally. Normally a proposal goes through various phases of consideration.
+Discussion is expected to take place using existing mechanisms (astropy-dev,
+github, hangouts, etc), and eventually a decision is made regarding whether the
+proposal should be accepted, rejected, or modified.
 
 Accepted APEs
 ^^^^^^^^^^^^^
@@ -36,12 +36,19 @@ Accepted APEs
 .. _Astropy Community Code of Conduct: https://github.com/astropy/astropy-APEs/blob/master/APE8.rst
 .. _Roadmap for Python 3-only support: https://github.com/astropy/astropy-APEs/blob/master/APE10.rst
 
+
 Proposing a new APE
 ^^^^^^^^^^^^^^^^^^^
 
-It is important to note is that there is not much point to making proposals
-unless someone or some group has signed up to implement it if it is accepted
-(normally this would involve the author or authors of the APE).  Just issuing
+New APEs should be created using the ``APEtemplate.rst`` file in this repository.
+Just fork the repository, copy ``APEtemplate.rst`` to ``APE#.rst`` and issue a
+PR with that file once you've written it up.  Be sure to look through the PRs in
+this repo first so that you choose an APE# that reflects both those that are in
+the repository *and* those that are under discussion.
+
+Note that there is not much point to making proposals unless someone or some
+group has signed up to implement it if the APE is accepted
+(typically this would involve the author or authors of the APE).  Just issuing
 an APE in order to spur others to do work is not generally going to be received
 well. Generally, an implementation is expected before an APE can be considered
 fully accepted. For proposals that require extensive work that few are willing
@@ -50,8 +57,19 @@ acceptance. For serious consideration it is usually good to show that detailed
 technical aspects have been played with in real code rather (even if it isn't a
 complete implementation).
 
-New APEs should be created using the ``APEtemplate.rst`` file in this repository.
-Just fork the repository, copy ``APEtemplate.rst`` to ``APE#.rst`` and issue a
-PR with that file once you've written it up.  Be sure to look through the PRs in
-this repo first so that you choose an APE# that reflects both those that are in
-the repository *and* those that are under discussion.
+Accepting APEs
+^^^^^^^^^^^^^^
+
+The final decision on accepting or rejecting APEs lies with the Astropy
+Coordination Committee.  Once the community discussion on the APE has wound
+down, the committee discusses the APE and makes a final decision on acceptance
+or rejection.  One of the committee members should then:
+
+1. Fill in the "Decision rationale" section of the APE with a description of why
+   the APE was accepted or rejected, including a summary of the community's
+   discussion as relevant.
+2. Update the "date-last-revised" to the day of merging and "status" to
+   "Accepted" or "Rejected".
+3. If the APE is accepted, add a commit to the APE which puts the APE into the
+   "Accepted APEs" table of the repository's README.
+4. Merge the PR with the above changes.
