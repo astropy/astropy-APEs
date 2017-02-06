@@ -170,11 +170,11 @@ As implemented in
 users who have followed the instructions where they use the package template as
 a git remote will no longer be able to pull updates from the
 ``package_template`` git repository. To mitigate this lack of backwards
-compatibility a new repository will be created which holds an automatically
-rendered version of the template with the default settings. This will result in
-a repository that looks like the current package-template repository. This could
-then be used as a git remote for people who wish to continue using this update
-method.
+compatibility a new repository, or branch on the current package-template
+repository will be created which holds an automatically rendered version of the
+template with the default settings. This will result in a repository that looks
+like the current package-template repository. This could then be used as a git
+remote for people who wish to continue using this update method.
 
 In the longer term, using cookiecutter could make the implementation of an
 update helper, or automatic update process easier. This is mainly due to the
@@ -195,7 +195,7 @@ Cookiecutter is not the only project templating system, others such as
 chosen due to wide adoption and implementation in Python.
 
 Finally, a custom templating system could be developed and maintained for the
-Astropy project.
+Astropy project, however, this would be a lot of effort.
 
 
 Decision rationale
