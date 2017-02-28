@@ -159,7 +159,11 @@ A draft implementation is `here <https://github.com/Cadair/package-template/tree
 package-template repository.
 
 As well as the changes to the package template the documentation in the Astropy
-docs regarding the package template will be significantly simplified.
+docs regarding the package template will be significantly simplified. As a part
+of the implementation it also becomes possible to keep the documentation and
+instructions for using the package template in the `package-template`
+repository. This change will be made with the implementation PR and the Astropy
+docs changed once this is done.
 
 
 Backward compatibility
