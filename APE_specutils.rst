@@ -1,13 +1,13 @@
-<APE title here>
-----------------
+Specutils Specifications
+------------------------
 
-author: <your name>
+author: S. M. Crawford, N. Earl, A. Ginsburg, E. Tollerud
 
-date-created: 2013 November 5 <replace with the date you submit the APE>
+date-created: 2017 April 21 <replace with the date you submit the APE>
 
-date-last-revised: 2013 December 17 <keep this up to date anytime something changes>
+date-last-revised: 2017 March 7 <keep this up to date anytime something changes>
 
-type: <one of these three: Standard Track, Informational, Process>
+type:  Standard Track
 
 status: Discussion
 
@@ -15,8 +15,7 @@ status: Discussion
 Abstract
 --------
 
-The abstract should be a short description of what the APE will achieve.
-
+Spectroscopy lies at the core of much of astronomy.  It is the goal of this APE to  coordinate and plan the development of spectroscopic software.   A number of tools have already been developed within astropy as well in individual packages, and in this APE, we propose the specifications for a Spectrum1D object, and out line a list of tools that are needed by the community.  
 
 Detailed description
 --------------------
