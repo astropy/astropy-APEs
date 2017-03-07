@@ -15,15 +15,31 @@ status: Discussion
 Abstract
 --------
 
-Spectroscopy lies at the core of much of astronomy.  It is the goal of this APE to  coordinate and plan the development of spectroscopic software.   A number of tools have already been developed within astropy as well in individual packages, and in this APE, we propose the specifications for a Spectrum1D object, and out line a list of tools that are needed by the community.  
+Spectroscopy lies at the core of much of astronomy.  It is the goal of this APE to  coordinate and plan the development of spectroscopic software.   A number of tools have already been developed within astropy as well in individual packages, and in this APE, we propose the specifications for a Spectrum1D object, and outline a list of tools that are needed by the community.  
 
 Detailed description
 --------------------
 
-This section describes the need for the APE.  It should describe the existing
-problem that it is trying to solve and why this APE makes the situation better.
-It should include examples of how the new functionality would be used and
-perhaps some use cases.
+Spectroscopy in astronomy
+
+Spectrum 1D in specutils
+
+problems: already has been forked into Spectrum1DRef, not widely adopted, no longer maintained
+
+issues: order of arguments, reversible wcs/dispersion, using astropy.io 
+
+Need for common analysis tools
+
+Functionality we want in general spectroscopic tools (specutils, specreduce, or specviz)
+
+- detecting lines
+- measuring lines
+  - fitting models to lines
+  - measuring equivalent widhts
+  - centroid of lines
+- redshift measurementions
+- heliocentric corrections
+- 
 
 
 Branches and pull requests
