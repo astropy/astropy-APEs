@@ -169,16 +169,18 @@ docs changed once this is done.
 Backward compatibility
 ----------------------
 
-As implemented in
-`Cadair/package-template <https://github.com/Cadair/package-template/tree/cookiecutter>`_
-users who have followed the instructions where they use the package template as
-a git remote will no longer be able to pull updates from the
-``package_template`` git repository. To mitigate this lack of backwards
-compatibility a new branch on the current package-template repository will be
-created which holds an automatically rendered (i.e. using Travis CI) version of
-the template with the default settings. This will result in a repository that
-looks like the current package-template repository. This could then be used as a
-git remote for people who wish to continue using this update method.
+As implemented in `Cadair/package-template
+<https://github.com/Cadair/package-template/tree/cookiecutter>`_ users who have
+followed the instructions where they use the package template as a git remote
+will no longer be able to pull updates from the ``package_template`` git
+repository. To mitigate this lack of backwards compatibility a new branch on the
+current package-template repository will be created which holds the cookiecutter
+template version of the package-template. An automatically rendered (i.e. using
+Travis CI) version of the template with the default settings will be kept in the
+master branch of the package-template repository. This will result in a master
+branch that looks like the current package-template repository. This could then
+be used as a git remote for people who wish to continue using this update
+method.
 
 In the longer term, using cookiecutter could make the implementation of an
 update helper, or automatic update process easier. This is mainly due to the
