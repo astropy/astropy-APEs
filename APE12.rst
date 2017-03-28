@@ -55,7 +55,7 @@ An example of using cookiecutter with the package template is below. This
 example uses the `Cadair/pacakage-template <https://github.com/Cadair/package-template/tree/cookiecutter>`_
 ``cookiecutter`` branch, if this work was to be merged the command would be
 ``cookiecutter gh:astropy/package-template`` as the ``-c`` option specifies a
-non-master branch.
+non-default branch.
 
 .. image:: https://asciinema.org/a/7ilbwr10g0rj561clfkedui4j.png
     :target: https://asciinema.org/a/7ilbwr10g0rj561clfkedui4j
