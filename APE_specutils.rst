@@ -57,29 +57,29 @@ A spectroscopy package should provide a representation of the data, tools for re
 
 A spectrum describes how the flux changes as a function of the energy.   There are a number of other parameters that can be used to describe a spectrum, and a 1D Spectrum object should have the following properties:
 
- * Dispersion
- * Flux 
- * Errors
- * Units
- * System (ie. heliocentric)
- * meta information about the provenance of the spectra
+* Dispersion
+* Flux 
+* Errors
+* Units
+* System (ie. heliocentric)
+* meta information about the provenance of the spectra
 
 To ease development, the Spectrum1D object could have energy, wavelength, and frequency properties that covert the dispersion to the appropriate dimensions.  In addition to this information, software should provide a method for reading and writing formats regularly used for spectroscopy.   Common formats include iraf, SDSS, *please list others*, midas, FITS tables, and ascii.   Reading and writing into a 1D spectrum object should use the astropy io register.   In addition, methods should exist for arithmetic on spectra1d objects including how to handle objects with different dispersion sampling.  
 
 Because of the diverse set of analysis requirements and reduction techniques for astronomical spectroscopy, we do not focus on specific requirements for the reduction or analysis of spectra, but the aspects that are similar regardless of the type of spectroscopy.   Some of the common functionality that is required for spectroscopic packages include:
 
- * identification of features in the spectra
- * Measuring features in the spectra including fitting models, calculating line centroids and shapes, and fluxes
- * Transforming the spectra to different systems 
- * Measuring velocities for the spectra including cross-correlation
- * removal or debelnding of different spectra
+* identification of features in the spectra
+* Measuring features in the spectra including fitting models, calculating line centroids and shapes, and fluxes
+* Transforming the spectra to different systems 
+* Measuring velocities for the spectra including cross-correlation
+* removal or debelnding of different spectra
 
 Common visualization requirements:
 
- * Be able to display a spectra
- * Being able to explore the spectra by zooming in on features or moving to different areas. 
- * Being able to examine the details of the spectra
- * Integrate tools into visualization to interactively perform analysis
+* Be able to display a spectra
+* Being able to explore the spectra by zooming in on features or moving to different areas. 
+* Being able to examine the details of the spectra
+* Integrate tools into visualization to interactively perform analysis
 
 
 
