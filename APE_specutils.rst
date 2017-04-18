@@ -1,5 +1,5 @@
- Vision for Astropy Spectroscopic Tools
-----------------------------------------------------
+Vision for Astropy Spectroscopic Tools
+=======================================
 
 author: S. M. Crawford, N. Earl, A. Ginsburg, E. Tollerud
 
@@ -38,12 +38,12 @@ Currently, the Spectrum1DRef object operates ostensibly as a wrapper around spec
 Consequently, this makes it extremely difficult to develop a framework for spectroscopy tools targeted toward the broader astronomy community. With that in mind, this proposal aims to introduce a new, more robust and extensible framework on top of which new spectroscopic tools can be built with minimal duplication of effort. Leveraging the applicable Astropy ecosystem guarantees an accessible development process and a rich community investment.
 
 
-In the meantime, there has been a further growth of spectroscopic packages.  New packages continue to appear regularly with much the same functionality as previous packages or slightly different versions.   While there are some benefits to the development of multiple versions of different software systems, this represents a substantial amount of redundant work as well as the lack of a standard set of well tested and maintained software.  
+There has been a further growth of spectroscopic packages.  New packages continue to appear regularly with much the same functionality as previous packages or slightly different versions.   While there are some benefits to the development of multiple versions of different software systems, this represents a substantial amount of redundant work as well as the lack of a standard set of well tested and maintained software.  
 
 
 Spectroscopic Coordinating Committee
 ++++++++++++++++++++++++++++++++++++
-This APE formally names a committee for coordinating this effort (although this committee has been operating in an informal manner well prior to this APE).  Patterned after the Astropy Coordinating Committee, the Spectroscopic Coordination Committee will be charged with overseeing the effort described below, as well as being a central point of communication for Astropy spectroscopy efforts. One member of the committee will be a liaison member who is also a member of the Astropy Coordination Committee. 
+This APE formally names a committee for coordinating this effort (although this committee has been operating in an informal manner well prior to this APE).  Patterned after the Astropy Coordinating Committee, the Spectroscopic Coordination Committee will be charged with overseeing the effort described below, as well as being a central point of communication for Astropy spectroscopy efforts. One member of the committee will be a liaison member who is also a member of the Astropy Coordination Committee.  
 
 The path forward
 ++++++++++++++++
@@ -75,7 +75,6 @@ A spectrum describes how the flux changes as a function of the energy.   There a
 To ease development, the Spectrum1D object could have energy, wavelength, and frequency properties that convert the dispersion to the appropriate dimensions.  In addition to this information, software should provide a method for reading and writing formats regularly used for spectroscopy.   Common formats include iraf, SDSS, *please list others*, midas, FITS tables, and ascii.   Reading and writing into a 1D spectrum object should use the astropy io register.   In addition, methods should exist for arithmetic on spectra1d objects including how to handle objects with different dispersion sampling.  
 
 Spectrum1D will define a specific interpretation of the meaning of a pixel coordinate value (i.e., is it the mean? Left side? Median? In what units).  This sentence is a placeholder; we plan to have a breakout session on April 21 to identify whether there is a standard we can select and finalize this choice.
-
 
 
 Specifications of Other Things to be included in specutils
