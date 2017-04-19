@@ -99,10 +99,10 @@ This APE is not intended to specify the full details of the specvis and specredu
 
 Common data reduction requirements for optical spectra:
 
- * Methods for extracting a 1D spectrum
- * Wavelength calibration
- * Removal of sky features
- * Flux calibration of spectra
+* Methods for extracting a 1D spectrum
+* Wavelength calibration
+* Removal of sky features
+* Flux calibration of spectra
 
 Common visualization requirements:
 
