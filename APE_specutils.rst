@@ -31,7 +31,7 @@ Background
 
 A spectroscopic package has been a primary element of the Astropy Project from its inception.  This was borne out by the large number of different spectroscopic packages that were in development in 2011 (when Astropy was started).  Many of these projects had similar, but not quite compatible interfaces (i.e. differences in formats, arguments, and style) with overlapping functionality.   At the same time, some commonly used functionality was not implemented at all or only implemented as scripts (e.g., heliocentric corrections).  At the same time, different users had slightly different priorities and requirements while some basic functionality did not exist in the Python universe.   
 
-The proposed first step of this was to develop a common spectral object and a collection of tasks that has resulted in the [specutils](https://github.com/astropy/specutils) package.  This package contains a `Spectrum1D` object and has the functionality to read and write in a number of common formats for spectroscopic data. However, this package has not been widely adopted, primarily due to limited coordination/communication with other efforts and slower-than-expected progress in developing a generalized WCS that can be used in specutils.  This motivates this APE, as a way to set a clearer path forward for the specutils effort.
+The proposed first step of this was to develop a common spectral object and a collection of tasks that has resulted in the `specutils <https://github.com/astropy/specutils>`_ package.  This package contains a `Spectrum1D` object and has the functionality to read and write in a number of common formats for spectroscopic data. However, this package has not been widely adopted, primarily due to limited coordination/communication with other efforts and slower-than-expected progress in developing a generalized WCS that can be used in specutils.  This motivates this APE, as a way to set a clearer path forward for the specutils effort.
 
 Currently, the Spectrum1DRef object operates ostensibly as a wrapper around specutils’s core Spectrum1D object. It is, in a basic sense, a workaround to avoid the highly specialized implementation details of earlier attempts at a broadly applicable spectroscopy package. In this case, a custom WCS framework had been developed and maintained within the specutils package. The Spectrum1DRef was a compromise between maintaining package compatibility, and re-introducing the more general Astropy-related behaviors (IO, arithmetic, WCS, etc).
 
@@ -52,7 +52,8 @@ This APE proposes a coordinated suite of packages for doing astronomical spectro
 The packages will be developed separately but are connected by a common interface object: `Spectrum1D`. This object will be in a common package - for the near-term, the common package will be `specutils`, but once the interface has stabilized, these interface classes may be moved to the `astropy` core package. Packages should use this common `Spectrum1D` object (described in more detail below) for representing spectra, although they are welcome to sub-class it to add package-specific functionality.  Also note that, in the future, more interface objects might be called for - e.g. `Spectrum2D` or `SpectralCube` or similar.  In previous discussions at Astropy coordination meetings, there has also been suggestions to eventually create domain-specific subclasses like `RadioSpectrum1D` or `XRaySpectrum1D` (with e.g. different default units appropriate for that field).  The intent is for `Spectrum1D` to provide a starting point for such efforts, which will then develop in a similar manner as they are called for by the community.
 
 The foundational tier of packages will consist of three packages: 
-* `[specutils](https://github.com/astropy/specutils)`.  This will provide the basic interface classes, as well as *basic* analysis of spectroscopic data. “Basic” here simply means highly standard pieces like measuring equivalent widths, fluxes, Gaussian/Lorentzian/Voigt fitting, RV corrections, etc.
+
+* `specutils <https://github.com/astropy/specutils)>`_.  This will provide the basic interface classes, as well as *basic* analysis of spectroscopic data. “Basic” here simply means highly standard pieces like measuring equivalent widths, fluxes, Gaussian/Lorentzian/Voigt fitting, RV corrections, etc.
 * `specreduce`.  This will provide a standard toolbox for reducing spectra, roughly akin to the IRAF “specred” functionality.  Note that this should *not* contain any instrument-specific code.  Observatories or instruments are encouraged to use and contribute back functionality to `specreduce`, but should provide local functionality in their own dedicated packages or guides.  This, ideally, would provide the codes to quickly be able to build specific instrument pipelines. 
 * `specviz`. This will provide 1D spectrum visualization capabilities, but is scoped to be focused primarily on that, and not arbitrarily complex spectrum visualization (e.g. data cubes). Note that, unlike the above two, this package should *not* be considered a toolbox that other tools should be derived from.  While other packages are welcome to use it, it is meant to provide a critical piece of functionality, while acknowledging that visualization, GUI code, and even personal taste are variable enough that there is room for a few other visualization packages in the ecosystem.
 
@@ -66,21 +67,24 @@ The `Spectrum1D` class
 A spectroscopy package should provide a representation of the data, tools for reducing spectroscopic observations, analysis tools, and methods for interacting and visualization of the spectra.    In this section, we describe some of the functionality that will be required for a common spectroscopic package.   While equally important, we leave the specification of multi-dimensional spectral objects to future work.  At the same time, we should consider how these tools will be compatible with multi-dimensional data in the future. 
 
 A spectrum describes how the flux changes as a function of the energy.   There are a number of other parameters that can be used to describe a spectrum, and a 1D Spectrum object should have the following properties:
+
 * Dispersion
 * Flux 
 * Errors
 * Units
 * System (ie. heliocentric)
 * meta information about the provenance of the spectra
+
 To ease development, the Spectrum1D object could have energy, wavelength, and frequency properties that convert the dispersion to the appropriate dimensions.  In addition to this information, software should provide a method for reading and writing formats regularly used for spectroscopy.   Common formats include iraf, SDSS, *please list others*, midas, FITS tables, and ascii.   Reading and writing into a 1D spectrum object should use the astropy io register.   In addition, methods should exist for arithmetic on spectra1d objects including how to handle objects with different dispersion sampling.  
 
 Spectrum1D will define a specific interpretation of the meaning of a pixel coordinate value (i.e., is it the mean? Left side? Median? In what units).  This sentence is a placeholder; we plan to have a breakout session on April 21 to identify whether there is a standard we can select and finalize this choice.
 
 
 Specifications of Other Things to be included in specutils
-+++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Because of the diverse set of analysis requirements and reduction techniques for astronomical spectroscopy, we do not focus on specific requirements for the reduction or analysis of spectra, but the aspects that are similar regardless of the type of spectroscopy. This functionality will be included in `specutils` so that it does not need to be duplicated in various domain-specific tools.   Some of the common functionality that is required for spectroscopic packages include:
+
 * Identification of spectral lines or other features
 * Measuring features in the spectra including fitting models, calculating line centroids/shapes, and fluxes
 * Transforming the spectra to different unit systems (e.g., converting between different velocity frames, frequency vs wavelength, flux transformations)
@@ -94,12 +98,14 @@ The next step: specreduce and specviz
 This APE is not intended to specify the full details of the specvis and specreduce packages, but we provide a broad-brush description of what the two packages include.  They will each have their own separate APEs in the future.
 
 Common data reduction requirements for optical spectra:
-Methods for extracting a 1D spectrum
-Wavelength calibration
-Removal of sky features
-Flux calibration of spectra
+
+ * Methods for extracting a 1D spectrum
+ * Wavelength calibration
+ * Removal of sky features
+ * Flux calibration of spectra
 
 Common visualization requirements:
+
 * Be able to display a spectra
 * Being able to explore the spectra by zooming in on features or moving to different areas. 
 * Being able to examine the details of the spectra
@@ -115,7 +121,7 @@ N/A
 Implementation
 --------------
 
-`specutils` already exists in [its github repository](https://github.com/astropy/specutils), although the changes outlined in this APE will need to be implemented there. `specreduce` also has [an implementation](https://github.com/crawfordsm/specreduce), which will be adapted to use the framework described here.  Similary, visualization via the [`specviz` package](https://github.com/spacetelescope/specreduce) will do the same.  Of course, other packages for spectroscopic analysis exist, and hopefully will also be adapted to this framework in due time.
+`specutils <https://github.com/astropy/specutils>`_ already exists in its github repository, although the changes outlined in this APE will need to be implemented there. `specreduce <https://github.com/crawfordsm/specreduce>`_ also has an implementation, which can be adapted to use the framework described here.  Similary, visualization via the `specviz <https://github.com/spacetelescope/specreduce>`_ package will do the same.  Of course, other packages for spectroscopic analysis exist, and hopefully will also be adapted to this framework in due time.
 
 
 Backward compatibility
