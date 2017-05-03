@@ -90,12 +90,12 @@ versions:
 ==========    ===============================
 Version       Minimum required Python version
 ==========    ===============================
-v2.0 - LTS    Python 2.7 or Python 3.3+
-v3.0          Python 3.4+
-v3.1          Python 3.4+
-v3.2          Python 3.4+
-v3.3          Python 3.5+
-v4.0 - LTS    Python 3.5+
+v2.0 - LTS    Python 2.7 or Python 3.4+
+v3.0          Python 3.5+
+v3.1          Python 3.5+
+v3.2          Python 3.5+
+v3.3          Python 3.6+
+v4.0 - LTS    Python 3.6+
 ==========    ===============================
 
 Implementation
@@ -210,8 +210,8 @@ There are several benefits to following the plan proposed above:
 
 * We will be able to start using Python 3-only features internally, including
   for example function annotations (e.g., for units), matrix multiplication
-  (e.g., for coordinates; note that this will only be possible once we support
-  only Python 3.5+)
+  (e.g., for coordinates; note that this will only be possible with Python 3.5+,
+  which in part drives that as minimum version for astropy 3.0)
 
 * Since we will need to keep adding Python 3.x releases to the continuous
   integration over the coming years, we will at least be able to remove Python
@@ -256,3 +256,11 @@ feedback (some of which led to minor adjustments particularly regarding the PyPI
 issues).  Because of this apparent support by the community and agreement from
 the coordination committee with the goals of this APE, it was accepted Aug 22,
 2016.
+
+Updates after acceptance of the APE
+-----------------------------------
+In further discussions (https://github.com/astropy/astropy/issues/6000), it was
+noted that one should not aim to support versions of python that will reach end
+of life during the time an astropy version is supported. In particular, python
+3.3 would reach end-of-life only 3 months after the nominal astropy 2.0 release.
+Hence, all minimum versions of python 3 were increased by one minor version.
