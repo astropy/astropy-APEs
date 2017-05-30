@@ -262,7 +262,7 @@ the coordination committee with the goals of this APE, it was accepted Aug 22,
 Updates after acceptance of the APE
 -----------------------------------
 In further discussions (https://github.com/astropy/astropy/issues/6000), it was
-noted that one should not aim to support versions of python that will reach end
-of life during the time an astropy version is supported. In particular, python
+noted that one should not aim to support versions of Python that will reach end
+of life during the time an astropy version is supported. In particular, Python
 3.3 would reach end-of-life only 3 months after the nominal astropy 2.0 release.
-Hence, all minimum versions of python 3 were increased by one minor version.
+Hence, all minimum versions of Python 3 were increased by one minor version.
