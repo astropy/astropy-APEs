@@ -24,6 +24,7 @@ Accepted APEs
 7   `NDData Plan`_                                      2014-Dec-17
 8   `Astropy Community Code of Conduct`_                2015-May-04
 10  `Roadmap for Python 3-only support`_                2016-Aug-22
+12  `Using Cookiecutter for the package-template`_      2017-Mar-28
 === =================================================== ===========
 
 .. _APE Purpose and Process: https://github.com/astropy/astropy-APEs/blob/master/APE1.rst
@@ -35,6 +36,7 @@ Accepted APEs
 .. _NDData Plan: https://github.com/astropy/astropy-APEs/blob/master/APE7.rst
 .. _Astropy Community Code of Conduct: https://github.com/astropy/astropy-APEs/blob/master/APE8.rst
 .. _Roadmap for Python 3-only support: https://github.com/astropy/astropy-APEs/blob/master/APE10.rst
+.. _Using Cookiecutter for the package-template: https://github.com/astropy/astropy-APEs/blob/master/APE12.rst
 
 
 Proposing a new APE
