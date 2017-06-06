@@ -1,7 +1,7 @@
 Rework NDData framework
 -----------------------
 
-author: Perry Greenfield, Russell Owen (others?)
+author: Perry Greenfield, Russell Owen, Matt Craig
 
 date-created: 2016 March 31
 
@@ -47,11 +47,11 @@ methods needed for an instance of the class to be treated like a numpy array
 in expressions.
 
 There are also a couple of uncertainty classes. The class ``NDUncertainty``
-seres too define the uncertainty interface and ``StvDevUncertainty`` implements
+serves too define the uncertainty interface and ``StvDevUncertainty`` implements
 error propagation (including limited support for propagation of correlated
 errors) for uncertainties expressed as standard deviation.
 
-The subpackage ``nddata.utils`` includes a few utiulity functions (e.g.
+The subpackage ``nddata.utils`` includes a few utility functions (e.g.
 ``block_reduce``) for operating on generic arrays and a ``Cutout2D`` class for
 representing postage-stamp cutouts of images.
 
