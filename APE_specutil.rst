@@ -56,7 +56,7 @@ spectroscopy and provide a path forward for creating a common set of tools for
 the community.
 
 Background
--------------------
+----------
 
 A need for a spectroscopic package has been recognized from astropy's
 inception. This was borne out by the large number of different spectroscopic
@@ -187,7 +187,7 @@ time, we should consider how these tools will be compatible with
 multi-dimensional data in the future.
 
 Attributes of Spectrum1D 
-```````````````````````````` 
+````````````````````````
 
 In this context, a spectrum describes how the flux changes as a function of the
 energy of the radiation from some object.  There are a number of other
