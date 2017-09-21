@@ -1,5 +1,5 @@
 Vision for Astropy Spectroscopic Tools
---------------------------------------
+======================================
 
 author: S. M. Crawford, N. Earl, A. Ginsburg, E. Tollerud
 
@@ -104,7 +104,7 @@ efforts. One member of the committee will be a liaison member who is also a
 member of the Astropy Coordination Committee.
 
 The path forward
-++++++++++++++++
+^^^^^^^^^^^^^^^^
 
 This APE proposes a coordinated suite of packages for doing astronomical
 spectroscopy in Python.  It suggests a division of functionality into three
@@ -174,8 +174,8 @@ appropriate.  The Spectroscopic Coordinating Committee will assist the Astropy
 Coordinating Committee with this process.  Developers are encouraged to build
 or update existing tools to meet their needs rather than create new packages.
 
-The `Spectrum1D` class
-----------------------
+The Spectrum1D class
+--------------------
 
 A spectroscopy package should provide a representation of the data, tools for
 reducing spectroscopic observations, analysis tools, and methods for
@@ -186,19 +186,20 @@ spectral objects with different spectral axes to future work.  At the same
 time, we should consider how these tools will be compatible with
 multi-dimensional data in the future.
 
+
 Attributes of Spectrum1D
-........................
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 In this context, a spectrum describes how the flux changes as a function of the
 energy of the radiation from some object.  There are a number of other
 parameters that can be used to describe a spectrum, and a ``Spectrum1D`` object
 will have the following properties:
 
-* ``spectral_axis``
-* ``flux``
-* ``uncertainty``
-* ``wcs`` (more detail on this attribute in the section below)
-* ``meta`` (a dict-like or maybe None)
+ * ``spectral_axis``
+ * ``flux``
+ * ``uncertainty``
+ * ``wcs`` (more detail on this attribute in the section below)
+ * ``meta`` (a dict-like or maybe None)
 
 The ``spectral_axis`` is always a quantity with the same shape as the last (or
 only) dimension of ``flux``. It also must have a spectral unit (i.e., length,
@@ -216,7 +217,7 @@ standard rules (see `the nddata APE for details about the uncertainty attribute
 <https://github.com/astropy/astropy-APEs/blob/master/APE7.rst#proposal-for-an-nddatabase-abstract-base-class>`_).
 
 Dimensionality
-..............
+^^^^^^^^^^^^^^
 
 ``flux`` and ``uncertainty`` may be multidimensional as long as the last
 dimension matches the shape of ``spectral_axis`` This is meant for fast
@@ -226,7 +227,7 @@ meant to communicate the presence of a single common spectral axis.  For more
 on this, see the section on data cubes below.
 
 Metadata
-........
+^^^^^^^^
 
 Note that the ``meta`` attribute is meant for metadata, e.g., information from
 a FITS header.  A ``Spectrum1D`` object may include additional attributes
@@ -238,7 +239,7 @@ below.  For example, a background subtraction tool would add an attribute
 the same shape as this one which contains the subtracted background.
 
 Creating Spectrum1D objects
-...........................
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 While the above properties specify the interface for accessing a `Spectrum1D`,
 these are *not* all required for initialization. At the minimum, the user will
@@ -256,7 +257,7 @@ a `Spectrum1D` object will use the astropy I/O registry.  A
 property.
 
 Arithmetic Operations
-.....................
+^^^^^^^^^^^^^^^^^^^^^
 
 In addition, methods should exist for arithmetic on `Spectrum1D` objects.
 Objects with different `spectral_axis`’s will raise an error if attempts are
@@ -273,7 +274,7 @@ transformations, air to vacuum). Note that in general these operations yield
 
 
 Examples of Spectrum1D
-......................
+^^^^^^^^^^^^^^^^^^^^^^
 
 We provide some representative examples of Spectrum1D’s proposed behavior.
 
@@ -342,7 +343,7 @@ Example 4: Spectral arithmetic::
 
 
 WCS, Spectrum1D, and Data cubes
-...............................
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 While it will not be necessary or required to provide or interact with the
 ``wcs`` property, the following description should inform how the
