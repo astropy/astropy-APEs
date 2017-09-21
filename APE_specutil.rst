@@ -309,25 +309,25 @@ Example 2: Instantiation from astropy quantity arrays::
     < Quantity [ 5, 6, 7, 8, 9 ] nm >
     >>> spec.frequency
     <Quantity [  5.99584916e+16,  4.99654097e+16,  4.28274940e+16,
-                       3.74740572e+16,  3.33102731e+16] Hz>
-         >>> spec.velocity
-         UnitsError: A velocity convention and rest value are required for    
-         velocity conversion.
+                 3.74740572e+16,  3.33102731e+16] Hz>
+    >>> spec.velocity
+    UnitsError: A velocity convention and rest value are required for    
+    velocity conversion.
 
 Example 3: Instantiation from FITS-WCS::
 
     >>> mywcs = wcs.WCS(header={'CDELT1': 1, 'CRVAL1': 6562.8, 'CUNIT1':'Angstrom', 'CTYPE1': 'WAVE', 'RESTFRQ':1400000000, 'CRPIX1': 25})
     >>> spec = Spectrum1D(flux=[5,6,7]*u.Jy, wcs=mywcs)
     >>> spec.spectral_axis
-        <Quantity [  6.53880000e-07,  6.53980000e-07,  6.54080000e-07] Angstrom>
-         >>> spec.wcs.pixel_to_world(np.arange(3))
-         array([  6.53880000e-07,   6.53980000e-07,   6.54080000e-07])
-         >>> spec.wavelength
-         <Quantity [  6.53880000e-07,  6.53980000e-07,  6.54080000e-07] Angstrom>
-         >>> spec.frequency
-         <Quantity [  4.58482379e+24,  4.58412273e+24,  4.58342187e+24] Hz>
-         >>> spec.velocity
-         <Quantity [-299792.458,-299792.458,-299792.458] km / s>
+    <Quantity [  6.53880000e-07,  6.53980000e-07,  6.54080000e-07] Angstrom>
+    >>> spec.wcs.pixel_to_world(np.arange(3))
+    array([  6.53880000e-07,   6.53980000e-07,   6.54080000e-07])
+    >>> spec.wavelength
+    <Quantity [  6.53880000e-07,  6.53980000e-07,  6.54080000e-07] Angstrom>
+    >>> spec.frequency
+    <Quantity [  4.58482379e+24,  4.58412273e+24,  4.58342187e+24] Hz>
+    >>> spec.velocity
+    <Quantity [-299792.458,-299792.458,-299792.458] km / s>
 
 Example 4: Spectral arithmetic::
 
