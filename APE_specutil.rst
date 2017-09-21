@@ -127,7 +127,7 @@ domain-specific classes are not defined in this APE; instead, the intent is for
 `Spectrum1D` to provide a starting point for such efforts, which will then
 develop as they are called for by the community.
 
-The development outlined in this APE will consist of three packages: 
+The development outlined in this APE will consist of three packages:
 
 * `specutils <https://github.com/astropy/specutils)>`_.  This will provide the
   basic interface classes (including the `Spectrum1D` object), as well as
@@ -174,7 +174,7 @@ appropriate.  The Spectroscopic Coordinating Committee will assist the Astropy
 Coordinating Committee with this process.  Developers are encouraged to build
 or update existing tools to meet their needs rather than create new packages.
 
-The `Spectrum1D` class 
+The `Spectrum1D` class
 ----------------------
 
 A spectroscopy package should provide a representation of the data, tools for
@@ -186,8 +186,8 @@ spectral objects with different spectral axes to future work.  At the same
 time, we should consider how these tools will be compatible with
 multi-dimensional data in the future.
 
-Attributes of Spectrum1D 
-````````````````````````
+Attributes of Spectrum1D
+........................
 
 In this context, a spectrum describes how the flux changes as a function of the
 energy of the radiation from some object.  There are a number of other
@@ -216,7 +216,7 @@ standard rules (see `the nddata APE for details about the uncertainty attribute
 <https://github.com/astropy/astropy-APEs/blob/master/APE7.rst#proposal-for-an-nddatabase-abstract-base-class>`_).
 
 Dimensionality
-``````````````
+..............
 
 ``flux`` and ``uncertainty`` may be multidimensional as long as the last
 dimension matches the shape of ``spectral_axis`` This is meant for fast
@@ -226,7 +226,7 @@ meant to communicate the presence of a single common spectral axis.  For more
 on this, see the section on data cubes below.
 
 Metadata
-````````
+........
 
 Note that the ``meta`` attribute is meant for metadata, e.g., information from
 a FITS header.  A ``Spectrum1D`` object may include additional attributes
@@ -238,7 +238,7 @@ below.  For example, a background subtraction tool would add an attribute
 the same shape as this one which contains the subtracted background.
 
 Creating Spectrum1D objects
-```````````````````````````
+...........................
 
 While the above properties specify the interface for accessing a `Spectrum1D`,
 these are *not* all required for initialization. At the minimum, the user will
@@ -255,8 +255,8 @@ a `Spectrum1D` object will use the astropy I/O registry.  A
 `Spectrum1D` object without the user having to interface with the ``wcs``
 property.
 
-Arithmetic Operations 
-````````````````````` 
+Arithmetic Operations
+.....................
 
 In addition, methods should exist for arithmetic on `Spectrum1D` objects.
 Objects with different `spectral_axis`’s will raise an error if attempts are
@@ -273,13 +273,14 @@ transformations, air to vacuum). Note that in general these operations yield
 
 
 Examples of Spectrum1D
-``````````````````````
+......................
+
 We provide some representative examples of Spectrum1D’s proposed behavior.
 
 
 Example 1: Instantiation from simple numpy arrays::
 
-    >>> spec = Spectrum1D(spectral_axis=np.arange(50),     
+    >>> spec = Spectrum1D(spectral_axis=np.arange(50),
                           flux=np.random.randn(50))
     >>> spec.spectral_axis
     < Quantity [ 0, 1 , 2 , … , 49 ] >
@@ -299,7 +300,7 @@ Example 1: Instantiation from simple numpy arrays::
 
 Example 2: Instantiation from astropy quantity arrays::
 
-    >>> spec = Spectrum1D(spectral_axis=np.arange(1, 50)*u.nm,     
+    >>> spec = Spectrum1D(spectral_axis=np.arange(1, 50)*u.nm,
                           flux=np.random.randn(49))
     >>> spec.spectral_axis
     < Quantity [ 1 , 2 , … , 49 ] nm >
@@ -311,7 +312,7 @@ Example 2: Instantiation from astropy quantity arrays::
     <Quantity [  5.99584916e+16,  4.99654097e+16,  4.28274940e+16,
                  3.74740572e+16,  3.33102731e+16] Hz>
     >>> spec.velocity
-    UnitsError: A velocity convention and rest value are required for    
+    UnitsError: A velocity convention and rest value are required for
     velocity conversion.
 
 Example 3: Instantiation from FITS-WCS::
@@ -341,7 +342,7 @@ Example 4: Spectral arithmetic::
 
 
 WCS, Spectrum1D, and Data cubes
-```````````````````````````````
+...............................
 
 While it will not be necessary or required to provide or interact with the
 ``wcs`` property, the following description should inform how the
@@ -384,7 +385,7 @@ enough for inclusion in `specutils` includes :
 * Continuum subtraction or normalization
 * Identification of spectral lines or other features
 * Measuring features in the spectra including fitting models, calculating line centroids/shapes, equivalent widths, and fluxes
-* Deblending of lines 
+* Deblending of lines
 * Measuring velocities for the spectra including cross-correlation
 
 This should *not* be taken as an exhaustive list, however.  Additional
@@ -398,7 +399,7 @@ This APE is not intended to specify the full details of the ``specviz`` and
 standard process for developing astropy packages, but this section
 outlines *example* functionality expected for these packages.
 
-``specreduce``: 
+``specreduce``:
 * Methods for extracting a 1D spectrum from a 2D image of a dispersed spectrum, including boxcar and “optimal” extraction
 * Wavelength calibration
 * Removal of sky features
@@ -407,8 +408,8 @@ outlines *example* functionality expected for these packages.
 
 ``specviz``:
 * Display a spectrum
-* Explore the spectra by zooming in on features or moving to different areas. 
-* 
+* Explore the spectra by zooming in on features or moving to different areas.
+*
 * Do analysis like line flux measurements (using algorithms provided in `specutils`) or line fitting
 * Overlay spectral line lists (including redshift offsets if relevant)
 
@@ -449,13 +450,13 @@ this APE.  However, there are other options to consider:
 1. Do nothing.  Pro: This requires no additional work or collaboration.  Con:
    We will continue to redevelop the same set of existing tools and waste
    limited resources in the community.  There will also be in clear,
-   established way of teaching how to develop spectral objects in python.  
+   established way of teaching how to develop spectral objects in python.
 2. Have the Spectrum1D object be a very limited base class and have development
    for different discipline/wavelenth ranges happen independently (i.e.
    RadioSpectrum1D, OpticalSpectrum1D, XRaySpectrum1D would have their own
    packages).  Pro: This is more descriptive and then more familiar for users
    of a field. Con: This will likely lead to redevelopment of some tools, and
-   likely lead to less sharing of tools developed for different domains.  
+   likely lead to less sharing of tools developed for different domains.
 3. Developing functional code with no Spectrum1D object. Pro: Faster
    development with less overhead.  Con: Increase difficulty in maintaining
    common namespace (wave vs. wavelength vs. something else) that can lead to
