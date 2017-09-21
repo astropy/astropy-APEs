@@ -1,5 +1,5 @@
 Vision for Astropy Spectroscopic Tools
-======================================
+--------------------------------------
 
 author: S. M. Crawford, N. Earl, A. Ginsburg, E. Tollerud
 
