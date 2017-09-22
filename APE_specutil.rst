@@ -195,11 +195,11 @@ energy of the radiation from some object.  There are a number of other
 parameters that can be used to describe a spectrum, and a ``Spectrum1D`` object
 will have the following properties:
 
- * ``spectral_axis``
- * ``flux``
- * ``uncertainty``
- * ``wcs`` (more detail on this attribute in the section below)
- * ``meta`` (a dict-like or maybe None)
+* ``spectral_axis``
+* ``flux``
+* ``uncertainty``
+* ``wcs`` (more detail on this attribute in the section below)
+* ``meta`` (a dict-like or maybe None)
 
 The ``spectral_axis`` is always a quantity with the same shape as the last (or
 only) dimension of ``flux``. It also must have a spectral unit (i.e., length,
@@ -278,8 +278,9 @@ Examples of Spectrum1D
 
 We provide some representative examples of Spectrum1D’s proposed behavior.
 
-
-Example 1: Instantiation from simple numpy arrays::
+Example 1: Instantiation from simple numpy arrays
++++++++++++++++++++++++++++++++++++++++++++++++++
+::
 
     >>> spec = Spectrum1D(spectral_axis=np.arange(50),
                           flux=np.random.randn(50))
@@ -299,7 +300,9 @@ Example 1: Instantiation from simple numpy arrays::
     array( [ 0.1234, ... , 0.4321 ] )
 
 
-Example 2: Instantiation from astropy quantity arrays::
+Example 2: Instantiation from astropy quantity arrays
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+::
 
     >>> spec = Spectrum1D(spectral_axis=np.arange(1, 50)*u.nm,
                           flux=np.random.randn(49))
@@ -316,7 +319,9 @@ Example 2: Instantiation from astropy quantity arrays::
     UnitsError: A velocity convention and rest value are required for
     velocity conversion.
 
-Example 3: Instantiation from FITS-WCS::
+Example 3: Instantiation from FITS-WCS
+++++++++++++++++++++++++++++++++++++++
+::
 
     >>> mywcs = wcs.WCS(header={'CDELT1': 1, 'CRVAL1': 6562.8, 'CUNIT1':'Angstrom', 'CTYPE1': 'WAVE', 'RESTFRQ':1400000000, 'CRPIX1': 25})
     >>> spec = Spectrum1D(flux=[5,6,7]*u.Jy, wcs=mywcs)
@@ -331,7 +336,9 @@ Example 3: Instantiation from FITS-WCS::
     >>> spec.velocity
     <Quantity [-299792.458,-299792.458,-299792.458] km / s>
 
-Example 4: Spectral arithmetic::
+Example 4: Spectral arithmetic
+++++++++++++++++++++++++++++++
+::
 
     >>> spec1 = Spectrum1D(flux=[1,2,3], spectral_axis=[0,1,2]*u.nm)
     >>> spec2 = Spectrum1D(flux=[1,1,1], spectral_axis=[1,2,3]*u.nm)
@@ -425,8 +432,9 @@ Implementation
 --------------
 
 `specutils <https://github.com/astropy/specutils>`_ already exists in its
-github repository, although the changes outlined in this APE will need to be
-implemented there. `specreduce <https://github.com/crawfordsm/specreduce>`_
+github repository, and *part* of the `Spectrum1D` class in this APE has been 
+implemented there, but  will need to be completed if this APE is accepted.
+`specreduce <https://github.com/crawfordsm/specreduce>`_
 also has an implementation, which can be adapted to use the framework described
 here.  Similarly, visualization via the `specviz
 <https://github.com/spacetelescope/specreduce>`_ package will do the same.  Of
