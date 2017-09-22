@@ -204,8 +204,8 @@ will have the following properties:
 The ``spectral_axis`` is always a quantity with the same shape as the last (or
 only) dimension of ``flux``. It also must have a spectral unit (i.e., length,
 frequency, energy, or velocity).  To ease use, the Spectrum1D object will have
-``energy``, ``wavelength``, and ``frequency`` properties that convert the
-`spectral_axis` to the appropriate units.  These are to be considered the
+``energy``, ``wavelength``, ``frequency``, ``velocity`` properties that convert
+ the `spectral_axis` to the appropriate units.  These are to be considered the
 “center” of the spectral bins.  Bin edges will also be accessible, but the
 exact way of accessing bin_edges will be determined at a later date (as it is
 intertwined with the ``.wcs`` representation, discussed further below).
@@ -251,10 +251,9 @@ either a Quantity object, array, or a pixel-to-spectral transformation function
 In addition to this information, `specutils` will provide a method for reading
 and writing formats regularly used for spectroscopy.  Common formats include
 IRAF, SDSS, MIDAS, FITS tables, and ascii tables.  This I/O Reading and writing
-a `Spectrum1D` object will use the astropy I/O registry.  A
-`Spectrum1D.create_from_array` method should be available to directly create a
-`Spectrum1D` object without the user having to interface with the ``wcs``
-property.
+a `Spectrum1D` object will use the astropy I/O registry.  The `Spectrum1D` class
+will also support directly creating instances using an explicit spectral axis
+array without the user having to interface with the ``wcs`` property.
 
 Arithmetic Operations
 ^^^^^^^^^^^^^^^^^^^^^
