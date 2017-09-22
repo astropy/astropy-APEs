@@ -109,7 +109,7 @@ The path forward
 This APE proposes a coordinated suite of packages for doing astronomical
 spectroscopy in Python.  It suggests a division of functionality into three
 packages, then specifies in detail the structure and API of the core spectral
-object, Spectrum1D.
+object, `Spectrum1D`.
 
 The packages will be developed separately but are connected by a common
 interface object: `Spectrum1D`. This object will be in a common package - for
@@ -437,7 +437,7 @@ implemented there, but  will need to be completed if this APE is accepted.
 `specreduce <https://github.com/crawfordsm/specreduce>`_
 also has an implementation, which can be adapted to use the framework described
 here.  Similarly, visualization via the `specviz
-<https://github.com/spacetelescope/specreduce>`_ package will do the same.  Of
+<https://github.com/spacetelescope/specviz>`_ package will do the same.  Of
 course, other packages for spectroscopic analysis exist, and hopefully will
 also be adapted to this framework in due time.
 
@@ -463,7 +463,7 @@ this APE.  However, there are other options to consider:
 2. Have the Spectrum1D object be a very limited base class and have development
    for different discipline/wavelenth ranges happen independently (i.e.
    RadioSpectrum1D, OpticalSpectrum1D, XRaySpectrum1D would have their own
-   packages).  Pro: This is more descriptive and then more familiar for users
+   packages).  Pro: This is more descriptive and thus more familiar for users
    of a field. Con: This will likely lead to redevelopment of some tools, and
    likely lead to less sharing of tools developed for different domains.
 3. Developing functional code with no Spectrum1D object. Pro: Faster
