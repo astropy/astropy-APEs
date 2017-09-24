@@ -15,16 +15,15 @@ status: Discussion
 Abstract
 --------
 
-Spectroscopy lies at the core of much of astronomy.  The goal of this APE is to
-coordinate and plan the development of spectroscopic software within the
-astropy project.  The requirements for spectroscopic tools include handling and
-reducing observations, different types of analysis, and visualization of
-spectra.  The goal of this APE is to provide a framework that different
-astronomy packages can use to coordinate the development of spectroscopic
-tools.  The idea is a set of foundational packages that can then be extended to
-build other tools. As part of this coordination effort, this APE provides
-specifications for a `Spectrum1D` class, a standard interface for 1D spectra
-that will provide the basis for interoperability.
+The goal of this APE is to coordinate and plan the development of spectroscopic 
+software within theastropy project.  The requirements for spectroscopic tools 
+include handling and reducing observations, different types of analysis, and 
+visualization of spectra. The goal of this APE is to provide a framework that 
+different astronomy packages can use to coordinate the development of 
+spectroscopic tools. The idea is a set of foundational packages that can then 
+be extended to build other tools. As part of this coordination effort, this APE 
+rovides specifications for a `Spectrum1D` class, a standard interface for 1D 
+spectra that will provide the basis for interoperability.
 
 Detailed description
 --------------------
