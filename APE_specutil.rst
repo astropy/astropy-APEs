@@ -359,23 +359,22 @@ spectral axis.  It will be defined in detail in a pending WCS APE, but in short
 it must have two methods: `world_to_pixel` and `pixel_to_world`.  These
 functions map from “pixel” coordinates (i.e., indices) to “world” coordinates,
 where world can be anything - even pixels. See the examples above. This
-attribute will also contain metadata like the specific spectral frame (e.g.
+attribute will also contain metadata like the specific spectral frame (e.g.,
 optical versus radio velocity definitions).  Note that the details of this
 ``wcs`` attribute may change depending on the outcome of the WCS APE process,
 and hence *this* APE does not rely heavily upon it.  However, additional
 functionality making use of more advanced WCS functionality is a possibility
 for future development of the `Spectrum1D` class.
 
-With this future development of WCS in mind, this APE is *not* concerning
-itself with representations of data cubes, times series of spectra, or similar
-objects with multiple spectral axes in the same object.  This is the underlying
-meaning of the “1D” in `Spectrum1D`.  While these are critical use-cases to
-address, this APE is specifically scoped to *not* include those cases. However,
-the API outlined in this APE is meant to guide future development in these
-directions, with the intent that the ``wcs`` attribute eventually contain
-information for a multi-dimensional spectrum. Conventions like the attribute
-names used in this class (where sensible) will then carry over to such future
-developments.
+With this future development of WCS in mind, this APE is *not* concerned with
+representations of data cubes, times series of spectra, or similar objects with
+multiple spectral axes in the same object.  This is the underlying meaning of
+the “1D” in `Spectrum1D`.  While these are critical use-cases to address, this
+APE is specifically scoped to *not* include those cases. However, the API
+outlined in this APE is meant to guide future development in these directions,
+with the intent that the ``wcs`` attribute eventually contain information for a
+multi-dimensional spectrum. Conventions like the attribute names used in this
+class (where sensible) will then carry over to such future developments.
 
 Analysis tools to be included in specutils
 ++++++++++++++++++++++++++++++++++++++++++
