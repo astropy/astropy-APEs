@@ -16,14 +16,14 @@ Abstract
 --------
 
 The goal of this APE is to coordinate and plan the development of spectroscopic 
-software within theastropy project.  The requirements for spectroscopic tools 
+software within the astropy project.  The requirements for spectroscopic tools 
 include handling and reducing observations, different types of analysis, and 
 visualization of spectra. The goal of this APE is to provide a framework that 
 different astronomy packages can use to coordinate the development of 
 spectroscopic tools. The idea is a set of foundational packages that can then 
 be extended to build other tools. As part of this coordination effort, this APE 
-rovides specifications for a `Spectrum1D` class, a standard interface for 1D 
-spectra that will provide the basis for interoperability.
+provides specifications for a `Spectrum1D` class, a standard interface for 1D 
+spectra that will be the basis for interoperability.
 
 Detailed description
 --------------------
@@ -219,16 +219,16 @@ Dimensionality
 ^^^^^^^^^^^^^^
 
 ``flux`` and ``uncertainty`` may be multidimensional as long as the last
-dimension matches the shape of ``spectral_axis`` This is meant for fast
+dimension matches the shape of ``spectral_axis`` This is meant to allow fast
 operations on collections of spectra that share the same spectral_axis.  While
 it may seem to conflict with the “1D” in the class name, this name scheme is
 meant to communicate the presence of a single common spectral axis.  For more
 on this, see the section on data cubes below.
 
-Metadata
-^^^^^^^^
+Metadata and other attributes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Note that the ``meta`` attribute is meant for metadata, e.g., information from
+The ``meta`` attribute is meant for metadata, e.g., information from
 a FITS header.  A ``Spectrum1D`` object may include additional attributes
 beyond the metadata. In many cases this is best implemented via *subclasses* of
 ``Spectrum1D``, but these attributes can also be applied directly by analysis
