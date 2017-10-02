@@ -5,7 +5,7 @@ author: S. M. Crawford, N. Earl, A. Ginsburg, E. Tollerud, et al.
 
 date-created: 2017 April 21 
 
-date-last-revised: 20177 Oct 2 <keep this up to date anytime something changes>
+date-last-revised: 2017 Oct 2 <keep this up to date anytime something changes>
 
 type:  Process, Standard Track
 
