@@ -209,11 +209,15 @@ frequency, energy, or velocity).  To ease use, the Spectrum1D object will have
 exact way of accessing bin_edges will be determined at a later date (as it is
 intertwined with the ``.wcs`` representation, discussed further below).
 ``flux`` will be a Quantity, so the units of the spectrum should be accessed as
-``.flux.unit``.  The ``uncertainty``, when provided, will be a Quantity-like
+``.flux.unit``.  The ``uncertainty``, if provided, will be a Quantity-like
 object with the same shape as the ``flux``.  If it has an `uncertainty_type`
 attribute, `arithmetic operations`_ will propagate uncertainties following
 standard rules (see `the nddata APE for details about the uncertainty attribute
 <https://github.com/astropy/astropy-APEs/blob/master/APE7.rst#proposal-for-an-nddatabase-abstract-base-class>`_).
+Conveniences to create common types of ``uncertainty`` (e.g. standard deviation,
+inverse variance) will be provided, although the exact syntax is considered an 
+implementation detail (and not covered in this APE).
+
 
 Dimensionality
 ^^^^^^^^^^^^^^
