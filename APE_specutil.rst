@@ -203,8 +203,8 @@ will have the following properties:
 The ``spectral_axis`` is always a quantity with the same shape as the last (or
 only) dimension of ``flux``. It also must have a spectral unit (i.e., length,
 frequency, energy, or velocity).  To ease use, the Spectrum1D object will have
-``energy``, ``wavelength``, ``frequency``, ``velocity`` properties that convert
- the `spectral_axis` to the appropriate units.  These are to be considered the
+``energy``, ``wavelength``, ``frequency``, ``velocity`` properties that convert 
+the `spectral_axis` to the appropriate units.  These are to be considered the
 'center' of the spectral bins.  Bin edges will also be accessible, but the
 exact way of accessing bin_edges will be determined at a later date (as it is
 intertwined with the ``.wcs`` representation, discussed further below).
