@@ -233,13 +233,16 @@ Metadata and other attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ``meta`` attribute is meant for metadata, e.g., information from
-a FITS header.  A ``Spectrum1D`` object may include additional attributes
-beyond the metadata. In many cases this is best implemented via *subclasses* of
+a FITS header.   The ``Spectrum1D`` object will also have a method for
+masking spectrum that will be defined in a similar manner as in  ``NDData``.
+
+A ``Spectrum1D`` object may include additional attributes
+beyond the metadata and masking. In many cases this is best implemented via *subclasses* of
 ``Spectrum1D``, but these attributes can also be applied directly by analysis
 steps discussed in the “Analysis tools to be included in specutils” section
 below.  For example, a background subtraction tool would add an attribute
 ``background`` to the result spectrum, which is itself a ``Spectrum1D`` with
-the same shape as this one which contains the subtracted background.
+the same shape as this one which contains the subtracted background.  
 
 Creating Spectrum1D objects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
