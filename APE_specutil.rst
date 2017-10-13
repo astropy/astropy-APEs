@@ -196,7 +196,7 @@ will have the following properties:
 
 * ``spectral_axis``
 * ``flux``
-* ``uncertainty``
+* ``uncertainty`` (optional)
 * ``wcs`` (more detail on this attribute in the section below)
 * ``meta`` (a dict-like or maybe None)
 
@@ -205,7 +205,7 @@ only) dimension of ``flux``. It also must have a spectral unit (i.e., length,
 frequency, energy, or velocity).  To ease use, the Spectrum1D object will have
 ``energy``, ``wavelength``, ``frequency``, ``velocity`` properties that convert
  the `spectral_axis` to the appropriate units.  These are to be considered the
-“center” of the spectral bins.  Bin edges will also be accessible, but the
+'center' of the spectral bins.  Bin edges will also be accessible, but the
 exact way of accessing bin_edges will be determined at a later date (as it is
 intertwined with the ``.wcs`` representation, discussed further below).
 ``flux`` will be a Quantity, so the units of the spectrum should be accessed as
@@ -247,8 +247,9 @@ Creating Spectrum1D objects
 While the above properties specify the interface for accessing a `Spectrum1D`,
 these are *not* all required for initialization. At the minimum, the user will
 have to provide a ``flux`` (which can be a Quantity or an array) and the
-``spectral_axis``. The Spectrum1D’s spectral axis can be instantiated with
-either a Quantity object, array, or a pixel-to-spectral transformation function
+``spectral_axis`` or ``wcs`` describing the ``spectral_axis``. The Spectrum1D’s 
+spectral axis can be instantiated with either a Quantity object, array, or a 
+pixel-to-spectral transformation function
 (the `wcs` object).
 
 In addition to this information, `specutils` will provide a method for reading
@@ -368,7 +369,8 @@ optical versus radio velocity definitions).  Note that the details of this
 ``wcs`` attribute may change depending on the outcome of the WCS APE process,
 and hence *this* APE does not rely heavily upon it.  However, additional
 functionality making use of more advanced WCS functionality is a possibility
-for future development of the `Spectrum1D` class.
+for future development of the `Spectrum1D` class.  The ``wcs`` property should
+provide seamless and efficient access to the `spectral_axis``. 
 
 With this future development of WCS in mind, this APE is *not* concerned with
 representations of data cubes, times series of spectra, or similar objects with
