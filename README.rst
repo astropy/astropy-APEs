@@ -76,3 +76,14 @@ or rejection.  One of the committee members should then:
    "Accepted APEs" table of the repository's README.
 4. Merge the PR with the above changes.
 5. Upload the APE to Zenodo to give it a DOI. Go to https://zenodo.org/deposit/new, upload the .md file, Set the title as "APE #: xxx", paste the abstract in for the "Description", enter in the authors of the APE (directly from the APE text, but with ORCIDs if possible), leave the License as CC-Attribution, and under "Related/alternate identifiers" paste in the github link to the APE file *at the specific merge commit* (e.g. https://github.com/astropy/astropy-APEs/blob/42951733ac42c0ea178d8df30705274a43c93091/APE1.rst) as "is supplemented by this upload".
+
+Updating APEs
+^^^^^^^^^^^^^
+
+In the cases where an updated APE requires updating (e.g. references to a  new
+APE that supercedes it, clarifying information that emerges after the APE is
+accepted, etc.), changes can be made directly via PR, but the
+"date-last-revised" should be updated in the APE. Additionally, the Zenodo entry
+will need to be updated with a new version of the APE (*not* a completely new
+Zenodo entry).
+
