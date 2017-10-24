@@ -94,5 +94,6 @@ APE that supercedes it, clarifying information that emerges after the APE is
 accepted, etc.), changes can be made directly via PR, but the
 "date-last-revised" should be updated in the APE. Additionally, the Zenodo entry
 will need to be updated with a new version of the APE (*not* a completely new
-Zenodo entry).
+Zenodo entry), by using the "New version" button and then filling out the forms
+as described above.
 
