@@ -79,7 +79,7 @@ and should be *compatible* with this APE’s interface, an API for these
 operations is out-of-scope for this APE. This APE also does not address how to
 *create* such WCSs. Rather it is aimed specifically at an API for the simpler
 problem of actually performing the “end-to-end” transformation from pixel to
-some world space. Overview of the proposed WCS Interface
+some world space.
 
 Our proposal in this APE is the following:
 
@@ -138,7 +138,7 @@ low-level API recommends:
             Returns an iterable of strings describing the physical type for each
             world axis. This should follow the VO names from the UCD1+ controlled
             Vocabulary (http://www.ivoa.net/documents/latest/UCDlist.html).
-            If no matching VO type exists, this can return None.
+            If no matching VO type exists, this can return None for any or all axes.
             """
 
         @property
@@ -165,13 +165,15 @@ low-level API recommends:
             """
             Convert pixel coordinates to world coordinates. This method takes
             n_pixel scalars or Python array types as input, and pixel
-            coordinates should be zero-based. Returns n_world scalars or arrays.
+            coordinates should be zero-based. 
+            Returns n_world scalars or arrays in units given by ``world_axis_units``.
             """
 
         def world_to_pixel_values(self, *world_arrays):
             """
             Convert world coordinates to pixel coordinates. This method takes
-            n_world scalars or arrays as input. Returns n_pixel scalars or arrays.
+            n_world scalars or arrays as input in units given by ``world_axis_units``.
+            Returns n_pixel scalars or arrays.
             """
 
         @property
@@ -185,8 +187,8 @@ low-level API recommends:
             (e.g. a celestial coordinate might have both “ra” and “dec” arrays,
             which correspond to a single sky coordinate object). The second
             element is  either a string keyword argument name or a positional
-            index for the corresponding coordinate class from
-            ``world_axis_object_classes``.
+            index for the corresponding class from
+            ``world_axis_object_metadata``.
             """
 
         @property
@@ -221,7 +223,7 @@ WCS object is:
 
 This indicates that the first and third world axis can be used to instantiate an
 Astropy ``SkyCoord`` object with ``ra=`` set to the first world axis, and
-``dec=`` set to the second axis, and the ``frame=fk5`` and ``equinox=J2005``
+``dec=`` set to the third axis, and the ``frame=fk5`` and ``equinox=J2005``
 arguments, while the second world axis can be used to instantiate an Astropy
 ``Time`` object as the first positional argument, and with the ``scale=tai``
 keyword argument. Note that the coordinate frame classes could be custom
@@ -241,7 +243,7 @@ Low-level API examples
     wcs.world_axis_object_classes  = {‘spec’:(‘astropy.units.Wavelength’:
                                               {‘airorvacwl’: ‘air’})}
 
-**Simple 2D image mapping** where the axis are just RA and Dec (in WCS this would be CAR)
+**Simple 2D image mapping** where the axis are just RA and Dec (in FITS-WCS this would be CAR)
 
 .. code-block:: python
 
