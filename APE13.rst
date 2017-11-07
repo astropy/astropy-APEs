@@ -81,6 +81,9 @@ operations is out-of-scope for this APE. This APE also does not address how to
 problem of actually performing the “end-to-end” transformation from pixel to
 some world space.
 
+Overview of the proposed WCS Interface
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Our proposal in this APE is the following:
 
 * To develop a common API that WCS objects can expose, either directly or
