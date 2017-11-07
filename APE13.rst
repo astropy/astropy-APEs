@@ -15,7 +15,21 @@ status: Discussion
 Abstract
 --------
 
-*To be written*
+Astronomical data are often provided with information about the “real-world”
+coordinates that correspond to pixel coordinates. This mapping is the essence of
+the “World Coordinate System (WCS)” concept. In addition to FITS WCS (the origin
+of the “WCS” term), other WCS standards/representations are becoming necessary
+for new missions and observatories (e.g. the James Webb Space Telescope or the
+Large Synoptic Survey Telescope). In order to build functionality in Astropy and
+affiliated packages that may require use of WCS, having to deal with different
+kinds of WCS objects with different APIs will be essentially impossible. Thus,
+the purpose of this APE is to define a standardized interface to WCS objects
+based on simple objects (strings, scalars, and arrays). Packages implementing
+WCS objects will then be able to either modify their classes to conform to the
+API recommended here, or build thin wrappers that conform to the API. The APE
+also provides a recommendation for a high-level object to be implemented in
+Astropy that understands familiar Python objects such as ``SkyCoord``, ``Time``,
+and other Astropy classes.
 
 Detailed description
 --------------------
@@ -350,24 +364,20 @@ and the order is not the standard one).
 Branches and pull requests
 --------------------------
 
-*Any pull requests or development branches containing work on this APE should be
-linked to from here. (An APE does not need to be implemented in a single pull
-request if it makes sense to implement it in discrete phases). If no code is yet
-implemented, just put "N/A"*
+N/A
 
 Implementation
 --------------
 
-*This section lists the major steps required to implement the APE. Where
-possible, it should be noted where one step is dependent on another, and which
-steps may be optionally omitted. Where it makes sense, each  step should
-include a link related pull requests as the implementation progresses.*
-
+The low-level API could be implemented specifically for FITS-WCS into the
+Astropy core package, along with the more general high-level Astropy object.
+Other projects can then choose to implement objects conforming to the low-level
+API in their own packages.
 
 Backward compatibility
 ----------------------
 
-Not applicable here since this APE discusses developing new functionality.
+N/A
 
 Alternatives
 ------------
