@@ -7,6 +7,8 @@ date-created: 2013 November 18
 
 date-last-revised: 2013 December 11
 
+date-accepted: 2013 December 10
+
 type: Process
 
 status: Accepted
