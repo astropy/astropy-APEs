@@ -300,7 +300,8 @@ to a text file::
 To illustrate the full features of ECSV we create a table with meta data
 (keywords and comments) as well as more detailed column meta data::
 
-  >>> from astropy.utils import OrderedDict
+  >>> from collections import OrderedDict
+  >>> import astropy.units as u
   >>> t = Table([[1, 4], [2, 3]], names=['a', 'b'])
   >>> t.meta['keywords'] = OrderedDict([('z_key1', 'val1'), ('a_key2', 'val2')])
   >>> t.meta['comments'] = ['Comment 1', 'Comment 2', 'Comment 3']
