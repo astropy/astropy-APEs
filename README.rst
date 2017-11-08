@@ -75,16 +75,25 @@ or rejection.  One of the committee members should then:
 3. If the APE is accepted, add a commit to the APE which puts the APE into the
    "Accepted APEs" table of the repository's README.
 4. Merge the PR with the above changes.
-5. Upload the APE to Zenodo to give it a DOI. Go to
-   https://zenodo.org/deposit/new, upload the .rst file, Set the title as "APE
-   #: xxx", paste the abstract in for the "Description", set the "Publication
-   Date" to the date-last-revised of the APE (which should be the same as the
-   accepted date), enter in the authors of the APE (directly from the APE text,
-   but with ORCIDs if possible), leave the License as CC-Attribution, and under
-   "Related/alternate identifiers" paste in the github link to the APE file
-   *at the specific merge commit* (e.g.
-   https://github.com/astropy/astropy-APEs/blob/42951733ac42c0ea178d8df30705274a43c93091/APE1.rst)
-   as "is supplemented by this upload".
+5. Upload the APE to Zenodo to give it a DOI (see next section).
+
+Uploading an APE to Zenodo
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Go to https://zenodo.org/deposit/new, upload the .rst file, and set the fields to the following:
+
+============================= ======================================================
+Zenodo field                  Set to
+============================= ======================================================
+Title                         Astropy Proposal for Enhancement <number>: <title> (APE <number>)
+Upload type                   Publication
+Publication type              Technical note
+Abstract                      The APE abstract
+Publication Date              The date-last-revised of the APE (which should be the same as the accepted date for new APEs)
+Authors                       The APE authors (directly from the APE text, but with ORCIDs if possible)
+License                       CC-Attribution
+Related/alternate identifiers Github link to the APE file *at the specific merge commit* (e.g. https://github.com/astropy/astropy-APEs/blob/42951733ac42c0ea178d8df30705274a43c93091/APE1.rst) as "is supplemented by this upload". If this is a revised version, this should be the URL of the commit where the APE was revised.
+============================= ======================================================
 
 Updating APEs
 ^^^^^^^^^^^^^
@@ -96,4 +105,3 @@ accepted, etc.), changes can be made directly via PR, but the
 will need to be updated with a new version of the APE (*not* a completely new
 Zenodo entry), by using the "New version" button and then filling out the forms
 as described above.
-
