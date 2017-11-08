@@ -213,6 +213,6 @@ warnings in 1.3 by sticking to ``clobber``; (2) not supporting 1.0.x by moving
 to ``overwrite``; or (3) inserting astropy version checks.
 
 These problems should be avoided by adding the deprecating warnings only in
-LTS versions (n.0.0), and then doing the actual removal at the next feature
-release (n.1.0). Feature releases beyond that should not remove or deprecate
-code (i.e., they should just introduce new features).
+LTS versions (n.0.0), and then doing the actual removal no sooner than the
+next feature release (n.1.0). Feature releases beyond that should not remove
+or deprecate code (i.e., they should just introduce new features).
