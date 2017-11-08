@@ -92,6 +92,7 @@ Abstract                      The APE abstract
 Publication Date              The date-last-revised of the APE (which should be the same as the accepted date for new APEs)
 Authors                       The APE authors (directly from the APE text, but with ORCIDs if possible)
 License                       CC-Attribution
+Communities                   The Astropy Project
 Related/alternate identifiers Github link to the APE file *at the specific merge commit* (e.g. https://github.com/astropy/astropy-APEs/blob/42951733ac42c0ea178d8df30705274a43c93091/APE1.rst) as "is supplemented by this upload". If this is a revised version, this should be the URL of the commit where the APE was revised.
 ============================= ======================================================
 
