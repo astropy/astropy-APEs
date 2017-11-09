@@ -44,7 +44,7 @@ have been used on astronomical data, the FITS WCS standard (`Calabretta &
 Greisen, 2002, A&A 395, 1077 <http://dx.doi.org/10.1051/0004-6361:20021327>`_)
 gave this concept a name: “World Coordinate System” (WCS). Because of this,
 “WCS” and “FITS-WCS” are often treated synonymously, but the concept is of
-broader applicability, as evidenced by the existence of serialization formats 
+broader applicability, as evidenced by the existence of serialization formats
 and Python packages that perform this task (e.g., gWCS, pyast). Hence, we use
 the term “WCS” to refer to the broad concept of WCS, rather than the specific
 FITS-WCS representation and implementation.
@@ -325,11 +325,12 @@ common ones that will likely be used::
     time                     | Time, generic quantity in units of time or date
     time.epoch               | Instant of time related to a generic event (epoch, date, Julian date, time stamp/tag,...)
 
-The full UCD1+ vocabulary does not include all possible 'terms' that would be
+The full UCD1+ vocabulary does not include all possible type names that would be
 needed to represent **all** WCSes (for example, there are no keywords for
 helioprojective coordinates). In this case, ``world_axis_physical_types`` should
-return ``None`` for those coordinates, and we should work with the International
-Virtual Observatory Alliance (IVOA) to implement new 'terms' as needed.
+return ``None`` for those coordinates.  This should also be taken as a call
+to work with the International Virtual Observatory Alliance (IVOA) to implement
+new type names, which the Astropy Project will facilitate as needed.
 
 High-level Astropy Object
 ^^^^^^^^^^^^^^^^^^^^^^^^^
