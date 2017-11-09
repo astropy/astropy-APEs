@@ -168,7 +168,7 @@ low-level API recommends:
             """
             Convert pixel coordinates to world coordinates. This method takes
             n_pixel scalars or Python array types as input, and pixel
-            coordinates should be zero-based. 
+            coordinates should be zero-based.
             Returns n_world scalars or arrays in units given by ``world_axis_units``.
             """
 
@@ -303,6 +303,8 @@ common ones that will likely be used::
     instr.pixel              | Pixel (default size: angular)
     pos.az.alt               | Alt-azimutal altitude
     pos.az.azi               | Alt-azimutal azimut
+    pos.bodyrc.lat           | Body related coordinate (latitude on the body)
+    pos.bodyrc.long          | Body related coordinate (longitude on the body)
     pos.cartesian.x          | Cartesian coordinate along the x-axis
     pos.cartesian.y          | Cartesian coordinate along the y-axis
     pos.cartesian.z          | Cartesian coordinate along the z-axis
@@ -313,11 +315,18 @@ common ones that will likely be used::
     pos.galactic.lat         | Latitude in galactic coordinates
     pos.galactic.lon         | Longitude in galactic coordinates
     pos.healpix              | Hierarchical Equal Area IsoLatitude Pixelization
+    pos.heliocentric         | Heliocentric position coordinate (solar system bodies)
     spect.dopplerVeloc       | Radial velocity, derived from the shift of some spectral feature
     spect.dopplerVeloc.opt   | Radial velocity derived from a wavelength shift using the optical convention
     spect.dopplerVeloc.radio | Radial velocity derived from a frequency shift using the radio convention
     time                     | Time, generic quantity in units of time or date
     time.epoch               | Instant of time related to a generic event (epoch, date, Julian date, time stamp/tag,...)
+
+The full UCD1+ vocabulary does not include all possible 'terms' that would be
+needed to represent **all** WCSes (for example, there are no keywords for
+helioprojective coordinates). In this case, ``world_axis_physical_types`` should
+return ``None`` for those coordinates, and we should work with the International
+Virtual Observatory Alliance (IVOA) to implement new 'terms' as needed.
 
 High-level Astropy Object
 ^^^^^^^^^^^^^^^^^^^^^^^^^
