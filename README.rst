@@ -24,7 +24,7 @@ Accepted APEs
 7   `NDData Plan`_                                      2014-Dec-17 |APE 7 DOI|
 8   `Astropy Community Code of Conduct`_                2015-May-04 |APE 8 DOI| 
 10  `Roadmap for Python 3-only support`_                2016-Aug-22 |APE 10 DOI|
-12  `Using Cookiecutter for the package-template`_      2017-Mar-28 
+12  `Using Cookiecutter for the package-template`_      2017-Mar-28 |APE 12 DOI|
 === =================================================== =========== ============
 
 .. _APE Purpose and Process: https://github.com/astropy/astropy-APEs/blob/master/APE1.rst
@@ -64,6 +64,9 @@ Accepted APEs
 
 .. |APE 10 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1038587.svg
    :target: https://doi.org/10.5281/zenodo.1038587
+
+.. |APE 12 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1044484.svg
+   :target: https://doi.org/10.5281/zenodo.1044484
 
 Proposing a new APE
 ^^^^^^^^^^^^^^^^^^^
