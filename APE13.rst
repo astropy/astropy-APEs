@@ -329,9 +329,8 @@ This high-level API would provide the ability for example to get ``SkyCoord``,
 be able to convert ``SkyCoord``, ``Time`` etc. to pixel values.
 
 The high-level object would not inherit from the low-level classes but instead
-wrap them. The low-level object must be available under the attribute name
-low_level_wcs. The high-level object should provide the following additional
-methods:
+wrap them. The high-level object should provide at a minimum the
+following two methods:
 
 .. code-block:: python
 
@@ -347,12 +346,21 @@ methods:
         coordinates
         """
 
+The low-level object must be available under the attribute name ``low_level_wcs``
+and the low-level methods such as ``pixel_to_world_values`` will thus be
+available by doing:
+
+.. code-block:: python
+
+    >>> wcs.low_level_wcs.pixel_to_world_values(...)
+
 Since a single Astropy object might correspond to two non-contiguous dimensions
-(for example the first and third world dimensions), we need to specify the rules
-for the order in which Astropy objects are returned from ``pixel_to_world``, and
-in which order they should be given to ``world_to_pixel``. The standard order
-should be that given by considering only the first occurrence of the coordinate
-alias string in ``world_axis_object_components``. For example, if
+in the WCS (for example the first and third world dimensions), we need to
+specify the rules for the order in which Astropy objects are returned from the
+high-level ``pixel_to_world`` method, and in which order they should be given to
+the high-level ``world_to_pixel`` method. The standard order should be that
+given by considering only the first occurrence of the coordinate alias string in
+``world_axis_object_components``. For example, if
 ``world_axis_object_components`` is
 
 .. code-block:: python
