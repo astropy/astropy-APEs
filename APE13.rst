@@ -40,13 +40,14 @@ Background/Terminology
 One of the key basic operations necessary for any astronomical data analysis is
 the association of “pixels” with their “real-world” coordinates (and vice
 versa). While this concept has existed essentially for as long as computers
-have been used on astronomical data, the FITS WCS standard (Calabretta &
-Greisen, 2002, A&A 395, 1077) gave this concept a name: “World Coordinate
-System” (WCS). Because of this, “WCS” and “FITS-WCS” are often treated
-synonymously, but the concept is of broader applicability, as evidenced by the
-existence of serialization formats and Python packages that perform this task
-(e.g., gWCS, pyast). Hence, we use the term “WCS” to refer to the broad concept
-of WCS, rather than the specific FITS-WCS representation and implementation.
+have been used on astronomical data, the FITS WCS standard (`Calabretta &
+Greisen, 2002, A&A 395, 1077 <http://dx.doi.org/10.1051/0004-6361:20021327>`_)
+gave this concept a name: “World Coordinate System” (WCS). Because of this,
+“WCS” and “FITS-WCS” are often treated synonymously, but the concept is of
+broader applicability, as evidenced by the existence of serialization formats 
+and Python packages that perform this task (e.g., gWCS, pyast). Hence, we use
+the term “WCS” to refer to the broad concept of WCS, rather than the specific
+FITS-WCS representation and implementation.
 
 For the purposes of this APE, we define WCS transformations as mapping pixels to
 some world coordinate (or the inverse). In our terminology, *pixel* is a
