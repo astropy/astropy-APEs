@@ -422,11 +422,19 @@ The structure outlined in this API would make that unnecessary by instead having
 a single interface that user code can write against, and only needs to consider
 other details when creating or modifying wcs.
 
-On a more minor note, the primary reason for using a string as the key for the
-dictionary for ``world_axis_object_classes`` (and the corresponding names in
+On a more specific note, the primary reason for using a string as the key for
+the dictionary for ``world_axis_object_classes`` (and the corresponding names in
 world_axis_object_components) is because there might be multiple world axes that
 need to use the same class. Otherwise a simpler solution would have been to use
 the class object *itself* as the key.
+
+Additionally, for ``world_axis_physical_types``, an alternative was considered
+of adopting a much more general set of terms vs UCD1+ such as ``"celestial"``,
+``"spectral"``, etc. And just coming up with the list in this APE (possibly
+using terms that approxmiately align with the STC standard).  But it was decided
+that adopting the VO UCD1+ would be best because it would not lead to Astropy
+needing to maintain a separate "standard" of terminology where one already
+exists.
 
 
 Decision rationale
