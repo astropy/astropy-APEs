@@ -289,10 +289,12 @@ dimension encoding time-of-observation.
     wcs.world_axis_object_components = [(‘spec’, 0)]
     wcs.world_axis_object_classes  = {‘spec’:(‘astropy.units.pixel’: {})}
 
-Common UCD1+ names
-^^^^^^^^^^^^^^^^^^
+Common UCD1+ names for physical types
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The full UCD1+ vocabulary (used for the ``world_physical_types`` attribute)
+As outlined above, the ``world_physical_type`` attribute should include straings
+that fullow the VO UCD1+ vocabulary for defining physical types. The
+`full UCD1+ vocabulary <http://www.ivoa.net/documents/latest/UCDlist.html>`_
 includes a large number of options, but here we summarize some of the most
 common ones that will likely be used::
 
