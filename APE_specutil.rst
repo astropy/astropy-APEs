@@ -354,6 +354,15 @@ Example 4: Spectral arithmetic
     ValueError: Spectral axes do not match
 
 
+Multi-Dimensional data
+^^^^^^^^^^^^^^^^^^^^^^
+
+Beyond a ``Spectrum1D`` object, there will also be a lightweight, multi-dimensional
+data object optimized for performance.  It will have the same  attributes as 
+``Spectrum1D``.  This object will be able to hold arrays of ``spectral_axis``
+and ``flux`` and to allow the operation on a large collection of similar 
+spectra.  This may be implemented within the ``Spectrum1D`` class or as a 
+separate but compatible class.   
 
 WCS, Spectrum1D, and Data cubes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
