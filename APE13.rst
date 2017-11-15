@@ -142,8 +142,8 @@ low-level API recommends:
             Returns an iterable of strings describing the physical type for each
             world axis. They should be names from the VO UCD1+ controlled
             Vocabulary (http://www.ivoa.net/documents/latest/UCDlist.html).
-            If no matching UCD type exists, this can instead be "custom:XXX",
-            where XXX is an arbitrary string.  Alternatively, if the physical
+            If no matching UCD type exists, this can instead be "custom:xxx",
+            where xxx is an arbitrary string.  Alternatively, if the physical
             type is unknown/undefined, an element can be `None`.
             """
 
