@@ -140,9 +140,11 @@ low-level API recommends:
         def world_axis_physical_types(self):
             """
             Returns an iterable of strings describing the physical type for each
-            world axis. This should follow the VO names from the UCD1+ controlled
+            world axis. They should be names from the VO UCD1+ controlled
             Vocabulary (http://www.ivoa.net/documents/latest/UCDlist.html).
-            If no matching VO type exists, this can return None for any or all axes.
+            If no matching UCD type exists, this can instead be "custom:XXX",
+            where XXX is an arbitrary string.  Alternatively, if the physical
+            type is unknown/undefined, an element can be `None`.
             """
 
         @property
@@ -293,8 +295,8 @@ dimension encoding time-of-observation.
 Common UCD1+ names for physical types
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As outlined above, the ``world_physical_type`` attribute should include straings
-that fullow the VO UCD1+ vocabulary for defining physical types. The
+As outlined above, the ``world_axis_physical_types`` attribute should include
+strings that fullow the VO UCD1+ vocabulary for defining physical types. The
 `full UCD1+ vocabulary <http://www.ivoa.net/documents/latest/UCDlist.html>`_
 includes a large number of options, but here we summarize some of the most
 common ones that will likely be used::
@@ -327,10 +329,10 @@ common ones that will likely be used::
 
 The full UCD1+ vocabulary does not include all possible type names that would be
 needed to represent **all** WCSes (for example, there are no keywords for
-helioprojective coordinates). In this case, ``world_axis_physical_types`` should
-either return ``None`` for those coordinates, or return a string prefixed with
-``custom:``. This should also be taken as a call to work with the International
-Virtual Observatory Alliance (IVOA) to implement
+helioprojective coordinates). In this case, the element of
+``world_axis_physical_types`` for those coordinates should be a string prefixed
+with ``custom:``. This should also be taken as a call to work with the
+International Virtual Observatory Alliance (IVOA) to implement
 new type names, which the Astropy Project will facilitate as needed. If a
 ``custom:`` type name is needed, we recommend that these be coordinated and
 agreed as much as possible between different packages to make sure that these
