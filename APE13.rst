@@ -328,9 +328,14 @@ common ones that will likely be used::
 The full UCD1+ vocabulary does not include all possible type names that would be
 needed to represent **all** WCSes (for example, there are no keywords for
 helioprojective coordinates). In this case, ``world_axis_physical_types`` should
-return ``None`` for those coordinates.  This should also be taken as a call
-to work with the International Virtual Observatory Alliance (IVOA) to implement
-new type names, which the Astropy Project will facilitate as needed.
+either return ``None`` for those coordinates, or return a string prefixed with
+``custom:``. This should also be taken as a call to work with the International
+Virtual Observatory Alliance (IVOA) to implement
+new type names, which the Astropy Project will facilitate as needed. If a
+``custom:`` type name is needed, we recommend that these be coordinated and
+agreed as much as possible between different packages to make sure that these
+can be useful (which would not be the case if each package created their own
+set of custom type names).
 
 High-level Astropy Object
 ^^^^^^^^^^^^^^^^^^^^^^^^^
