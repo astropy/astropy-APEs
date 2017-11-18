@@ -5,7 +5,7 @@ author: Perry Greenfield, Russell Owen, Matt Craig
 
 date-created: 2016 March 31
 
-date-last-revised: 2017 June 2
+date-last-revised: 2017 November 18
 
 type: Standard Track
 
@@ -47,16 +47,18 @@ methods needed for an instance of the class to be treated like a numpy array
 in expressions.
 
 There are also a couple of uncertainty classes. The class ``NDUncertainty``
-serves too define the uncertainty interface and ``StvDevUncertainty`` implements
+serves to define the uncertainty interface and ``StvDevUncertainty`` implements
 error propagation (including limited support for propagation of correlated
 errors) for uncertainties expressed as standard deviation.
+
+Finally, ``CCDData``, originally developed as part of ``ccdproc``, was added
+to ``astropy`` in version 2.0. It is a subclass of ``NDDataArray``.
 
 The subpackage ``nddata.utils`` includes a few utility functions (e.g.
 ``block_reduce``) for operating on generic arrays and a ``Cutout2D`` class for
 representing postage-stamp cutouts of images.
 
-The class diagram for ``nddata`` is shown below. It includes the ``CCDData``
-class from ``ccdproc`` because it is closely related to `NDDataArray`.
+The class diagram for ``nddata`` is shown below.
 
 .. image:: images/current-nddata.png
     :scale: 50 %
@@ -71,9 +73,10 @@ This list summarizes the known packages making extensive use of some aspect of
 + SunPy: uses the ``NDData`` class as the basis for its data object.
 + The Gemini reduction pipeline uses ``NDDataArray``, at least in part. See
   `ndmapper <https://github.com/jehturner/ndmapper>`_.
-+ `ccdproc <http://cccdproc.rtfd.io>`_ uses ``NDDataArray`` as the
-  basis for the ``CDData`` object, which is used through the package.
-+ phoutils uses the ``Cutout2D`` class to represent subregions of images.
++ `ccdproc <http://cccdproc.rtfd.io>`_ uses the ``CCDData`` object throughout
+  the package.
++ `phoutils <http://photutils.rtfd.io>`_ uses the ``Cutout2D`` class to
+  represent subregions of images.
 
 Summary of the LSST data structure
 **********************************
@@ -147,7 +150,7 @@ ways of minimizing the effects of changes to NDData by deprecating use of
 attributes currently planned. These are all issues for discussion.
 
 For the purposes of this APE, we will assume that the name for the simpler
-object is NDArr. This name does not appear to have any other usage in the
+object is ``NDArr``. This name does not appear to have any other usage in the
 Python community.  Since metadata and other more complex aspects have been
 removed from the concept, supporting arithmetic operations becomes much more
 straightforward, even with masks. Propagation of uncertainty is included,
@@ -157,7 +160,7 @@ the NDArr object with options not to propagate one or the other or both to
 forestall complaints from those for which these operations will be considered
 invalid.
 
-NDArr will support optional units since the propagation of units is
+``NDArr`` will support optional units since the propagation of units is
 unambiguous in mathematical operations.
 
 Supported numerical operations for NDArr are: (+,-,*,/). While the discussion
@@ -166,25 +169,25 @@ supported, so this APE will presume they are supported (eventually; there
 is no implied commitment to support this functionality immediately). Ufuncs
 shall only work on dimensionless units if units are present.
 
-NDArr objects will support simple slicing (no striding, at least in the
+``NDArr`` objects will support simple slicing (no striding, at least in the
 initial proposal). Slices will be based on array indices and no other
 interpretation.
 
-NDArr objects will retain information about their parent if derived through
+``NDArr`` objects will retain information about their parent if derived through
 a slicing operation. This information shall include a pointer to the parent
 NDArr object, and the bounding box used to obtain the slice. When involving
-binary arithmetic operations, between two NDArr objects that have different
+binary arithmetic operations, between two ``NDArr`` objects that have different
 parents (or are themselves distinct parents), there will be no pointer to
 the original parent(s) present, nor will the bounding box information be
 retained
 
 If operations are unary, parentage and bounding box information is propagated.
-For binary operations with two NDArr objects, operations
+For binary operations with two ``NDArr`` objects, operations
 will retain parentage and bounding boxes only if both operands share the same
 parents and bounding box. If they don't, this information will be removed from
 the result.
 
-The NDArr object will permit indexing relative to the parent through a special
+The ``NDArr`` object will permit indexing relative to the parent through a special
 attribute (details at 11).
 
 NDData Details
@@ -193,9 +196,9 @@ NDData Details
 Composition instead of Inheritance
 ----------------------------------
 
-NDData will not be a subclass of NDArr. Instead it will contain references
-to an NDArr object. To avoid confusion, the attribute that contains the
-NDArr object will be .arr.
+NDData will not be a subclass of ``NDArr``. Instead it will contain references
+to an ``NDArr`` object. To avoid confusion, the attribute that contains the
+``NDArr`` object will be .arr.
 
 One possible way to rearrange nddata is this:
 
@@ -233,7 +236,7 @@ in how metadata items are to be propagated when the user merges NDData instances
 Masking
 +++++++
 
-The implementation of ``NDData`` and subclasses in astropy v1.x uses "mask" in
+The implementation of ``NDData`` and subclasses in astropy versions through v2.x uses "mask" in
 a very different sense than the LSST stack. In astropy, "mask" means a binary
 mask that follows the numpy masked array convention for the meaning of
 ``True`` and ``False``: ``True`` means the pixel is masked and should not be
@@ -291,7 +294,7 @@ like ``NDDataArray``. This requires that the uncertainty in ``NDDataArray``
 class stores uncertainty as variance, but does not require that the
 uncertainty be variance.
 
-The NDArr object shall have a "variance" attribute (too bad for those that
+The ``NDArr`` object shall have a "variance" attribute (too bad for those that
 desire standard deviation as an option; though for backward compatibility
 this will remain a possibility; it just won't be stored this way).
 A value of None is not permitted
