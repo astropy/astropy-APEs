@@ -58,9 +58,9 @@ representing postage-stamp cutouts of images.
 The class diagram for ``nddata`` is shown below. It includes the ``CCDData``
 class from ``ccdproc`` because it is closely related to `NDDataArray`.
 
-.. image:: https://www.evernote.com/l/ADH5Dtjb4zpNYoJiiVfr0fHhWsxg6FsUmyEB/image.png
+.. image:: images/current-nddata.png
     :scale: 50 %
-    :target: https://www.evernote.com/l/ADH5Dtjb4zpNYoJiiVfr0fHhWsxg6FsUmyEB/image.png
+    :target: images/current-nddata.png
 
 Current uses of ``nddata`` classes in other packages
 ****************************************************
