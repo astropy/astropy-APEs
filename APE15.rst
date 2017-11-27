@@ -15,7 +15,7 @@ status: Discussion
 Abstract
 --------
 
-The abstract should be a short description of what the APE will achieve.
+XXX
 
 
 Detailed description
@@ -25,8 +25,9 @@ Motivation
 ==========
 
 From its inception, Astropy has included an ecosystem of astronomy packages
-beyond the ``astropy`` core package(see the `original vision <xxx>`_).  The
-process by which these "affiliated" packages are reviewed and accepted has
+beyond the ``astropy`` core package (see the
+`original vision <http://docs.astropy.org/en/stable/development/vision.html>`_).
+The process by which these "affiliated" packages are reviewed and accepted has
 already changed a few times since the project's inception as the ecosystem has
 grown. However, the current state has several significant deficiencies.
 
@@ -69,7 +70,33 @@ implement them.
 Astropy "coordinated" and affiliated packages
 =============================================
 
-xxx
+The biggest-picture change is to split the currently single-category affiliated
+package ecosystem into two categories: "Astropy coordinated" and "Astropy
+affiliated" package.  This change is not as drastic as it sounds because it
+reflects the *reality* of the current situation.  As outlined above, two such
+categories effectively exist already, and this APE simply formalizes this
+status.
+
+In practice, packages that remain as affiliated packages are essentially
+unaffected by this change.  They continue to be managed/organized outside of the
+Astropy project core team, and retain complete control of the repositories, code
+base, etc.  By contrast, packages in the new "coordinated package" category will
+become part of the Astropy project, with the project (via the coordinating
+committee) overseeing who is mainting the package and taking responsibility for
+continued maintainence in the event the original author no longer can do so.
+This means maintainer roles will be created for all the coordinated packages,
+and have full status as astropy <roles `http://www.astropy.org/team.html`>_.
+
+XXX Is more about exactly what "coordinated" means needed?
+
+One additional consequence of this change is that coordinated packages will live
+in the `astropy` github organization, for which the project has management
+power, while affiliated packages, in general, should *not*.  To ease this
+process, however, any affiliated packages currently in the astropy organization
+can be "grandfathered-in".  E.g., they may remain in the organization even if
+they are not coordinated packages.  New packages, however, should be either in
+the astropy organization, or an external organization, for coordinated and
+affiliated, respectively.
 
 A criteria-based package review process
 =======================================
@@ -99,12 +126,15 @@ N/A
 Implementation
 --------------
 
-The changes outlined in this APE are best implemented as three distinct efforts.
+The changes outlined in this APE awill be implemented as three distinct efforts.
 
 * The new package review criteria have already been implemented by the
-  coordination committee and reviewed by the community.  A new version of the
-  affiliated package web site will need to be implemented to reflect these
-  changes - a concept for this new site is `available here <xxx>`_.
+  coordination committee and reviewed by the community (Available in Google doc
+  form `here <https://docs.google.com/document/d/15PJf2PROXMa7xwTDvWnjXB_9KNuO2Ia4_kkxJ7MPazE/edit?usp=sharing>`_.
+  These criteria will need to be translated to html and put on the affiliated
+  package instructions.  The affiliated package listing page will also need to
+  be updated for these new criteria - a concept for this new site is
+  `available here <XXX>`_.
 * The Astropy web site (and to a lesser extent, affiliated package-related docs)
   will need to be updated to reflect the existence of the coordinated
   packages.  Additionally, the roles web site will need to be populated with the
@@ -113,9 +143,12 @@ The changes outlined in this APE are best implemented as three distinct efforts.
   maintainers upon acceptance of this APE.
 * A "peer-review" process will need to be set up to enable reviews by community
   members beyond the coordination committee.  While such processes exist in
-  other contexts (e.g. the `Journal of Open Source Software <xxx>`_ and
-  `Ropensci <xxx>`_) that may have tools that can be re-used, it is likely that
-  setting up this process will take some time.
+  other contexts (e.g. the
+  `Journal of Open Source Software <http://joss.theoj.org/>`_ and
+  `Ropensci <https://ropensci.org/>`_) that may have tools that can be re-used,
+  it is likely that setting up this process will take some time - this APE does
+  not outline the details of this implementation, but rather gives the broad
+  goals.
 
 
 Backward compatibility
