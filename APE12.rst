@@ -144,7 +144,7 @@ A version of the package template converted to a Cookiecutter project is `here
 tested by installing the cookiecutter package from pip or conda-forge and
 running::
 
-  cookiecuttter -c cookiecutter gh:cadair/package-template
+  cookiecutter -c cookiecutter gh:cadair/package-template
 
 
 Implementation
