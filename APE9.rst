@@ -355,6 +355,27 @@ API additions
 + These classes are added to the ``nddata`` package: ``NDArr``,
   ``VarianceUncertainty``, and a bit plane class ``BitPlane``.
 
+API changes
++++++++++++
+
++ Only one of ``mask`` and ``bit_plane`` can be set on those object
+  that have a ``bit_plane`` property.
++ If  the ``bit_plane`` property is set, then ``mask`` is calculated
+  from ``bit_plane`` (the user must have indicated in some way which bit planes to use).
+
+
+API not changing
+++++++++++++++++
+
+Though it is unusual to call out things that are not changing,  it seems
+appropriate to do so for  ``mask`` given the extensive discussion of the topic.
+
++ The meaning of ``mask`` will be the same as in current ``ndddata``: a binary
+  mask that follows the numpy masked array convention of ``True`` means ignore,
+  ``False`` means use.
++ ``mask`` is still settable as in the past, though it will raise an exception
+  if one sets ``mask`` and then tries to set ``bit_plane``.
+
 API deprecations for removal in astropy 4
 +++++++++++++++++++++++++++++++++++++++++
 
