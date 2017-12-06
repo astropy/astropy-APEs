@@ -352,8 +352,8 @@ API additions
 +++++++++++++
 
 + The attribute ``origin`` is added to ``NDDataBase`` and its subclasses.
-+ These classes are added to the ``nddata`` package: ``NDArr`` and
-  ``VarianceUncertainty``.
++ These classes are added to the ``nddata`` package: ``NDArr``,
+  ``VarianceUncertainty``, and a bit plane class ``BitPlane``.
 
 API deprecations for removal in astropy 4
 +++++++++++++++++++++++++++++++++++++++++
