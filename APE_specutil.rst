@@ -234,7 +234,7 @@ Metadata and other attributes
 
 The ``meta`` attribute is meant for metadata, e.g., information from
 a FITS header.   The ``Spectrum1D`` object will also have a method for
-masking spectrum and adding flats to a spectrum that will be defined in a 
+masking spectrum and adding flags to a spectrum that will be defined in a 
 similar manner as in  ``NDData``.
 
 A ``Spectrum1D`` object may include additional attributes
