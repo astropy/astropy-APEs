@@ -101,11 +101,13 @@ or rejection.  One of the committee members should then:
    discussion as relevant.
 2. Update the "date-last-revised" to the day of merging and "status" to
    "Accepted" or "Rejected".
-3. If the APE is accepted, add a commit to the APE which puts the APE into the
+3. If necessary, rename the APE file to be ``APE##.rst``, where ## is the next
+   free number on the list of APEs.
+4. If the APE is accepted, add a commit to the APE which puts the APE into the
    "Accepted APEs" table of the repository's README.
-4. Merge the PR with the above changes.
-5. Upload the APE to Zenodo to give it a DOI (see next section).
-6. Send an email to `astropy-dev <https://groups.google.com/forum/#!forum/astropy-dev/>`_ announcing the acceptance (In general this should just point to the accepted APE rather than providing additional decision rationale).
+5. Merge the PR with the above changes.
+6. Upload the APE to Zenodo to give it a DOI (see next section).
+7. Send an email to `astropy-dev <https://groups.google.com/forum/#!forum/astropy-dev/>`_ announcing the acceptance (In general this should just point to the accepted APE rather than providing additional decision rationale).
 
 Uploading an APE to Zenodo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
