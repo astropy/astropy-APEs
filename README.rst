@@ -25,6 +25,7 @@ Accepted APEs
 8   `Astropy Community Code of Conduct`_                2015-May-04 |APE 8 DOI|
 10  `Roadmap for Python 3-only support`_                2016-Aug-22 |APE 10 DOI|
 12  `Using Cookiecutter for the package-template`_      2017-Mar-28 |APE 12 DOI|
+13  `Vision for Astropy Spectroscopic Tools`_           2018-Dec-12 |APE 13 DOI|
 === =================================================== =========== ============
 
 .. _APE Purpose and Process: https://github.com/astropy/astropy-APEs/blob/master/APE1.rst
@@ -37,6 +38,7 @@ Accepted APEs
 .. _Astropy Community Code of Conduct: https://github.com/astropy/astropy-APEs/blob/master/APE8.rst
 .. _Roadmap for Python 3-only support: https://github.com/astropy/astropy-APEs/blob/master/APE10.rst
 .. _Using Cookiecutter for the package-template: https://github.com/astropy/astropy-APEs/blob/master/APE12.rst
+.. _Vision for Astropy Spectroscopic Tools: https://github.com/astropy/astropy-APEs/blob/master/APE13.rst
 
 .. |APE 1 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043886.svg
    :target: https://doi.org/10.5281/zenodo.1043886
@@ -67,6 +69,10 @@ Accepted APEs
 
 .. |APE 12 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1044484.svg
    :target: https://doi.org/10.5281/zenodo.1044484
+   
+.. |APE 13 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1044484.svg
+   :target: https://doi.org/10.5281/zenodo.1044484
+   
 
 Proposing a new APE
 ^^^^^^^^^^^^^^^^^^^
