@@ -1,9 +1,9 @@
 Vision for Astropy Spectroscopic Tools
 ======================================
 
-author: S. M. Crawford, N. Earl, A. Ginsburg, E. Tollerud, et al. 
+author: S. M. Crawford, N. Earl, A. Ginsburg, E. Tollerud, et al.
 
-date-created: 2017 April 21 
+date-created: 2017 April 21
 
 date-last-revised: 2017 Oct 2 <keep this up to date anytime something changes>
 
@@ -15,15 +15,17 @@ status: Discussion
 Abstract
 --------
 
-The goal of this APE is to coordinate and plan the development of spectroscopic 
-software within the astropy project.  The requirements for spectroscopic tools 
-include handling and reducing observations, different types of analysis, and 
-visualization of spectra. The goal of this APE is to provide a framework that 
-different astronomy packages can use to coordinate the development of 
-spectroscopic tools. The idea is a set of foundational packages that can then 
-be extended to build other tools. As part of this coordination effort, this APE 
-provides specifications for a `Spectrum1D` class, a standard interface for 1D 
-spectra that will be the basis for interoperability.
+The goal of this APE is to coordinate and plan the development of spectroscopic
+software within the astropy project.  The requirements for spectroscopic tools
+include handling and reducing observations, different types of analysis, and
+visualization of spectra. The goal of this APE is to provide a framework that
+different astronomy packages can use to coordinate the development of
+spectroscopic tools. The idea is a set of foundational packages that can then
+be extended to build other tools. As part of this coordination effort, this APE
+provides specifications for a `Spectrum1D` class. Note that "1D" is not mean to
+indicate a single spectrum - the object can also be a collection of spectra.
+This class will then provide a standard interface for 1D spectra that will be
+the basis for interoperability.
 
 Detailed description
 --------------------
@@ -203,7 +205,7 @@ will have the following properties:
 The ``spectral_axis`` is always a quantity with the same shape as the last (or
 only) dimension of ``flux``. It also must have a spectral unit (i.e., length,
 frequency, energy, or velocity).  To ease use, the Spectrum1D object will have
-``energy``, ``wavelength``, ``frequency``, ``velocity`` properties that convert 
+``energy``, ``wavelength``, ``frequency``, ``velocity`` properties that convert
 the `spectral_axis` to the appropriate units.  These are to be considered the
 'center' of the spectral bins.  Bin edges will also be accessible, but the
 exact way of accessing bin_edges will be determined at a later date (as it is
@@ -215,7 +217,7 @@ attribute, `arithmetic operations`_ will propagate uncertainties following
 standard rules (see `the nddata APE for details about the uncertainty attribute
 <https://github.com/astropy/astropy-APEs/blob/master/APE7.rst#proposal-for-an-nddatabase-abstract-base-class>`_).
 Conveniences to create common types of ``uncertainty`` (e.g. standard deviation,
-inverse variance) will be provided, although the exact syntax is considered an 
+inverse variance) will be provided, although the exact syntax is considered an
 implementation detail (and not covered in this APE).
 
 
@@ -234,18 +236,18 @@ Metadata and other attributes
 
 The ``meta`` attribute is meant for metadata, e.g., information from
 a FITS header.   The ``Spectrum1D`` object will also have a method for
-masking a spectrum and adding flags to a spectrum that will be defined in a 
+masking a spectrum and adding flags to a spectrum that will be defined in a
 similar manner as in ``NDData``.
 
 A ``Spectrum1D`` object may include additional attributes
-beyond the metadata, masking, and flags. In many cases this is best implemented 
+beyond the metadata, masking, and flags. In many cases this is best implemented
 via *subclasses* of ``Spectrum1D``, but these attributes can also be applied
 directly by analysis steps discussed in the “Analysis tools to be included in
 specutils” section below.  For example, a background subtraction tool would
 add an attribute ``background`` to the result spectrum, which is itself a
 ``Spectrum1D`` with the same shape as this one which contains the subtracted
-background.  Spectral ranges could also be defined for extractions of 
-overlapping spectra. 
+background.  Spectral ranges could also be defined for extractions of
+overlapping spectra.
 
 Creating Spectrum1D objects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -253,8 +255,8 @@ Creating Spectrum1D objects
 While the above properties specify the interface for accessing a `Spectrum1D`,
 these are *not* all required for initialization. At the minimum, the user will
 have to provide a ``flux`` (which can be a Quantity or an array) and the
-``spectral_axis`` or ``wcs`` describing the ``spectral_axis``. The Spectrum1D’s 
-spectral axis can be instantiated with either a Quantity object, array, or a 
+``spectral_axis`` or ``wcs`` describing the ``spectral_axis``. The Spectrum1D’s
+spectral axis can be instantiated with either a Quantity object, array, or a
 pixel-to-spectral transformation function
 (the `wcs` object).
 
@@ -361,11 +363,11 @@ Multi-Dimensional data
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Beyond a ``Spectrum1D`` object, there will also be a lightweight, multi-dimensional
-data object optimized for performance.  It will have the same  attributes as 
+data object optimized for performance.  It will have the same  attributes as
 ``Spectrum1D``.  This object will be able to hold arrays of ``spectral_axis``
-and ``flux`` and to allow the operation on a large collection of similar 
-spectra.  This may be implemented within the ``Spectrum1D`` class or as a 
-separate but compatible class.   
+and ``flux`` and to allow the operation on a large collection of similar
+spectra.  This may be implemented within the ``Spectrum1D`` class or as a
+separate but compatible class.
 
 WCS, Spectrum1D, and Data cubes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -385,7 +387,7 @@ optical versus radio velocity definitions).  Note that the details of this
 and hence *this* APE does not rely heavily upon it.  However, additional
 functionality making use of more advanced WCS functionality is a possibility
 for future development of the `Spectrum1D` class.  The ``wcs`` property should
-provide seamless and efficient access to the `spectral_axis``. 
+provide seamless and efficient access to the `spectral_axis``.
 
 With this future development of WCS in mind, this APE is *not* concerned with
 representations of data cubes, times series of spectra, or similar objects with
@@ -451,7 +453,7 @@ Implementation
 --------------
 
 `specutils <https://github.com/astropy/specutils>`_ already exists in its
-github repository, and *part* of the `Spectrum1D` class in this APE has been 
+github repository, and *part* of the `Spectrum1D` class in this APE has been
 implemented there, but  will need to be completed if this APE is accepted.
 `specreduce <https://github.com/crawfordsm/specreduce>`_
 also has an implementation, which can be adapted to use the framework described
