@@ -105,7 +105,7 @@ or rejection.  One of the committee members should then:
    "Accepted APEs" table of the repository's README.
 4. Merge the PR with the above changes.
 5. Upload the APE to Zenodo to give it a DOI (see next section).
-6. Send an email to astropy-dev announcing the acceptance (In general this
+6. Send an email to `astropy-dev <https://groups.google.com/forum/#!forum/astropy-dev/>`_ announcing the acceptance (In general this
    should just point to the accepted APE rather than providing additional
    decision rationale).
 
