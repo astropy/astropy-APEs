@@ -5,11 +5,11 @@ author: S. M. Crawford, N. Earl, A. Ginsburg, E. Tollerud, et al.
 
 date-created: 2017 April 21
 
-date-last-revised: 2017 Oct 2 <keep this up to date anytime something changes>
+date-last-revised: 2017 Dec 18 <keep this up to date anytime something changes>
 
 type:  Process, Standard Track
 
-status: Discussion
+status: Accepted
 
 
 Abstract
@@ -496,7 +496,5 @@ this APE.  However, there are other options to consider:
 
 Decision rationale
 ------------------
-
-<To be filled in by the coordinating committee when the APE is
-accepted or rejected>
+There were extensive discussions with multiple stakeholders undertaken in the process of putting together this APE and it appears as though concensus has been reached. This APE was accepted on Dec 18, 2017.
 
