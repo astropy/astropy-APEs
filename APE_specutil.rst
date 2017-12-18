@@ -426,6 +426,7 @@ standard process for developing astropy packages, but this section
 outlines *example* functionality expected for these packages.
 
 ``specreduce``:
+
 * Methods for extracting a 1D spectrum from a 2D image of a dispersed spectrum, including boxcar and “optimal” extraction
 * Wavelength calibration
 * Removal of sky features
