@@ -289,7 +289,7 @@ We provide some representative examples of Spectrum1D’s proposed behavior.
 
 Example 1: Instantiation from simple numpy arrays
 +++++++++++++++++++++++++++++++++++++++++++++++++
-::
+.. code-block:: python
 
     >>> spec = Spectrum1D(spectral_axis=np.arange(50),
                           flux=np.random.randn(50))
@@ -311,7 +311,7 @@ Example 1: Instantiation from simple numpy arrays
 
 Example 2: Instantiation from astropy quantity arrays
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-::
+.. code-block:: python
 
     >>> spec = Spectrum1D(spectral_axis=np.arange(1, 50)*u.nm,
                           flux=np.random.randn(49))
@@ -330,7 +330,7 @@ Example 2: Instantiation from astropy quantity arrays
 
 Example 3: Instantiation from FITS-WCS
 ++++++++++++++++++++++++++++++++++++++
-::
+.. code-block:: python
 
     >>> mywcs = wcs.WCS(header={'CDELT1': 1, 'CRVAL1': 6562.8, 'CUNIT1':'Angstrom', 'CTYPE1': 'WAVE', 'RESTFRQ':1400000000, 'CRPIX1': 25})
     >>> spec = Spectrum1D(flux=[5,6,7]*u.Jy, wcs=mywcs)
@@ -347,7 +347,7 @@ Example 3: Instantiation from FITS-WCS
 
 Example 4: Spectral arithmetic
 ++++++++++++++++++++++++++++++
-::
+.. code-block:: python
 
     >>> spec1 = Spectrum1D(flux=[1,2,3], spectral_axis=[0,1,2]*u.nm)
     >>> spec2 = Spectrum1D(flux=[1,1,1], spectral_axis=[1,2,3]*u.nm)
