@@ -70,8 +70,8 @@ Accepted APEs
 .. |APE 12 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1044484.svg
    :target: https://doi.org/10.5281/zenodo.1044484
    
-.. |APE 13 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1044484.svg
-   :target: https://doi.org/10.5281/zenodo.1044484
+.. |APE 13 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1117943.svg
+   :target: https://doi.org/10.5281/zenodo.1117943
    
 
 Proposing a new APE
