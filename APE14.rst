@@ -255,7 +255,7 @@ Low-level API examples
 
     wcs.axis_correlation_matrix = [[True, False], [False, True]]
     wcs.world_axis_units = [‘deg’, ‘deg’]
-    wcs.world_axis_physical_type = [‘pos.eq.ra’, ‘pos.ra.dec’]
+    wcs.world_axis_physical_type = [‘pos.eq.ra’, ‘pos.eq.dec’]
     wcs.world_axis_object_components = [((‘sc’, ‘ra’), (‘sc’, ‘dec’)]
     wcs.world_object_data  = {‘sc’:(‘astropy.coordinates.SkyCoord’,
                                 {‘frame’: ‘icrs’})}
