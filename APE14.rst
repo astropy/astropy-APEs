@@ -111,11 +111,19 @@ would not require all implementations to inherit from it (if they do not inherit
 from it, then they should still register with the ABC to allow code to check
 isinstance(object, LowLevelWCSAPI)). Existing WCS classes are then free to
 either implement that interface or provide thin wrappers providing this
-interface. A guiding philosophy of this interface is use relatively primitive
+interface. A guiding philosophy of this interface is to use relatively primitive
 python objects (scalars, arrays, and strings), which can be “promoted” to more
 complex and useful Python objects in the high-level interface. This allows
 straightforward implementation of this interface even in C-implemented Python
 objects, without tying that into the high-level interface.
+
+Note that in this APE, when referring to arrays, we mean any Python object that
+follows the buffer protocol described in `PEP3118
+<https://www.python.org/dev/peps/pep-3118/>`_ rather than only specifically
+Numpy arrays (which do follow the buffer protocol). This allows for other array
+types, such as the `built-in Python array
+<https://docs.python.org/3/library/array.html>`_ objects or other custom
+classes.
 
 The following class shows the required properties and methods the uniform
 low-level API recommends:
@@ -170,9 +178,9 @@ low-level API recommends:
         def pixel_to_world_values(self, *pixel_arrays):
             """
             Convert pixel coordinates to world coordinates. This method takes
-            n_pixel scalars or Python array types as input, and pixel
-            coordinates should be zero-based.
-            Returns n_world scalars or arrays in units given by ``world_axis_units``.
+            n_pixel scalars or arrays as input, and pixel coordinates should be
+            zero-based. Returns n_world scalars or arrays in units given by
+            ``world_axis_units``.
             """
 
         def world_to_pixel_values(self, *world_arrays):
@@ -186,43 +194,53 @@ low-level API recommends:
         def world_axis_object_components(self):
             """
             A list with n_dim_world elements, where each element is a tuple with
-            two items. The first is a name for the world object this world array
-            corresponds to, which *must* match the string names used in
-            ``world_axis_object_metadata``. Note that names might appear twice
-            because two world arrays might correspond to a single world object
-            (e.g. a celestial coordinate might have both “ra” and “dec” arrays,
-            which correspond to a single sky coordinate object). The second
-            element is  either a string keyword argument name or a positional
-            index for the corresponding class from
-            ``world_axis_object_metadata``.
+            two items:
+
+            * The first is a name for the world object this world array
+              corresponds to, which *must* match the string names used in
+              ``world_axis_object_classes``. Note that names might appear twice
+              because two world arrays might correspond to a single world object
+              (e.g. a celestial coordinate might have both “ra” and “dec”
+              arrays, which correspond to a single sky coordinate object).
+
+            * The second element is either a string keyword argument name or a
+              positional index for the corresponding class from
+              ``world_axis_object_classes``
+
+            See below for an example of this property.
             """
 
         @property
-        def world_axis_object_metadata(self):
+        def world_axis_object_classes(self):
             """
             A dictionary with each key being a string key from
-            ``world_axis_object_components``, and the value being a 2-tuple.
-            The first element of the tuple must be a string specifying the
-            fully-qualified name of a class, which will specify the actual
-            Python object to be created. The second tuple element must be a
-            dictionary with the keyword arguments required to initialize the
-            class.
+            ``world_axis_object_components``, and each value being a tuple with
+            two elements:
 
-            Note that we don’t require the classes to be Astropy classes since
-            there is no guarantee that Astropy will have all the classes to
-            represent all kinds of world coordinates. Furthermore, we recommend
-            that the output be kept as human-readable as possible.
+            * The first element of the tuple must be a string specifying the
+              fully-qualified name of a class, which will specify the actual
+              Python object to be created.
+
+            * The second tuple element must be a
+              dictionary with the keyword arguments required to initialize the
+              class.
+
+            See below for an example of this property. Note that we don’t
+            require the classes to be Astropy classes since there is no
+            guarantee that Astropy will have all the classes to represent all
+            kinds of world coordinates. Furthermore, we recommend that the
+            output be kept as human-readable as possible.
             """
 
 We now take a look at an example of use of ``world_axis_object_components`` with
-``world_axis_object_metadata``. An example output from both methods on the same
+``world_axis_object_classes``. An example output from both methods on the same
 WCS object is:
 
 .. code-block:: python
 
     >>> wcs.world_axis_object_components
     [('skycoord', 'ra'), ('time', 0), ('skycoord', 'dec')]
-    >>> wcs.world_axis_object_metadata
+    >>> wcs.world_axis_object_classes
     {'skycoord': (‘astropy.coordinates.SkyCoord’,
                   {'frame': 'fk5', 'equinox':'J2005'}),
      'time': (‘astropy.time.Time’, {'scale': 'tai'})}
@@ -432,8 +450,8 @@ other details when creating or modifying wcs.
 On a more specific note, the primary reason for using a string as the key for
 the dictionary for ``world_axis_object_classes`` (and the corresponding names in
 world_axis_object_components) is because there might be multiple world axes that
-need to use the same class. Otherwise a simpler solution would have been to use
-the class object *itself* as the key.
+need to use the same class with different initializing parameters. Otherwise a
+simpler solution would have been to use the class object *itself* as the key.
 
 Additionally, for ``world_axis_physical_types``, an alternative was considered
 of adopting a much more general set of terms vs UCD1+ such as ``"celestial"``,
