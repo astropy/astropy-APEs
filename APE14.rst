@@ -122,8 +122,8 @@ follows the buffer protocol described in `PEP3118
 <https://www.python.org/dev/peps/pep-3118/>`_ rather than only specifically
 Numpy arrays (which do follow the buffer protocol). This allows for other array
 types, such as the `built-in Python array
-<https://docs.python.org/3/library/array.html>`_ objects or other custom
-classes.
+<https://docs.python.org/3/library/array.html>`_ objects or future advanced data
+structures
 
 The following class shows the required properties and methods the uniform
 low-level API recommends:
