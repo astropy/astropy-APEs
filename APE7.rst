@@ -3,9 +3,11 @@ NDData Plan
 
 authors: Thomas Robitaille, Perry Greenfield, Matt Craig
 
-date-created: 2014 October 30
+date-created: 2014 October 2
 
 date-last-revised: 2014 December 17
+
+date-accepted: 2014 December 17
 
 type: Standard Track
 

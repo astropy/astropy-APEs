@@ -3,9 +3,11 @@ Astropy Setup Helpers
 
 author: Erik M. Bray
 
-date-created: 2013-12-26
+date-created: 2013 December 26
 
-date-last-revised: 2014-06-28
+date-last-revised: 2014 June 28
+
+date-accepted: 2014 June 28
 
 type: Process
 

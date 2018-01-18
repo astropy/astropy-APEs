@@ -5,12 +5,13 @@ authors: Kelle Cruz, Alex Hagen, Thomas Robitaille, Erik Tollerud, Alexa Villaum
 
 date-created: 2015 May 4
 
-date-last-revised: 2015 May 4
+date-last-revised: 2015 May 17
+
+date-accepted: 2015 May 17
 
 type: Informational
 
-status: Discussion
-
+status: Accepted
 
 Abstract
 --------

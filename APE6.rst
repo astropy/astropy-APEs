@@ -5,14 +5,13 @@ author: Tom Aldcroft
 
 date-created: 2014 April 12
 
-date-last-revised: 2015 January 26
+date-last-revised: 2017 November 8
+
+date-accepted: 2015 January 26
 
 type: Standard Track
 
 status: Accepted
-
-version: 0.9
-
 
 Abstract
 --------
