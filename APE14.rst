@@ -145,6 +145,20 @@ low-level API recommends:
             """
 
         @property
+        def shape_pixel(self):
+            """
+            The shape of the data that the WCS applies to.
+
+            If the WCS is valid in the context of a dataset with a particular
+            shape, then this property can be used to store the shape of the
+            data. This can then be used for example if slicing of WCS objects
+            needs to be implemented, or in order to explicitly give the pixel
+            domain in which WCS distortion solutions are valid. This is an
+            optional property, and it should return `None` if a shape is not
+            known or relevant.
+            """
+
+        @property
         def world_axis_physical_types(self):
             """
             Returns an iterable of strings describing the physical type for each
