@@ -147,7 +147,8 @@ low-level API recommends:
         @property
         def shape_pixel(self):
             """
-            The shape of the data that the WCS applies to.
+            The shape of the data that the WCS applies to as a tuple of
+            length ``n_dim_pixel`` (optional).
 
             If the WCS is valid in the context of a dataset with a particular
             shape, then this property can be used to store the shape of the
