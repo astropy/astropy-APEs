@@ -109,7 +109,7 @@ Low-level API
 The proposed low-level API could be implemented as an abstract base class but we
 would not require all implementations to inherit from it (if they do not inherit
 from it, then they should still register with the ABC to allow code to check
-isinstance(object, LowLevelWCSAPI)). Existing WCS classes are then free to
+``isinstance(object, LowLevelWCSAPI))``. Existing WCS classes are then free to
 either implement that interface or provide thin wrappers providing this
 interface. A guiding philosophy of this interface is to use relatively primitive
 python objects (scalars, arrays, and strings), which can be “promoted” to more
@@ -271,7 +271,7 @@ sub-classes if needed.
 Low-level API examples
 ^^^^^^^^^^^^^^^^^^^^^^
 
-**Simple 1D spectrum** - 1D mapping from pixel to wavelength:
+**Simple 1D spectrum** - a 1D mapping from pixel to wavelength:
 
 .. code-block:: python
 
@@ -282,7 +282,8 @@ Low-level API examples
     wcs.world_axis_object_classes  = {‘spec’:(‘astropy.units.Wavelength’:
                                               {‘airorvacwl’: ‘air’})}
 
-**Simple 2D image mapping** where the axis are just RA and Dec (in FITS-WCS this would be CAR)
+**Simple 2D image mapping** where the pixel axes are lined up with RA and Dec
+(in FITS-WCS this would be CAR)
 
 .. code-block:: python
 
@@ -294,9 +295,9 @@ Low-level API examples
                                 {‘frame’: ‘icrs’})}
 
 **Extremely complex spectral data cube** with 3 *pixel* dimensions and 4 *world*
-dimensions. First two *pixel* dimensions encode a mixed set of spatial
-dimensions and a 3rd dimensions that’s completely spectral (i.e., the output of
-an IFU detector), and the third *pixel* dimension is a separable 4th world
+dimensions. The first two *pixel* dimensions encode a mixed set of spatial
+dimensions and a third dimension which is completely spectral (i.e., the output of
+an IFU detector), and the third *pixel* dimension is a separable fourth world
 dimension encoding time-of-observation.
 
 .. code-block:: python
