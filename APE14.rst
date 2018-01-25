@@ -150,7 +150,7 @@ follows the buffer protocol described in `PEP3118
 Numpy arrays (which do follow the buffer protocol). This allows for other array
 types, such as the `built-in Python array
 <https://docs.python.org/3/library/array.html>`_ objects or future advanced data
-structures
+structures.
 
 The following class shows the required properties and methods the uniform
 low-level API recommends:
@@ -510,7 +510,7 @@ simpler solution would have been to use the class object *itself* as the key.
 
 Additionally, for ``world_axis_physical_types``, an alternative was considered
 of adopting a much more general set of terms vs UCD1+ such as ``"celestial"``,
-``"spectral"``, etc. And just coming up with the list in this APE (possibly
+``"spectral"``, etc. and just coming up with the list in this APE (possibly
 using terms that approxmiately align with the STC standard).  But it was decided
 that adopting the VO UCD1+ would be best because it would not lead to Astropy
 needing to maintain a separate "standard" of terminology where one already
