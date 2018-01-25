@@ -56,14 +56,14 @@ data. While we use pixel as a shorthand, this need not be only two-dimensional
 (the typical usage of *pixel*) - it includes one-dimensional (e.g., spectral
 axes), or more-than-2-dimensional (e.g., data cubes). Similarly *world* in this
 context is a generalized concept of any sort of physical coordinate used in the
-data. Exactly what that physical interpretation is is not specified in the
+data. The precise physical interpretation is not specified in the
 concept of WCS. For the purposes of this APE, *world* could even be an
 intermediate state of knowledge. E.g., for the unity transformation the world
-coordinate *is* the pixel coordinate, for example if no calibration information
+coordinate *is* the pixel coordinate, for example, if no calibration information
 has yet been determined. But some sense of direction and a language for the
 physical type and representation of a world coordinate needs to be conveyed in
 any practical implementation of WCS. A common understanding of how to convey
-that information, and represent it in Python, is the primary subject of this
+that information and represent it in Python is the primary subject of this
 APE.
 
 Scope
@@ -74,7 +74,7 @@ coordinate transform APIs. A future APE may define the API for accessing
 “intermediate frames” as used in gWCS or the LSST transform systems. This APE
 is only intended to define a clear API for converting from pixel coordinates to
 a specific end set of “world” coordinates (as defined above). This APE doesn't
-focus on how to get intermediate frames if they are present, or combining
+focus on how to get intermediate frames if they are present, or how to combine
 together multiple steps of a transformation - while such functionality is useful
 and should be *compatible* with this APE's interface, an API for these
 operations is out-of-scope for this APE. This APE also does not address how to
