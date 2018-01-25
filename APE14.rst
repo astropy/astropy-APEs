@@ -330,7 +330,7 @@ Common UCD1+ names for physical types
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 As outlined above, the ``world_axis_physical_types`` attribute should include
-strings that fullow the VO UCD1+ vocabulary for defining physical types. The
+strings that follow the VO UCD1+ vocabulary for defining physical types. The
 `full UCD1+ vocabulary <http://www.ivoa.net/documents/latest/UCDlist.html>`_
 includes a large number of options, but here we summarize some of the most
 common ones that will likely be used::
