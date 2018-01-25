@@ -19,14 +19,14 @@ Astronomical data are often provided with information about the “real-world”
 coordinates that correspond to pixel coordinates. This mapping is the essence of
 the “World Coordinate System (WCS)” concept. In addition to FITS WCS (the origin
 of the “WCS” term), other WCS standards/representations are becoming necessary
-for new missions and observatories (e.g. the James Webb Space Telescope or the
+for new missions and observatories (e.g., the James Webb Space Telescope or the
 Large Synoptic Survey Telescope). In order to build functionality in Astropy and
 affiliated packages that may require use of WCS, having to deal with different
 kinds of WCS objects with different APIs will be essentially impossible. Thus,
 the purpose of this APE is to define a standardized interface to WCS objects
 based on simple objects (strings, scalars, and arrays). Packages implementing
 WCS objects will then be able to either modify their classes to conform to the
-API recommended here, or build thin wrappers that conform to the API. The APE
+API recommended here or build thin wrappers that conform to the API. The APE
 also provides a recommendation for a high-level object to be implemented in
 Astropy that understands familiar Python objects such as ``SkyCoord``, ``Time``,
 and other Astropy classes.
@@ -369,7 +369,7 @@ Common UCD1+ names for physical types
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 As outlined above, the ``world_axis_physical_types`` attribute should include
-strings that follow the VO UCD1+ vocabulary for defining physical types. The
+strings that fullow the VO UCD1+ vocabulary for defining physical types. The
 `full UCD1+ vocabulary <http://www.ivoa.net/documents/latest/UCDlist.html>`_
 includes a large number of options, but here we summarize some of the most
 common ones that will likely be used::
