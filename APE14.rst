@@ -73,10 +73,10 @@ This APE is not meant to limit further development on more generalized
 coordinate transform APIs. A future APE may define the API for accessing
 “intermediate frames” as used in gWCS or the LSST transform systems. This APE
 is only intended to define a clear API for converting from pixel coordinates to
-a specific end set of “world” coordinates (as defined above). This APE doesn’t
+a specific end set of “world” coordinates (as defined above). This APE doesn't
 focus on how to get intermediate frames if they are present, or combining
 together multiple steps of a transformation - while such functionality is useful
-and should be *compatible* with this APE’s interface, an API for these
+and should be *compatible* with this APE's interface, an API for these
 operations is out-of-scope for this APE. This APE also does not address how to
 *create* such WCSs. Rather it is aimed specifically at an API for the simpler
 problem of actually performing the “end-to-end” transformation from pixel to
@@ -91,7 +91,7 @@ Our proposal in this APE is the following:
   through thin wrappers, and which will allow functionality accessing the WCS
   objects to be agnostic of the actual WCS representation. We want this API to
   be as simple as possible and mainly return simple Python objects such as
-  strings, lists and arrays. We refer to this as the ‘low-level’ API.
+  strings, lists and arrays. We refer to this as the 'low-level' API.
 
 * To develop a high-level Astropy WCS object that can wrap any WCS object
   providing the low-level API and be smarter about the kinds of objects to
@@ -240,7 +240,7 @@ low-level API recommends:
               dictionary with the keyword arguments required to initialize the
               class.
 
-            See below for an example of this property. Note that we don’t
+            See below for an example of this property. Note that we don't
             require the classes to be Astropy classes since there is no
             guarantee that Astropy will have all the classes to represent all
             kinds of world coordinates. Furthermore, we recommend that the
@@ -256,9 +256,9 @@ WCS object is:
     >>> wcs.world_axis_object_components
     [('skycoord', 'ra'), ('time', 0), ('skycoord', 'dec')]
     >>> wcs.world_axis_object_classes
-    {'skycoord': (‘astropy.coordinates.SkyCoord’,
+    {'skycoord': ('astropy.coordinates.SkyCoord',
                   {'frame': 'fk5', 'equinox':'J2005'}),
-     'time': (‘astropy.time.Time’, {'scale': 'tai'})}
+     'time': ('astropy.time.Time', {'scale': 'tai'})}
 
 This indicates that the first and third world axis can be used to instantiate an
 Astropy ``SkyCoord`` object with ``ra=`` set to the first world axis, and
@@ -276,11 +276,11 @@ Low-level API examples
 .. code-block:: python
 
     wcs.axis_correlation_matrix = [[True]]
-    wcs.world_axis_units = [‘angstrom’]
-    wcs.world_axis_physical_type = [‘spectral’]
-    wcs.world_axis_object_components = [(‘spec’, 0)]
-    wcs.world_axis_object_classes  = {‘spec’:(‘astropy.units.Wavelength’:
-                                              {‘airorvacwl’: ‘air’})}
+    wcs.world_axis_units = ['angstrom']
+    wcs.world_axis_physical_type = ['spectral']
+    wcs.world_axis_object_components = [('spec', 0)]
+    wcs.world_axis_object_classes  = {'spec':('astropy.units.Wavelength':
+                                              {'airorvacwl': 'air'})}
 
 **Simple 2D image mapping** where the pixel axes are lined up with RA and Dec
 (in FITS-WCS this would be CAR)
@@ -288,11 +288,11 @@ Low-level API examples
 .. code-block:: python
 
     wcs.axis_correlation_matrix = [[True, False], [False, True]]
-    wcs.world_axis_units = [‘deg’, ‘deg’]
-    wcs.world_axis_physical_type = [‘pos.eq.ra’, ‘pos.eq.dec’]
-    wcs.world_axis_object_components = [((‘sc’, ‘ra’), (‘sc’, ‘dec’)]
-    wcs.world_object_data  = {‘sc’:(‘astropy.coordinates.SkyCoord’,
-                                {‘frame’: ‘icrs’})}
+    wcs.world_axis_units = ['deg', 'deg']
+    wcs.world_axis_physical_type = ['pos.eq.ra', 'pos.eq.dec']
+    wcs.world_axis_object_components = [(('sc', 'ra'), ('sc', 'dec')]
+    wcs.world_axis_object_classes  = {'sc':('astropy.coordinates.SkyCoord',
+                                {'frame': 'icrs'})}
 
 **Extremely complex spectral data cube** with 3 *pixel* dimensions and 4 *world*
 dimensions. The first two *pixel* dimensions encode a mixed set of spatial
@@ -302,29 +302,29 @@ dimension encoding time-of-observation.
 
 .. code-block:: python
 
-    axis_correlation_matrix = [[True, True, False],
-                               [True, True, False],
-                               [True, True, False],
-                               [False, False, True]]
-    world_axis_units = [‘deg’, ‘deg’, ‘angstrom’, ‘day’]
-    world_axis_physical_type = [‘pos.galactic.lon’, ‘pos.galactic.lat’, ‘em.freq’, ‘time’]
-    world_axis_object_components = [(‘spat’, ‘ra’), (‘spat’, ‘dec’),
-                                    (‘spec’, 0), (‘time’, 0)]
-    world_object_data  = {‘spat’: (‘astropy.coordinates.SkyCoord’,
-                                   {‘frame’: ‘icrs’}),
-                          ‘spec’: (‘astropy.units.Wavelength`, {}),
-                          ‘time’: (‘astropy.time.Time’,
-                                   {‘format’:’mjd’, ‘scale’:’utc’})}
+    wcs.axis_correlation_matrix = [[True, True, False],
+                                   [True, True, False],
+                                   [True, True, False],
+                                   [False, False, True]]
+    wcs.world_axis_units = ['deg', 'deg', 'angstrom', 'day']
+    wcs.world_axis_physical_type = ['pos.galactic.lon', 'pos.galactic.lat', 'em.freq', 'time']
+    wcs.world_axis_object_components = [('spat', 'ra'), ('spat', 'dec'),
+                                        ('spec', 0), ('time', 0)]
+    wcs.world_axis_object_classes  = {'spat': ('astropy.coordinates.SkyCoord',
+                                               {'frame': 'icrs'}),
+                                      'spec': ('astropy.units.Wavelength`, {}),
+                                      'time': ('astropy.time.Time',
+                                               {'format':'mjd', 'scale':'utc'})}
 
 **The identity transform** for a 1D array (i.e., pixel -> pixel):
 
 .. code-block:: python
 
     wcs.axis_correlation_matrix = [[True]]
-    wcs.world_axis_units = [‘pixel’]
-    wcs.world_axis_physical_type = [‘instr.pixel’]
-    wcs.world_axis_object_components = [(‘spec’, 0)]
-    wcs.world_axis_object_classes  = {‘spec’:(‘astropy.units.pixel’: {})}
+    wcs.world_axis_units = ['pixel']
+    wcs.world_axis_physical_type = ['instr.pixel']
+    wcs.world_axis_object_components = [('spec', 0)]
+    wcs.world_axis_object_classes  = {'spec':('astropy.units.pixel': {})}
 
 Common UCD1+ names for physical types
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -376,7 +376,7 @@ set of custom type names).
 High-level Astropy Object
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Unlike the low-level API, the ‘high-level’ interface described here will be a
+Unlike the low-level API, the 'high-level' interface described here will be a
 single Astropy-developed class since it interfaces with various Astropy objects.
 This high-level API would provide the ability for example to get ``SkyCoord``,
 ``Time`` etc. objects back from a pixel to world conversion, and conversely to
