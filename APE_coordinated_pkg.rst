@@ -96,7 +96,7 @@ Astropy project core team, and retain complete control of the repositories, code
 base, etc.  By contrast, packages in the new "coordinated package" category will
 become part of the Astropy project, with the project (via the coordinating
 committee) overseeing who is mainting the package and taking responsibility for
-continued maintainence in the event the original author no longer can do so.
+continued maintainence in the event the original author(s) no longer can do so.
 This means maintainer roles will be created for all the coordinated packages,
 and have full status as astropy `roles <http://www.astropy.org/team.html>`_.
 
@@ -106,10 +106,9 @@ One additional consequence of this change is that coordinated packages will live
 in the `astropy` github organization, for which the project has management
 power, while affiliated packages, in general, should *not*.  To ease this
 process, however, any affiliated packages currently in the astropy organization
-can be "grandfathered-in".  E.g., they may remain in the organization even if
-they are not coordinated packages.  New packages, however, should be either in
-the astropy organization, or an external organization, for coordinated and
-affiliated, respectively.
+can be "legacied-in".  E.g., they may remain in the organization even if
+they are not coordinated packages. Moving forward, new coordinated packages should
+be in the astropy organization and new affiliated packages should not be.
 
 A criteria-based package review process
 =======================================
@@ -140,8 +139,8 @@ process to change to a more "peer-review" model.  That is, instead of every
 package being vetted by the coordination committee, the committee can act more
 as "editors", sometimes offering the review opportunity to other members of the
 Astropy community.  While the details of this process will not be outlined here,
-as they my necessity should be flexible enough to accomodate the experiences of
-the first few reviewrs, this APE sets this as the eventual *goal* for the
+as they by necessity should be flexible enough to accomodate the experiences of
+the first few reviewers, this APE sets this as the eventual *goal* for the
 affiliated package review process.
 
 
@@ -182,7 +181,10 @@ The changes outlined in this APE awill be implemented as three distinct efforts.
 Backward compatibility
 ----------------------
 
-N/A
+While in the future this APE proposes that new affiliated packages not be in the
+Astropy github organization, affiliated packages from *before* this APE that are
+in the Astropy organization will be left there unless specifically requested
+otherwise.
 
 
 Alternatives
