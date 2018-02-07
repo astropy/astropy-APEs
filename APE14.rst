@@ -101,7 +101,9 @@ The idea of this two-tiered approach as opposed to a single-tier approach is
 that if we asked different WCS objects to provide a high-level API, this would
 (1) cause a lot of duplication of logic of constructing the appropriate Astropy
 objects, and (2) force those objects to return specifically Astropy objects,
-whereas having a package-independent API would be better.
+whereas having a package-independent API would be better because it allows other
+packages, even non-Python packages, to follow a well-defined API for the sake of
+interoperability
 
 Low-level API
 ^^^^^^^^^^^^^
@@ -145,21 +147,6 @@ low-level API recommends:
             """
 
         @property
-        def shape_pixel(self):
-            """
-            The shape of the data that the WCS applies to as a tuple of
-            length ``n_dim_pixel`` (optional).
-
-            If the WCS is valid in the context of a dataset with a particular
-            shape, then this property can be used to store the shape of the
-            data. This can then be used for example if slicing of WCS objects
-            needs to be implemented, or in order to explicitly give the pixel
-            domain in which WCS distortion solutions are valid. This is an
-            optional property, and it should return `None` if a shape is not
-            known or relevant.
-            """
-
-        @property
         def world_axis_physical_types(self):
             """
             Returns an iterable of strings describing the physical type for each
@@ -195,14 +182,18 @@ low-level API recommends:
             Convert pixel coordinates to world coordinates. This method takes
             n_pixel scalars or arrays as input, and pixel coordinates should be
             zero-based. Returns n_world scalars or arrays in units given by
-            ``world_axis_units``.
+            ``world_axis_units``. Note that pixel coordinates are assumed
+            to be such that they are 0 at the center of the first pixel in each
+            dimension.
             """
 
         def world_to_pixel_values(self, *world_arrays):
             """
             Convert world coordinates to pixel coordinates. This method takes
             n_world scalars or arrays as input in units given by ``world_axis_units``.
-            Returns n_pixel scalars or arrays.
+            Returns n_pixel scalars or arrays. Note that pixel coordinates are
+            assumed to be such that they are 0 at the center of the first pixel
+            in each dimension.
             """
 
         @property
