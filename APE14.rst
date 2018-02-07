@@ -101,7 +101,9 @@ The idea of this two-tiered approach as opposed to a single-tier approach is
 that if we asked different WCS objects to provide a high-level API, this would
 (1) cause a lot of duplication of logic of constructing the appropriate Astropy
 objects, and (2) force those objects to return specifically Astropy objects,
-whereas having a package-independent API would be better.
+whereas having a package-independent API would be better because it allows other
+packages, even non-Python packages, to follow a well-defined API for the sake of
+interoperability
 
 Low-level API
 ^^^^^^^^^^^^^
@@ -195,14 +197,18 @@ low-level API recommends:
             Convert pixel coordinates to world coordinates. This method takes
             n_pixel scalars or arrays as input, and pixel coordinates should be
             zero-based. Returns n_world scalars or arrays in units given by
-            ``world_axis_units``.
+            ``world_axis_units``. Note that pixel coordinates are assumed
+            to be such that they are 0 at the center of the first pixel in each
+            dimension.
             """
 
         def world_to_pixel_values(self, *world_arrays):
             """
             Convert world coordinates to pixel coordinates. This method takes
             n_world scalars or arrays as input in units given by ``world_axis_units``.
-            Returns n_pixel scalars or arrays.
+            Returns n_pixel scalars or arrays. Note that pixel coordinates are
+            assumed to be such that they are 0 at the center of the first pixel
+            in each dimension.
             """
 
         @property
