@@ -105,6 +105,31 @@ whereas having a package-independent API would be better because it allows other
 packages, even non-Python packages, to follow a well-defined API for the sake of
 interoperability
 
+
+Pixel Conventions
+"""""""""""""""""
+
+The exact choice of which value represents the "edge" of a pixel is arbitrary
+and could potentially vary across WCS implementations. Indeed, the
+``astropy.wcs`` API explicitly supports multiple interpretations due to the
+conflicting expectations of Python and other older tools.  However, the API this
+APE  proposes opts to use a single choice to simplify user code. Because these
+definitions are simply pixel-level offsets, implementations can
+straightforwardly have their own internal conventions and simply offset them to
+match this definition.  Hence, the specific convention used for this APE
+reflects the "pixel value is center of pixel" philosophy in the FITS-WCS standard
+(Section 2.1.4 of `Greisen et al., 2002, A&A 446, 747 <https://doi.org/10.1051/0004-6361:20053818>`_),
+while at the same time matching the Python 0-index philosophy.  That is, the first pixel is considered
+pixel ``0``, but pixel value ``(0, 0)`` is that *center* of that pixel.  Hence
+the first pixel spans pixel values ``-0.5`` to ``0.5``.
+
+Explicitly *not* covered in this specification is a definition of which
+dimension in a spatial WCS is "x" vs "y".  There are too many conflicting
+conventions (as well as well-founded technical reasons for various choices), and
+hence that information should be embedded in the attributes that describe the
+dimensions.
+
+
 Low-level API
 ^^^^^^^^^^^^^
 
