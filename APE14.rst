@@ -135,30 +135,40 @@ low-level API recommends:
     class LowLevelWCSAPI(metaclass=abc.ABCMeta):
 
         @property
-        def n_dim_pixel(self):
+        def pixel_n_dim(self):
             """
             The number of axes in the pixel coordinate system
             """
 
         @property
-        def n_dim_world(self):
+        def world_n_dim(self):
             """
             The number of axes in the world coordinate system
             """
 
         @property
-        def shape_pixel(self):
+        def pixel_shape(self):
             """
             The shape of the data that the WCS applies to as a tuple of
-            length ``n_dim_pixel`` (optional).
+            length ``pixel_n_dim`` (optional).
 
             If the WCS is valid in the context of a dataset with a particular
             shape, then this property can be used to store the shape of the
-            data. This can then be used for example if slicing of WCS objects
-            needs to be implemented, or in order to explicitly give the pixel
-            domain in which WCS distortion solutions are valid. This is an
-            optional property, and it should return `None` if a shape is not
-            known or relevant.
+            data. This can be used for example if implementing slicing of WCS
+            objects. This is an optional property, and it should return `None`
+            if a shape is not known or relevant.
+            """
+
+        @property
+        def pixel_bounds(self):
+            """
+            The bounds (in pixel coordinates) inside which the WCS is defined,
+            as a list with ``pixel_n_dim`` ``(min, max)`` tuples (optional).
+
+            WCS solutions are sometimes only guaranteed to be accurate within a
+            certain range of pixel values, for example when definining a WCS
+            that includes fitted distortions. This is an optional property, and
+            it should return `None` if a shape is not known or relevant.
             """
 
         @property
