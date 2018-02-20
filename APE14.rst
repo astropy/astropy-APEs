@@ -101,7 +101,34 @@ The idea of this two-tiered approach as opposed to a single-tier approach is
 that if we asked different WCS objects to provide a high-level API, this would
 (1) cause a lot of duplication of logic of constructing the appropriate Astropy
 objects, and (2) force those objects to return specifically Astropy objects,
-whereas having a package-independent API would be better.
+whereas having a package-independent API would be better because it allows other
+packages, even non-Python packages, to follow a well-defined API for the sake of
+interoperability.
+
+
+Pixel Conventions
+"""""""""""""""""
+
+The exact choice of which value represents the "edge" of a pixel is arbitrary
+and could potentially vary across WCS implementations. Indeed, the
+``astropy.wcs`` API explicitly supports multiple interpretations due to the
+conflicting expectations of Python and other older tools.  However, the API this
+APE  proposes opts to use a single choice to simplify user code. Because these
+definitions are simply pixel-level offsets, implementations can
+straightforwardly have their own internal conventions and simply offset them to
+match this definition.  Hence, the specific convention used for this APE
+reflects the "pixel value is center of pixel" philosophy in the FITS-WCS standard
+(Section 2.1.4 of `Greisen et al., 2002, A&A 446, 747 <https://doi.org/10.1051/0004-6361:20053818>`_),
+while at the same time matching the Python 0-index philosophy.  That is, the first pixel is considered
+pixel ``0``, but pixel value ``(0, 0)`` is that *center* of that pixel.  Hence
+the first pixel spans pixel values ``-0.5`` to ``0.5``.
+
+Explicitly *not* covered in this specification is a definition of which
+dimension in a spatial WCS is "x" vs "y".  There are too many conflicting
+conventions (as well as well-founded technical reasons for various choices), and
+hence that information should be embedded in the attributes that describe the
+dimensions.
+
 
 Low-level API
 ^^^^^^^^^^^^^
@@ -133,30 +160,40 @@ low-level API recommends:
     class LowLevelWCSAPI(metaclass=abc.ABCMeta):
 
         @property
-        def n_dim_pixel(self):
+        def pixel_n_dim(self):
             """
             The number of axes in the pixel coordinate system
             """
 
         @property
-        def n_dim_world(self):
+        def world_n_dim(self):
             """
             The number of axes in the world coordinate system
             """
 
         @property
-        def shape_pixel(self):
+        def pixel_shape(self):
             """
             The shape of the data that the WCS applies to as a tuple of
-            length ``n_dim_pixel`` (optional).
+            length ``pixel_n_dim`` (optional).
 
             If the WCS is valid in the context of a dataset with a particular
             shape, then this property can be used to store the shape of the
-            data. This can then be used for example if slicing of WCS objects
-            needs to be implemented, or in order to explicitly give the pixel
-            domain in which WCS distortion solutions are valid. This is an
-            optional property, and it should return `None` if a shape is not
-            known or relevant.
+            data. This can be used for example if implementing slicing of WCS
+            objects. This is an optional property, and it should return `None`
+            if a shape is not known or relevant.
+            """
+
+        @property
+        def pixel_bounds(self):
+            """
+            The bounds (in pixel coordinates) inside which the WCS is defined,
+            as a list with ``pixel_n_dim`` ``(min, max)`` tuples (optional).
+
+            WCS solutions are sometimes only guaranteed to be accurate within a
+            certain range of pixel values, for example when definining a WCS
+            that includes fitted distortions. This is an optional property, and
+            it should return `None` if a shape is not known or relevant.
             """
 
         @property
@@ -195,14 +232,16 @@ low-level API recommends:
             Convert pixel coordinates to world coordinates. This method takes
             n_pixel scalars or arrays as input, and pixel coordinates should be
             zero-based. Returns n_world scalars or arrays in units given by
-            ``world_axis_units``.
+            ``world_axis_units``. Note that pixel coordinates are assumed
+            to be 0 at the center of the first pixel in each dimension.
             """
 
         def world_to_pixel_values(self, *world_arrays):
             """
             Convert world coordinates to pixel coordinates. This method takes
             n_world scalars or arrays as input in units given by ``world_axis_units``.
-            Returns n_pixel scalars or arrays.
+            Returns n_pixel scalars or arrays. Note that pixel coordinates are
+            assumed to be 0 at the center of the first pixel in each dimension.
             """
 
         @property
