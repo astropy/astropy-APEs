@@ -316,7 +316,7 @@ Low-level API examples
 
     wcs.axis_correlation_matrix = [[True]]
     wcs.world_axis_units = ['angstrom']
-    wcs.world_axis_physical_type = ['spectral']
+    wcs.world_axis_physical_types = ['em.wl']
     wcs.world_axis_object_components = [('spec', 0)]
     wcs.world_axis_object_classes  = {'spec':('astropy.units.Wavelength':
                                               {'airorvacwl': 'air'})}
@@ -328,7 +328,7 @@ Low-level API examples
 
     wcs.axis_correlation_matrix = [[True, False], [False, True]]
     wcs.world_axis_units = ['deg', 'deg']
-    wcs.world_axis_physical_type = ['pos.eq.ra', 'pos.eq.dec']
+    wcs.world_axis_physical_types = ['pos.eq.ra', 'pos.eq.dec']
     wcs.world_axis_object_components = [(('sc', 'ra'), ('sc', 'dec')]
     wcs.world_axis_object_classes  = {'sc':('astropy.coordinates.SkyCoord',
                                 {'frame': 'icrs'})}
@@ -346,7 +346,7 @@ dimension encoding time-of-observation.
                                    [True, True, False],
                                    [False, False, True]]
     wcs.world_axis_units = ['deg', 'deg', 'angstrom', 'day']
-    wcs.world_axis_physical_type = ['pos.galactic.lon', 'pos.galactic.lat', 'em.freq', 'time']
+    wcs.world_axis_physical_types = ['pos.galactic.lon', 'pos.galactic.lat', 'em.wl', 'time']
     wcs.world_axis_object_components = [('spat', 'ra'), ('spat', 'dec'),
                                         ('spec', 0), ('time', 0)]
     wcs.world_axis_object_classes  = {'spat': ('astropy.coordinates.SkyCoord',
@@ -361,7 +361,7 @@ dimension encoding time-of-observation.
 
     wcs.axis_correlation_matrix = [[True]]
     wcs.world_axis_units = ['pixel']
-    wcs.world_axis_physical_type = ['instr.pixel']
+    wcs.world_axis_physical_types = ['instr.pixel']
     wcs.world_axis_object_components = [('spec', 0)]
     wcs.world_axis_object_classes  = {'spec':('astropy.units.pixel': {})}
 
