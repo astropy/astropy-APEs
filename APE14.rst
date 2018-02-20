@@ -103,7 +103,7 @@ that if we asked different WCS objects to provide a high-level API, this would
 objects, and (2) force those objects to return specifically Astropy objects,
 whereas having a package-independent API would be better because it allows other
 packages, even non-Python packages, to follow a well-defined API for the sake of
-interoperability
+interoperability.
 
 
 Pixel Conventions
@@ -233,8 +233,7 @@ low-level API recommends:
             n_pixel scalars or arrays as input, and pixel coordinates should be
             zero-based. Returns n_world scalars or arrays in units given by
             ``world_axis_units``. Note that pixel coordinates are assumed
-            to be such that they are 0 at the center of the first pixel in each
-            dimension.
+            to be 0 at the center of the first pixel in each dimension.
             """
 
         def world_to_pixel_values(self, *world_arrays):
@@ -242,8 +241,7 @@ low-level API recommends:
             Convert world coordinates to pixel coordinates. This method takes
             n_world scalars or arrays as input in units given by ``world_axis_units``.
             Returns n_pixel scalars or arrays. Note that pixel coordinates are
-            assumed to be such that they are 0 at the center of the first pixel
-            in each dimension.
+            assumed to be 0 at the center of the first pixel in each dimension.
             """
 
         @property
