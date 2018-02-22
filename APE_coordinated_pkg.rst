@@ -5,7 +5,7 @@ author: Erik Tollerud, 2017 Astropy Coordination Meeting Attendees
 
 date-created: 2017 November 7
 
-date-last-revised: 2017 November 7
+date-last-revised: 2018 Feb 22
 
 type: Process
 
@@ -15,11 +15,11 @@ status: Discussion
 Abstract
 --------
 
-A revision of the concept of "affiliated packages" is proposed.  Thee idea of
+A revision of the concept of "affiliated packages" is proposed.  The idea of
 affiliated packages has continued mostly unaltered since the original Vision
-for Astropy.  However, time has revealed some limitations in how the ecosystem
-is structured and the review process for affiliated packages.  This APE proposes
-to make three changes:
+for Astropy.  However, time has revealed some potnetial improvements in how the
+ecosystem is structured and the review process for affiliated packages.  Hence,
+this APE proposes to make three changes:
 
 * This APE creates the concept of "coordinated" packages - affiliated-like packages
   that are more closely overseen by the Astropy Project. While apparently
@@ -47,15 +47,15 @@ already changed a few times since the project's inception as the ecosystem has
 grown. However, the current state has several significant limitations.
 
 First, the affiliated packages include a mix of two different kinds of packages.
-Some packages have been developed as a fairly integrated effort beside the core
-package, meaning both feature planning assuming the existence of the affiliated
-packages, as well as significant overlap in the core development teams (e.g.
-``photutils``, ``astroquery``, and ``specutils``). Other affiliated packages
-(the majority) are developed more independently of the core package, often with
-nearly disjoint development teams, while staying in contact with and making
-*use* of the wider astropy ecosystem and community. It has proved difficult to
-design a development and review process that works effectively with *both* of
-these classes of packages.
+Some packages have been developed as a fairly integrated effort alongside the
+core package, meaning both feature planning assuming the existence of the
+affiliated packages, as well as significant overlap in the core development
+teams (e.g.``photutils``, ``astroquery``, and ``specutils``). Other affiliated
+packages (the majority) are developed more independently of the core package,
+often with nearly disjoint development teams, while staying in contact with and
+making *use* of the wider astropy ecosystem and community. It has proved
+difficult to design a development and review process that works effectively with
+*both* of these classes of packages.
 
 Second, the current review process has become somewhat opaque and rather awkward
 to keep organized.  The coordination committee reviews the packages, which in
@@ -76,7 +76,7 @@ the need to do a detailed and sometimes lengthy review of each package, even if
 that amounts to just following a checklist (see the section on the new review
 process for more details of the current process in practice).
 
-These issues were discussed repeatedly by the coordination committee, and later
+These issues were discussed at length by the coordination committee, and later
 in the 2017 Astropy coordination meeting.  The new structure and processes
 described below were a product of a breakout session at the coordination
 meeting. This APE is thus an effort to formalize the ideas and describe how to
