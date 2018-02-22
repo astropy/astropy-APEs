@@ -103,8 +103,6 @@ longer can do so. This means maintainer roles will be created for all the
 coordinated packages, and have full status as astropy
 `roles <http://www.astropy.org/team.html>`_.
 
-XXX Is more about exactly what "coordinated" means needed?
-
 One additional consequence of this change is that coordinated packages will live
 in the `astropy github organization <https://github.com/astropy>`_ , for which
 the project has management power, while affiliated packages, in general, should
@@ -129,7 +127,7 @@ has informally adopted a checklist-based approach, checking if certain "bullet
 points" are met.  While the formal criteria are listed in relatively vague terms
 on the affiliated package web site, the details of how those criteria are met
 have been fairly consistent using an unwritten but fairly standard list. In
-practice, this has meant that affiliated packages are fiven "provisional" status
+practice, this has meant that affiliated packages are given "provisional" status
 if some of these items are checked off are met, or "full" if a larger set of
 them are.
 
@@ -146,14 +144,14 @@ process beyond the coordination committee, thereby address the concerns from the
 A community review process for affiliated packages
 ==================================================
 
-On a longer term horizon, a criteria-based review rubric will allow the review
-process to change to a more "peer-review" model.  That is, instead of every
-package being vetted by the coordination committee, the committee can act more
-as "editors", sometimes offering the review opportunity to other members of the
-Astropy community.  While the details of this process will not be outlined here,
-as they by necessity should be flexible enough to accomodate the experiences of
-the first few reviewers, this APE sets this as the eventual *goal* for the
-affiliated package review process.
+On a longer term horizon, a criteria-based review checklist will allow the
+review process to change to a more "peer-review" model.  That is, instead of
+every package being vetted by the coordination committee, the committee can act
+more as "editors", sometimes offering the review opportunity to other members of
+the Astropy community.  While the details of this process will not be outlined
+here, as they by necessity should be flexible enough to accomodate the
+experiences of the first few reviewers, this APE sets this as the eventual
+*goal* for the affiliated package review process.
 
 
 Branches and pull requests
