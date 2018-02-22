@@ -136,7 +136,7 @@ Low-level API
 The proposed low-level API could be implemented as an abstract base class but we
 would not require all implementations to inherit from it (if they do not inherit
 from it, then they should still register with the ABC to allow code to check
-``isinstance(object, LowLevelWCSAPI))``. Existing WCS classes are then free to
+``isinstance(object, LowLevelWCSAPI)``. Existing WCS classes are then free to
 either implement that interface or provide thin wrappers providing this
 interface. A guiding philosophy of this interface is to use relatively primitive
 python objects (scalars, arrays, and strings), which can be “promoted” to more
