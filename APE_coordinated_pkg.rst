@@ -3,9 +3,9 @@ An Updated Model for the Affiliated Package Ecosystem
 
 author: Erik Tollerud, 2017 Astropy Coordination Meeting Attendees
 
-date-created: 2017 November 7
+date-created: 2018 February 22
 
-date-last-revised: 2018 Feb 22
+date-last-revised: 2018 February 22
 
 type: Process
 
