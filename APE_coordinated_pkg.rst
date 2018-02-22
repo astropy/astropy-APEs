@@ -17,7 +17,7 @@ Abstract
 
 A revision of the concept of "affiliated packages" is proposed.  The idea of
 affiliated packages has continued mostly unaltered since the original Vision
-for Astropy.  However, time has revealed some potnetial improvements in how the
+for Astropy.  However, time has revealed some potential improvements in how the
 ecosystem is structured and the review process for affiliated packages.  Hence,
 this APE proposes to make three changes:
 
