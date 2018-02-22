@@ -83,10 +83,9 @@ Proposing a new APE
 ^^^^^^^^^^^^^^^^^^^
 
 New APEs should be created using the ``APEtemplate.rst`` file in this repository.
-Just fork the repository, copy ``APEtemplate.rst`` to ``APE#.rst`` and issue a
-PR with that file once you've written it up.  Be sure to look through the PRs in
-this repo first so that you choose an APE# that reflects both those that are in
-the repository *and* those that are under discussion.
+Just fork the repository, copy ``APEtemplate.rst`` to
+``APE_<some_working_name>.rst`` and issue a PR with that file once you've
+written it up. The APE number will be assigned once the PR is merged.
 
 Note that there is not much point to making proposals unless someone or some
 group has signed up to implement it if the APE is accepted
