@@ -5,11 +5,11 @@ author: Thomas Robitaille, Erik Tollerud, Stuart Mumford, Adam Ginsburg
 
 date-created: 2017 November 7
 
-date-last-revised: 2018 February 20
+date-last-revised: 2018 February 28
 
 type: Standard Track
 
-status: Discussion
+status: Accepted
 
 
 Abstract
@@ -520,4 +520,6 @@ exists.
 Decision rationale
 ------------------
 
-<To be filled in by the coordinating committee when the APE is accepted or rejected>
+The content of this APE was discussed and accepted by multiple community stakeholders
+who have technical knowledge, practical experience, and project-level interest in WCS.  
+The APE was accepted on Feb 28, 2018.
