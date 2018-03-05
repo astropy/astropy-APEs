@@ -12,21 +12,22 @@ proposal should be accepted, rejected, or modified.
 Accepted APEs
 ^^^^^^^^^^^^^
 
-=== =================================================== =========== ============
-#     Title                                             Date        DOI
-=== =================================================== =========== ============
-1   `APE Purpose and Process`_                          2013-Nov-08 |APE 1 DOI|
-2   `Astropy Release Cycle and Version Numbering`_      2013-Dec-11 |APE 2 DOI|
-3   `Configuration`_                                    2013-Dec-10 |APE 3 DOI|
-4   `Astropy Setup Helpers`_                            2014-Jun-28 |APE 4 DOI|
-5   `Coordinates Subpackage Plan`_                      2014-Jan-22 |APE 5 DOI|
-6   `Enhanced Character Separated Values table format`_ 2015-Jan-26 |APE 6 DOI|
-7   `NDData Plan`_                                      2014-Dec-17 |APE 7 DOI|
-8   `Astropy Community Code of Conduct`_                2015-May-04 |APE 8 DOI|
-10  `Roadmap for Python 3-only support`_                2016-Aug-22 |APE 10 DOI|
-12  `Using Cookiecutter for the package-template`_      2017-Mar-28 |APE 12 DOI|
-13  `Vision for Astropy Spectroscopic Tools`_           2018-Dec-12 |APE 13 DOI|
-=== =================================================== =========== ============
+=== ========================================================= =========== ============
+#     Title                                                   Date        DOI
+=== ========================================================= =========== ============
+1   `APE Purpose and Process`_                                2013-Nov-08 |APE 1 DOI|
+2   `Astropy Release Cycle and Version Numbering`_            2013-Dec-11 |APE 2 DOI|
+3   `Configuration`_                                          2013-Dec-10 |APE 3 DOI|
+4   `Astropy Setup Helpers`_                                  2014-Jun-28 |APE 4 DOI|
+5   `Coordinates Subpackage Plan`_                            2014-Jan-22 |APE 5 DOI|
+6   `Enhanced Character Separated Values table format`_       2015-Jan-26 |APE 6 DOI|
+7   `NDData Plan`_                                            2014-Dec-17 |APE 7 DOI|
+8   `Astropy Community Code of Conduct`_                      2015-May-04 |APE 8 DOI|
+10  `Roadmap for Python 3-only support`_                      2016-Aug-22 |APE 10 DOI|
+12  `Using Cookiecutter for the package-template`_            2017-Mar-28 |APE 12 DOI|
+13  `Vision for Astropy Spectroscopic Tools`_                 2017-Dec-12 |APE 13 DOI|
+14  `A shared Python interface for World Coordinate Systems`_ 2018-Feb-28 |APE 14 DOI|
+=== ========================================================= =========== ============
 
 .. _APE Purpose and Process: https://github.com/astropy/astropy-APEs/blob/master/APE1.rst
 .. _Astropy Release Cycle and Version Numbering: https://github.com/astropy/astropy-APEs/blob/master/APE2.rst
@@ -39,6 +40,7 @@ Accepted APEs
 .. _Roadmap for Python 3-only support: https://github.com/astropy/astropy-APEs/blob/master/APE10.rst
 .. _Using Cookiecutter for the package-template: https://github.com/astropy/astropy-APEs/blob/master/APE12.rst
 .. _Vision for Astropy Spectroscopic Tools: https://github.com/astropy/astropy-APEs/blob/master/APE13.rst
+.. _A shared Python interface for World Coordinate Systems: https://github.com/astropy/astropy-APEs/blob/master/APE14.rst
 
 .. |APE 1 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043886.svg
    :target: https://doi.org/10.5281/zenodo.1043886
@@ -72,6 +74,9 @@ Accepted APEs
 
 .. |APE 13 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1117943.svg
    :target: https://doi.org/10.5281/zenodo.1117943
+
+.. |APE 14 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1188875.svg
+   :target: https://doi.org/10.5281/zenodo.1188875
 
 
 Proposing a new APE
