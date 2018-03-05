@@ -69,10 +69,10 @@ Accepted APEs
 
 .. |APE 12 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1044484.svg
    :target: https://doi.org/10.5281/zenodo.1044484
-   
+
 .. |APE 13 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1117943.svg
    :target: https://doi.org/10.5281/zenodo.1117943
-   
+
 
 Proposing a new APE
 ^^^^^^^^^^^^^^^^^^^
@@ -125,14 +125,14 @@ Go to https://zenodo.org/deposit/new, upload the .rst file, and set the fields t
 ============================= ======================================================
 Zenodo field                  Set to
 ============================= ======================================================
-Title                         Astropy Proposal for Enhancement <number>: <title> (APE <number>)
+Communities                   The Astropy Project
 Upload type                   Publication
 Publication type              Technical note
-Abstract                      The APE abstract
 Publication Date              The date-last-revised of the APE (which should be the same as the accepted date for new APEs)
+Title                         Astropy Proposal for Enhancement <number>: <title> (APE <number>)
 Authors                       The APE authors (directly from the APE text, but with ORCIDs if possible)
+Description                   The APE abstract
 License                       CC-Attribution
-Communities                   The Astropy Project
 Related/alternate identifiers Github link to the APE file *at the specific merge commit* (e.g. https://github.com/astropy/astropy-APEs/blob/42951733ac42c0ea178d8df30705274a43c93091/APE1.rst) as "is supplemented by this upload". If this is a revised version, this should be the URL of the commit where the APE was revised.
 ============================= ======================================================
 
