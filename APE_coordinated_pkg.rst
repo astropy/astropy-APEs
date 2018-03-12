@@ -136,8 +136,9 @@ if some of these items are met, or "full" if a larger set of them are.
 This de facto checklist implies that a more transparent and understandable
 policy would be to make this checklist formal and completely public, and use it
 directly as the formal review criteria - i.e., a rubric.  These criteria will be
-laid out explicitly in a document, with various levels defined for each criteria
-(generally corresponding to "good", "acceptable", and "unacceptable"). This
+laid out explicitly in a document (which has already been drafted - see the
+"Implementation" section below), with various levels defined for each criteria,
+generally corresponding to "good", "acceptable", and "unacceptable". This
 will make the review process much faster and (eventually) open the review
 process beyond the coordination committee, thereby address the concerns from the
 "Motivation" section.
