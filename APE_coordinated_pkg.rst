@@ -48,12 +48,15 @@ grown. However, the current state has several significant limitations.
 
 First, the affiliated packages include a mix of two different kinds of packages.
 Some packages have been developed as a fairly integrated effort alongside the
-core package, meaning both feature planning assuming the existence of the
-affiliated packages, as well as significant overlap in the core development
-teams (e.g.``photutils``, ``astroquery``, and ``specutils``). Other affiliated
+core package.  That is, feature planning took into account that these
+affiliated packages existed, and that important features would be implemented in
+them (e.g.,``photutils``, ``astroquery``, and ``specutils``). Thus, the
+continued existence of those packages is understood to be important for the
+Astropy project as a whole. Other affiliated
 packages (the majority) are developed more independently of the core package,
-often with nearly disjoint development teams, while staying in contact with and
-making *use* of the wider astropy ecosystem and community. It has proved
+which treat Astropy mainly as a base to build on, do not as strongly influence
+planning for the core package, and provide functionality that is not general
+enough to be considered part of the core requirements. It has proved
 difficult to design a development and review process that works effectively with
 *both* of these classes of packages.
 
