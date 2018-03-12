@@ -106,6 +106,14 @@ longer can do so. This means maintainer roles will be created for all the
 coordinated packages, and have status as
 `astropy roles <http://www.astropy.org/team.html>`_.
 
+This also means the development process for coordinated packages will generally
+track close to the core package model - e.g. they will usually follow the
+directory structure of the core package, APEs can be used for major
+decisions/standards, etc.  Note that there is *not* a requirement that
+coordinated packages follow the release calendar for the core package (although
+they *may* do so if desired), as a more flexible release calendar is one of the
+major advantages to having a coordinated package not be in the core.
+
 One additional consequence of this change is that coordinated packages will live
 in the `astropy GitHub organization <https://github.com/astropy>`_ , for which
 the project has management power, while affiliated packages, in general, should
