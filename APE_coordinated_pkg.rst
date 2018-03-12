@@ -60,17 +60,17 @@ difficult to design a development and review process that works effectively with
 Second, the current review process has become somewhat opaque and rather awkward
 to keep organized.  The coordination committee reviews the packages, which in
 practice nearly always receive a "provisional" designation, but then must be
-re-reviewed as a *whole* at some future date to become "full" affiliated
-packages. This "provisional" and "full" distinction is opaque and probably
+re-reviewed as a *whole* at some future date to become full affiliated
+packages. This provisional and full distinction is opaque and probably
 meaningless to the average user who just wants to know what a package does, and
 if it is any good. Additionally, while the review standards are stated on the
 affiliated package web page, some are subjective, allowing at least the
 possibility of biased or exclusionary behavior to sneak in with little recourse
-given the blunt nature of "reject", "provisional", and "accept".
+given the blunt nature of reject, provisional, and accept.
 
 Third, the coordination committee has found it difficult to keep up with the
 rate of affiliated package review (and re-review) requests. Many reviews
-languish for months before receiving even a "provisional" response, which can be
+languish for months before receiving even a provisional response, which can be
 disheartening and perceived by some as unwelcoming. This is primarily driven by
 the need to do a detailed and sometimes lengthy review of each package, even if
 that amounts to just following a checklist (see the section on the new review
@@ -88,20 +88,20 @@ Astropy "coordinated" and affiliated packages
 The biggest-picture change is to split the currently single-category affiliated
 package ecosystem into two categories: "Astropy coordinated" and "Astropy
 affiliated" package.  This change is not as drastic as it sounds because it
-reflects the *reality* of the current situation.  As outlined above, two such
+reflects the reality of the current situation.  As outlined above, two such
 categories effectively exist already, and this APE simply formalizes this
 status.
 
 In practice, packages that remain as affiliated packages are essentially
 unaffected by this change.  They continue to be managed/organized outside of the
-Astropy project core team, and retain complete control of the repositories, code
+Astropy project core team and retain complete control of the repositories, code
 base, etc.  By contrast, packages in the new "coordinated package" category will
 be treated as a core component of the Astropy project, with the project (via the
 coordinating committee) overseeing who is maintaining the package and taking
 responsibility for continued maintenance in the event the original author(s) no
 longer can do so. This means maintainer roles will be created for all the
-coordinated packages, and have full status as astropy
-`roles <http://www.astropy.org/team.html>`_.
+coordinated packages, and have status as
+`astropy roles <http://www.astropy.org/team.html>`_.
 
 One additional consequence of this change is that coordinated packages will live
 in the `astropy github organization <https://github.com/astropy>`_ , for which
@@ -123,13 +123,12 @@ A criteria-based package review process
 This APE also proposes a second change to the review process, motivated by the
 concerns in the "Motivation" section above about the committee's review
 process. To counter these concerns, prior to this APE the coordination committee
-has informally adopted a checklist-based approach, checking if certain "bullet
-points" are met.  While the formal criteria are listed in relatively vague terms
+has informally adopted a checklist-based approach, checking if certain bullet
+points are met.  While the formal criteria are listed in relatively vague terms
 on the affiliated package web site, the details of how those criteria are met
-have been fairly consistent using an unwritten but fairly standard list. In
+have been fairly consistent using an unwritten but roughly standard list. In
 practice, this has meant that affiliated packages are given "provisional" status
-if some of these items are checked off are met, or "full" if a larger set of
-them are.
+if some of these items are met, or "full" if a larger set of them are.
 
 This de facto checklist implies that a more transparent and understandable
 policy would be to make this checklist formal and completely public, and use it
@@ -145,9 +144,9 @@ A community review process for affiliated packages
 ==================================================
 
 On a longer term horizon, a criteria-based review checklist will allow the
-review process to change to a more "peer-review" model.  That is, instead of
+review process to change to a more peer-review model.  That is, instead of
 every package being vetted by the coordination committee, the committee can act
-more as "editors", sometimes offering the review opportunity to other members of
+more as editors, sometimes offering the review opportunity to other members of
 the Astropy community.  While the details of this process will not be outlined
 here, as they by necessity should be flexible enough to accomodate the
 experiences of the first few reviewers, this APE sets this as the eventual
