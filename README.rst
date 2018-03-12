@@ -83,8 +83,8 @@ Proposing a new APE
 ^^^^^^^^^^^^^^^^^^^
 
 New APEs should be created using the ``APEtemplate.rst`` file in this repository.
-Just fork the repository, copy ``APEtemplate.rst`` to
-``APE_<some_working_name>.rst`` and issue a Pull REquest with that file once
+Fork the repository, copy ``APEtemplate.rst`` to
+``APE_<some_working_name>.rst`` and issue a Pull Request with that file once
 you've written it up (little explanation is required in the PR itself given that
 the document has all the content - usually it's easiest to just paste in the
 abstract). The APE number will be assigned once the PR is merged.
