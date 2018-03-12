@@ -107,11 +107,11 @@ coordinated packages, and have status as
 `astropy roles <http://www.astropy.org/team.html>`_.
 
 One additional consequence of this change is that coordinated packages will live
-in the `astropy github organization <https://github.com/astropy>`_ , for which
+in the `astropy GitHub organization <https://github.com/astropy>`_ , for which
 the project has management power, while affiliated packages, in general, should
 *not*.  To ease this process, however, any affiliated packages currently in the
 astropy organization can be "legacied-in".  This means that they may remain in
-the github organization even if they are not coordinated packages. Moving
+the GitHub organization even if they are not coordinated packages. Moving
 forward, though, new coordinated packages should be in the astropy organization
 and new  affiliated packages should not be.
 
@@ -195,7 +195,7 @@ Backward compatibility
 ----------------------
 
 While in the future this APE proposes that new affiliated packages not be in the
-Astropy github organization, affiliated packages from *before* this APE that are
+Astropy GitHub organization, affiliated packages from *before* this APE that are
 in the Astropy organization will be left there unless specifically requested
 otherwise.
 
