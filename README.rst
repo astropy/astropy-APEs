@@ -83,10 +83,11 @@ Proposing a new APE
 ^^^^^^^^^^^^^^^^^^^
 
 New APEs should be created using the ``APEtemplate.rst`` file in this repository.
-Just fork the repository, copy ``APEtemplate.rst`` to ``APE#.rst`` and issue a
-PR with that file once you've written it up.  Be sure to look through the PRs in
-this repo first so that you choose an APE# that reflects both those that are in
-the repository *and* those that are under discussion.
+Fork the repository, copy ``APEtemplate.rst`` to
+``APE_<some_working_name>.rst`` and issue a Pull Request with that file once
+you've written it up (little explanation is required in the PR itself given that
+the document has all the content - usually it's easiest to just paste in the
+abstract). The APE number will be assigned once the PR is merged.
 
 Note that there is not much point to making proposals unless someone or some
 group has signed up to implement it if the APE is accepted
@@ -94,8 +95,8 @@ group has signed up to implement it if the APE is accepted
 an APE in order to spur others to do work is not generally going to be received
 well. Generally, an implementation is expected before an APE can be considered
 fully accepted. For proposals that require extensive work that few are willing
-to perform without some assurance it will be accepted, we can issue provisional
-acceptance. For serious consideration it is usually good to show that detailed
+to perform without some assurance it will be accepted, provisional acceptance
+is an option. For serious consideration it is usually good to show that detailed
 technical aspects have been played with in real code rather (even if it isn't a
 complete implementation).
 
