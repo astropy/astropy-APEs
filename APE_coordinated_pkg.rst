@@ -159,10 +159,11 @@ On a longer term horizon, a criteria-based review checklist will allow the
 review process to change to a more peer-review model.  That is, instead of
 every package being vetted by the coordination committee, the committee can act
 more as editors, sometimes offering the review opportunity to other members of
-the Astropy community.  While the details of this process will not be outlined
-here, as they by necessity should be flexible enough to accomodate the
-experiences of the first few reviewers, this APE sets this as the eventual
-*goal* for the affiliated package review process.
+the Astropy community.  The details of this process will not be set in stone by
+this APE, as they should be flexible enough to accomodate the experiences of the
+first rounds of reviewers.  But this APE sets some initial steps (see
+"Implementation" below) and makes the general idea the eventual goal for the
+affiliated package review process.
 
 
 Branches and pull requests
@@ -190,13 +191,24 @@ The changes outlined in this APE will be implemented as three distinct efforts:
   requires relatively little effort and can be completed by the Astropy web site
   maintainers upon acceptance of this APE.
 * A "peer-review" process will need to be set up to enable reviews by community
-  members beyond the coordination committee.  While such processes exist in
-  other contexts (e.g. the
+  members beyond the coordination committee.  Such processes exist in
+  other code contexts (e.g. the
   `Journal of Open Source Software <http://joss.theoj.org/>`_ and
-  `Ropensci <https://ropensci.org/>`_) that may have tools that can be re-used,
-  it is likely that setting up this process will take some time - this APE does
-  not outline the details of this implementation, but rather gives the broad
-  goals.
+  `Ropensci <https://ropensci.org/>`_) that may have tools that can be re-used
+  to make the process smooth and efficient.  Setting such tools up is likely to
+  take some time, however, and needs to be adaptable enough to respond to the
+  first few reviews.  Hence this APE does not describe the details of this
+  implementation - that is explicitly left to be developed by the Astropy
+  community with the cooordination committee acting as ``editors''.  However,
+  this APE recommends a simple *starting* point: reviewers can be selected by
+  the coordination committee from the pool of existing affiliated package
+  authors or Astropy core team members.  They receive a prompt to review a new
+  package via email (along with the criteria described a above), and provide
+  their reviews also via email.  The coordination committee will then perform
+  the current process of posting the result of the review as issues in the
+  affiliated package's repository for discussion.  In the future some of these
+  processes will likely be automated, but this simplest viable start point will
+  provide a place to start.
 
 
 Backward compatibility
