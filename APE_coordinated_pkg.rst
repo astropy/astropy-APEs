@@ -199,7 +199,7 @@ The changes outlined in this APE will be implemented as three distinct efforts:
   take some time, however, and needs to be adaptable enough to respond to the
   first few reviews.  Hence this APE does not describe the details of this
   implementation - that is explicitly left to be developed by the Astropy
-  community with the cooordination committee acting as ``editors''.  However,
+  community with the cooordination committee acting as "editors".  However,
   this APE recommends a simple *starting* point: reviewers can be selected by
   the coordination committee from the pool of existing affiliated package
   authors or Astropy core team members.  They receive a prompt to review a new
