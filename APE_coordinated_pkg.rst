@@ -1,7 +1,7 @@
 An Updated Model for the Affiliated Package Ecosystem
 -----------------------------------------------------
 
-author: Erik Tollerud, 2017 Astropy Coordination Meeting Attendees
+author: Erik Tollerud
 
 date-created: 2018 February 22
 
@@ -15,8 +15,10 @@ status: Discussion
 Abstract
 --------
 
-A revision of the concept of "affiliated packages" is proposed.  The idea of
-affiliated packages has continued mostly unaltered since the original Vision
+A revision of the concept of Astropy-affiliated packages (hereafter "affiliated
+packages") is proposed.  The idea of
+affiliated packages has continued mostly unaltered since the
+`original vision <http://docs.astropy.org/en/stable/development/vision.html>`_
 for Astropy.  However, time has revealed some potential improvements in how the
 ecosystem is structured and the review process for affiliated packages.  Hence,
 this APE proposes to make three changes:
@@ -80,7 +82,7 @@ that amounts to just following a checklist (see the section on the new review
 process for more details of the current process in practice).
 
 These issues were discussed at length by the coordination committee, and later
-in the 2017 Astropy coordination meeting.  The new structure and processes
+at the 2017 Astropy coordination meeting.  The new structure and processes
 described below were a product of a breakout session at the coordination
 meeting. This APE is thus an effort to formalize the ideas and describe how to
 implement them.
@@ -90,7 +92,7 @@ Astropy "coordinated" and affiliated packages
 
 The biggest-picture change is to split the currently single-category affiliated
 package ecosystem into two categories: "Astropy coordinated" and "Astropy
-affiliated" package.  This change is not as drastic as it sounds because it
+affiliated" packages.  This change is not as drastic as it sounds because it
 reflects the reality of the current situation.  As outlined above, two such
 categories effectively exist already, and this APE simply formalizes this
 status.
@@ -107,8 +109,8 @@ coordinated packages, and have status as
 `astropy roles <http://www.astropy.org/team.html>`_.
 
 This also means the development process for coordinated packages will generally
-track close to the core package model - e.g. they will usually follow the
-directory structure of the core package, APEs can be used for major
+track close to the core package model - e.g. they will usually follow the same
+package layout as the core package, APEs can be used for major
 decisions/standards, etc.  Note that there is *not* a requirement that
 coordinated packages follow the release calendar for the core package (although
 they *may* do so if desired), as a more flexible release calendar is one of the
@@ -121,7 +123,7 @@ the project has management power, while affiliated packages, in general, should
 astropy organization can be "legacied-in".  This means that they may remain in
 the GitHub organization even if they are not coordinated packages. Moving
 forward, though, new coordinated packages should be in the astropy organization
-and new  affiliated packages should not be.
+and new affiliated packages should not be.
 
 Note, though, that affiliated packages are still considered a part of the
 "Astropy Project".  That umbrella term applies to both coordinated and
@@ -136,10 +138,13 @@ concerns in the "Motivation" section above about the committee's review
 process. To counter these concerns, prior to this APE the coordination committee
 has informally adopted a checklist-based approach, checking if certain bullet
 points are met.  While the formal criteria are listed in relatively vague terms
-on the affiliated package web site, the details of how those criteria are met
+on the
+`affiliated package web site <http://www.astropy.org/affiliated/index.html#affiliated-instructions>`_,
+the details of how those criteria are met
 have been fairly consistent using an unwritten but roughly standard list. In
-practice, this has meant that affiliated packages are given "provisional" status
-if some of these items are met, or "full" if a larger set of them are.
+practice, in the past this has meant that affiliated packages are given
+"provisional" status if some of these items are met (a status that will no
+longer exist if this APE is accepted), or "full" if a larger set of them are.
 
 This de facto checklist implies that a more transparent and understandable
 policy would be to make this checklist formal and completely public, and use it
@@ -148,8 +153,8 @@ laid out explicitly in a document (which has already been drafted - see the
 "Implementation" section below), with various levels defined for each criteria,
 generally corresponding to "good", "acceptable", and "unacceptable". This
 will make the review process much faster and (eventually) open the review
-process beyond the coordination committee, thereby address the concerns from the
-"Motivation" section.
+process beyond the coordination committee, thereby addressing the concerns from
+the "Motivation" section.
 
 
 A community review process for affiliated packages
@@ -180,7 +185,8 @@ The changes outlined in this APE will be implemented as three distinct efforts:
 * The new package review criteria have already been implemented by the
   coordination committee and reviewed by the community (Available in Google doc
   form `here <https://docs.google.com/document/d/15PJf2PROXMa7xwTDvWnjXB_9KNuO2Ia4_kkxJ7MPazE/edit?usp=sharing>`_.
-  These criteria will need to be translated to HTML and put on the affiliated
+  These criteria will need to be translated to a structured format to be shown
+  on the affiliated
   package instructions section of the Astropy website.  The affiliated package
   listing page will also need to be updated for these new criteria - a concept
   for this new site is `viewable here <example_affilpkg_page.png>`_.
