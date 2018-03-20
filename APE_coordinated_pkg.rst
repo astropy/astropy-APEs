@@ -206,11 +206,12 @@ The changes outlined in this APE will be implemented as three distinct efforts:
   first few reviews. Hence this APE does not describe the details of this
   implementation - that is explicitly left to be developed by the Astropy
   community with the cooordination committee acting as "editors". However,
-  this APE recommends a simple *starting* point: reviewers can be selected by
+  this APE gives a suggested *starting* point: reviewers can be selected by
   the coordination committee from the pool of existing affiliated package
   authors or Astropy core team members. They receive a prompt to review a new
   package via email (along with the criteria described a above), and provide
-  their reviews also via email. The coordination committee will then perform
+  their reviews in the most straightforward manner feasible (email, a GitHub
+  issue for the review, or similar). The coordination committee then performs
   the current process of posting the result of the review as issues in the
   affiliated package's repository for discussion. In the future some of these
   processes will likely be automated, but this simplest viable start point will
