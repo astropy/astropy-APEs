@@ -63,10 +63,9 @@ Version      Planned release date     Notes
 v1.3         December 2016
 v2.0 - LTS   June 2017                Supported with bug fixes until end of 2019
 v3.0         December 2017            First release to support only Python 3+
-v3.1         October 2018
-v3.2         April 2019
-v3.3         October 2019
-v4.0 - LTS   April 2020               Supported with bug fixes for two years
+v3.1         November 2018            (Gap due to changes in release phase)
+v3.2         May 2019
+v4.0 - LTS   November 2019            Supported with bug fixes for two years
 ==========   ======================   ==========================================
 
 Note that v1.0, v2.0, and v4.0 are marked as long-term support releases (LTS),
@@ -267,5 +266,7 @@ of life during the time an astropy version is supported. In particular, Python
 3.3 would reach end-of-life only 3 months after the nominal astropy 2.0 release.
 Hence, all minimum versions of Python 3 were increased by one minor version.
 
-After v3.0, a decision was made to adjust the release calendar by +3 months.  The
-table above has been updated appropriately.
+After v3.0, a decision was made to adjust the release calendar by +3 months.
+The table above has been updated appropriately.  v3.3 was also removed on this
+basis, as the timing for the end of Python 2.x support is better aligned with an
+end-of-2019 4.0 release.
