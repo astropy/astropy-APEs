@@ -27,6 +27,7 @@ Accepted APEs
 12  `Using Cookiecutter for the package-template`_            2017-Mar-28 |APE 12 DOI|
 13  `Vision for Astropy Spectroscopic Tools`_                 2017-Dec-12 |APE 13 DOI|
 14  `A shared Python interface for World Coordinate Systems`_ 2018-Feb-28 |APE 14 DOI|
+15  `An Updated Model for the Affiliated Package Ecosystem`_  2018-May-14 |APE 15 DOI|
 === ========================================================= =========== ============
 
 .. _APE Purpose and Process: https://github.com/astropy/astropy-APEs/blob/master/APE1.rst
@@ -41,6 +42,7 @@ Accepted APEs
 .. _Using Cookiecutter for the package-template: https://github.com/astropy/astropy-APEs/blob/master/APE12.rst
 .. _Vision for Astropy Spectroscopic Tools: https://github.com/astropy/astropy-APEs/blob/master/APE13.rst
 .. _A shared Python interface for World Coordinate Systems: https://github.com/astropy/astropy-APEs/blob/master/APE14.rst
+.. _An Updated Model for the Affiliated Package Ecosystem: https://github.com/astropy/astropy-APEs/blob/master/APE15.rst
 
 .. |APE 1 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043886.svg
    :target: https://doi.org/10.5281/zenodo.1043886
@@ -77,6 +79,9 @@ Accepted APEs
 
 .. |APE 14 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1188875.svg
    :target: https://doi.org/10.5281/zenodo.1188875
+   
+.. |APE 15 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1246834.svg
+   :target: https://doi.org/10.5281/zenodo.1246834
 
 
 Proposing a new APE
