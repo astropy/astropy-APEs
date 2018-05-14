@@ -100,8 +100,8 @@ is an option. For serious consideration it is usually good to show that detailed
 technical aspects have been played with in real code rather (even if it isn't a
 complete implementation).
 
-Accepting APEs
-^^^^^^^^^^^^^^
+Finalizing APEs
+^^^^^^^^^^^^^^^
 
 The final decision on accepting or rejecting APEs lies with the Astropy
 Coordination Committee.  Once the community discussion on the APE has wound
@@ -117,7 +117,7 @@ or rejection.  One of the committee members should then:
    free number on the list of APEs.
 4. If the APE is accepted, add a commit to the APE which puts the APE into the
    "Accepted APEs" table of the repository's README.
-5. Merge the PR with the above changes.
+5. Leave a brief comment in the PR indicating the result, and merge the PR with the above changes.
 6. Upload the APE to Zenodo to give it a DOI (see next section).
 7. Send an email to `astropy-dev <https://groups.google.com/forum/#!forum/astropy-dev/>`_
    announcing the acceptance (In general this should just point to the accepted
