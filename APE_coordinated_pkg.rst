@@ -5,11 +5,11 @@ author: Erik Tollerud
 
 date-created: 2018 February 22
 
-date-last-revised: 2018 February 22
+date-last-revised: 2018 May 14
 
 type: Process
 
-status: Discussion
+status: Accepted
 
 
 Abstract
@@ -239,4 +239,7 @@ possibilities include any subset of the three changes outlined above.
 Decision rationale
 ------------------
 
-<To be filled in by the coordinating committee when the APE is accepted or rejected>
+The concept of this APE was discussed extensively by the Astropy Coordination
+Committee and approved.  The APE text was discussed and accepted by multiple 
+community stakeholders who have experience and project-level interest in 
+affiliated packages.  The APE was accepted on May 14, 2018.
