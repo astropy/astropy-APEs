@@ -79,7 +79,7 @@ Accepted APEs
 
 .. |APE 14 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1188875.svg
    :target: https://doi.org/10.5281/zenodo.1188875
-   
+
 .. |APE 15 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1246834.svg
    :target: https://doi.org/10.5281/zenodo.1246834
 
@@ -120,32 +120,37 @@ or rejection.  One of the committee members should then:
    "Accepted" or "Rejected".
 3. If necessary, rename the APE file to be ``APE##.rst``, where ## is the next
    free number on the list of APEs.
-4. If the APE is accepted, add a commit to the APE which puts the APE into the
-   "Accepted APEs" table of the repository's README.
-5. Leave a brief comment in the PR indicating the result, and merge the PR with the above changes.
-6. Upload the APE to Zenodo to give it a DOI (see next section).
-7. Send an email to `astropy-dev <https://groups.google.com/forum/#!forum/astropy-dev/>`_
-   announcing the acceptance (In general this should just point to the accepted
-   APE rather than providing additional decision rationale).
+#. Leave a brief comment in the PR indicating the result.
+#. Merge the PR with the above changes.
+#. If the APE was accepted then continue with the remaining steps, otherwise stop now.
+#. Upload the APE to Zenodo to give it a DOI.  Go to https://zenodo.org/deposit/new, upload
+   the .rst file, and set the fields to the following:
 
-Uploading an APE to Zenodo
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ============================= ======================================================
+   Zenodo field                  Set to
+   ============================= ======================================================
+   Communities                   The Astropy Project
+   Upload type                   Publication
+   Publication type              Technical note
+   Publication Date              The date-last-revised of the APE (which should be the same as the accepted date for new APEs)
+   Title                         Astropy Proposal for Enhancement <number>: <title> (APE <number>)
+   Authors                       The APE authors (directly from the APE text, but with ORCIDs if possible)
+   Description                   The APE abstract (copy/paste the rendered HTML from GitHub)
+   License                       CC-Attribution (default)
+   Related/alternate identifiers Github link to the APE file *at the specific merge commit* (e.g. https://github.com/astropy/astropy-APEs/blob/42951733ac42c0ea178d8df30705274a43c93091/APE1.rst) as "is supplemented by this upload". If this is a revised version, this should be the URL of the commit where the APE was revised.
+   ============================= ======================================================
 
-Go to https://zenodo.org/deposit/new, upload the .rst file, and set the fields to the following:
-
-============================= ======================================================
-Zenodo field                  Set to
-============================= ======================================================
-Communities                   The Astropy Project
-Upload type                   Publication
-Publication type              Technical note
-Publication Date              The date-last-revised of the APE (which should be the same as the accepted date for new APEs)
-Title                         Astropy Proposal for Enhancement <number>: <title> (APE <number>)
-Authors                       The APE authors (directly from the APE text, but with ORCIDs if possible)
-Description                   The APE abstract
-License                       CC-Attribution
-Related/alternate identifiers Github link to the APE file *at the specific merge commit* (e.g. https://github.com/astropy/astropy-APEs/blob/42951733ac42c0ea178d8df30705274a43c93091/APE1.rst) as "is supplemented by this upload". If this is a revised version, this should be the URL of the commit where the APE was revised.
-============================= ======================================================
+#. Get the source for the DOI badge from the newly-created Zenodo record page by
+   clicking on the DOI badge on the right side of the page and copying the
+   reStructuredText source.
+#. On GitHub (or locally) edit ``README.rst`` and add an entry for the new APE to the
+   "Accepted APEs" table.  Use the DOI link from the previous step.  Add
+   corresponding RST link refs for both the DOI link and the new APE.  Preview
+   the update and test the links to make sure they are all correct.  Then commit
+   directly to master (or PR if you prefer).
+#. Send an email to `astropy-dev <https://groups.google.com/forum/#!forum/astropy-dev/>`_
+   announcing the acceptance In general this should just point to the accepted
+   APE rather than providing additional decision rationale.
 
 Updating APEs
 ^^^^^^^^^^^^^
