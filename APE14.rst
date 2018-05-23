@@ -233,7 +233,9 @@ low-level API recommends:
             n_pixel scalars or arrays as input, and pixel coordinates should be
             zero-based. Returns n_world scalars or arrays in units given by
             ``world_axis_units``. Note that pixel coordinates are assumed
-            to be 0 at the center of the first pixel in each dimension.
+            to be 0 at the center of the first pixel in each dimension. If a
+            pixel is in a region where the WCS is not defined, NaN can be
+            returned.
             """
 
         def world_to_pixel_values(self, *world_arrays):
@@ -242,6 +244,9 @@ low-level API recommends:
             n_world scalars or arrays as input in units given by ``world_axis_units``.
             Returns n_pixel scalars or arrays. Note that pixel coordinates are
             assumed to be 0 at the center of the first pixel in each dimension.
+            to be 0 at the center of the first pixel in each dimension. If a
+            world coordinate does not have a matching pixel coordinate, NaN can
+            be returned.
             """
 
         @property
