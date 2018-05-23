@@ -273,15 +273,22 @@ low-level API recommends:
             """
             A dictionary with each key being a string key from
             ``world_axis_object_components``, and each value being a tuple with
-            two elements:
+            two or three elements:
 
             * The first element of the tuple must be a string specifying the
               fully-qualified name of a class, which will specify the actual
               Python object to be created.
 
-            * The second tuple element must be a
-              dictionary with the keyword arguments required to initialize the
-              class.
+            * The second element, which is optional, should be a tuple
+              specifying the positional arguments required to initialize the
+              class. If ``world_axis_object_components`` specifies that
+              the world coordinates should be passed as a positional argument,
+              this this tuple should include ``None`` placeholders for the
+              world coordinates. This tuple only needs to be specified if there
+              are additional positional arguments.
+
+            * The last tuple element must be a dictionary with the keyword
+              arguments required to initialize the class.
 
             See below for an example of this property. Note that we don't
             require the classes to be Astropy classes since there is no
