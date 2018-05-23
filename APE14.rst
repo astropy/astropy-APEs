@@ -5,12 +5,14 @@ author: Thomas Robitaille, Erik Tollerud, Stuart Mumford, Adam Ginsburg
 
 date-created: 2017 November 7
 
-date-last-revised: 2018 February 28
+date-last-revised: 2018 May 23
 
 type: Standard Track
 
 status: Accepted
 
+*Note: this APE14 was origially accepted on 2018-Feb-28, but due to issues with
+implementation was significanly revised on 2018-May-23 and is under new review*
 
 Abstract
 --------
