@@ -462,6 +462,10 @@ This high-level API would provide the ability for example to get ``SkyCoord``,
 ``Time`` etc. objects back from a pixel to world conversion, and conversely to
 be able to convert ``SkyCoord``, ``Time`` etc. to pixel values.
 
+While we encourage the use of this class, we will also define a base class that
+declares the API described here, and we allow other libraries, if needed, to
+implement their own high-level object.
+
 The high-level object would not inherit from the low-level classes but instead
 wrap them. The high-level object should provide at a minimum the
 following two methods:
