@@ -235,7 +235,9 @@ low-level API recommends:
             ``world_axis_units``. Note that pixel coordinates are assumed
             to be 0 at the center of the first pixel in each dimension. If a
             pixel is in a region where the WCS is not defined, NaN can be
-            returned.
+            returned. The coordinates should be specified in the ``(x, y)``
+            order, where for an image, ``x`` is the horizontal coordinate and
+            ``y`` is the vertical coordinate.
             """
 
         def world_to_pixel_values(self, *world_arrays):
@@ -246,7 +248,9 @@ low-level API recommends:
             assumed to be 0 at the center of the first pixel in each dimension.
             to be 0 at the center of the first pixel in each dimension. If a
             world coordinate does not have a matching pixel coordinate, NaN can
-            be returned.
+            be returned.  The coordinates should be returned in the ``(x, y)``
+            order, where for an image, ``x`` is the horizontal coordinate and
+            ``y`` is the vertical coordinate.
             """
 
         @property
@@ -465,13 +469,15 @@ following two methods:
     def pixel_to_world(self, *pixel_arrays):
         """
         Convert pixel coordinates to world coordinates (represented by Astropy
-        objects).
+        objects). See ``pixel_to_world_values`` for pixel indexing and ordering
+        conventions.
         """
 
     def world_to_pixel(self, *world_objects):
         """
         Convert world coordinates (represented by Astropy objects) to pixel
-        coordinates
+        coordinates. See ``world_to_pixel_values`` for pixel indexing and
+        ordering conventions.
         """
 
 The low-level object must be available under the attribute name ``low_level_wcs``
