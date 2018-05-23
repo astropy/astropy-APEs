@@ -313,6 +313,11 @@ arguments, while the second world axis can be used to instantiate an Astropy
 keyword argument. Note that the coordinate frame classes could be custom
 sub-classes if needed.
 
+The classes used in ``world_axis_object_classes`` should have the ability to do
+conversions by passing an instance as the first argument to the same class with
+different arguments (e.g. ``Time(Time(...), scale='tai')``). This is a
+requirement for the implementation of the high-level interface.
+
 Low-level API examples
 ^^^^^^^^^^^^^^^^^^^^^^
 
