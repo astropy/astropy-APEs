@@ -248,7 +248,7 @@ low-level API recommends:
         def world_axis_object_components(self):
             """
             A list with n_dim_world elements, where each element is a tuple with
-            two items:
+            three items:
 
             * The first is a name for the world object this world array
               corresponds to, which *must* match the string names used in
@@ -260,6 +260,10 @@ low-level API recommends:
             * The second element is either a string keyword argument name or a
               positional index for the corresponding class from
               ``world_axis_object_classes``
+
+            * The third argument is a string giving the name of the property
+              to access on the corresponding class from
+              ``world_axis_object_classes`` in order to get numerical values.
 
             See below for an example of this property.
             """
@@ -293,11 +297,13 @@ WCS object is:
 .. code-block:: python
 
     >>> wcs.world_axis_object_components
-    [('skycoord', 'ra'), ('time', 0), ('skycoord', 'dec')]
+    [('skycoord', 'ra', 'ra.degree'),
+     ('time', 0, 'tai.value'),
+     ('skycoord', 'dec', 'dec.degree')]
     >>> wcs.world_axis_object_classes
     {'skycoord': ('astropy.coordinates.SkyCoord',
                   {'frame': 'fk5', 'equinox':'J2005'}),
-     'time': ('astropy.time.Time', {'scale': 'tai'})}
+     'time': ('astropy.time.Time', {'scale': 'tai', 'format': 'unix'})}
 
 This indicates that the first and third world axis can be used to instantiate an
 Astropy ``SkyCoord`` object with ``ra=`` set to the first world axis, and
@@ -317,7 +323,7 @@ Low-level API examples
     wcs.axis_correlation_matrix = [[True]]
     wcs.world_axis_units = ['angstrom']
     wcs.world_axis_physical_types = ['em.wl']
-    wcs.world_axis_object_components = [('spec', 0)]
+    wcs.world_axis_object_components = [('spec', 0, 'value')]
     wcs.world_axis_object_classes  = {'spec':('astropy.units.Wavelength':
                                               {'airorvacwl': 'air'})}
 
@@ -329,9 +335,10 @@ Low-level API examples
     wcs.axis_correlation_matrix = [[True, False], [False, True]]
     wcs.world_axis_units = ['deg', 'deg']
     wcs.world_axis_physical_types = ['pos.eq.ra', 'pos.eq.dec']
-    wcs.world_axis_object_components = [(('sc', 'ra'), ('sc', 'dec')]
+    wcs.world_axis_object_components = [(('sc', 'ra', 'ra.degree'),
+                                         ('sc', 'dec', 'dec.degree')]
     wcs.world_axis_object_classes  = {'sc':('astropy.coordinates.SkyCoord',
-                                {'frame': 'icrs'})}
+                                            {'frame': 'icrs'})}
 
 **Extremely complex spectral data cube** with 3 *pixel* dimensions and 4 *world*
 dimensions. The first two *pixel* dimensions encode a mixed set of spatial
@@ -347,8 +354,10 @@ dimension encoding time-of-observation.
                                    [False, False, True]]
     wcs.world_axis_units = ['deg', 'deg', 'angstrom', 'day']
     wcs.world_axis_physical_types = ['pos.galactic.lon', 'pos.galactic.lat', 'em.wl', 'time']
-    wcs.world_axis_object_components = [('spat', 'ra'), ('spat', 'dec'),
-                                        ('spec', 0), ('time', 0)]
+    wcs.world_axis_object_components = [('spat', 'ra', 'ra.degree'),
+                                        ('spat', 'dec', 'dec.degree'),
+                                        ('spec', 0, 'value'),
+                                        ('time', 0, 'utc.value')]
     wcs.world_axis_object_classes  = {'spat': ('astropy.coordinates.SkyCoord',
                                                {'frame': 'icrs'}),
                                       'spec': ('astropy.units.Wavelength`, {}),
@@ -362,7 +371,7 @@ dimension encoding time-of-observation.
     wcs.axis_correlation_matrix = [[True]]
     wcs.world_axis_units = ['pixel']
     wcs.world_axis_physical_types = ['instr.pixel']
-    wcs.world_axis_object_components = [('spec', 0)]
+    wcs.world_axis_object_components = [('spec', 0, 'value')]
     wcs.world_axis_object_classes  = {'spec':('astropy.units.pixel': {})}
 
 Common UCD1+ names for physical types
@@ -458,7 +467,7 @@ given by considering only the first occurrence of the coordinate alias string in
 
 .. code-block:: python
 
-    [('skycoord', 'ra'), ('time', 0), ('skycoord', 'dec')]
+    [('skycoord', 'ra', 'ra.degree'), ('time', 0, 'tai.value'), ('skycoord', 'dec', 'dec.degree')]
 
 Then the order of the Astropy objects should be ``SkyCoord`` then ``Time`` (we
 essentially ignore ``('skycoord', 'dec')``). This rule will always be followed
@@ -521,5 +530,5 @@ Decision rationale
 ------------------
 
 The content of this APE was discussed and accepted by multiple community stakeholders
-who have technical knowledge, practical experience, and project-level interest in WCS.  
+who have technical knowledge, practical experience, and project-level interest in WCS.
 The APE was accepted on Feb 28, 2018.
