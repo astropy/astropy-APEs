@@ -295,6 +295,20 @@ low-level API recommends:
             guarantee that Astropy will have all the classes to represent all
             kinds of world coordinates. Furthermore, we recommend that the
             output be kept as human-readable as possible.
+
+            The classes used here should have the ability to do conversions by
+            passing an instance as the first argument to the same class with
+            different arguments (e.g. ``Time(Time(...), scale='tai')``). This is
+            a requirement for the implementation of the high-level interface.
+
+            The second tuple element for each value of this dictionary can in
+            turn contain either instances of classes, or if necessary can contain
+            serialized versions that should take the same form as the main
+            classes described above (a tuple with three elements with the
+            fully qualified name of the class, then the positional arguments
+            and the keyword arguments). For low-level API objects implemented
+            in Python, we recommend simply returning the actual objects (not
+            the serialized form) for optimal performance.
             """
 
 We now take a look at an example of use of ``world_axis_object_components`` with
@@ -319,11 +333,6 @@ arguments, while the second world axis can be used to instantiate an Astropy
 ``Time`` object as the first positional argument, and with the ``scale=tai``
 keyword argument. Note that the coordinate frame classes could be custom
 sub-classes if needed.
-
-The classes used in ``world_axis_object_classes`` should have the ability to do
-conversions by passing an instance as the first argument to the same class with
-different arguments (e.g. ``Time(Time(...), scale='tai')``). This is a
-requirement for the implementation of the high-level interface.
 
 Low-level API examples
 ^^^^^^^^^^^^^^^^^^^^^^
