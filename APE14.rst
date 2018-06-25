@@ -222,11 +222,14 @@ low-level API recommends:
         @property
         def axis_correlation_matrix(self):
             """
-            Returns an (n_world, n_pixel) matrix that indicates using booleans
-            whether a given world coordinate depends on a given pixel coordinate.
-            This should default to a matrix where all elements are True in the
-            absence of any further information. For completely independent axes,
-            the diagonal would be True and all other entries False.
+            Returns an ``(world_n_dim, pixel_n_dim)`` matrix that indicates
+            using booleans whether a given world coordinate depends on a given
+            pixel coordinate. This should default to a matrix where all elements
+            are True in the absence of any further information. For completely
+            independent axes, the diagonal would be True and all other entries
+            False. The pixel axes should be ordered in the ``(x, y)`` order,
+            where for an image, ``x`` is the horizontal coordinate and ``y`` is
+            the vertical coordinate.
             """
 
         def pixel_to_world_values(self, *pixel_arrays):
@@ -242,6 +245,14 @@ low-level API recommends:
             ``y`` is the vertical coordinate.
             """
 
+        def index_to_world_values(self, *index_arrays):
+            """
+            Convert array indices to world coordinates. This is the same as
+            ``pixel_to_world_values`` except that the indices should be given
+            in ``(i, j)`` order, where for an image ``i`` is the row and ``j``
+            is the column (i.e. the opposite order to ``pixel_to_world_values``).
+            """
+
         def world_to_pixel_values(self, *world_arrays):
             """
             Convert world coordinates to pixel coordinates. This method takes
@@ -253,6 +264,15 @@ low-level API recommends:
             be returned.  The coordinates should be returned in the ``(x, y)``
             order, where for an image, ``x`` is the horizontal coordinate and
             ``y`` is the vertical coordinate.
+            """
+
+        def world_to_index_values(self, *world_arrays):
+            """
+            Convert world coordinates to array indices. This is the same as
+            ``world_to_pixel_values`` except that the indices should be returned
+            in ``(i, j)`` order, where for an image ``i`` is the row and ``j``
+            is the column (i.e. the opposite order to ``pixel_to_world_values``).
+            The indices should be returned as rounded integers.
             """
 
         @property
@@ -406,6 +426,74 @@ dimension encoding time-of-observation.
     wcs.world_axis_object_components = [('spec', 0, 'value')]
     wcs.world_axis_object_classes  = {'spec':('astropy.units.pixel': {})}
 
+Pixel and world coordinate ordering
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The API above provides a way to distinguish between pixel coordinates defined
+using the standard Cartesian ordering (x, y) and array indices defined using the
+(row, column) ordering. For example, values returned from
+``world_to_pixel_values`` would be in the correct order to use for plotting
+using e.g. Matplotlib, while values returned from ``world_to_index_values``
+would be in the correct order to use for indexing a Numpy array. Both are valid
+and we therefore provide two methods for each transformation.
+
+We do not mandate a specific order for the world coordinates. While it might be
+tempting to assume the 'same' order as for pixel coordinates, this only makes
+sense for simple cases (for example an image of the sky where ra/dec are roughly
+lined up with x/y). In a generalized WCS system, such a correspondance does not
+exist. As an example, consider an equatorial coordinate system rotated 45
+degrees from the pixel coordinates. Such a system could be represented by the
+following::
+
+    wcs.axis_correlation_matrix = [[True, True], [True, True]]
+    wcs.world_axis_physical_types = ['pos.eq.ra', 'pos.eq.dec']
+
+or by::
+
+    wcs.axis_correlation_matrix = [[True, True], [True, True]]
+    wcs.world_axis_physical_types = ['pos.eq.dec', 'pos.eq.ra']
+
+Neither of these is more correct than the other since ra/dec are not
+preferentially lined up with x/y, so we need to allow both.
+
+It is also possible to have a different number of world coordinates compared to
+pixel coordinates. For example, we could imagine having a 1D array of values
+determined by tracing a non-linear path through a spectral cube. The WCS would
+look like::
+
+    wcs.axis_correlation_matrix = [[True], [True], [True]]
+    wcs.world_axis_physical_types = ['pos.eq.ra', 'pos.eq.dec', 'spect.dopplerVeloc.radio']
+
+but the order of the coordinates is of course arbitrary, and one cannot simply
+refer to the order of the pixel coordinates since there is only one pixel
+coordinate that is correlated with all three world coordinates. Thus, one could
+equally represent the WCS as:
+
+    wcs.axis_correlation_matrix = [[True], [True], [True]]
+    wcs.world_axis_physical_types = ['spect.dopplerVeloc.radio', 'pos.eq.ra', 'pos.eq.dec']
+
+and there is no 'right' order.
+
+We note that the API we present here makes it easy to create a WCS with
+reorederd world coordinates - this would involve changing the order of
+``world_axis_physical_types``, ``world_axis_units``, and
+``world_axis_object_components``, changing the order of
+``axis_correlation_matrix`` along the first dimension, and changing the order
+of the inputs of the ``world_to_pixel/index_values`` methods and the
+order of the outputs of the ``pixel/index_to_world_values`` methods. Thus,
+implementations of the low or high-level API could provide convenience methods
+to reorder or sort the world axes.
+
+This flexibility does not however extend to pixel coordinates. For example for a
+given array with an associated WCS, the output of ``world_to_index_values`` has
+to consistently return the values in the order that can be used to index the
+array, so the indices/pixel coordinates of the WCS cannot be re-ordered if the
+data is left unchanged.
+
+For consistency with existing WCS libraries, we recommend that implementations
+based on FITS-WCS choose to order ``world_axis_physical_types`` in the same
+order as the ``CDELT`` values, but we do not require this.
+
 Common UCD1+ names for physical types
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -468,7 +556,7 @@ implement their own high-level object.
 
 The high-level object would not inherit from the low-level classes but instead
 wrap them. The high-level object should provide at a minimum the
-following two methods:
+following four methods:
 
 .. code-block:: python
 
@@ -479,12 +567,27 @@ following two methods:
         conventions.
         """
 
+    def index_to_world(self, *index_arrays):
+        """
+        Convert array indices to world coordinates (represented by Astropy
+        objects). See ``index_to_world_values`` for array indexing and ordering
+        conventions.
+        """
+
     def world_to_pixel(self, *world_objects):
         """
         Convert world coordinates (represented by Astropy objects) to pixel
         coordinates. See ``world_to_pixel_values`` for pixel indexing and
         ordering conventions.
         """
+
+    def world_to_index(self, *world_objects):
+        """
+        Convert world coordinates (represented by Astropy objects) to array
+        indices. See ``world_to_index_values`` for array indexing and ordering
+        conventions. The indices should be returned as rounded integers.
+        """
+
 
 The low-level object must be available under the attribute name ``low_level_wcs``
 and the low-level methods such as ``pixel_to_world_values`` will thus be
