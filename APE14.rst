@@ -306,9 +306,9 @@ low-level API recommends:
             ``world_axis_object_components``, and each value being a tuple with
             three elements:
 
-            * The first element of the tuple must be a string specifying the
-              fully-qualified name of a class, which will specify the actual
-              Python object to be created.
+            * The first element of the tuple must be a class or a string
+              specifying the fully-qualified name of a class, which will specify
+              the actual Python object to be created.
 
             * The second element, should be a tuple specifying the positional
               arguments required to initialize the class. If
@@ -331,14 +331,14 @@ low-level API recommends:
             different arguments (e.g. ``Time(Time(...), scale='tai')``). This is
             a requirement for the implementation of the high-level interface.
 
-            The second tuple element for each value of this dictionary can in
-            turn contain either instances of classes, or if necessary can contain
-            serialized versions that should take the same form as the main
-            classes described above (a tuple with three elements with the
-            fully qualified name of the class, then the positional arguments
-            and the keyword arguments). For low-level API objects implemented
-            in Python, we recommend simply returning the actual objects (not
-            the serialized form) for optimal performance.
+            The second and third tuple elements for each value of this
+            dictionary can in turn contain either instances of classes, or if
+            necessary can contain serialized versions that should take the same
+            form as the main classes described above (a tuple with three
+            elements with the fully qualified name of the class, then the
+            positional arguments and the keyword arguments). For low-level API
+            objects implemented in Python, we recommend simply returning the
+            actual objects (not the serialized form) for optimal performance.
             """
 
 We now take a look at an example of use of ``world_axis_object_components`` with
