@@ -5,7 +5,7 @@ author: Thomas Robitaille, Erik Tollerud, Stuart Mumford, Adam Ginsburg
 
 date-created: 2017 November 7
 
-date-last-revised: 2018 May 23
+date-last-revised: 2018 July 28
 
 type: Standard Track
 
@@ -607,7 +607,9 @@ given by considering only the first occurrence of the coordinate alias string in
 
 .. code-block:: python
 
-    [('skycoord', 'ra', 'ra.degree'), ('time', 0, 'tai.value'), ('skycoord', 'dec', 'dec.degree')]
+    [('skycoord', 'ra', 'ra.degree'),
+     ('time', 0, 'tai.value'),
+     ('skycoord', 'dec', 'dec.degree')]
 
 Then the order of the Astropy objects should be ``SkyCoord`` then ``Time`` (we
 essentially ignore ``('skycoord', 'dec')``). This rule will always be followed
@@ -624,10 +626,18 @@ N/A
 Implementation
 --------------
 
-The low-level API could be implemented specifically for FITS-WCS into the
-Astropy core package, along with the more general high-level Astropy object.
-Other projects can then choose to implement objects conforming to the low-level
-API in their own packages.
+The following pull requests provide implementations of what is described in
+this APE:
+
+* `astropy/astropy#7325 <https://github.com/astropy/astropy/pull/7325>`_
+  implements the abstract base class for the low-level API.
+
+* `astropy/astropy#7326 <https://github.com/astropy/astropy/pull/7326>`_
+  implements the FITS-WCS low-level API and the high-level API class in
+  Astropy that can wrap any low-level API object.
+
+* `spacetelescope/gwcs#146 <https://github.com/spacetelescope/gwcs/pull/146>`_
+  implements a GWCS high-level object.
 
 Backward compatibility
 ----------------------
