@@ -430,11 +430,11 @@ Pixel and world coordinate ordering
 
 The API above provides a way to distinguish between pixel coordinates defined
 using the standard Cartesian ordering (x, y) and array indices defined using the
-(row, column) ordering. For example, values returned from
+row-major ordering (i.e. row, column). For example, values returned from
 ``world_to_pixel_values`` would be in the correct order to use for plotting
 using e.g. Matplotlib, while values returned from ``world_to_index_values``
 would be in the correct order to use for indexing a Numpy array. Both are valid
-and we therefore provide two methods for each transformation.
+in different contexts and we therefore provide two methods for each transformation.
 
 We do not mandate a specific order for the world coordinates. While it might be
 tempting to assume the 'same' order as for pixel coordinates, this only makes
