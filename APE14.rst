@@ -354,7 +354,7 @@ WCS object is:
     >>> wcs.world_axis_object_classes
     {'skycoord': ('astropy.coordinates.SkyCoord', (),
                   {'frame': 'fk5', 'equinox':'J2005'}),
-     'time': ('astropy.time.Time', {'scale': 'tai', 'format': 'unix'})}
+     'time': ('astropy.time.Time', (None,), {'scale': 'tai', 'format': 'unix'})}
 
 This indicates that the first and third world axis can be used to instantiate an
 Astropy ``SkyCoord`` object with ``ra=`` set to the first world axis, and
@@ -375,7 +375,7 @@ Low-level API examples
     wcs.world_axis_units = ['angstrom']
     wcs.world_axis_physical_types = ['em.wl']
     wcs.world_axis_object_components = [('spec', 0, 'value')]
-    wcs.world_axis_object_classes  = {'spec':('astropy.units.Wavelength', (),
+    wcs.world_axis_object_classes  = {'spec':('astropy.units.Wavelength', (None,),
                                               {'airorvacwl': 'air'})}
 
 **Simple 2D image mapping** where the pixel axes are lined up with RA and Dec
@@ -411,8 +411,8 @@ dimension encoding time-of-observation.
                                         ('time', 0, 'utc.value')]
     wcs.world_axis_object_classes  = {'spat': ('astropy.coordinates.SkyCoord', (),
                                                {'frame': 'icrs'}),
-                                      'spec': ('astropy.units.Wavelength`, (), {}),
-                                      'time': ('astropy.time.Time', (),
+                                      'spec': ('astropy.units.Wavelength`, (None,), {}),
+                                      'time': ('astropy.time.Time', (None,),
                                                {'format':'mjd', 'scale':'utc'})}
 
 **The identity transform** for a 1D array (i.e., pixel -> pixel):
@@ -423,7 +423,7 @@ dimension encoding time-of-observation.
     wcs.world_axis_units = ['pixel']
     wcs.world_axis_physical_types = ['instr.pixel']
     wcs.world_axis_object_components = [('spec', 0, 'value')]
-    wcs.world_axis_object_classes  = {'spec':('astropy.units.pixel', (), {})}
+    wcs.world_axis_object_classes  = {'spec':('astropy.units.pixel', (None,), {})}
 
 Pixel and world coordinate ordering
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
