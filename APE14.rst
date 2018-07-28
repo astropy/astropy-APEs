@@ -304,19 +304,18 @@ low-level API recommends:
             """
             A dictionary with each key being a string key from
             ``world_axis_object_components``, and each value being a tuple with
-            two or three elements:
+            three elements:
 
             * The first element of the tuple must be a string specifying the
               fully-qualified name of a class, which will specify the actual
               Python object to be created.
 
-            * The second element, which is optional, should be a tuple
-              specifying the positional arguments required to initialize the
-              class. If ``world_axis_object_components`` specifies that
-              the world coordinates should be passed as a positional argument,
-              this this tuple should include ``None`` placeholders for the
-              world coordinates. This tuple only needs to be specified if there
-              are additional positional arguments.
+            * The second element, should be a tuple specifying the positional
+              arguments required to initialize the class. If
+              ``world_axis_object_components`` specifies that the world
+              coordinates should be passed as a positional argument, this this
+              tuple should include ``None`` placeholders for the world
+              coordinates.
 
             * The last tuple element must be a dictionary with the keyword
               arguments required to initialize the class.
@@ -353,7 +352,7 @@ WCS object is:
      ('time', 0, 'tai.value'),
      ('skycoord', 'dec', 'dec.degree')]
     >>> wcs.world_axis_object_classes
-    {'skycoord': ('astropy.coordinates.SkyCoord',
+    {'skycoord': ('astropy.coordinates.SkyCoord', (),
                   {'frame': 'fk5', 'equinox':'J2005'}),
      'time': ('astropy.time.Time', {'scale': 'tai', 'format': 'unix'})}
 
@@ -376,7 +375,7 @@ Low-level API examples
     wcs.world_axis_units = ['angstrom']
     wcs.world_axis_physical_types = ['em.wl']
     wcs.world_axis_object_components = [('spec', 0, 'value')]
-    wcs.world_axis_object_classes  = {'spec':('astropy.units.Wavelength':
+    wcs.world_axis_object_classes  = {'spec':('astropy.units.Wavelength', (),
                                               {'airorvacwl': 'air'})}
 
 **Simple 2D image mapping** where the pixel axes are lined up with RA and Dec
@@ -389,7 +388,7 @@ Low-level API examples
     wcs.world_axis_physical_types = ['pos.eq.ra', 'pos.eq.dec']
     wcs.world_axis_object_components = [(('sc', 'ra', 'ra.degree'),
                                          ('sc', 'dec', 'dec.degree')]
-    wcs.world_axis_object_classes  = {'sc':('astropy.coordinates.SkyCoord',
+    wcs.world_axis_object_classes  = {'sc':('astropy.coordinates.SkyCoord', (),
                                             {'frame': 'icrs'})}
 
 **Extremely complex spectral data cube** with 3 *pixel* dimensions and 4 *world*
@@ -410,10 +409,10 @@ dimension encoding time-of-observation.
                                         ('spat', 'dec', 'dec.degree'),
                                         ('spec', 0, 'value'),
                                         ('time', 0, 'utc.value')]
-    wcs.world_axis_object_classes  = {'spat': ('astropy.coordinates.SkyCoord',
+    wcs.world_axis_object_classes  = {'spat': ('astropy.coordinates.SkyCoord', (),
                                                {'frame': 'icrs'}),
-                                      'spec': ('astropy.units.Wavelength`, {}),
-                                      'time': ('astropy.time.Time',
+                                      'spec': ('astropy.units.Wavelength`, (), {}),
+                                      'time': ('astropy.time.Time', (),
                                                {'format':'mjd', 'scale':'utc'})}
 
 **The identity transform** for a 1D array (i.e., pixel -> pixel):
@@ -424,7 +423,7 @@ dimension encoding time-of-observation.
     wcs.world_axis_units = ['pixel']
     wcs.world_axis_physical_types = ['instr.pixel']
     wcs.world_axis_object_components = [('spec', 0, 'value')]
-    wcs.world_axis_object_classes  = {'spec':('astropy.units.pixel': {})}
+    wcs.world_axis_object_classes  = {'spec':('astropy.units.pixel', (), {})}
 
 Pixel and world coordinate ordering
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
