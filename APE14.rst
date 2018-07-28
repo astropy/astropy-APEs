@@ -491,7 +491,7 @@ data is left unchanged.
 
 For consistency with existing WCS libraries, we recommend that implementations
 based on FITS-WCS choose to order ``world_axis_physical_types`` in the same
-order as the ``CDELT`` values, but we do not require this.
+order as the ``CTYPE`` values, but we do not require this.
 
 Common UCD1+ names for physical types
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
