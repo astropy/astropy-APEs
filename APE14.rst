@@ -487,7 +487,7 @@ look like::
 but the order of the coordinates is of course arbitrary, and one cannot simply
 refer to the order of the pixel coordinates since there is only one pixel
 coordinate that is correlated with all three world coordinates. Thus, one could
-equally represent the WCS as:
+equally represent the WCS as::
 
     wcs.axis_correlation_matrix = [[True], [True], [True]]
     wcs.world_axis_physical_types = ['spect.dopplerVeloc.radio', 'pos.eq.ra', 'pos.eq.dec']
