@@ -82,7 +82,10 @@ and should be *compatible* with this APE's interface, an API for these
 operations is out-of-scope for this APE. This APE also does not address how to
 *create* such WCSs. Rather it is aimed specifically at an API for the simpler
 problem of actually performing the “end-to-end” transformation from pixel to
-some world space.
+some world space. We note that while we have made efforts to ensure that the API
+described here is as close as possible to the final implemented API, the
+authoritative version of the API will be given by the base classes that live in
+the core astropy package.
 
 Overview of the proposed WCS Interface
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
