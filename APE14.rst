@@ -303,6 +303,14 @@ low-level API:
             """
 
         @property
+        def serialized_classes(self):
+            """
+            Indicates whether Python objects are given in serialized form or as
+            actual Python objects.
+            """
+            return False
+
+        @property
         def world_axis_object_components(self):
             """
             A list with n_dim_world elements, where each element is a tuple with
@@ -366,6 +374,9 @@ low-level API:
             positional arguments and the keyword arguments). For low-level API
             objects implemented in Python, we recommend simply returning the
             actual objects (not the serialized form) for optimal performance.
+            Implementations should either always or never use serialized classes
+            to represent Python objects, and should indicate which of these they
+            follow using the ``serialized_classes`` attribute.
             """
 
 We now take a look at an example of use of ``world_axis_object_components`` with
