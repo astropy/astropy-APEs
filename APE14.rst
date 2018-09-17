@@ -629,7 +629,11 @@ and the order is not the standard one).
 
 Note that the low- and high-level APIs will be defined as base classes that
 will be designed in such a way that a custom WCS class can inherit from both
-the low- and high-level base classes.
+the low- and high-level base classes. The high-level base class will be
+implemented with methods that will by default use the information in
+``world_axis_object_components`` and ``world_axis_object_classes`` to work -
+thus, simply inheriting from the high-level base class should be sufficient to
+expose the high-level API.
 
 High-level Astropy Object
 ^^^^^^^^^^^^^^^^^^^^^^^^^
