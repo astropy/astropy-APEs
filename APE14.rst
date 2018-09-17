@@ -98,11 +98,14 @@ Our proposal in this APE is the following:
   be as simple as possible and mainly return simple Python objects such as
   strings, lists and arrays. We refer to this as the 'low-level' API.
 
-* To develop a high-level Astropy WCS object that can wrap any WCS object
-  providing the low-level API and be smarter about the kinds of objects to
-  accept or return to the user (including for example SkyCoord or Time objects).
+* To develop a common high-level API that will be smarter about the kinds of
+  objects to accept or return to the user (including for example SkyCoord or
+  Time objects)
 
-The idea of this two-tiered approach as opposed to a single-tier approach is
+* To develop an Astropy WCS object that can wrap any low-level WCS object
+  and expose the high-level WCS API.
+
+The idea of this multi-tiered approach as opposed to a single-tier approach is
 that if we asked different WCS objects to provide a high-level API, this would
 (1) cause a lot of duplication of logic of constructing the appropriate Astropy
 objects, and (2) force those objects to return specifically Astropy objects,
@@ -157,8 +160,8 @@ types, such as the `built-in Python array
 <https://docs.python.org/3/library/array.html>`_ objects or future advanced data
 structures.
 
-The following class shows the required properties and methods the uniform
-low-level API recommends:
+The following class shows the required properties and methods for the uniform
+low-level API:
 
 .. code-block:: python
 
