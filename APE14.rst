@@ -561,22 +561,13 @@ agreed as much as possible between different packages to make sure that these
 can be useful (which would not be the case if each package created their own
 set of custom type names).
 
-High-level Astropy Object
-^^^^^^^^^^^^^^^^^^^^^^^^^
+High-level API
+^^^^^^^^^^^^^^
 
-Unlike the low-level API, the 'high-level' interface described here will be a
-single Astropy-developed class since it interfaces with various Astropy objects.
-This high-level API would provide the ability for example to get ``SkyCoord``,
+The high-level API will provide the ability for example to get ``SkyCoord``,
 ``Time`` etc. objects back from a pixel to world conversion, and conversely to
-be able to convert ``SkyCoord``, ``Time`` etc. to pixel values.
-
-While we encourage the use of this class, we will also define a base class that
-declares the API described here, and we allow other libraries, if needed, to
-implement their own high-level object.
-
-The high-level object would not inherit from the low-level classes but instead
-wrap them. The high-level object should provide at a minimum the
-following four methods:
+be able to convert ``SkyCoord``, ``Time`` etc. to pixel values. This API
+includes the following four methods:
 
 .. code-block:: python
 
@@ -608,15 +599,6 @@ following four methods:
         conventions. The indices should be returned as rounded integers.
         """
 
-
-The low-level object must be available under the attribute name ``low_level_wcs``
-and the low-level methods such as ``pixel_to_world_values`` will thus be
-available by doing:
-
-.. code-block:: python
-
-    >>> wcs.low_level_wcs.pixel_to_world_values(...)
-
 Since a single Astropy object might correspond to two non-contiguous dimensions
 in the WCS (for example the first and third world dimensions), we need to
 specify the rules for the order in which Astropy objects are returned from the
@@ -638,6 +620,29 @@ for ``pixel_to_world``, but on the other hand provided there is no ambiguity,
 ``world_to_pixel`` could be more forgiving if the coordinates are specified in
 the wrong order (though an error should be raised if there are any ambiguities
 and the order is not the standard one).
+
+Note that the low- and high-level APIs will be defined as base classes that
+will be designed in such a way that a custom WCS class can inherit from both
+the low- and high-level base classes.
+
+High-level Astropy Object
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Finally, we will develop a class in Astropy that inherits from the high-level
+API and can be initialized by a low-level API object, which it then wraps.
+
+This class will define properties that match all of the ones in the low-level
+API (only the properties, not the methods), with the exception of
+``world_axis_object_components`` and ``world_axis_object_classes``, and these
+properties will simply dispatch a call to the property of the low-level object.
+
+The low-level object will be available under the attribute name ``low_level_wcs``
+and the low-level methods such as ``pixel_to_world_values`` will thus be
+available by doing:
+
+.. code-block:: python
+
+  >>> wcs.low_level_wcs.pixel_to_world_values(...)
 
 Branches and pull requests
 --------------------------
