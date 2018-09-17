@@ -184,6 +184,26 @@ low-level API recommends:
             data. This can be used for example if implementing slicing of WCS
             objects. This is an optional property, and it should return `None`
             if a shape is not known or relevant.
+
+            The shape should be given in ``(x, y)`` order. For a shape that can
+            be used for Numpy arrays, see ``numpy_shape``.
+            """
+
+        @property
+        def numpy_shape(self):
+            """
+            The shape of the data that the WCS applies to as a tuple of
+            length ``pixel_n_dim`` (optional).
+
+            If the WCS is valid in the context of a dataset with a particular
+            shape, then this property can be used to store the shape of the
+            data. This can be used for example if implementing slicing of WCS
+            objects. This is an optional property, and it should return `None`
+            if a shape is not known or relevant.
+
+            The shape should be given in ``(row, column)`` order (the convention
+            for Numpy arrays). For a shape in ``(x, y)`` order, see
+            ``pixel_shape``.
             """
 
         @property
@@ -192,10 +212,11 @@ low-level API recommends:
             The bounds (in pixel coordinates) inside which the WCS is defined,
             as a list with ``pixel_n_dim`` ``(min, max)`` tuples (optional).
 
-            WCS solutions are sometimes only guaranteed to be accurate within a
-            certain range of pixel values, for example when definining a WCS
-            that includes fitted distortions. This is an optional property, and
-            it should return `None` if a shape is not known or relevant.
+            The bounds should be given in ``[(xmin, xmax), (ymin, ymax)]``
+            order. WCS solutions are sometimes only guaranteed to be accurate
+            within a certain range of pixel values, for example when defining a
+            WCS that includes fitted distortions. This is an optional property,
+            and it should return `None` if a shape is not known or relevant.
             """
 
         @property
