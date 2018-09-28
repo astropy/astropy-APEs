@@ -651,10 +651,10 @@ implemented with methods that will by default use the information in
 thus, simply inheriting from the high-level base class should be sufficient to
 expose the high-level API.
 
-High-level Astropy Object
+High-level astropy Object
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Finally, we will develop a class in Astropy that inherits from the high-level
+Finally, we will develop a class in astropy that inherits from the high-level
 API and can be initialized by a low-level API object, which it then wraps.
 
 This class will define properties that match all of the ones in the low-level
