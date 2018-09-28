@@ -11,8 +11,8 @@ type: Standard Track
 
 status: Accepted
 
-*Note: this APE14 was origially accepted on 2018-Feb-28, but due to issues with
-implementation was significanly revised on 2018-May-23 and is under new review*
+*Note: this APE14 was originally accepted on 2018-Feb-28, but due to issues with
+implementation was significantly revised on 2018-May-23 and is under new review*
 
 Abstract
 --------
@@ -461,7 +461,7 @@ transformation.
 We do not mandate a specific order for the world coordinates. While it might be
 tempting to assume the 'same' order as for pixel coordinates, this only makes
 sense for simple cases (for example an image of the sky where ra/dec are roughly
-lined up with x/y). In a generalized WCS system, such a correspondance does not
+lined up with x/y). In a generalized WCS system, such a correspondence does not
 exist. As an example, consider an equatorial coordinate system rotated 45
 degrees from the pixel coordinates. Such a system could be represented by the
 following::
@@ -496,7 +496,7 @@ equally represent the WCS as::
 and there is no 'right' order.
 
 We note that the API we present here makes it easy to create a WCS with
-reorederd world coordinates - this would involve changing the order of
+reordered world coordinates - this would involve changing the order of
 ``world_axis_physical_types``, ``world_axis_units``, and
 ``world_axis_object_components``, changing the order of
 ``axis_correlation_matrix`` along the first dimension, and changing the order
@@ -706,7 +706,7 @@ simpler solution would have been to use the class object *itself* as the key.
 Additionally, for ``world_axis_physical_types``, an alternative was considered
 of adopting a much more general set of terms vs UCD1+ such as ``"celestial"``,
 ``"spectral"``, etc. and just coming up with the list in this APE (possibly
-using terms that approxmiately align with the STC standard).  But it was decided
+using terms that approximately align with the STC standard).  But it was decided
 that adopting the VO UCD1+ would be best because it would not lead to Astropy
 needing to maintain a separate "standard" of terminology where one already
 exists.
