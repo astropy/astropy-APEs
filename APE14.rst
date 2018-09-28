@@ -581,10 +581,15 @@ set of custom type names).
 High-level API
 ^^^^^^^^^^^^^^
 
-The high-level API will provide the ability for example to get ``SkyCoord``,
-``Time`` etc. objects back from a pixel to world conversion, and conversely to
-be able to convert ``SkyCoord``, ``Time`` etc. to pixel values. This API
-includes the following four methods:
+The high-level API's primary purpose is to provide an interface to obtain
+fully-featured Python objects for the world coordinates - for example to get
+``SkyCoord``, ``Time`` etc. objects back from a pixel to world conversion, and
+conversely to be able to convert ``SkyCoord``, ``Time`` etc. to pixel values. It
+is distinct from the actual implementation provided in the core astropy package
+(discussed below), so that developers providing their own WCS objects can
+implement the high-level API on their own. In this sense the astropy-provided
+implementation can be thought of as a reference implementation. The high-level
+API includes the following four methods:
 
 .. code-block:: python
 
