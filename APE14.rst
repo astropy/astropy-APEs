@@ -180,23 +180,7 @@ low-level API:
             """
 
         @property
-        def pixel_shape(self):
-            """
-            The shape of the data that the WCS applies to as a tuple of
-            length ``pixel_n_dim`` (optional).
-
-            If the WCS is valid in the context of a dataset with a particular
-            shape, then this property can be used to store the shape of the
-            data. This can be used for example if implementing slicing of WCS
-            objects. This is an optional property, and it should return `None`
-            if a shape is not known or relevant.
-
-            The shape should be given in ``(x, y)`` order. For a shape that can
-            be used for Numpy arrays, see ``numpy_shape``.
-            """
-
-        @property
-        def numpy_shape(self):
+        def array_shape(self):
             """
             The shape of the data that the WCS applies to as a tuple of
             length ``pixel_n_dim`` (optional).
@@ -208,8 +192,7 @@ low-level API:
             if a shape is not known or relevant.
 
             The shape should be given in ``(row, column)`` order (the convention
-            for Numpy arrays). For a shape in ``(x, y)`` order, see
-            ``pixel_shape``.
+            for arrays in Python).
             """
 
         @property
@@ -272,7 +255,7 @@ low-level API:
             ``y`` is the vertical coordinate.
             """
 
-        def numpy_index_to_world_values(self, *index_arrays):
+        def array_index_to_world_values(self, *index_arrays):
             """
             Convert array indices to world coordinates. This is the same as
             ``pixel_to_world_values`` except that the indices should be given
@@ -293,7 +276,7 @@ low-level API:
             ``y`` is the vertical coordinate.
             """
 
-        def world_to_numpy_index_values(self, *world_arrays):
+        def world_to_array_index_values(self, *world_arrays):
             """
             Convert world coordinates to array indices. This is the same as
             ``world_to_pixel_values`` except that the indices should be returned
@@ -470,9 +453,10 @@ The API above provides a way to distinguish between pixel coordinates defined
 using the standard Cartesian ordering (x, y) and array indices defined using the
 row-major ordering (i.e. row, column). For example, values returned from
 ``world_to_pixel_values`` would be in the correct order to use for plotting
-using e.g. Matplotlib, while values returned from ``world_to_numpy_index_values``
-would be in the correct order to use for indexing a Numpy array. Both are valid
-in different contexts and we therefore provide two methods for each transformation.
+using e.g. Matplotlib, while values returned from ``world_to_array_index_values``
+would be in the correct order to use for indexing e.g. a Numpy array. Both are
+valid in different contexts and we therefore provide two methods for each
+transformation.
 
 We do not mandate a specific order for the world coordinates. While it might be
 tempting to assume the 'same' order as for pixel coordinates, this only makes
@@ -516,13 +500,13 @@ reorederd world coordinates - this would involve changing the order of
 ``world_axis_physical_types``, ``world_axis_units``, and
 ``world_axis_object_components``, changing the order of
 ``axis_correlation_matrix`` along the first dimension, and changing the order
-of the inputs of the ``world_to_pixel/numpy_index_values`` methods and the
-order of the outputs of the ``pixel/numpy_index_to_world_values`` methods. Thus,
+of the inputs of the ``world_to_pixel/array_index_values`` methods and the
+order of the outputs of the ``pixel/array_index_to_world_values`` methods. Thus,
 implementations of the low or high-level API could provide convenience methods
 to reorder or sort the world axes.
 
 This flexibility does not however extend to pixel coordinates. For example for a
-given array with an associated WCS, the output of ``world_to_numpy_index_values`` has
+given array with an associated WCS, the output of ``world_to_array_index_values`` has
 to consistently return the values in the order that can be used to index the
 array, so the indices/pixel coordinates of the WCS cannot be re-ordered if the
 data is left unchanged.
@@ -600,10 +584,10 @@ API includes the following four methods:
         conventions.
         """
 
-    def numpy_index_to_world(self, *index_arrays):
+    def array_index_to_world(self, *index_arrays):
         """
         Convert array indices to world coordinates (represented by Astropy
-        objects). See ``numpy_index_to_world_values`` for array indexing and ordering
+        objects). See ``array_index_to_world_values`` for array indexing and ordering
         conventions.
         """
 
@@ -614,10 +598,10 @@ API includes the following four methods:
         ordering conventions.
         """
 
-    def world_to_numpy_index(self, *world_objects):
+    def world_to_array_index(self, *world_objects):
         """
         Convert world coordinates (represented by Astropy objects) to array
-        indices. See ``world_to_numpy_index_values`` for array indexing and ordering
+        indices. See ``world_to_array_index_values`` for array indexing and ordering
         conventions. The indices should be returned as rounded integers.
         """
 
