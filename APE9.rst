@@ -37,12 +37,12 @@ binned into time windows. These types of applications require some basic
 functionality:
 
 #. Extending timeseries with extra rows
-#. Concatenating multiple timeseries objects
+#. Concatenating multiple timeseries objects (e.g. adding new columns)
 #. Sorting
 #. Slicing / selecting time ranges (indexing)
 #. Re-binning and re-sampling timeseries
 #. Interpolating to different time stamps.
-#. Masking
+#. Masking and support for missing values (NaN)
 #. Support for subtraction and addition (e.g. background).
 #. Plotting and visualisation.
 #. Have high performance into \~millions of rows.
@@ -83,6 +83,14 @@ Initialize a ``SampledTimeSeries`` with a time and a data column::
 
   ts = SampledTimeSeries(time=['2016-03-22T12:30:31', '2016-03-22T12:30:32', '2016-03-22T12:30:40'],
                          data=[1, 4, 3])
+
+Initialize a ``SampledTimeSeries`` with a time and a fixed delta::
+
+  ts = SampledTimeSeries(time='2016-03-22T12:30:31', time_delta=3 * u.s, n_samples=10)
+
+Initialize a ``SampledTimeSeries`` with a time and an array of deltas (also no data)::
+
+  ts = SampledTimeSeries(time="2011-01-01T00:00:00", time_delta=np.random.random((10,))*u.s)
 
 Initialize a ``BinnedTimeSeries`` with even contiguous bins by specifying the bin width::
 
