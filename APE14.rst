@@ -82,10 +82,11 @@ and should be *compatible* with this APE's interface, an API for these
 operations is out-of-scope for this APE. This APE also does not address how to
 *create* such WCSs. Rather it is aimed specifically at an API for the simpler
 problem of actually performing the “end-to-end” transformation from pixel to
-some world space. We note that while we have made efforts to ensure that the API
-described here is as close as possible to the final implemented API, the
-authoritative version of the API will be given by the base classes that live in
-the core astropy package.
+some world space.
+
+We note that while we have made efforts to ensure that the API described here is
+as close as possible to the final implemented API, the authoritative version of
+the API will be given by the base classes that live in the core astropy package.
 
 Overview of the proposed WCS Interface
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -115,7 +116,7 @@ interoperability.
 
 
 Pixel Conventions
-"""""""""""""""""
+^^^^^^^^^^^^^^^^^
 
 The exact choice of which value represents the "edge" of a pixel is arbitrary
 and could potentially vary across WCS implementations. Indeed, the
@@ -182,17 +183,30 @@ low-level API:
         @property
         def array_shape(self):
             """
-            The shape of the data that the WCS applies to as a tuple of
-            length ``pixel_n_dim`` (optional).
+            The shape of the data that the WCS applies to as a tuple of length
+            ``pixel_n_dim`` in ``(row, column)`` order (the convention for
+            arrays in Python) (optional).
 
             If the WCS is valid in the context of a dataset with a particular
             shape, then this property can be used to store the shape of the
             data. This can be used for example if implementing slicing of WCS
             objects. This is an optional property, and it should return `None`
             if a shape is not known or relevant.
+            """
 
-            The shape should be given in ``(row, column)`` order (the convention
-            for arrays in Python).
+        @property
+        def pixel_shape(self):
+            """
+            The shape of the data that the WCS applies to as a tuple of length
+            ``pixel_n_dim`` in ``(x, y)`` order (where for an image, ``x`` is
+            the horizontal coordinate and ``y`` is the vertical coordinate)
+            (optional).
+
+            If the WCS is valid in the context of a dataset with a particular
+            shape, then this property can be used to store the shape of the
+            data. This can be used for example if implementing slicing of WCS
+            objects. This is an optional property, and it should return `None`
+            if a shape is not known or relevant.
             """
 
         @property
