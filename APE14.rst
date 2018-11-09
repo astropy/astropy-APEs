@@ -191,7 +191,7 @@ low-level API:
             shape, then this property can be used to store the shape of the
             data. This can be used for example if implementing slicing of WCS
             objects. This is an optional property, and it should return `None`
-            if a shape is not known or relevant.
+            if a shape is neither known nor relevant.
             """
 
         @property
@@ -206,7 +206,7 @@ low-level API:
             shape, then this property can be used to store the shape of the
             data. This can be used for example if implementing slicing of WCS
             objects. This is an optional property, and it should return `None`
-            if a shape is not known or relevant.
+            if a shape is neither known nor relevant.
             """
 
         @property
@@ -219,7 +219,7 @@ low-level API:
             order. WCS solutions are sometimes only guaranteed to be accurate
             within a certain range of pixel values, for example when defining a
             WCS that includes fitted distortions. This is an optional property,
-            and it should return `None` if a shape is not known or relevant.
+            and it should return `None` if a shape is neither known nor relevant.
             """
 
         @property
