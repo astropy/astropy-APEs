@@ -732,3 +732,6 @@ Decision rationale
 The content of this APE was discussed and accepted by multiple community stakeholders
 who have technical knowledge, practical experience, and project-level interest in WCS.
 The APE was accepted on Feb 28, 2018.
+
+This APE was subsequently revised on Nov 14, 2018 due to changes motivated by
+implementations in the astropy and gwcs packages.
