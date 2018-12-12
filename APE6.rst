@@ -301,7 +301,7 @@ To illustrate the full features of ECSV we create a table with meta data
 
   >>> from collections import OrderedDict
   >>> import astropy.units as u
-  >>> t = Table([[1, 4], [2, 3]], names=['a', 'b'])
+  >>> t = Table([[1.0, 4.0], [2, 3]], names=['a', 'b'])
   >>> t.meta['keywords'] = OrderedDict([('z_key1', 'val1'), ('a_key2', 'val2')])
   >>> t.meta['comments'] = ['Comment 1', 'Comment 2', 'Comment 3']
   >>> t['a'].unit = u.m / u.s
