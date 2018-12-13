@@ -316,7 +316,7 @@ Now we write the table to standard out::
   # %ECSV 0.9
   # ---
   # datatype:
-  # - {name: a, unit: m / s, datatype: int64, format: '%5.2f', description: Column A}
+  # - {name: a, unit: m / s, datatype: float64, format: '%5.2f', description: Column A}
   # - name: b
   #   datatype: int64
   #   meta:
@@ -326,6 +326,7 @@ Now we write the table to standard out::
   #   - {z_key1: val1}
   #   - {a_key2: val2}
   # - comments: [Comment 1, Comment 2, Comment 3]
+  # schema: astropy-2.0
   a b
   1.00 2
   4.00 3
