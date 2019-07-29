@@ -16,6 +16,7 @@ status: Discussion
 .. _PEP 517: https://www.python.org/dev/peps/pep-0517/
 .. _PEP 518: https://www.python.org/dev/peps/pep-0518/
 .. _tox: https://tox.readthedocs.io/en/latest/
+.. _pip: https://pip.pypa.io
 .. _setuptools: https://setuptools.readthedocs.io/en/latest/
 .. _setuptools_scm: https://github.com/pypa/setuptools_scm
 .. _astropy-helpers: https://astropy-helpers.readthedocs.io/en/stable/
@@ -36,13 +37,14 @@ GitHub appear to use astropy-helpers).
 The original APE proposing the creation of astropy-helpers (`APE 4`_) was
 accepted in June 2014. Since then, the state of the Python packaging ecosystem
 has changed significantly, with advances such as binary wheels that can be
-provided for all major platforms, tools such as `tox`_ and `setuptools_scm`_,
-and more recently support for `PEP 517`_ and `PEP 518`_ (in pip 19.0 or later),
-and many incremental updates and new features to `setuptools`_ (in setuptools
-30.3 or later). The purpose of this APE is to show how by relying on these
-tools, we can significantly simplify the packaging for astropy and all the
-affiliated packages and other packages using astropy-helpers, and remove the
-need for astropy-helpers altogether in pure-Python packages.
+provided for all major platforms, tools such as `tox`_ and `setuptools_scm`_
+which are now stable and mature, and more recently support for `PEP 517`_ and
+`PEP 518`_ (in pip 19.0 or later), and many incremental updates and new features
+to `setuptools`_ (in setuptools 30.3 or later). The purpose of this APE is to
+show how by relying on these tools, we can significantly simplify the packaging
+for astropy and all the affiliated packages and other packages using
+astropy-helpers, and remove the need for astropy-helpers altogether in
+pure-Python packages.
 
 Detailed description
 --------------------
@@ -72,7 +74,7 @@ the scenes built the package, installed it into a temporary directory, installed
 pytest-astropy if needed, and ran the tests there.
 
 However, this can now be done more cleanly using `tox`_. Tox is a tool that
-makes is easy to install packages into a temporary clean Python environment
+makes it easy to install packages into a temporary clean Python environment
 along with the dependencies declared in setup.cfg, and run a set of custom
 commands - in a sense it does what the test command from astropy-helpers did,
 but in a more general way (including the use of an isolated test environment).
@@ -162,7 +164,7 @@ described in its documentation and we therefore do not repeat here. However, one
 subtlety is that since it relies on tags to determine versions, for packages
 such as the core astropy package which have all their tags on branches (at least
 in recent years), we will need to add a ‘developer’ tag on ``master`` straight
-after branching, e.g. after creating a ``v4.0.x`` branch we should tag the next
+after branching, e.g., after creating a ``v4.0.x`` branch we should tag the next
 commit on ``master`` as ``v4.1.dev``.
 
 Package data and entry points
@@ -375,16 +377,16 @@ Timeline for changes
 
 Many of the changes described here can already be safely made now. The only
 change that requires some consideration in terms of timeline is the use of
-``pyproject.toml`` (which is only needed for package with compiled extensions).
+``pyproject.toml`` (which is only needed for packages with compiled extensions).
 Full support for this file, including the environment markers (which allows
 different Numpy dependencies for different Python versions for example) and the
 build isolation, only became available in pip 19.0 onwards.
 
-Therefore, we recommend that Pure-python packages can make all the changes
+Therefore, we recommend that pure-Python packages can make all the changes
 described here now. On the other hand, packages that need to rely on
 ``pyproject.toml`` for building C extensions should make the switch at the time
 they are happy to rely on pip 19.0 (released 2019-01-22) for installs from
-source distributions, but they can still make other changes now, e.g. using
+source distributions, but they can still make other changes now, e.g., using
 ``setuptools_scm`` or making a greater use of ``setup.cfg``.
 
 We note however that provided that wheels are available for a package with
@@ -433,7 +435,7 @@ Users who wish to contribute fixes to the core astropy package or other packages
 will be encouraged to have `tox`_ installed if they want to easily run
 tests or build documentation locally. However, this is an easy package to
 install with `pip`_ and we could also add code in `setup.py` so that running
-e.g. ``python setup.py test`` or ``python setup.py build_docs`` gives a helpful
+``python setup.py test`` or ``python setup.py build_docs`` gives a helpful
 error message with instructions on updating and using tox to run tests and build
 the documentation.
 
