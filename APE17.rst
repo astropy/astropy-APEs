@@ -97,13 +97,6 @@ fully functional and that all required files and dependencies are declared. For
 packages with C/Cython extensions it should also guarantee that they are always
 rebuilt before running the tests.
 
-However, for pure-Python packages, developers can also opt to simply run the
-tests directly with pytest, e.g.::
-
-    pytest packagename
-
-so using tox is optional.
-
 We recognize that one of the benefits of the astropy-helpers infrastructure is
 that developers and users have come to expect that packages in the astropy
 ecosystem all implement ``python setup.py test``, so in order to ensure
@@ -132,13 +125,18 @@ Some flags such as ``--remote-data`` that worked with ``python setup.py test``
 should continue to work with pytest, and we could ensure that options passed to
 tox are also passed to pytest. Other flags such as the use of ``-P`` to indicate
 which sub-packages to test (both for the code and the docs) can be replicated
-as pytest plugins (see `astropy/pytest-astropy#19 <https://github.com/astropy/pytest-astropy/pull/19>`_)
-for an example plugin to add ``-P`` to pytest. Aliases could be added for other
+as pytest plugins (see `astropy/pytest-astropy#19 <https://github.com/astropy/pytest-astropy/pull/19>`_
+for an example plugin to add ``-P`` to pytest). Aliases could be added for other
 flags if needed (e.g. ``-R`` for ``--remote-data``).
 
-Finally, we note that for developers working on packages with compiled extensions
-but who do not necssarily want to use tox, the solution is to install the package
-in editable mode before running the tests::
+For developers who do not want to always use tox to run the test, it is also
+possible to run pytest directly. For pure-Python packages, developers can run,
+e.g.::
+
+    pytest packagename
+
+For developers working on packages with compiled extensions, one solution is to
+install the package in editable mode before running the tests::
 
     pip install -e .
     pytest packagename
