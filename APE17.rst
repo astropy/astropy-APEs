@@ -108,10 +108,14 @@ optionally include a link to more information::
 
     $ python setup.py test
 
-    Note: running tests is no longer done using python setup.py test, but
+    Note: running tests is no longer done using ``python setup.py test``, but
     instead you will need to run the following command:
 
-        pytest packagename
+        tox -e test
+
+    If you don't already have tox installed, you can install it with:
+
+        pip install tox
 
     For more information, see https://docs.astropy.org/...
 
@@ -197,9 +201,8 @@ optionally include a link to more information::
 
     $ python setup.py build_docs
 
-    Note: building the documentation is no longer done using
-    ``python setup.py build_docs``, but instead you will need to run the
-    following command:
+    Note: building the documentation is no longer done using ``python setup.py build_docs``,
+    but instead you will need to run the following command:
 
         tox -e build_docs
 
