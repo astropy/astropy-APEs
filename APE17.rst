@@ -69,9 +69,9 @@ distribution to do this with the::
 
     python setup.py test
 
-command, which behind
-the scenes built the package, installed it into a temporary directory, installed
-pytest-astropy if needed, and ran the tests there.
+command, which behind the scenes built the package, installed it into a
+temporary directory, installed pytest-astropy if needed, and ran the tests
+there.
 
 However, this can now be done more cleanly using `tox`_. Tox is a tool that
 makes it easy to install packages into a temporary clean Python environment
@@ -104,6 +104,61 @@ tests directly with pytest, e.g.::
 
 so using tox is optional.
 
+We recognize that one of the benefits of the astropy-helpers infrastructure is
+that developers and users have come to expect that packages in the astropy
+ecosystem all implement ``python setup.py test``, so in order to ensure
+continuity and avoid confusion, since we can't expect user to necessarily
+look at detailed documentation, we recommend that packages that no longer use
+astropy-helpers still make sure that ``python setup.py test`` will not necessarily
+run the tests but at least print out information about how to run the tests, and
+optionally include a link to more information::
+
+    $ python setup.py test
+
+    Note: running tests is no longer done using python setup.py test, but
+    instead you will need to run the following command:
+
+        pytest packagename
+
+    For more information, see https://docs.astropy.org/...
+
+    $
+
+We could then provide a clear documentation page in a centralized place on how
+to use pytest and how to do common things the test command used to allow (e.g.
+running tests for specific sub-packages, or with remote data).
+
+Some flags such as ``--remote-data`` that worked with ``python setup.py test``
+should continue to work with pytest, and we could ensure that options passed to
+tox are also passed to pytest. Other flags such as the use of ``-P`` to indicate
+which sub-packages to test (both for the code and the docs) can be replicated
+as pytest plugins (see `astropy/pytest-astropy#19 <https://github.com/astropy/pytest-astropy/pull/19>`_)
+for an example plugin to add ``-P`` to pytest. Aliases could be added for other
+flags if needed (e.g. ``-R`` for ``--remote-data``).
+
+Finally, we note that for developers working on packages with compiled extensions
+but who do not necssarily want to use tox, the solution is to install the package
+in editable mode before running the tests::
+
+    pip install -e .
+    pytest packagename
+
+or build the extensions in-place before running the tests::
+
+    python setup.py build_ext --inplace
+    pytest packagename
+
+The latter can also be simplified using a plugin such as `pytest-build
+<https://github.com/astrofrog/pytest-build>`_ which allows this example to be
+written as::
+
+    pytest packagename --build-inplace
+
+However, we still recommend that tox be used as the **primary** way to run tests
+for all packages (including pure-Python packages), since it is a much more
+thorough test of the package, including declared dependencies, data files, entry
+points, etc.
+
 We note that these changes have no impact on the availability of the
 ``package.test()`` function which is unrelated to astropy-helpers and relies
 instead on the astropy core package to provide a test runner.
@@ -135,6 +190,32 @@ Developers not wishing to use tox could also accomplish the same by doing::
     cd docs
     make html
 
+As for testing, we recognize that one of the benefits of the astropy-helpers infrastructure is
+that developers and users have come to expect that packages in the astropy
+ecosystem all implement ``python setup.py build_docs``, so packages that no
+longer rely on astropy-helpers could make the ``python setup.py build_docs``
+command print out information about how to run the tests, and
+optionally include a link to more information::
+
+    $ python setup.py build_docs
+
+    Note: building the documentation is no longer done using
+    ``python setup.py build_docs``, but instead you will need to run the
+    following command:
+
+        tox -e build_docs
+
+    If you don't already have tox installed, you can install it with:
+
+        pip install tox
+
+    For more information, see https://docs.astropy.org/...
+
+    $
+
+We could then provide a clear documentation page in a centralized place on how
+to use tox to build the docs, or how to use the ``make html`` approach.
+
 These changes will have no impact on ReadTheDocs as that service never made use
 of the ``build_docs`` command, instead invoking sphinx directly with
 ``sphinx-build``.
@@ -163,9 +244,14 @@ Switching to `setuptools_scm`_ requires minimal configuration, which is well
 described in its documentation and we therefore do not repeat here. However, one
 subtlety is that since it relies on tags to determine versions, for packages
 such as the core astropy package which have all their tags on branches (at least
-in recent years), we will need to add a ‘developer’ tag on ``master`` straight
+in recent years), we will need to add a 'developer' tag on ``master`` straight
 after branching, e.g., after creating a ``v4.0.x`` branch we should tag the next
-commit on ``master`` as ``v4.1.dev``.
+commit on ``master`` as ``v4.1.dev``. In any case, the documentation about `how
+to release the core package
+<http://docs.astropy.org/en/stable/development/releasing.html>`_ as well as
+`packages using the astropy package template
+<http://docs.astropy.org/en/stable/development/astropy-package-template.html#releasing-a-python-package>`_
+will need to be updated to reflect the use of setuptools_scm.
 
 Package data and entry points
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -269,9 +355,10 @@ A side benefit of this is that with these pinnings in place, building wheels
 with ``pip wheel .`` will automatically create wheels compatible with all
 available versions of Numpy.
 
-Note that ``setup_requires`` should no longer be used in
-``setup.py``/``setup.cfg``, and ``install_requires`` should require numpy to be
-``>=`` than the oldest version mentioned in ``pyproject.toml``.
+Note that ``setup_requires`` should no longer be used for any build-time
+dependencies in ``setup.py``/``setup.cfg``, and ``install_requires`` should
+require numpy to be ``>=`` than the oldest version mentioned in
+``pyproject.toml``.
 
 Cython extensions
 ~~~~~~~~~~~~~~~~~
@@ -434,7 +521,7 @@ Impact for contributors
 Users who wish to contribute fixes to the core astropy package or other packages
 will be encouraged to have `tox`_ installed if they want to easily run
 tests or build documentation locally. However, this is an easy package to
-install with `pip`_ and we could also add code in `setup.py` so that running
+install with `pip`_ and we could also add code in ``setup.py`` so that running
 ``python setup.py test`` or ``python setup.py build_docs`` gives a helpful
 error message with instructions on updating and using tox to run tests and build
 the documentation.
