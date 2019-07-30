@@ -139,13 +139,13 @@ e.g.::
 
     pytest packagename
 
-For developers working on packages with compiled extensions, one solution is to
-install the package in editable mode before running the tests::
+For developers working on packages with compiled extensions, the preferred
+solution is to install the package in editable mode before running the tests::
 
     pip install -e .
     pytest packagename
 
-or build the extensions in-place before running the tests::
+Alternatively, one can build the extensions in-place before running the tests::
 
     python setup.py build_ext --inplace
     pytest packagename
