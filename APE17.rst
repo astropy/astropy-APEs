@@ -422,9 +422,12 @@ Branches and pull requests
 --------------------------
 
 * The pull request `astrofrog/astropy#83 <https://github.com/astrofrog/astropy/pull/83>`_
-  shows the changes necessary for the astropy core package, and include an
+  shows the changes necessary for the astropy core package, and includes an
   experimental version of `extension-helpers
   <https://github.com/astrofrog/extension-helpers>`_.
+* The pull request `astropy/photutils#915 <https://github.com/astropy/photutils/pull/915>`_
+  shows the changes necessary for the photutils package, which includes
+  defining extensions directly without using extension-helpers.
 * `This SunPy branch <https://github.com/sunpy/sunpy/compare/master...Cadair:no_more_helpers>`_
   shows how that package can use astropy_helpers only as a build time dependency
   for building a C extension
