@@ -156,10 +156,10 @@ written as::
 
     pytest packagename --build-inplace
 
-However, we still recommend that tox be used as the **primary** way to run tests
-for all packages (including pure-Python packages), since it is a much more
-thorough test of the package, including declared dependencies, data files, entry
-points, etc.
+While this APE does not require it, we still recommend that tox be used as the
+**primary** way to run tests for all packages (including pure-Python packages),
+since it is a much more thorough test of the package, including declared
+dependencies, data files, entry points, etc.
 
 We note that these changes have no impact on the availability of the
 ``package.test()`` function which is unrelated to astropy-helpers and relies
@@ -318,7 +318,13 @@ understands this file, the build-time dependencies will be installed before the
 setup.py file is executed. `PEP 517`_ takes this concept further by specifying
 that the build should happen in an isolated environment, which means that one
 could specify a pinned version of `cython`_ or `jinja2`_ to use even if a
-different version is installed in the user’s environment.
+different version is installed in the user’s environment. In practice, this
+means that the packages listed in ``pyproject.toml`` as build dependencies do
+**not** end up being installed into the user's environment - they are only
+installed into a temporary environment that for all intents and purposes no
+longer exists once the package is installed. Therefore, if a package is needed
+as a build time and a run-time dependency, it should be specified twice - once
+in ``pyproject.toml`` and once in ``install_requires``.
 
 With this in mind, if astropy-helpers was still needed, it could therefore now
 be included as a build-time dependency in ``pyproject.toml`` which removes the
@@ -338,16 +344,22 @@ no longer be needed once Numpy is specified in ``pyproject.toml`` since Numpy
 will be installed before the extensions are defined, and we suggest that
 packages should instead specify ``numpy.get_include()`` explicitly.
 
-Note that Numpy should be pinned to the oldest compatible version in the
-``pyproject.toml`` file - this is because if a user does ``pip install astropy
-numpy==1.14.2``, the pinning of Numpy only applies to the version installed
-after astropy has been built, and the version taken to build astropy is taken
-from the ``pyproject.toml`` file. This means that packages such as astropy have
-to be built with the oldest compatible version of Numpy since the build will
-then be forward-compatible with any later version of Numpy (this is similar to
-the approach taken for conda packages). In addition, the oldest version should
-be that for which wheels are available so for packages where this depends on
-Python version, environment markers can be used (see `PEP 508`_), e.g.::
+Note that Numpy should be pinned to the **oldest** compatible version in the
+``pyproject.toml`` file (but does not need to be pinned in ``install_requires``).
+This is because if a user does ``pip install astropy numpy==1.14.2``, the
+pinning of Numpy in the pip command only applies to the version installed
+after astropy has been built, while the version taken to build astropy is always
+taken from the ``pyproject.toml`` file. This means that packages such as astropy
+have to be built with the oldest compatible version of Numpy since the build
+will then be forward-compatible with any later version of Numpy (this is similar
+to the approach taken for conda packages). We emphasize that this does not mean
+that the built package has to be used with old versions of Numpy, just that the
+extensions are compiled against the oldest compatible Numpy ABI which makes it
+compatible with a wider range of Numpy versions at run-time.
+
+The oldest version should be that for which wheels are available so for packages
+where this depends on Python version, environment markers can be used (see `PEP
+508`_), e.g.::
 
     "numpy==1.13.1; python_version<'3.7'",
     "numpy==1.14.5; python_version>='3.7'",
@@ -360,6 +372,12 @@ Note that ``setup_requires`` should no longer be used for any build-time
 dependencies in ``setup.py``/``setup.cfg``, and ``install_requires`` should
 require numpy to be ``>=`` than the oldest version mentioned in
 ``pyproject.toml``.
+
+In the event that you want to not install build-time dependencies into a
+temporary build environment, and instead want to manage the build-time
+environment yourself, you can choose to run pip with the
+`--no-build-isolation <https://pip.pypa.io/en/stable/reference/pip_install/#cmdoption-no-build-isolation>`_
+flag.
 
 Cython extensions
 ~~~~~~~~~~~~~~~~~
