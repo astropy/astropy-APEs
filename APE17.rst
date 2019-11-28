@@ -402,21 +402,47 @@ Note that if needed, we can even pin the Cython version in ``pyproject.toml`` to
 ensure consistency across all builds. With this in place, the custom
 ``build_ext`` command in astropy-helpers can be removed.
 
-Extensions and external libraries
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Extensions
+~~~~~~~~~~
 
 Astropy-helpers provides a way for developers to use ``setup_package.py`` files
-throughout a package to define extensions and definitions for external
-libraries. This is one of the only parts of astropy-helpers which we think it
-makes sense to preserve, and we argue that it is so general that it should be
-released as a package with a more generic name than astropy-helpers, such as
-extension-helpers - this will allow us to also avoid breaking astropy-helpers
-and instead starting fresh with a clean package (although the git history could
-be preserved).
+throughout a package to define extensions. This is one of the only parts of
+astropy-helpers which we think it makes sense to preserve, and we argue that it
+is so general that it should be released as a package with a more generic name
+than astropy-helpers, such as extension-helpers - this will allow us to also
+avoid breaking astropy-helpers and instead starting fresh with a clean package
+(although the git history could be preserved).
 
 However, we note that for small packages, developers can also simply define
 extensions inside ``setup.py``, which would mean that astropy-helpers (or
 extension-helpers) would not needed for these packages either.
+
+External libraries
+~~~~~~~~~~~~~~~~~~
+
+As part of the extension building, astropy-helpers provides a way to define
+command-line flags when calling e.g. ``python setup.py build`` such as
+``--use-system-erfa``. However, while this requires complex code to add
+these options to the ``setup.py`` commands, the actual logic of determining
+how to link to external libraries is implemented by individual packages
+inside the ``setup_package.py`` files, and this includes asking astropy-helpers
+whether a particular system library was requested, e.g.::
+
+    if setup_helpers.use_system_library('erfa'):
+
+We propose here to remove this complex functionality from astropy-helpers and
+to instead rely on environment variables such as ``ASTROPY_USE_SYSTEM_ERFA=1``
+to indicate whether to opt in to using a system library. With this, the only
+required modification in ``setup_package.py`` files will be to change lines like
+the above one to e.g.::
+
+    if os.environ.get('ASTROPY_USE_SYSTEM_ERFA', 0):
+
+Note that packages could still choose to provide command-line flags in ``setup.py``
+by doing e.g.:
+
+    if '--use-system-erfa' in sys.argv:
+        os.environ['ASTROPY_USE_SYSTEM_ERFA'] = 1
 
 Branches and pull requests
 --------------------------
@@ -468,6 +494,9 @@ and their proposed replacement:
 | Package specific versions of        |                                     |
 | astropy-helpers provided by git     |                                     |
 | submodule                           |                                     |
++-------------------------------------+-------------------------------------+
++ ``--use-system-*`` options          | ``ASTROPY_USE_SYSTEM_*``            |
++                                     | environment variables               |
 +-------------------------------------+-------------------------------------+
 
 We propose that a new package called extension-helpers be created starting from
