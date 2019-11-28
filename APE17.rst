@@ -406,12 +406,14 @@ Extensions
 ~~~~~~~~~~
 
 Astropy-helpers provides a way for developers to use ``setup_package.py`` files
-throughout a package to define extensions. This is one of the only parts of
-astropy-helpers which we think it makes sense to preserve, and we argue that it
-is so general that it should be released as a package with a more generic name
-than astropy-helpers, such as extension-helpers - this will allow us to also
-avoid breaking astropy-helpers and instead starting fresh with a clean package
-(although the git history could be preserved).
+throughout a package to define extensions, provides a way to auto-detect and
+define Cython extensions, and also provides helpers for handling OpenMP
+extensions. This is the only part of astropy-helpers which we think it makes
+sense to preserve, and we argue that it is so general that it should be released
+as a package with a more generic name than astropy-helpers, such as
+extension-helpers - this will allow us to also avoid breaking astropy-helpers
+and instead starting fresh with a clean package (although the git history could
+be preserved).
 
 However, we note that for small packages, developers can also simply define
 extensions inside ``setup.py``, which would mean that astropy-helpers (or
@@ -500,10 +502,14 @@ and their proposed replacement:
 +-------------------------------------+-------------------------------------+
 
 We propose that a new package called extension-helpers be created starting from
-astropy-helpers but with only the minimal amount of functionality needed to
-handle the definition of compiled extensions, external libraries, and the
-auto-discovery of Cython extensions. This package would need to be declared as a
-build-time dependency in ``pyproject.toml``.
+astropy-helpers but with only functionality related to:
+
+* Collecting extension definitions from ``setup_package.py`` files
+* Auto-defining Cython extensions
+* Determining flags for OpenMP compilation
+
+This package would need to be declared as a build-time dependency in
+``pyproject.toml`` for packags that wish to use it.
 
 In addition to the changes described here, we also recommend moving all or as
 many as possible of the options for the ``setup()`` function in ``setup.py`` to
