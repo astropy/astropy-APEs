@@ -137,18 +137,26 @@ For developers who do not want to always use tox to run the test, it is also
 possible to run pytest directly. For pure-Python packages, developers can run,
 e.g.::
 
-    pytest packagename
+    pytest
+
+Provided that the following are defined in ``setup.cfg``::
+
+    doctest_plus = enabled
+    addopts = --doctest-rst
+
+then running ``pytest`` will pick up the tests from the ``rst`` docs in addition
+to the package tests.
 
 For developers working on packages with compiled extensions, the preferred
 solution is to install the package in editable mode before running the tests::
 
     pip install -e .
-    pytest packagename
+    pytest
 
 Alternatively, one can build the extensions in-place before running the tests::
 
     python setup.py build_ext --inplace
-    pytest packagename
+    pytest
 
 The latter can also be simplified using a plugin such as `pytest-build
 <https://github.com/astrofrog/pytest-build>`_ which allows this example to be
@@ -164,6 +172,68 @@ dependencies, data files, entry points, etc.
 We note that these changes have no impact on the availability of the
 ``package.test()`` function which is unrelated to astropy-helpers and relies
 instead on the astropy core package to provide a test runner.
+
+Below we provide a table of correspondence between options passed to
+``python setup.py test`` and options passed to pytest (options passed to
+``package.test()`` would be unchanged):
+
++----------------------------------+--------------------------------------+
+| **python setup.py test option**  | **pytest equivalent**                |
++----------------------------------+--------------------------------------+
+| ``--args (-a)``                  | No longer needed since this just     |
+|                                  | passed arguments to pytest           |
++----------------------------------+--------------------------------------+
+| ``--coverage (-c)``              | ``--cov package --cov-report html``  |
+|                                  | with pytest-cov plugin               |
++----------------------------------+--------------------------------------+
+| ``--docs-path``                  | No longer needed since can run pytest|
+|                                  | directly on rst files                |
++----------------------------------+--------------------------------------+
+| ``--open-files (-o)``            | ``--open-files``                     |
+|                                  | with pytest-openfiles plugin         |
++----------------------------------+--------------------------------------+
+| ``--package (-P)``               | Could be added as a pytest plugin    |
++----------------------------------+--------------------------------------+
+| ``--parallel (-j)``              | ``-n``                               |
+|                                  | with pytest-xdist plugin             |
++----------------------------------+--------------------------------------+
+| ``--pastebin (-b)``              | ``--pastebin``                       |
++----------------------------------+--------------------------------------+
+| ``--pdb (-d)``                   | ``--pdb``                            |
++----------------------------------+--------------------------------------+
+| ``--pep8 (-8)``                  | ``--pep8``                           |
+|                                  | with pytest-pep8 plugin              |
++----------------------------------+--------------------------------------+
+| ``--plugins``                    | ``PYTEST_PLUGINS`` environment       |
+|                                  | variable                             |
++----------------------------------+--------------------------------------+
+| ``--readonly``                   | Not easily translatable but could    |
+|                                  | find other ways to prevent tests     |
+|                                  | from creating files                  |
++----------------------------------+--------------------------------------+
+| ``--remote-date (-R)``           | ``--remote-data``                    |
+|                                  | with pytest-remotedata plugin        |
++----------------------------------+--------------------------------------+
+| ``--repeat``                     | ``--count``                          |
+|                                  | with pytest-repeat plugin            |
++----------------------------------+--------------------------------------+
+| ``--skip-docs``                  | No longer needed since can specify   |
+|                                  | ``pytest package`` to avoid docs     |
++----------------------------------+--------------------------------------+
+| ``--temp-root``                  | No longer needed since equivalent is |
+|                                  | to use tox which controls the        |
+|                                  | temporary environment                |
++----------------------------------+--------------------------------------+
+| ``--test-path``                  | Specify path to files directly       |
++----------------------------------+--------------------------------------+
+| ``--verbose-results (-V)``       | ``-v``                               |
++----------------------------------+--------------------------------------+
+
+An example implementation of the ``--package (-P)`` option as a pytest plugin
+is provided in `astropy/pytest-astropy#19 <https://github.com/astropy/pytest-astropy/pull/19>`_.
+
+In addition to the options above, using pytest directly gives easy access to the
+whole ecosystem of pytest plugins and associated command-line options and flags.
 
 Building documentation
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -497,8 +567,8 @@ and their proposed replacement:
 | astropy-helpers provided by git     |                                     |
 | submodule                           |                                     |
 +-------------------------------------+-------------------------------------+
-+ ``--use-system-*`` options          | ``ASTROPY_USE_SYSTEM_*``            |
-+                                     | environment variables               |
+| ``--use-system-*`` options          | ``ASTROPY_USE_SYSTEM_*``            |
+|                                     | environment variables               |
 +-------------------------------------+-------------------------------------+
 
 We propose that a new package called extension-helpers be created starting from
