@@ -519,10 +519,11 @@ by doing e.g.:
 Branches and pull requests
 --------------------------
 
+* The `extension-helpers <https://github.com/astropy/astropy-helpers/tree/extension-helpers>`_
+  branch in the astropy-helpers contains the minimal set of functionality still
+  needed for packages with C extensions.
 * The pull request `astrofrog/astropy#83 <https://github.com/astrofrog/astropy/pull/83>`_
-  shows the changes necessary for the astropy core package, and includes an
-  experimental version of `extension-helpers
-  <https://github.com/astrofrog/extension-helpers>`_.
+  shows the changes necessary for the astropy core package.
 * The pull request `astropy/photutils#915 <https://github.com/astropy/photutils/pull/915>`_
   shows the changes necessary for the photutils package, which includes
   defining extensions directly without using extension-helpers.
