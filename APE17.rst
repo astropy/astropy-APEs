@@ -511,7 +511,7 @@ the above one to e.g.::
     if os.environ.get('ASTROPY_USE_SYSTEM_ERFA', 0):
 
 Note that packages could still choose to provide command-line flags in ``setup.py``
-by doing e.g.:
+by doing e.g.::
 
     if '--use-system-erfa' in sys.argv:
         os.environ['ASTROPY_USE_SYSTEM_ERFA'] = 1
@@ -580,7 +580,7 @@ astropy-helpers but with only functionality related to:
 * Determining flags for OpenMP compilation
 
 This package would need to be declared as a build-time dependency in
-``pyproject.toml`` for packags that wish to use it.
+``pyproject.toml`` for packages that wish to use it.
 
 In addition to the changes described here, we also recommend moving all or as
 many as possible of the options for the ``setup()`` function in ``setup.py`` to
