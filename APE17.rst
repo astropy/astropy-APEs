@@ -342,6 +342,11 @@ simple to define the data and entry points in ``setup.cfg`` using the
     astropy = astropy.cfg, CITATION, **/data/**/*
     ...
 
+We note that the package data can also be specified using a ``MANIFEST.in`` file
+and the ``include_package_data`` option in ``setup.cfg``. For more details, the
+[setuptools documentation](https://setuptools.readthedocs.io/en/latest/setuptools.html#including-data-files)
+has a section outlining the different ways of including package data.
+
 Removing the ability to specify package data in `setup_package.py` files removes
 the dependence of the `setup.py sdist` command on astropy-helpers, which is
 essential to using the PEP 518 build time dependencies discussed below.
@@ -552,6 +557,7 @@ and their proposed replacement:
 +-------------------------------------+-------------------------------------+
 | Package data in specification       | All package data should be          |
 | in ``setup_package.py`` files       | specified in ``setup.cfg``          |
+|                                     | or ``MANIFEST.in``                  |
 +-------------------------------------+-------------------------------------+
 | ``python setup.py test``            | `tox`_ or direct use of `pytest`_   |
 +-------------------------------------+-------------------------------------+
