@@ -531,9 +531,8 @@ Branches and pull requests
 * The pull request `astropy/photutils#915 <https://github.com/astropy/photutils/pull/915>`_
   shows the changes necessary for the photutils package, which includes
   defining extensions directly without using extension-helpers.
-* `This SunPy branch <https://github.com/sunpy/sunpy/compare/master...Cadair:no_more_helpers>`_
-  shows how that package can use astropy_helpers only as a build time dependency
-  for building a C extension
+* The pull request `sunpy/sunpy#3598 <https://github.com/sunpy/sunpy/pull/3598>`_
+  changes SunPy to use ``extension_helpers``.
 * The following pure-Python packages have dropped astropy-helpers and adopted
   some or all of the recommendations outlined here:
 
