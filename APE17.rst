@@ -524,10 +524,9 @@ by doing e.g.::
 Branches and pull requests
 --------------------------
 
-* The `extension-helpers <https://github.com/astropy/astropy-helpers/tree/extension-helpers>`_
-  branch in the astropy-helpers contains the minimal set of functionality still
-  needed for packages with C extensions.
-* The pull request `astrofrog/astropy#83 <https://github.com/astrofrog/astropy/pull/83>`_
+* The pull request `astropy/astropy-helpers#503 <https://github.com/astropy/astropy-helpers/pull/503>`_
+  demonstrates the code changes to change astropy-helpers into extension-helpers.
+* The pull request `astropy/astropy#9726 <https://github.com/astropy/astropy/pull/9726>`_
   shows the changes necessary for the astropy core package.
 * The pull request `astropy/photutils#915 <https://github.com/astropy/photutils/pull/915>`_
   shows the changes necessary for the photutils package, which includes
@@ -596,25 +595,23 @@ the ``setup.cfg`` file as described in `the setuptools documentation
 Timeline for changes
 --------------------
 
-Many of the changes described here can already be safely made now. The only
-change that requires some consideration in terms of timeline is the use of
-``pyproject.toml`` (which is only needed for packages with compiled extensions).
-Full support for this file, including the environment markers (which allows
-different Numpy dependencies for different Python versions for example) and the
-build isolation, only became available in pip 19.0 onwards.
+All the changes described here can be made now. The recommendation in this APE
+is to first transition the core package and all coordinated packages to use this
+new infrastructure. In the process, the developer documentation for the core
+package as well as the package template must be updated to reflect the new
+infrastructure, and a migration guide must be written to help developers of
+affiliated and other packages using astropy-helpers change over to the new
+infrastructure.
 
-Therefore, we recommend that pure-Python packages can make all the changes
-described here now. On the other hand, packages that need to rely on
-``pyproject.toml`` for building C extensions should make the switch at the time
-they are happy to rely on pip 19.0 (released 2019-01-22) for installs from
-source distributions, but they can still make other changes now, e.g., using
-``setuptools_scm`` or making a greater use of ``setup.cfg``.
-
-We note however that provided that wheels are available for a package with
-compiled extensions, it may be acceptable to transition to using
-``pyproject.toml`` sooner rather than later because pip 19.0 would only be
-required for source installs, but since most users that pip install would be
-using wheels, this may not be an issue.
+Once any issues have been ironed out in the core and coordinated packages, the
+migration guide should be advertised widely to all maintainers of packages
+using astropy-helpers. Throughout this process, astropy-helpers should continue
+to be supported, and once the migration guide is advertised the final date for
+support of astropy-helpers should be made clear. The recommendation in this
+APE is to support astropy-helpers until the end of the 4.0 LTS cycle at the
+latest (end of 2021), but this can be re-assessed depending on the ease of
+migration and the feasibility of maintaining astropy-helpers if there are
+extensive breaking changes in its dependencies.
 
 Impact for users
 ----------------
