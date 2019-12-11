@@ -5,14 +5,13 @@ author: Tom Aldcroft
 
 date-created: 2014 April 12
 
-date-last-revised: 2015 January 26
+date-last-revised: 2019 March 8
+
+date-accepted: 2015 January 26
 
 type: Standard Track
 
 status: Accepted
-
-version: 0.9
-
 
 Abstract
 --------
@@ -302,7 +301,7 @@ To illustrate the full features of ECSV we create a table with meta data
 
   >>> from collections import OrderedDict
   >>> import astropy.units as u
-  >>> t = Table([[1, 4], [2, 3]], names=['a', 'b'])
+  >>> t = Table([[1.0, 4.0], [2, 3]], names=['a', 'b'])
   >>> t.meta['keywords'] = OrderedDict([('z_key1', 'val1'), ('a_key2', 'val2')])
   >>> t.meta['comments'] = ['Comment 1', 'Comment 2', 'Comment 3']
   >>> t['a'].unit = u.m / u.s
@@ -317,7 +316,7 @@ Now we write the table to standard out::
   # %ECSV 0.9
   # ---
   # datatype:
-  # - {name: a, unit: m / s, datatype: int64, format: '%5.2f', description: Column A}
+  # - {name: a, unit: m / s, datatype: float64, format: '%5.2f', description: Column A}
   # - name: b
   #   datatype: int64
   #   meta:
@@ -327,6 +326,7 @@ Now we write the table to standard out::
   #   - {z_key1: val1}
   #   - {a_key2: val2}
   # - comments: [Comment 1, Comment 2, Comment 3]
+  # schema: astropy-2.0
   a b
   1.00 2
   4.00 3

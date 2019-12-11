@@ -3,7 +3,11 @@ Coordinates Subpackage Plan
 
 authors: Erik Tollerud, Adrian Price-Whelan, Thomas Aldcroft, Thomas Robitalle
 
-date: 2014 January 22
+date-created: 2014 January 22
+
+date-last-revised: 2014 March 9
+
+date-accepted: 2014 March 9
 
 type: Standard Track
 

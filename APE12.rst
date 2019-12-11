@@ -5,12 +5,13 @@ author: Stuart Mumford, Thomas Robitaille
 
 date-created: 2016 November 17
 
-date-last-revised: 2017 January 24
+date-last-revised: 2017 March 28
+
+date-accepted: 2017 March 28
 
 type: Standard Track
 
-status: Discussion
-
+status: Accepted
 
 Abstract
 --------
@@ -96,7 +97,7 @@ non-default branch.
     project_url [http://astropy.org]: http://cadair.com
 
     project_version [0.0.dev]: 0.0.1.dev
-   
+
     include_example_code [y]:
 
     include_cextern_folder [n]:
@@ -144,7 +145,7 @@ A version of the package template converted to a Cookiecutter project is `here
 tested by installing the cookiecutter package from pip or conda-forge and
 running::
 
-  cookiecuttter -c cookiecutter gh:cadair/package-template
+  cookiecutter -c cookiecutter gh:cadair/package-template
 
 
 Implementation

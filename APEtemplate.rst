@@ -7,6 +7,8 @@ date-created: 2013 November 5 <replace with the date you submit the APE>
 
 date-last-revised: 2013 December 17 <keep this up to date anytime something changes>
 
+date-accepted: 2014 January 20 <replace with accepted date>
+
 type: <one of these three: Standard Track, Informational, Process>
 
 status: Discussion

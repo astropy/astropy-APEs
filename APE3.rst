@@ -3,7 +3,11 @@ Configuration
 
 author: Michael Droettboom
 
-date: 2013-12-10
+date-created: 2013 December 10
+
+date-last-revised: 2014 April 30
+
+date-accepted: 2014 April 30
 
 type: Standard Track
 
