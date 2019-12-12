@@ -122,8 +122,8 @@ optionally include a link to more information::
     $
 
 We could then provide a clear documentation page in a centralized place on how
-to use pytest and how to do common things the test command used to allow (e.g.
-running tests for specific sub-packages, or with remote data).
+to use pytest and how to do common things the test command used to allow e.g.
+running tests for specific sub-packages, or with remote data.
 
 Some flags such as ``--remote-data`` that worked with ``python setup.py test``
 should continue to work with pytest, and we could ensure that options passed to
@@ -603,17 +603,17 @@ affiliated and other packages using astropy-helpers change over to the new
 infrastructure.
 
 Once any issues have been ironed out in the core and coordinated packages, the
-migration guide should be advertised widely to all maintainers of packages
-using astropy-helpers. Throughout this process, astropy-helpers should continue
+migration guide will be advertised widely to all maintainers of packages
+using astropy-helpers. Throughout this process, astropy-helpers will continue
 to be supported, and once the migration guide is advertised the final date for
-support of astropy-helpers should be made clear. The recommendation in this
+support of astropy-helpers must be made clear. The recommendation in this
 APE is to support astropy-helpers until the end of the 4.0 LTS cycle at the
 latest (end of 2021), but this can be re-assessed depending on the ease of
 migration and the feasibility of maintaining astropy-helpers if there are
 extensive breaking changes in its dependencies.
 
-Impact for users
-----------------
+Impact for users who are not developers
+---------------------------------------
 
 If done properly, these changes should have no noticeable impact for users.
 Users will still be able to pip install (or conda install when available)
@@ -690,7 +690,20 @@ developers do not make any changes.
 Alternatives
 ------------
 
-In the words of Stuart: *Do nothing, suffer submodules and maintaining the
+It is likely that continuing changes to ``pip`` and other Python packaging
+infrastructure will cause things in ``astropy_helpers`` to break (see
+[#501](https://github.com/astropy/astropy-helpers/issues/501)). This will
+introduce a progressively increasing maintenance burden as our hacks become less
+and less standard.
+
+It is also possible but [explicitly discouraged by
+tox](https://tox.readthedocs.io/en/latest/example/basic.html#integration-with-setup-py-test-command)
+to overload the ``setup.py test`` command to run tox. While also possible to
+continue to overload these setup commands, doing this in a way that doesn't
+involve copying files between repositories would continue to mandate the use of
+the submodule.
+
+Finally, in the words of Stuart: *Do nothing, suffer submodules and maintaining the
 spaghetti code of astropy-helpers until we demoralise the whole community and
 Julia takes over.*
 
