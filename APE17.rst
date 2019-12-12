@@ -5,11 +5,11 @@ author: Stuart Mumford, Thomas Robitaille
 
 date-created: 2019 March 7
 
-date-last-revised: 2019 March 7
+date-last-revised: 2019 December 12
 
 type: Process
 
-status: Discussion
+status: Accepted
 
 .. _APE 4: https://zenodo.org/record/1043892
 .. _PEP 508: https://www.python.org/dev/peps/pep-0508/#environment-markers
@@ -708,5 +708,7 @@ Julia takes over.*
 Decision rationale
 ------------------
 
-<To be filled in by the coordinating committee when the APE is accepted or rejected>
-
+Following *extensive* discussion on the mailing list and Github (141 comments on
+this APE's PR...), and corresponding revision, this APE received unanimous
+approval from the attendees of  the 2019 Astropy Coordination meeting (including
+all members of the coordinating committee).
