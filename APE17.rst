@@ -319,10 +319,8 @@ in recent years), we will need to add a 'developer' tag on ``master`` straight
 after branching, e.g., after creating a ``v4.0.x`` branch we should tag the next
 commit on ``master`` as ``v4.1.dev``. In any case, the documentation about `how
 to release the core package
-<http://docs.astropy.org/en/stable/development/releasing.html>`_ as well as
-`packages using the astropy package template
-<http://docs.astropy.org/en/stable/development/astropy-package-template.html#releasing-a-python-package>`_
-will need to be updated to reflect the use of setuptools_scm.
+<http://docs.astropy.org/en/stable/development/releasing.html>`_ will need to
+be updated to reflect the use of setuptools_scm.
 
 Package data and entry points
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
