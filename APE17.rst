@@ -712,3 +712,9 @@ Following *extensive* discussion on the mailing list and Github (141 comments on
 this APE's PR...), and corresponding revision, this APE received unanimous
 approval from the attendees of  the 2019 Astropy Coordination meeting (including
 all members of the coordinating committee).
+
+Migration Feedback
+------------------
+
+:star: :star: :star: :star: :star: "I have concerns..." -- E. Tollerud
+:star: :star: :star: :star: :star: "I finally understand what is in setup.py!" -- M. Craig
