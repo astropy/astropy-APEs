@@ -716,5 +716,6 @@ all members of the coordinating committee).
 Migration Feedback
 ------------------
 
-:star: :star: :star: :star: :star: "I have concerns..." -- E. Tollerud
-:star: :star: :star: :star: :star: "I finally understand what is in setup.py!" -- M. Craig
+⭐⭐⭐⭐⭐ "I have concerns..." -- E. Tollerud
+
+⭐⭐⭐⭐⭐ "I finally understand what is in setup.py!" -- M. Craig
