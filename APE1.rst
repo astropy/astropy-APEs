@@ -77,7 +77,7 @@ Each APE must have a champion -- someone who writes the APE using the style
 and format described below, shepherds the discussions in the appropriate
 forums, and attempts to build community consensus around the idea. The APE
 champion (a.k.a. Author) should first attempt to ascertain whether the idea is
-APE-able. Posting to the astropy-dev mailing list is the best way to go about
+APE-licable. Posting to the astropy-dev mailing list is the best way to go about
 doing this.
 
 Following a discussion on astropy-dev, the proposal should be submitted as a
