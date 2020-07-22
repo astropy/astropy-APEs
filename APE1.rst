@@ -5,7 +5,7 @@ author: Perry Greenfield, Lia Corrales
 
 date-created: 2013 October 11
 
-date-last-revised: 2020 July
+date-last-revised: 2020 July 22
 
 date-accepted: 2013 November 8
 
@@ -142,7 +142,7 @@ An APE's status can
 Modifications to an APE
 .......................
 
-**Addendum: July 2020**
+**Addendum: July 22, 2020**
 
 An APE can be modified, with one person acting as "champion" for the
 APE update. Similar to the APE development procedure, the update
