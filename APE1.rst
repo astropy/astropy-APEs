@@ -146,7 +146,7 @@ Modifications to an APE
 
 An APE can be modified, with one person acting as "champion" for the
 APE update. Similar to the APE development procedure, the update
-champion should discuss their desired changes with the astropy
+champion should discuss their desired changes with the Astropy
 community (e.g., through the astropy-dev mailing list).
 
 Following a discussion on astropy-dev, the APE update shall be
