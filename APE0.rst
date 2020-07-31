@@ -1,7 +1,7 @@
 The Astropy Project Bylaws
 ==========================
 
-author: The Astropy Governance Working Group: XXX.
+author: The Astropy Governance Working Group: Tom Aldcroft, Matt Craig, Kelle Cruz, Lia Corrales, Steve Crawford, Nicole Foster, Pey Lian Lim, Stuart Mumford, Adrian Price-Whelan, Thomas Robitaille, David Shupe, Brigitta Sipocz, Erik Tollerud
 
 date-created: 2020 July 31
 
