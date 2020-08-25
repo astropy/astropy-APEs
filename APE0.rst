@@ -17,7 +17,7 @@ Abstract
 ========
 This APE defines the formal fundamental governance process for the Astropy Project. The Astropy Project broadly follows the philosophy of do-ocracy: project participants who 
 gain experience and knowledge through sustained community contributions and have demonstrated adherence to core principles of inclusion and consensus-building will be entrusted 
-with increasing levels of authority. At its core, the Project is both by and for its community, so it is the final source of authority and direction.
+with increasing levels of authority. This peaks with the Coordination Commitee, which has relatively broad authority but seeks to exercise it as rarely as possible by working towards consensus. This is because at its core, the Project is both by and for its community, and therefore it is the final source of authority and direction. 
 
 Detailed Description
 ====================
