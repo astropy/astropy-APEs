@@ -1,7 +1,7 @@
 The Astropy Project {bylaws-not-bylaws}
 =======================================
 
-author: The Astropy Governance Working Group: Tom Aldcroft, Matt Craig, Kelle Cruz, Lia Corrales, Steve Crawford, Nicole Foster, Pey Lian Lim, Stuart Mumford, Adrian Price-Whelan, Thomas Robitaille, David Shupe, Brigitta Sipocz, Erik Tollerud
+author: The Astropy Governance Working Group; Tom Aldcroft, Matt Craig, Kelle Cruz, Lia Corrales, Steve Crawford, Nicole Foster, Pey Lian Lim, Stuart Mumford, Adrian Price-Whelan, Thomas Robitaille, David Shupe, Brigitta Sipocz, Erik Tollerud
 
 date-created: 2020 July 31
 
@@ -17,7 +17,7 @@ Abstract
 ========
 This APE defines the formal fundamental governance process for the Astropy Project. The Astropy Project broadly follows the philosophy of do-ocracy: project participants who 
 gain experience and knowledge through sustained community contributions and have demonstrated adherence to core principles of inclusion and consensus-building will be entrusted 
-with increasing levels of authority. This peaks with the Coordination Commitee, which has relatively broad authority but seeks to exercise it as rarely as possible by working towards consensus. This is because at its core, the Project is both by and for its community, and therefore it is the final source of authority and direction. 
+with increasing levels of authority. This peaks with the Coordination Commitee, which has relatively broad authority but seeks to exercise it as rarely as possible by working towards consensus. This is because at its core, the Project is both by and for its community, and therefore the community is the final source of authority and direction. 
 
 Detailed Description
 ====================
@@ -55,14 +55,14 @@ Powers
 ^^^^^^
 The Coordination Committee has broad authority to make decisions about the Project. For example, they can:
 
-* Accept or reject APEs;
+* Accept or reject APEs and updates to APEs (except this one - see below);
 * Enforce or update the Project's code of conduct
 * Manage any project assets (including financial and physical assets)
 * Delegate parts of their authority to other subcommittees or processes
 
 However, they cannot modify the Governance of the Project (i.e., this document), except during the initial adoption of these {bylaws-not-bylaws} as specified herein.
 
-The Coordination Committee has broad authority, which they seek to exercise as rarely as possible by working towards consensus. The Coordination Committee should look for ways 
+The Coordination Committee has broad authority, which it seeks to exercise as rarely as possible by working towards consensus. The Coordination Committee should look for ways 
 to use these powers as little as possible, striving to involve the community whenever possible for decisions, and delegating responsibilities.
 
 When delegating its power by creating roles or making appointments the Coordination Committee must solicit community feedback for no less than two weeks.
@@ -116,7 +116,7 @@ In exceptional circumstances, the Voting Members may remove one or more sitting 
 Such a vote is triggered when a Voting Member calls for one publicly on an appropriate Project-wide communication channel, and two other active Voting Members second the 
 proposal.
 
-For Coordination Committee Member(s) to be removed, 2/3 of the active Voting Members must vote in support of the removal.
+For Coordination Committee Member(s) to be removed, two-thirds of the active Voting Members must vote in support of the removal.
 
 To avoid repeated removal votes, any individual Voting Member who has called for, or seconded such a vote, may not call for or second a vote to remove any other Coordination 
 Committee member for one year from the original motion.
@@ -124,11 +124,11 @@ Committee member for one year from the original motion.
 The Ombudsperson
 ----------------
 The Ombudsperson represents the interests of the Astropy community by providing an alternative point of contact for sensitive issues such as code of conduct violations and 
-ethical concerns. Candidates for this project role are publicly nominated by the Coordination Committee, after which the Coordination Committee allows at least 2 weeks for 
-comment, and then the nominee must be confirmed by ⅔ of the active Voting Members.  
+ethical concerns. Candidates for this project role are publicly nominated by the Coordination Committee, after which the Coordination Committee allows at least two weeks for 
+comment, and then the nominee must be confirmed by two-thirds of the active Voting Members.  
 
 The Ombudsperson has no term limit but can resign at any time, or be removed by the same process as being confirmed: the Coordination Committee initiates, there is a two-week 
-comment period, and ⅔ of the active Voting Members have to approve the removal. In the period between removal/resignation and new appointment, the Coordination Committee will 
+comment period, and two-thirds of the active Voting Members have to approve the removal. In the period between removal/resignation and new appointment, the Coordination Committee will 
 temporarily take over the responsibilities of the Ombudsperson, should the need arise.
 
 The Voting Members
@@ -173,7 +173,7 @@ Voting Membership acknowledges sustained and valuable efforts that align well wi
 
 Initial Membership
 ^^^^^^^^^^^^^^^^^^
-Anyone who satisfies any of the following criteria will be invited to be in the first group of Voting Members: 
+Anyone who satisfies any of the following criteria at the date of acceptance of this APE will be invited to be in the first group of Voting Members: 
 
 * has a named role in the project and has participated in an Astropy coordination meeting in the last two years, 
 * has a named role in the project and has regularly participated in Astropy telecons (e.g., co-working telecon, spectroscopy sprint, Astropy Learn telecon) in the last two   
@@ -207,7 +207,7 @@ Removing Voting Members
 ^^^^^^^^^^^^^^^^^^^^^^^
 In exceptional circumstances, it may be necessary to remove someone from the Voting Members against their will. A vote must be held to remove a Voting Member. Such a vote is 
 triggered by a motion made by an active Voting Member, which must be seconded by an additional Voting Member. The vote must conclude  no more than four weeks after the motion 
-is seconded. Removal requires approval by ⅔ of all active Voting Members at the time the motion is made. The motion, second, and vote will be held in private. Removal under 
+is seconded. Removal requires approval by two-thirds of all active Voting Members at the time the motion is made. The motion, second, and vote will be held in private. Removal under 
 this provision will be reflected by updating the list of Voting Members. 
 
 It may be necessary for the Ombudsperson and the Coordination Committee to remove a Voting Member for violations of the Code of Conduct. In this case, the Coordination 
@@ -215,17 +215,20 @@ Committee and Ombudsperson will work together to make this decision.
 
 Approving and Modifying These {bylaws-not-bylaws}
 -------------------------------------------------
-This document was submitted following the process in APE 1, and the normal APE acceptance procedures will be followed. The Coordination Committee at the time of submitting this 
+This document was submitted following the process in APE1_, and the normal APE acceptance procedures will be followed. The Coordination Committee at the time of submitting this 
 APE are all co-authors and therefore will not override any consensus of the community on accepting the final version.
 
-Changes to these {bylaws-not-bylaws} after they have been accepted should follow the modification process in APE 1, with the exception that the final approval of the modification requires 
-approval by a ⅔ vote of the Voting Members rather than approval by the Coordination Committee. 
+Changes to these {bylaws-not-bylaws} after they have been accepted should follow the modification process in APE1_, with the exception that the final approval of the modification requires 
+approval by a two-thirds vote of the Voting Members rather than approval by the Coordination Committee. 
 
 Attribution and Acknowledgements
 --------------------------------
 The format and some of the structures outlined in this document are heavily inspired by the Python Language Governance structure (`PEP13 <https://www.python.org/dev/peps/pep-
 0013/>`_), the YT Project's Team Infrastructure (`YTEP 1776 <https://ytep.readthedocs.io/en/latest/YTEPs/YTEP-1776.html>`_), and earlier less-formal descriptions of the Astropy 
 governance.
+
+.. _APE1: https://github.com/astropy/astropy-APEs/blob/master/APE1.rst
+
 
 Branches and Pull Requests
 ==========================
