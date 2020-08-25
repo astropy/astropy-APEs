@@ -1,11 +1,11 @@
-The Astropy Project Governance
-==========================
+The Astropy Project {bylaws-not-bylaws}
+=======================================
 
 author: The Astropy Governance Working Group: Tom Aldcroft, Matt Craig, Kelle Cruz, Lia Corrales, Steve Crawford, Nicole Foster, Pey Lian Lim, Stuart Mumford, Adrian Price-Whelan, Thomas Robitaille, David Shupe, Brigitta Sipocz, Erik Tollerud
 
 date-created: 2020 July 31
 
-date-last-revised: 2020 July 31
+date-last-revised: 2020 August 25
 
 date-accepted: <replace with accepted date>
 
@@ -21,12 +21,12 @@ with increasing levels of authority. This peaks with the Coordination Commitee, 
 
 Detailed Description
 ====================
-The governance policies are described in this section. The initial version is the outcome of several months of discussion by the Astropy Governance Working Group, which aimed to both codify existing informal governance rules as well as update them with new ideas that are consistent with the philosophy of and vision for the Astropy project.
+The {bylaws-not-bylaws} are described in this section. The initial version is the outcome of several months of discussion by the Astropy Governance Working Group, which aimed to both codify existing informal governance rules as well as update them with new ideas that are consistent with the philosophy of and vision for the Astropy project.
 
 Ultimate Authority: The Astropy Community
 -----------------------------------------
 The Astropy Project derives its authority from the whole community - developers, users, and even potential participants in the broader astronomical and scientific software 
-community. All have a vested interest in the success of the Project, so all governance in the end belongs to this community in its entirety. The governance policies described 
+community. All have a vested interest in the success of the Project, so all governance in the end belongs to this community in its entirety. The {bylaws-not-bylaws} described 
 below provide levels of delegation of that authority, particularly to the Voting Members and the Coordination Committee. 
 
 The Coordination Committee
@@ -36,7 +36,7 @@ Composition
 ^^^^^^^^^^^
 The Coordination Committee is a committee that is composed of four members. To represent a broad set of interests, the Coordination Committee should have no more than two 
 members from a particular employer. The Ombudsperson (described in Section 4)  and the Coordination Committee will work to maintain this composition following the processes 
-laid out in these policies.
+laid out in these {bylaws-not-bylaws}.
 
 Role
 ^^^^^^^
@@ -60,7 +60,7 @@ The Coordination Committee has broad authority to make decisions about the Proje
 * Manage any project assets (including financial and physical assets)
 * Delegate parts of their authority to other subcommittees or processes
 
-However, they cannot modify the Governance of the Project (i.e., this document), except during the initial adoption of these policies as specified herein.
+However, they cannot modify the Governance of the Project (i.e., this document), except during the initial adoption of these {bylaws-not-bylaws} as specified herein.
 
 The Coordination Committee has broad authority, which they seek to exercise as rarely as possible by working towards consensus. The Coordination Committee should look for ways 
 to use these powers as little as possible, striving to involve the community whenever possible for decisions, and delegating responsibilities.
@@ -138,7 +138,7 @@ Role
 ^^^^
 The Voting Members are the group of trusted individuals who operate the Astropy Project on behalf of the community.  They have authority over the Astropy Project’s technical 
 resources, including the Astropy Project website itself, the Astropy GitHub organization and repositories, the issue tracker, and all Astropy communication channels. In 
-practice, much of this authority is passed to the Coordination Committee via the voting processes described in these policies.
+practice, much of this authority is passed to the Coordination Committee via the voting processes described in these {bylaws-not-bylaws}.
 
 They also assume many roles required to achieve the Project's goals, especially those that require a high level of trust. Collectively, they make decisions that shape the 
 future of the Project.  
@@ -154,7 +154,7 @@ Voting Members may participate in formal votes on:
 * electing Coordination Committee members,
 * removing Coordination Committee members,
 * appointment or removal of the Ombudsperson,
-* changes to these policies,
+* changes to these {bylaws-not-bylaws},
 * other matters for which the Coordination Committee believes a vote is appropriate.
 
 The mechanism, timeline, and criteria for a decisive  vote are specified in the respective sections of this document in the first six cases and by the Coordination Committee in 
@@ -213,12 +213,12 @@ this provision will be reflected by updating the list of Voting Members.
 It may be necessary for the Ombudsperson and the Coordination Committee to remove a Voting Member for violations of the Code of Conduct. In this case, the Coordination 
 Committee and Ombudsperson will work together to make this decision. 
 
-Approving and Modifying These Policies
-------------------------------------
+Approving and Modifying These {bylaws-not-bylaws}
+-------------------------------------------------
 This document was submitted following the process in APE 1, and the normal APE acceptance procedures will be followed. The Coordination Committee at the time of submitting this 
 APE are all co-authors and therefore will not override any consensus of the community on accepting the final version.
 
-Changes to these policies after they have been accepted should follow the modification process in APE 1, with the exception that the final approval of the modification requires 
+Changes to these {bylaws-not-bylaws} after they have been accepted should follow the modification process in APE 1, with the exception that the final approval of the modification requires 
 approval by a ⅔ vote of the Voting Members rather than approval by the Coordination Committee. 
 
 Attribution and Acknowledgements
@@ -233,17 +233,17 @@ N/A
 
 Implementation
 ==============
-These policies enter into force upon this APE being accepted (see the last section of the description).  At that time the ``GOVERNANCE.md`` file in the astropy repo should be 
+These {bylaws-not-bylaws} enter into force upon this APE being accepted (see the last section of the description).  At that time the ``GOVERNANCE.md`` file in the astropy repo should be 
 updated to point to this document.
 
 Backward Compatibility
 ======================
-These policies supercede previous un-codified governance understandings, but do not serve to invalidate the APE process or any other processes or policies that pre-date it and 
+These {bylaws-not-bylaws} supercede previous un-codified governance understandings, but do not serve to invalidate the APE process or any other processes or policies that pre-date it and 
 do not conflict.
 
 Alternatives
 ============
-The Astropy Governance Working Group discussed a wide range of alternatives on both the broad scope of Project governance and details of these policies.  It is not practical to 
+The Astropy Governance Working Group discussed a wide range of alternatives on both the broad scope of Project governance and details of these {bylaws-not-bylaws}.  It is not practical to 
 summarize that in the text of this APE, but the Working Group's running notes provide an excellent starting point for this discussion.
 
 Decision rationale
