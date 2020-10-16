@@ -33,26 +33,6 @@ The core astropy package will support:
 * All minor versions of numpy released in the 24 months prior to the project, and at minimum the last three minor versions.
 
 
-This means that the next few releases of the astropy core package will support the following versions of CPython and Numpy:
-
-+--------------------+--------------------+-----------------+--------------------+
-| Astropy Release    | Release Date       | CPython Version | Numpy Version      |
-+--------------------+--------------------+-----------------+--------------------+
-| 4.2                | November 2020      | 3.7+            | 1.17+ (Historical) |
-+--------------------+--------------------+-----------------+--------------------+
-| 4.3                | April 2021         | 3.7+            | 1.17+              |
-+--------------------+--------------------+-----------------+--------------------+
-| 5.0 (LTS)          | November 2021      | 3.7+            | 1.18+              |
-+--------------------+--------------------+-----------------+--------------------+
-| 5.1                | April 2022         | 3.8+            | 1.19+              |
-+--------------------+--------------------+-----------------+--------------------+
-| 5.2                | November 2022      | 3.8+            | 1.20+              |
-+--------------------+--------------------+-----------------+--------------------+
-| 5.3                | April 2023         | 3.9+            | 1.20+              |
-+--------------------+--------------------+-----------------+--------------------+
-
-This table is provided for reference, and should not be considered authoritative, an up to date list should be maintained in the wiki alongside the release calendar.
-
 Backward compatibility
 ----------------------
 
