@@ -16,7 +16,7 @@ Abstract
 --------
 
 After the release of astropy 4.0 APE 10 no longer specifies the supported versions of CPython.
-Since APE 10 was written the wider scientific Python community have written and largely adopted `NEP 29<https://numpy.org/neps/nep-0029-deprecation_policy.html>`__ as a policy for supported versions of both CPython and Numpy.
+Since APE 10 was written the wider scientific Python community have written and largely adopted `NEP 29 <https://numpy.org/neps/nep-0029-deprecation_policy.html>`__ as a policy for supported versions of both CPython and Numpy.
 This APE proposes that Astropy follow the projects who have already adopted this policy.
 
 
