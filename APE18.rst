@@ -15,30 +15,30 @@ status: Discussion
 Abstract
 --------
 
-After the release of astropy 4.0 APE 10 no longer specifies the supported versions of CPython.
-Since APE 10 was written the wider scientific Python community have written and largely adopted `NEP 29 <https://numpy.org/neps/nep-0029-deprecation_policy.html>`__ as a policy for supported versions of both CPython and Numpy.
-This APE proposes that Astropy follow the projects who have already adopted this policy.
+APE 10 previously determined supported CPython versions, and provided a list up to the 4.0 release.
+Since APE 10 was written the wider scientific Python community have written and largely adopted `NEP 29`_ as a policy for supported versions of both CPython and Numpy.
+This APE proposes that Astropy adopt this policy following other projects in the scientific ecosystem.
 
 
 Detailed description
 --------------------
 
-This APE fully adopts NEP 29 for both CPython and Numpy versions, it supersedes APE 10 wherever there is a conflict between that APE and this APE or NEP 29.
+This APE fully adopts `NEP 29`_ for both CPython and Numpy versions, it supersedes APE 10 wherever there is a conflict between that APE and this APE or `NEP 29`_.
 
-While this APE will not replicate the whole of NEP 29, and NEP 29 should be considered the canonical source for the support policy, the core scheme to be adopted is as follows:
+While this APE will not replicate the whole of `NEP 29`_, and `NEP 29`_ should be considered the canonical source for the support policy, the core scheme to be adopted is as follows:
 
-astropy will support:
+The core astropy package will support:
 
 * All minor versions of Python released 42 months prior to the project, and at minimum the two latest minor versions.
 * All minor versions of numpy released in the 24 months prior to the project, and at minimum the last three minor versions.
 
 
-This means that for the next few releases of astropy the following versions of CPython and Numpy will be supported:
+This means that the next few releases of the astropy core package will support the following versions of CPython and Numpy:
 
 +--------------------+--------------------+-----------------+--------------------+
 | Astropy Release    | Release Date       | CPython Version | Numpy Version      |
 +--------------------+--------------------+-----------------+--------------------+
-| 4.2                | November 2020      | 3.7+            | 1.16+              |
+| 4.2                | November 2020      | 3.7+            | 1.17+ (Historical) |
 +--------------------+--------------------+-----------------+--------------------+
 | 5.0 (LTS)          | April 2021         | 3.7+            | 1.17+              |
 +--------------------+--------------------+-----------------+--------------------+
@@ -51,19 +51,23 @@ This means that for the next few releases of astropy the following versions of C
 | 6.1                | April 2023         | 3.9+            | 1.20+              |
 +--------------------+--------------------+-----------------+--------------------+
 
+This table is provided for reference, and should not be considered authoritative, an up to date list should be maintained in the wiki alongside the release calendar.
 
 Backward compatibility
 ----------------------
 
 This version scheme is more rapid than that proposed in APE 10, however, this allows the core library to adopt modern features, and reduces burden on maintainers.
-See the text of NEP 29 for further justification.
+In addition to this aligning ourselves with other projects in the ecosystem is consistent and prevents potential minimum version conflicts.
+See the text of `NEP 29`_ for further justification.
 
 Alternatives
 ------------
 
-See NEP 29.
+See `NEP 29`_.
 
 Decision rationale
 ------------------
 
 <To be filled in by the coordinating committee when the APE is accepted or rejected>
+
+.. _NEP 29: https://numpy.org/neps/nep-0029-deprecation_policy.html
