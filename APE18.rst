@@ -40,6 +40,8 @@ This version scheme is more rapid than that proposed in APE 10, however, this al
 In addition to this aligning ourselves with other projects in the ecosystem is consistent and prevents potential minimum version conflicts.
 See the text of `NEP 29`_ for further justification.
 
+This APE fully replaces APE10 where they are in conflict.
+
 Alternatives
 ------------
 
