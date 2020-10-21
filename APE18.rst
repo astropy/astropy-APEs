@@ -32,6 +32,10 @@ The core astropy package will support:
 * All minor versions of Python released 42 months prior to the project, and at minimum the two latest minor versions.
 * All minor versions of numpy released in the 24 months prior to the project, and at minimum the last three minor versions.
 
+This version support policy allows, at the discretion of the maintainers, to adopt the supported version of the next release in situations where it is judged to be valuable.
+For example, in the case of an important change in numpy or a change over date very close to the release.
+
+
 Implementation
 --------------
 
