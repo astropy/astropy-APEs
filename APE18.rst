@@ -60,4 +60,6 @@ Decision rationale
 
 <To be filled in by the coordinating committee when the APE is accepted or rejected>
 
+Note: On merge of this APE an addendum should be added to APE 10 referencing this one.
+
 .. _NEP 29: https://numpy.org/neps/nep-0029-deprecation_policy.html
