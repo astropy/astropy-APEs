@@ -23,7 +23,7 @@ This APE proposes that Astropy adopt this policy following other projects in the
 Detailed description
 --------------------
 
-This APE fully adopts `NEP 29`_ for both CPython and Numpy versions, it supersedes APE 10 wherever there is a conflict between that APE and this APE or `NEP 29`_.
+This APE fully adopts `NEP 29`_ for both CPython and Numpy versions for the core astropy package, and it supersedes APE 10 wherever there is a conflict between that APE and this APE or `NEP 29`_.
 
 While this APE will not replicate the whole of `NEP 29`_, and `NEP 29`_ should be considered the canonical source for the support policy, the core scheme to be adopted is as follows:
 
@@ -33,19 +33,19 @@ The core astropy package will support:
 * All minor versions of numpy released in the 24 months prior to the project, and at minimum the last three minor versions.
 
 This version support policy allows, at the discretion of the maintainers, to adopt the supported version of the next release in situations where it is judged to be valuable.
-For example, in the case of an important change in numpy or a change over date very close to the release.
+For example, this could be done in the case of an important change in numpy or a change over date very close to the release.
 
 
 Implementation
 --------------
 
-Some initial work has been done in `#10900 <https://github.com/astropy/astropy/pull/10900>`__ on bumping core to Python 3.7+.
+Some initial work has been done in `#10900 <https://github.com/astropy/astropy/pull/10900>`__ on bumping the minimum Python version in the core astropy package to Python 3.7+.
 
 Backward compatibility
 ----------------------
 
-This version scheme is more rapid than that proposed in APE 10, however, this allows the core library to adopt modern features, and reduces burden on maintainers.
-In addition to this aligning ourselves with other projects in the ecosystem is consistent and prevents potential minimum version conflicts.
+The version schedule here is more rapid than that proposed in APE 10, however, this allows the core library to adopt modern features, and reduces burden on maintainers.
+In addition to this, aligning ourselves with other projects in the ecosystem is consistent and prevents potential minimum version conflicts.
 See the text of `NEP 29`_ for further justification.
 
 This APE fully replaces APE10 where they are in conflict.
