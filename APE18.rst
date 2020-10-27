@@ -25,15 +25,17 @@ Detailed description
 
 This APE fully adopts `NEP 29`_ for both CPython and Numpy versions for the core astropy package, and it supersedes APE 10 wherever there is a conflict between that APE and this APE or `NEP 29`_.
 
-While this APE will not replicate the whole of `NEP 29`_, and `NEP 29`_ should be considered the canonical source for the support policy, the core scheme to be adopted is as follows:
+This APE will not replicate the content of `NEP 29`_, and the full text of `NEP 29`_ is adopted via this APE.
+In addition to the content of `NEP 29`_, the APE also extends the numpy policy to all of the core package dependencies.
+This leads to the following support policy for dependencies of the core package.
 
-The core astropy package will support:
+Astropy core will support:
 
 * All minor versions of Python released 42 months prior to a non-bugfix, and at minimum the two latest minor versions.
 * All minor versions of numpy released in the 24 months prior to a non-bugfix, and at minimum the last three minor versions.
 * Versions of other runtime dependencies released 24 prior to a non-bugfix release.
 
-These versions of the dependencies are kept supported for bugfix lifetime of the given astropy version.
+These versions of the dependencies are to be supported for bugfix lifetime of the given astropy version.
 
 This version support policy allows, at the discretion of the maintainers, to adopt the supported version of the next release in situations where it is judged to be valuable.
 For example, this could be done in the case of an important change in numpy or a change over date very close to the release.
