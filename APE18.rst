@@ -29,8 +29,11 @@ While this APE will not replicate the whole of `NEP 29`_, and `NEP 29`_ should b
 
 The core astropy package will support:
 
-* All minor versions of Python released 42 months prior to the project, and at minimum the two latest minor versions.
-* All minor versions of numpy released in the 24 months prior to the project, and at minimum the last three minor versions.
+* All minor versions of Python released 42 months prior to a non-bugfix, and at minimum the two latest minor versions.
+* All minor versions of numpy released in the 24 months prior to a non-bugfix, and at minimum the last three minor versions.
+* Versions of other runtime dependencies released 24 prior to a non-bugfix release.
+
+These versions of the dependencies are kept supported for bugfix lifetime of the given astropy version.
 
 This version support policy allows, at the discretion of the maintainers, to adopt the supported version of the next release in situations where it is judged to be valuable.
 For example, this could be done in the case of an important change in numpy or a change over date very close to the release.
