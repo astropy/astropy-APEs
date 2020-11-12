@@ -33,7 +33,7 @@ Astropy core will support:
 
 * All minor versions of Python released 42 months prior to a non-bugfix, and at minimum the two latest minor versions.
 * All minor versions of numpy released in the 24 months prior to a non-bugfix, and at minimum the last three minor versions.
-* Versions of other runtime dependencies released 24 prior to a non-bugfix release.
+* Versions of other runtime dependencies released 24 months prior to a non-bugfix release.
 
 These versions of the dependencies are to be supported for bugfix lifetime of the given astropy version.
 
