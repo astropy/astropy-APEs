@@ -265,7 +265,7 @@ this APE will be invited to be in the first group of Voting Members:
 
 Add New Voting Members
 ^^^^^^^^^^^^^^^^^^^^^^
-Anyone can apply to become a Voting Member by providing evidence of meeting the
+Anyone can become a Voting Member by providing evidence of meeting the
 requirements laid out in the Membership section above. Both self-nominations and
 nominations by others are allowed. The Voting Members are expected to make their
 decisions based on the candidate’s adherence to the membership criteria, above.
