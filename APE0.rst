@@ -78,8 +78,8 @@ work to:
 * Operate openly and provide transparency and opportunity for community input
   into its activities.
 
-Powers
-^^^^^^
+Responsibilities and Authority
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The Coordination Committee has broad authority to make decisions about the
 Project. For example, they can:
 
@@ -91,20 +91,20 @@ Project. For example, they can:
 However, they cannot modify the Governance of the Project (i.e., this document),
 except during the initial adoption of this Charter as specified herein.
 
-The Coordination Committee has broad authority, which it seeks to exercise as
-rarely as possible by working towards consensus. The Coordination Committee
-should look for ways to use these powers as little as possible, striving to
-involve the community whenever possible for decisions, and delegating
+While the Coordination Committee has broad authority, it has the responsibility
+to work towards consensus whenever practical. The Coordination Committee
+should look for ways to use its authority as little as possible, striving 
+to involve the community in decisions whenever possible, and delegating
 responsibilities.
 
-When delegating its power by creating roles or making appointments the
+When delegating its authority to create roles or make appointments, the
 Coordination Committee must solicit community feedback for no less than two
 weeks.
 
 Making Decisions
 ^^^^^^^^^^^^^^^^
-To use its powers, the Coordination Committee must first attempt to reach a
-consensus. If a consensus cannot be reached the Committee votes. Every
+To use its authority, the Coordination Committee must first attempt to reach
+a consensus. If a consensus cannot be reached the Committee votes. Every
 Coordination Committee member must either vote or explicitly abstain. Members
 with a conflict of interest on a particular vote must abstain. The final
 decision regarding what constitutes a conflict of interest is determined by the
@@ -217,9 +217,9 @@ custodians of the Project, on behalf of the community and all those who rely on
 Astropy. They will act as representatives of the Astropy Project, where
 necessary, including in online discussions or at official Astropy events.
 
-Powers
-^^^^^^
-Voting Members may participate in formal votes on:
+Responsibilities and Rights
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Voting Members may and should participate in formal votes on:
 
 * adding new Voting Members,
 * removing Voting Members,
