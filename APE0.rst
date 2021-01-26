@@ -217,6 +217,7 @@ necessary, including in online discussions or at official Astropy events.
 Powers
 ^^^^^^
 Voting Members may participate in formal votes on:
+
 * adding new Voting Members,
 * removing Voting Members,
 * electing Coordination Committee members,
