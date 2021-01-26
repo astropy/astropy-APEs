@@ -48,9 +48,12 @@ The Coordination Committee
 
 Composition
 ^^^^^^^^^^^
-The Coordination Committee is a committee that is composed of four members. To
-represent a broad set of interests, the Coordination Committee should have no
-more than two members from a particular employer. The Ombudsperson (described in
+The Coordination Committee is a committee that is composed of four members. The
+Coordination Committee should aim to represent the diversity of the Astropy 
+community.  Hence, it should aim for diversity in geography, skill set (both 
+astronomy and developer), background, etc. Furthermore, unless it would 
+be short of candidates otherwise, it should not have more than one member from 
+any particular employer.The Ombudsperson (described in
 Section 4) and the Coordination Committee will work to maintain this composition
 following the processes laid out in this Charter.
 
