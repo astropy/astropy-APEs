@@ -133,11 +133,13 @@ The election consists of two phases, each lasting two weeks:
   occurs, it may be resolved by mutual agreement among the candidates, or else
   the winner will be chosen at random.
 
-The election process is managed by a non-voting Returns Officer nominated by the
-outgoing Coordination Committee. For the initial election, the Returns Officer
-will be nominated by the NumFOCUS Executive officer or their delegate. Elections
-will be carried out every year, provided that at least one of the Coordination
-Committee members has reached the end of their term or decided to step down.
+The election process is managed by a non-voting Returns Officer nominated by
+the outgoing Coordination Committee, although the process (specific choice of
+web site, etc) can be set up by the Coordination Committee or their delegates.
+For the initial election, the Returns Officer will be nominated by the NumFOCUS
+Executive Officer. Elections will be carried out every year, provided that at
+least one of the Coordination Committee members has reached the end of their
+term or decided to step down.
 
 Term
 ^^^^
@@ -150,7 +152,9 @@ is no limit to the number of terms that a single individual can be elected for.
 For the initial election of Coordination Committee members, two seats will have
 terms of one year, one has a term of two years, and one has a term of three
 years to create a staggered set of replacements and provide continuity in the
-Coordination Committee.
+Coordination Committee. The candidate with the largest number of votes gets the 
+longest available seat and the smallest the shortest, unless the new committee 
+mutually agree to a different allocation.
 
 Vacancies
 ^^^^^^^^^
