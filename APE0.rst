@@ -5,7 +5,7 @@ author: The Astropy Governance Working Group; Tom Aldcroft, Matt Craig, Kelle Cr
 
 date-created: 2020 July 31
 
-date-last-revised: 2020 October 6
+date-last-revised: 2021 January 28
 
 date-accepted: <replace with accepted date>
 
@@ -48,12 +48,14 @@ The Coordination Committee
 
 Composition
 ^^^^^^^^^^^
-The Coordination Committee is a committee that is composed of four members. The
+The Coordination Committee is a committee that is composed of four or five
+members (this number will be decided by vote at the same time as the first
+Coordination Committee election). The
 Coordination Committee should aim to represent the diversity of the Astropy 
 community.  Hence, it should aim for diversity in geography, skill set (both 
 astronomy and developer), background, etc. Furthermore, unless it would 
 be short of candidates otherwise, it should not have more than one member from 
-any particular employer.The Ombudsperson (described in
+any particular employer. The Ombudsperson (described in
 Section 4) and the Coordination Committee will work to maintain this composition
 following the processes laid out in this Charter.
 
@@ -77,6 +79,7 @@ work to:
   consensus have failed,
 * Operate openly and provide transparency and opportunity for community input
   into its activities.
+* Act as a point of contact with other organizations.
 
 Responsibilities and Authority
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -126,7 +129,8 @@ The election consists of two phases, each lasting two weeks:
 
 * Phase 1, Nominations: Candidates will be nominated and confirm their interest
   in serving. Candidates can be nominated by anyone, including themselves, and
-  do not have to be Voting Members to be nominated.
+  do not have to be Voting Members to be nominated. Candidates should provide
+  a brief statement in support of their candidacy.
 * Phase 2, Voting: Each Voting Member can vote for zero or more of the
   candidates, up to the number of candidates. Voting is performed anonymously.
   Candidates are ranked by the total number of votes they receive. If a tie
@@ -258,11 +262,17 @@ this APE will be invited to be in the first group of Voting Members:
 
 * Has a named role in the project and has participated in an Astropy
   coordination meeting in the last two years
-* Has a named role in the project and has regularly participated in Astropy
-  telecons (e.g., co-working telecon, spectroscopy sprint, Astropy Learn
-  telecon) in the last two years
+* Has a named role in the project and has participated at least four times in one or
+  more of the following Astropy telecons in the last two years prior to the acceptance of
+  this APE, based on available meeting minutes or confirmation from telecon
+  organizers: core package developer telecons, co-working telecons,
+  infrastructure telecons, proposal-related telecons, and Astropy Learn
+  telecons.
 * Has commit rights to at least one repository in the astropy GitHub
-  organization and has actively used those commit rights in the last two years
+  organization which is either the core package, a coordinated package,
+  an infrastructure package, or an Astropy Learn-related repository,
+  and has actively used those commit rights in the last two years prior to the
+  acceptance of this APE.
 
 Add New Voting Members
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -281,24 +291,29 @@ The procedure for voting to add new Voting Members is:
   nomination, and that their record of community activity adheres to the Code of
   Conduct.
 * Once a nomination is accepted by the Coordination Committee, the Coordination
-  Committee will initiate a vote among active Voting Members. The voting will be
-  open for at least two weeks and will conclude within four weeks of the
-  nomination being accepted. To successfully gain an appointment as a Voting
-  Member, the nominee must receive at least four positive votes, as long as that
-  constitutes a majority of those voting.
+  Committee will put it to a vote among active Voting Members. Votes for adding
+  voting members will be carried out at most twice a year to avoid too many
+  elections. The voting dates will be announced with at least four weeks notice,
+  and additional nominations will be accepted until two weeks before the
+  election date. The voting will be open for at least two weeks. To successfully
+  gain an appointment as a Voting Member, the nominee must receive at least four
+  positive votes, as long as that constitutes a majority of those voting.
 * The candidate will be informed promptly at the close of voting by a
   Coordination Committee member. If the vote is not affirmative, the
   Coordination Committee will provide feedback to the nominee.
 
-Term and Active/Inactive Status
+At least one round of voting for adding voting members should be carried out before
+the initial election of the Coordination Committee.
+
+Term and Active/Emeritus Status
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Voting Members have no term or term limits. Voting Members who have stopped
-contributing are encouraged to declare themselves as "inactive.” Those who have
-not made any significant contribution for a long period may be asked to move
-themselves to the “inactive” category by the Coordination Committee. If no
+contributing are encouraged to declare themselves as "emeritus.” Those who have
+not made any significant contribution for two years may be asked to move
+themselves to the “emeritus” category by the Coordination Committee. If no
 response is received, the Coordination Committee may automatically change a
-Voting Member’s status to inactive. To record and honor their contributions,
-inactive Voting Members will continue to be listed. Inactive Voting Members are
+Voting Member’s status to emeritus. To record and honor their contributions,
+emeritus Voting Members will continue to be listed. emeritus Voting Members are
 not able to participate in votes.
 
 Removing Voting Members
@@ -307,7 +322,7 @@ In exceptional circumstances, it may be necessary to remove someone from the
 Voting Members against their will. A vote must be held to remove a Voting
 Member. Such a vote is triggered by a motion made by an active Voting Member,
 which must be seconded by an additional Voting Member. The vote must conclude
-no more than four weeks after the motion is seconded. Removal requires approval
+no more than three months after the motion is seconded. Removal requires approval
 by two-thirds of all active Voting Members at the time the motion is made. The
 motion, second, and vote will be held in private. Removal under this provision
 will be reflected by updating the list of Voting Members.
@@ -319,13 +334,13 @@ decision.
 
 Approving and Modifying This Charter
 ------------------------------------
-This document was submitted following the process in APE1_, and the normal APE
+This document was submitted following the process in `APE 1`_, and the normal APE
 acceptance procedures will be followed. The Coordination Committee at the time
 of submitting this APE are all co-authors and therefore will not override any
 consensus of the community on accepting the final version.
 
 Changes to this Charter after it has been accepted should follow the
-modification process in APE1_, with the exception that the final approval of the
+modification process in `APE 1`_, with the exception that the final approval of the
 modification requires approval by a two-thirds vote of the Voting Members rather
 than approval by the Coordination Committee.
 
@@ -333,12 +348,12 @@ Attribution and Acknowledgments
 -------------------------------
 The format and some of the structures outlined in this document are heavily
 inspired by the Python Language Governance structure
-(`PEP13 <https://www.python.org/dev/peps/pep-0013/>`_), the YT Project's Team
+(`PEP 13 <https://www.python.org/dev/peps/pep-0013/>`_), the YT Project's Team
 Infrastructure
 (`YTEP 1776 <https://ytep.readthedocs.io/en/latest/YTEPs/YTEP-1776.html>`_), and
 earlier less-formal descriptions of the Astropy governance.
 
-.. _APE1: https://github.com/astropy/astropy-APEs/blob/master/APE1.rst
+.. _APE 1: https://github.com/astropy/astropy-APEs/blob/master/APE1.rst
 
 
 Branches and Pull Requests
@@ -362,7 +377,8 @@ Alternatives
 The Astropy Governance Working Group discussed a wide range of alternatives on
 both the broad scope of Project governance and details of this Charter. It is
 not practical to summarize that in the text of this APE, but the Working Group's
-running notes provide an excellent starting point for this discussion.
+`running notes <https://docs.google.com/document/d/1XsJCQDm1EBWm2w2yDbohWw2HhMAO_-YhnOMhBsNV82I/edit?usp=sharing>`_
+provide an excellent starting point for this discussion.
 
 Decision rationale
 ==================
