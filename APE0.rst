@@ -53,7 +53,7 @@ members (this number will be decided by vote at the same time as the first
 Coordination Committee election). The
 Coordination Committee should aim to represent the diversity of the Astropy 
 community.  Hence, it should aim for diversity in geography, skill set (both 
-astronomy and developer), background, etc. Furthermore, unless it would 
+astronomy and developer), background, and so on. Furthermore, unless it would 
 be short of candidates otherwise, it should not have more than one member from 
 any particular employer. The Ombudsperson (described in
 Section 4) and the Coordination Committee will work to maintain this composition
@@ -276,7 +276,7 @@ this APE will be invited to be in the first group of Voting Members:
 
 Add New Voting Members
 ^^^^^^^^^^^^^^^^^^^^^^
-Anyone can become a Voting Member by providing evidence of meeting the
+Anyone can be nominated as a Voting Member by providing evidence of meeting the
 requirements laid out in the Membership section above. Both self-nominations and
 nominations by others are allowed. The Voting Members are expected to make their
 decisions based on the candidate’s adherence to the membership criteria, above.
