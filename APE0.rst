@@ -225,13 +225,13 @@ Responsibilities and Rights
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Voting Members may and should participate in formal votes on:
 
-* adding new Voting Members,
-* removing Voting Members,
-* electing Coordination Committee members,
-* removing Coordination Committee members,
-* appointment or removal of the Ombudsperson,
-* changes to this Charter,
-* other matters for which the Coordination Committee believes a vote is
+* Adding new Voting Members
+* Removing Voting Members
+* Electing Coordination Committee members
+* Removing Coordination Committee members
+* Appointment or removal of the Ombudsperson
+* Changes to this Charter
+* Other matters for which the Coordination Committee believes a vote is
   appropriate.
 
 The mechanism, timeline, and criteria for a decisive vote are specified in the
@@ -241,11 +241,12 @@ Coordination Committee in the last case.
 Membership
 ^^^^^^^^^^
 Voting Members of the Astropy Project must demonstrate:
-* a good grasp of the philosophy of the Astropy Project,
-* a solid track record of being constructive and helpful,
-* significant contributions to the Project's goals, in any form,
-* a willingness to dedicate time to improving the Project,
-* a willingness to recruit, train, and nominate new team members.
+
+* A good grasp of the philosophy of the Astropy Project
+* A solid track record of being constructive and helpful
+* Significant contributions to the Project's goals, in any form
+* A willingness to dedicate time to improving the Project
+* A willingness to recruit, train, and nominate new team members
 
 Voting Membership acknowledges sustained and valuable efforts that align well
 with the philosophy and the goals of the Astropy Project.
@@ -255,13 +256,13 @@ Initial Membership
 Anyone who satisfies any of the following criteria at the date of acceptance of
 this APE will be invited to be in the first group of Voting Members:
 
-* has a named role in the project and has participated in an Astropy
-  coordination meeting in the last two years,
-* has a named role in the project and has regularly participated in Astropy
+* Has a named role in the project and has participated in an Astropy
+  coordination meeting in the last two years
+* Has a named role in the project and has regularly participated in Astropy
   telecons (e.g., co-working telecon, spectroscopy sprint, Astropy Learn
-  telecon) in the last two years,
-* has commit rights to at least one repository in the astropy GitHub
-  organization and has actively used those commit rights in the last two years.
+  telecon) in the last two years
+* Has commit rights to at least one repository in the astropy GitHub
+  organization and has actively used those commit rights in the last two years
 
 Add New Voting Members
 ^^^^^^^^^^^^^^^^^^^^^^
