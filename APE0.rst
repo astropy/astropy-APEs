@@ -41,7 +41,8 @@ users, and even potential participants in the broader astronomical and
 scientific software community. All have a vested interest in the success of the
 Project, so all governance in the end belongs to this community in its entirety.
 The governance Charter described below provides levels of delegation of that
-authority, particularly to the `Voting Members <votingmembers>`_ and the Coordination Committee.
+authority, particularly to the `Voting Members <votingmembers>`_ and the
+Coordination Committee.
 
 The Coordination Committee
 --------------------------
@@ -51,10 +52,10 @@ Composition
 The Coordination Committee is a committee that is composed of four or five
 members (this number will be decided by vote at the same time as the first
 Coordination Committee election). The
-Coordination Committee should aim to represent the diversity of the Astropy 
-community.  Hence, it should aim for diversity in geography, skill set (both 
-astronomy and developer), background, and so on. Furthermore, unless it would 
-be short of candidates otherwise, it should not have more than one member from 
+Coordination Committee should aim to represent the diversity of the Astropy
+community.  Hence, it should aim for diversity in geography, skill set (both
+astronomy and developer), background, and so on. Furthermore, unless it would
+be short of candidates otherwise, it should not have more than one member from
 any particular employer. The Ombudsperson (described in
 Section 4) and the Coordination Committee will work to maintain this composition
 following the processes laid out in this Charter.
@@ -96,7 +97,7 @@ except during the initial adoption of this Charter as specified herein.
 
 While the Coordination Committee has broad authority, it has the responsibility
 to work towards consensus whenever practical. The Coordination Committee
-should look for ways to use its authority as little as possible, striving 
+should look for ways to use its authority as little as possible, striving
 to involve the community in decisions whenever possible, and delegating
 responsibilities.
 
@@ -124,18 +125,18 @@ Electing the Coordination Committee
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 A Coordination Committee election is held annually to fill any vacant seats.
 Notice of the election must be posted via the Project’s standard communication
-channels (reaching all active members) at least one month before the election begins.
-The election consists of two phases, each lasting two weeks:
+channels (reaching all active members) at least one month before the election
+begins. The election consists of two phases, each lasting two weeks:
 
 * Phase 1, Nominations: Candidates will be nominated and confirm their interest
   in serving. Candidates can be nominated by anyone, including themselves, and
-  do not have to be `Voting Members <votingmembers>`_ to be nominated. Candidates should provide
-  a brief statement in support of their candidacy.
-* Phase 2, Voting: Each `Voting Member <votingmembers>`_ can vote for zero or more of the
-  candidates, up to the number of candidates. Voting is performed anonymously.
-  Candidates are ranked by the total number of votes they receive. If a tie
-  occurs, it may be resolved by mutual agreement among the candidates, or else
-  the winner will be chosen at random.
+  do not have to be `Voting Members <votingmembers>`_ to be nominated.
+  Candidates should provide a brief statement in support of their candidacy.
+* Phase 2, Voting: Each `Voting Member <votingmembers>`_ can vote for zero or
+  more of the candidates, up to the number of candidates. Voting is performed
+  anonymously. Candidates are ranked by the total number of votes they receive.
+  If a tie occurs, it may be resolved by mutual agreement among the candidates,
+  or else the winner will be chosen at random.
 
 The election process is managed by a non-voting Returns Officer nominated by
 the outgoing Coordination Committee, although the process (specific choice of
@@ -156,8 +157,8 @@ is no limit to the number of terms that a single individual can be elected for.
 For the initial election of Coordination Committee members, two seats will have
 terms of one year, one has a term of two years, and one has a term of three
 years to create a staggered set of replacements and provide continuity in the
-Coordination Committee. The candidate with the largest number of votes gets the 
-longest available seat and the smallest the shortest, unless the new committee 
+Coordination Committee. The candidate with the largest number of votes gets the
+longest available seat and the smallest the shortest, unless the new committee
 mutually agree to a different allocation.
 
 Vacancies
@@ -174,19 +175,20 @@ them for the duration of their term.
 
 Removing Members
 ^^^^^^^^^^^^^^^^
-In exceptional circumstances, the `Voting Members <votingmembers>`_ may remove one or more sitting
-Coordination Committee members via a single vote.
+In exceptional circumstances, the `Voting Members <votingmembers>`_ may remove
+one or more sitting Coordination Committee members via a single vote.
 
-Such a vote is triggered when a `Voting Member <votingmembers>`_ calls for one publicly on an
-appropriate Project-wide communication channel, and two other active Voting
-Members second the proposal.
+Such a vote is triggered when a `Voting Member <votingmembers>`_ calls for one
+publicly on an appropriate Project-wide communication channel, and two other
+active Voting Members second the proposal.
 
 For Coordination Committee Member(s) to be removed, two-thirds of the active
 `Voting Members <votingmembers>`_ must vote in support of the removal.
 
-To avoid repeated removal votes, any individual `Voting Member <votingmembers>`_ who has called
-for, or seconded such a vote, may not call for or second a vote to remove any
-other Coordination Committee member for one year from the original motion.
+To avoid repeated removal votes, any individual `Voting Member <votingmembers>`_
+who has called for, or seconded such a vote, may not call for or second a vote
+to remove any other Coordination Committee member for one year from the original
+motion.
 
 The Ombudsperson
 ----------------
@@ -199,10 +201,11 @@ two-thirds of the active `Voting Members <votingmembers>`_.
 
 The Ombudsperson has no term limit but can resign at any time, or be removed by
 the same process as being confirmed: the Coordination Committee initiates, there
-is a two-week comment period, and two-thirds of the active `Voting Members <#votingmembers>`_ have
-to approve the removal. In the period between removal/resignation and new
-appointment, the Coordination Committee will temporarily take over the
-responsibilities of the Ombudsperson, should the need arise.
+is a two-week comment period, and two-thirds of the active
+`Voting Members <#votingmembers>`_ have to approve the removal. In the period
+between removal/resignation and new appointment, the Coordination Committee will
+temporarily take over the responsibilities of the Ombudsperson, should the need
+arise.
 
 
 .. _votingmembers:
@@ -265,10 +268,10 @@ this APE will be invited to be in the first group of Voting Members:
 
 * Has a named role in the project and has participated in an Astropy
   coordination meeting in the last two years
-* Has a named role in the project and has participated at least four times in one or
-  more of the following Astropy telecons in the last two years prior to the acceptance of
-  this APE, based on available meeting minutes or confirmation from telecon
-  organizers: core package developer telecons, co-working telecons,
+* Has a named role in the project and has participated at least four times in
+  one or more of the following Astropy telecons in the last two years prior to
+  the acceptance of this APE, based on available meeting minutes or confirmation
+  from telecon organizers: core package developer telecons, co-working telecons,
   infrastructure telecons, proposal-related telecons, and Astropy Learn
   telecons.
 * Has commit rights to at least one repository in the astropy GitHub
@@ -305,8 +308,8 @@ The procedure for voting to add new Voting Members is:
   Coordination Committee member. If the vote is not affirmative, the
   Coordination Committee will provide feedback to the nominee.
 
-At least one round of voting for adding voting members should be carried out before
-the initial election of the Coordination Committee.
+At least one round of voting for adding voting members should be carried out
+before the initial election of the Coordination Committee.
 
 Term and Active/Emeritus Status
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -316,8 +319,8 @@ not made any significant contribution for two years may be asked to move
 themselves to the *emeritus* category by the Coordination Committee. If no
 response is received, the Coordination Committee may automatically change a
 Voting Member’s status to *emeritus*. To record and honor their contributions,
-*emeritus* Voting Members will continue to be listed. *Emeritus* Voting Members are
-not able to participate in votes.
+*emeritus* Voting Members will continue to be listed. *Emeritus* Voting Members
+are not able to participate in votes.
 
 Removing Voting Members
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -325,10 +328,10 @@ In exceptional circumstances, it may be necessary to remove someone from the
 Voting Members against their will. A vote must be held to remove a Voting
 Member. Such a vote is triggered by a motion made by an active Voting Member,
 which must be seconded by an additional Voting Member. The vote must conclude
-no more than three months after the motion is seconded. Removal requires approval
-by two-thirds of all active Voting Members at the time the motion is made. The
-motion, second, and vote will be held in private. Removal under this provision
-will be reflected by updating the list of Voting Members.
+no more than three months after the motion is seconded. Removal requires
+approval by two-thirds of all active Voting Members at the time the motion is
+made. The motion, second, and vote will be held in private. Removal under this
+provision will be reflected by updating the list of Voting Members.
 
 It may be necessary for the Ombudsperson and the Coordination Committee to
 remove a Voting Member for violations of the Code of Conduct. In this case, the
@@ -343,9 +346,10 @@ of submitting this APE are all co-authors and therefore will not override any
 consensus of the community on accepting the final version.
 
 Changes to this Charter after it has been accepted should follow the
-modification process in `APE 1`_, with the exception that the final approval of the
-modification requires approval by a two-thirds vote of the `Voting Members <votingmembers>`_ rather
-than approval by the Coordination Committee.
+modification process in `APE 1`_, with the exception that the final approval of
+the modification requires approval by a two-thirds vote of the
+`Voting Members <votingmembers>`_ rather than approval by the Coordination
+Committee.
 
 Attribution and Acknowledgments
 -------------------------------
@@ -385,4 +389,5 @@ provide an excellent starting point for this discussion.
 
 Decision rationale
 ==================
-<To be filled in by the coordinating committee when the APE is accepted or rejected>
+<To be filled in by the coordinating committee when the APE is accepted or
+rejected>
