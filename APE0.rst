@@ -60,7 +60,7 @@ Section 4) and the Coordination Committee will work to maintain this composition
 following the processes laid out in this Charter.
 
 Role
-^^^^^^^
+^^^^
 The Coordination Committee’s role is to facilitate consensus in the Project and
 coordinate Project-spanning efforts. As such, the Coordination Committee shall
 work to:
@@ -229,13 +229,13 @@ Responsibilities and Rights
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Voting Members may and should participate in formal votes on:
 
-* Adding new Voting Members
-* Removing Voting Members
-* Electing Coordination Committee members
-* Removing Coordination Committee members
-* Appointment or removal of the Ombudsperson
-* Changes to this Charter
-* Other matters for which the Coordination Committee believes a vote is
+1. Adding new Voting Members
+2. Removing Voting Members
+3. Electing Coordination Committee members
+4. Removing Coordination Committee members
+5. Appointment or removal of the Ombudsperson
+6. Changes to this Charter
+7. Other matters for which the Coordination Committee believes a vote is
   appropriate.
 
 The mechanism, timeline, and criteria for a decisive vote are specified in the
@@ -308,12 +308,12 @@ the initial election of the Coordination Committee.
 Term and Active/Emeritus Status
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Voting Members have no term or term limits. Voting Members who have stopped
-contributing are encouraged to declare themselves as "emeritus.” Those who have
+contributing are encouraged to declare themselves as *emeritus*. Those who have
 not made any significant contribution for two years may be asked to move
-themselves to the “emeritus” category by the Coordination Committee. If no
+themselves to the *emeritus* category by the Coordination Committee. If no
 response is received, the Coordination Committee may automatically change a
-Voting Member’s status to emeritus. To record and honor their contributions,
-emeritus Voting Members will continue to be listed. emeritus Voting Members are
+Voting Member’s status to *emeritus*. To record and honor their contributions,
+*emeritus* Voting Members will continue to be listed. *Emeritus* Voting Members are
 not able to participate in votes.
 
 Removing Voting Members
@@ -363,7 +363,7 @@ N/A
 Implementation
 ==============
 This Charter enters into force upon this APE being accepted (see the last
-section of the description). At that time the ``GOVERNANCE.md`` file in the
+section of the description). At that time the ``GOVERNANCE.rst`` file in the
 astropy repo should be updated to point to this document.
 
 Backward Compatibility
