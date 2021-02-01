@@ -239,7 +239,7 @@ Voting Members may and should participate in formal votes on:
 5. Appointment or removal of the Ombudsperson
 6. Changes to this Charter
 7. Other matters for which the Coordination Committee believes a vote is
-  appropriate.
+   appropriate.
 
 The mechanism, timeline, and criteria for a decisive vote are specified in the
 respective sections of this document in the first six cases and by the
