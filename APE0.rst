@@ -41,7 +41,7 @@ users, and even potential participants in the broader astronomical and
 scientific software community. All have a vested interest in the success of the
 Project, so all governance in the end belongs to this community in its entirety.
 The governance Charter described below provides levels of delegation of that
-authority, particularly to the Voting Members and the Coordination Committee.
+authority, particularly to the `Voting Members <The Voting Members>`_ and the Coordination Committee.
 
 The Coordination Committee
 --------------------------
@@ -129,9 +129,9 @@ The election consists of two phases, each lasting two weeks:
 
 * Phase 1, Nominations: Candidates will be nominated and confirm their interest
   in serving. Candidates can be nominated by anyone, including themselves, and
-  do not have to be Voting Members to be nominated. Candidates should provide
+  do not have to be `Voting Members <The Voting Members>`_ to be nominated. Candidates should provide
   a brief statement in support of their candidacy.
-* Phase 2, Voting: Each Voting Member can vote for zero or more of the
+* Phase 2, Voting: Each `Voting Member <The Voting Members>`_ can vote for zero or more of the
   candidates, up to the number of candidates. Voting is performed anonymously.
   Candidates are ranked by the total number of votes they receive. If a tie
   occurs, it may be resolved by mutual agreement among the candidates, or else
@@ -174,17 +174,17 @@ them for the duration of their term.
 
 Removing Members
 ^^^^^^^^^^^^^^^^
-In exceptional circumstances, the Voting Members may remove one or more sitting
+In exceptional circumstances, the `Voting Members <The Voting Members>`_ may remove one or more sitting
 Coordination Committee members via a single vote.
 
-Such a vote is triggered when a Voting Member calls for one publicly on an
+Such a vote is triggered when a `Voting Member <The Voting Members>`_ calls for one publicly on an
 appropriate Project-wide communication channel, and two other active Voting
 Members second the proposal.
 
 For Coordination Committee Member(s) to be removed, two-thirds of the active
-Voting Members must vote in support of the removal.
+`Voting Members <The Voting Members>`_ must vote in support of the removal.
 
-To avoid repeated removal votes, any individual Voting Member who has called
+To avoid repeated removal votes, any individual `Voting Member <The Voting Members>`_ who has called
 for, or seconded such a vote, may not call for or second a vote to remove any
 other Coordination Committee member for one year from the original motion.
 
@@ -195,11 +195,11 @@ an alternative point of contact for sensitive issues such as code of conduct
 violations and ethical concerns. Candidates for this project role are publicly
 nominated by the Coordination Committee, after which the Coordination Committee
 allows at least two weeks for comment, and then the nominee must be confirmed by
-two-thirds of the active Voting Members.
+two-thirds of the active `Voting Members <The Voting Members>`_.
 
 The Ombudsperson has no term limit but can resign at any time, or be removed by
 the same process as being confirmed: the Coordination Committee initiates, there
-is a two-week comment period, and two-thirds of the active Voting Members have
+is a two-week comment period, and two-thirds of the active `Voting Members <The Voting Members>`_ have
 to approve the removal. In the period between removal/resignation and new
 appointment, the Coordination Committee will temporarily take over the
 responsibilities of the Ombudsperson, should the need arise.
@@ -341,7 +341,7 @@ consensus of the community on accepting the final version.
 
 Changes to this Charter after it has been accepted should follow the
 modification process in `APE 1`_, with the exception that the final approval of the
-modification requires approval by a two-thirds vote of the Voting Members rather
+modification requires approval by a two-thirds vote of the `Voting Members <The Voting Members>`_ rather
 than approval by the Coordination Committee.
 
 Attribution and Acknowledgments
