@@ -237,16 +237,17 @@ Responsibilities and Rights
 Voting Members may and should participate in formal votes on:
 
 1. Adding new Voting Members
-2. Removing Voting Members
-3. Electing Coordination Committee members
-4. Removing Coordination Committee members
-5. Appointment or removal of the Ombudsperson
-6. Changes to this Charter
-7. Other matters for which the Coordination Committee believes a vote is
+2. Electing Coordination Committee members
+3. Appointment of the Ombudsperson
+4. Removing Voting Members
+5. Removing Coordination Committee members
+6. Removing the Ombudsperson
+7. Changes to this Charter
+8. Other matters for which the Coordination Committee believes a vote is
    appropriate.
 
 The mechanism, timeline, and criteria for a decisive vote are specified in the
-respective sections of this document in the first six cases and by the
+respective sections of this document in the first seven cases and by the
 Coordination Committee in the last case.
 
 Membership
