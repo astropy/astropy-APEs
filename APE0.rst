@@ -51,10 +51,7 @@ Composition
 ^^^^^^^^^^^
 The Coordination Committee is a committee that is composed of four or five
 members (this number will be decided by vote at the same time as the first
-Coordination Committee election). The
-Coordination Committee should aim to represent the diversity of the Astropy
-community.  Hence, it should aim for diversity in geography, skill set (both
-astronomy and developer), background, and so on. Furthermore, unless it would
+Coordination Committee election). Unless it would
 be short of candidates otherwise, it should not have more than one member from
 any particular employer. The Ombudsperson (described in
 Section 4) and the Coordination Committee will work to maintain this composition
