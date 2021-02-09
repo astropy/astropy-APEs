@@ -183,7 +183,8 @@ publicly on an appropriate Project-wide communication channel, and two other
 active Voting Members second the proposal.
 
 For Coordination Committee Member(s) to be removed, two-thirds of the active
-`Voting Members <votingmembers>`_ must vote in support of the removal.
+`Voting Members <votingmembers>`_ (where the count *includes* the member being
+voted on if they are a voting member) must vote in support of the removal.
 
 To avoid repeated removal votes, any individual `Voting Member <votingmembers>`_
 who has called for, or seconded such a vote, may not call for or second a vote
