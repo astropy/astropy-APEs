@@ -252,7 +252,7 @@ Coordination Committee in the last case.
 
 Membership
 ^^^^^^^^^^
-Voting Members of the Astropy Project must demonstrate:
+Voting Members of the Astropy Project must demonstrate all of the following:
 
 * A good grasp of the philosophy of the Astropy Project
 * A solid track record of being constructive and helpful
