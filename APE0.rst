@@ -331,7 +331,7 @@ Member. Such a vote is triggered by a motion made by an active Voting Member,
 which must be seconded by an additional Voting Member. The vote must conclude
 no more than three months after the motion is seconded. Removal requires
 approval by two-thirds of all active Voting Members at the time the motion is
-made. The motion, second, and vote will be held in private. Removal under this
+made. The motion, second, and vote will be by secret ballot. Removal under this
 provision will be reflected by updating the list of Voting Members. A member
 removed via this mechanism does not have emeritus status.
 
