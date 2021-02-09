@@ -140,7 +140,7 @@ begins. The election consists of two phases, each lasting two weeks:
 
 The election process is managed by a non-voting Returns Officer nominated by
 the outgoing Coordination Committee, although the process (specific choice of
-web site, etc) can be set up by the Coordination Committee or their delegates.
+website, etc) can be set up by the Coordination Committee or their delegates.
 For the initial election, the Returns Officer will be nominated by the NumFOCUS
 Executive Officer. Elections will be carried out every year, provided that at
 least one of the Coordination Committee members has reached the end of their
