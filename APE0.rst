@@ -188,7 +188,7 @@ voted on if they are a voting member) must vote in support of the removal.
 
 To avoid repeated removal votes, any individual `Voting Member <votingmembers>`_
 who has called for, or seconded such a vote, may not call for or second a vote
-to remove any other Coordination Committee member for one year from the original
+to remove any Coordination Committee member for one year from the original
 motion.
 
 The Ombudsperson
