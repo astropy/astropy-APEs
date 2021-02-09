@@ -267,14 +267,14 @@ Anyone who satisfies any of the following criteria at the date of acceptance of
 this APE will be invited to be in the first group of Voting Members:
 
 * Has a named role in the project and has participated in an Astropy
-  coordination meeting in the last two years
+  coordination meeting in the last two years,
 * Has a named role in the project and has participated at least four times in
   one or more of the following Astropy telecons in the last two years prior to
   the acceptance of this APE, based on available meeting minutes or confirmation
   from telecon organizers: core package developer telecons, co-working telecons,
   infrastructure telecons, proposal-related telecons, and Astropy Learn
-  telecons.
-* Has commit rights to at least one repository in the astropy GitHub
+  telecons,
+* Has commit rights to at least one repository in the Astropy GitHub
   organization which is either the core package, a coordinated package,
   an infrastructure package, or an Astropy Learn-related repository,
   and has actively used those commit rights in the last two years prior to the
@@ -313,7 +313,7 @@ before the initial election of the Coordination Committee.
 
 Term and Active/Emeritus Status
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Voting Members have no term or term limits. Voting Members who have stopped
+Voting Members have no term limits. Voting Members who have stopped
 contributing are encouraged to declare themselves as *emeritus*. Those who have
 not made any significant contribution for two years may be asked to move
 themselves to the *emeritus* category by the Coordination Committee. If no
@@ -370,7 +370,7 @@ N/A
 Implementation
 ==============
 This Charter enters into force upon this APE being accepted (see the last
-section of the description). At that time the ``GOVERNANCE.rst`` file in the
+section of the description). At that time the ``GOVERNANCE.md`` file in the
 astropy repo should be updated to point to this document.
 
 Backward Compatibility
