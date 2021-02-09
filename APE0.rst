@@ -146,10 +146,12 @@ term or decided to step down.
 Term
 ^^^^
 Each Coordination Committee member's term runs for three years from when
-the election results are finalized, except when the election was to fill a
-vacancy created partway through a term. In that case, the newly-elected member’s
-term runs for the remainder of the term of the person they are replacing. There
-is no limit to the number of terms that a single individual can be elected for.
+the election results are finalized. There is no limit to the number of terms that
+a single individual can be elected for.
+
+In the case of a vacancy partway through a term, a by-election will be held. 
+The term of the newly-elected member runs for the remainder of the term of
+the member they are replacing. 
 
 For the initial election of Coordination Committee members, two seats will have
 terms of one year, one has a term of two years, and one has a term of three
