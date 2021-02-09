@@ -79,7 +79,7 @@ work to:
 * Act as the decision-making body where all other methods for achieving
   consensus have failed,
 * Operate openly and provide transparency and opportunity for community input
-  into its activities.
+  into its activities,
 * Act as a point of contact with other organizations.
 
 Responsibilities and Authority
@@ -87,10 +87,10 @@ Responsibilities and Authority
 The Coordination Committee has broad authority to make decisions about the
 Project. For example, they can:
 
-* Accept or reject APEs and updates to APEs (except this one - see below);
-* Enforce or update the Project's code of conduct
-* Manage any project assets (including financial and physical assets)
-* Delegate parts of their authority to other subcommittees or processes
+* Accept or reject APEs and updates to APEs (except this one - see below),
+* Enforce or update the Project's code of conduct,
+* Manage any project assets (including financial and physical assets),
+* Delegate parts of their authority to other subcommittees or processes.
 
 However, they cannot modify the Governance of the Project (i.e., this document),
 except during the initial adoption of this Charter as specified herein.
@@ -108,7 +108,7 @@ weeks.
 Making Decisions
 ^^^^^^^^^^^^^^^^
 To use its authority, the Coordination Committee must first attempt to reach
-a consensus. If a consensus cannot be reached the Committee votes. Every
+a consensus. If a consensus cannot be reached, the Committee votes. Every
 Coordination Committee member must either vote or explicitly abstain. Members
 with a conflict of interest on a particular vote must abstain. The final
 decision regarding what constitutes a conflict of interest is determined by the
