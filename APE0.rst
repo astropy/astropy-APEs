@@ -169,7 +169,7 @@ election must take place.
 
 If a Coordination Committee member cannot be contacted for longer than two
 months without prior notification (for example, due to planned leave), then the
-rest of the Coordination Committee may vote to trigger an election to replace
+rest of the Coordination Committee may vote to trigger a by-election to replace
 them for the duration of their term.
 
 Removing Members
