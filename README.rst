@@ -15,6 +15,7 @@ Accepted APEs
 === ================================================================ =========== ============
 #     Title                                                          Date        DOI
 === ================================================================ =========== ============
+0   `The Astropy Project Governance Charter`_.                       2021-Feb-19 |APE 0 DOI|
 1   `APE Purpose and Process`_                                       2013-Nov-08 |APE 1 DOI|
 2   `Astropy Release Cycle and Version Numbering`_                   2013-Dec-11 |APE 2 DOI|
 3   `Configuration`_                                                 2013-Dec-10 |APE 3 DOI|
@@ -31,6 +32,7 @@ Accepted APEs
 17  `A roadmap for package infrastructure without astropy-helpers`_  2019-Dec-12 |APE 17 DOI|
 === ================================================================ =========== ============
 
+.. _The Astropy Project Governance Charter: https://github.com/astropy/astropy-APEs/blob/master/APE0.rst
 .. _APE Purpose and Process: https://github.com/astropy/astropy-APEs/blob/master/APE1.rst
 .. _Astropy Release Cycle and Version Numbering: https://github.com/astropy/astropy-APEs/blob/master/APE2.rst
 .. _Configuration: https://github.com/astropy/astropy-APEs/blob/master/APE3.rst
@@ -46,6 +48,9 @@ Accepted APEs
 .. _An Updated Model for the Affiliated Package Ecosystem: https://github.com/astropy/astropy-APEs/blob/master/APE15.rst
 .. _A roadmap for package infrastructure without astropy-helpers: https://github.com/astropy/astropy-APEs/blob/master/APE17.rst
 
+.. |APE 0 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4552791.svg
+   :target: https://doi.org/10.5281/zenodo.4552791
+   
 .. |APE 1 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043886.svg
    :target: https://doi.org/10.5281/zenodo.1043886
 
