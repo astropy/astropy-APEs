@@ -5,13 +5,13 @@ author: The Astropy Governance Working Group; Tom Aldcroft, Matt Craig, Kelle Cr
 
 date-created: 2020 July 31
 
-date-last-revised: 2021 January 28
+date-last-revised: 2021 February 19
 
-date-accepted: <replace with accepted date>
+date-accepted: 2021 February 19
 
 type: Process
 
-status: Discussion
+status: Accepted
 
 Abstract
 ========
@@ -391,5 +391,17 @@ provide an excellent starting point for this discussion.
 
 Decision rationale
 ==================
-<To be filled in by the coordinating committee when the APE is accepted or
-rejected>
+This APE was the product of several months of discussion by the Astropy
+Governance Working Group in early 2020, and was then put to the wider
+Astropy community for feedback in October 2020. Following extensive
+discussions in `astropy/astropy-APEs#61
+<https://github.com/astropy/astropy-APEs/pull/61>`_, feedback was requested on a
+revised version at the end of January 2021 and consensus was deemed
+to have been reached by early February.
+
+As specified above, this charter aims to be a living and updatable
+document - thus, once the initial voting membership is confirmed,
+any parts of the document can be discussed further and amended,
+and the present version is just meant to be a starting point.
+
+The APE was formally accepted on 19th February 2021.
