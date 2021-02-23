@@ -46,6 +46,7 @@ Implementation
 
 Some initial work has been done in `#10900 <https://github.com/astropy/astropy/pull/10900>`__ on bumping the minimum Python version in the core astropy package to Python 3.7+.
 
+The release calendar for the astropy core package will be updated over time to include the minimum Python and Numpy version for upcoming releases.
 Backward compatibility
 ----------------------
 
