@@ -5,11 +5,11 @@ author: Stuart Mumford and Thomas Robitaille
 
 date-created: 2020 October 16
 
-date-last-revised: 2020 October 16
+date-last-revised: 2021 February 25
 
 type: Standard Track
 
-status: Discussion
+status: Accepted
 
 
 Abstract
@@ -64,7 +64,8 @@ See `NEP 29`_.
 Decision rationale
 ------------------
 
-<To be filled in by the coordinating committee when the APE is accepted or rejected>
+After discussion and some revision in the PR, there was broad support and no
+objections to adopting this plan.
 
 Note: On merge of this APE an addendum should be added to APE 10 referencing this one.
 
