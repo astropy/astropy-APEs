@@ -270,3 +270,6 @@ After v3.0, a decision was made to adjust the release calendar by +3 months.
 The table above has been updated appropriately.  v3.3 was also removed on this
 basis, as the timing for the end of Python 2.x support is better aligned with an
 end-of-2019 4.0 release.
+
+This APE is superceded by `APE18 <APE18.rst>`_, which contains the version
+support plan for versions from 4.0 on.

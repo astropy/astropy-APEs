@@ -67,6 +67,4 @@ Decision rationale
 After discussion and some revision in the PR, there was broad support and no
 objections to adopting this plan.
 
-Note: On merge of this APE an addendum should be added to APE 10 referencing this one.
-
 .. _NEP 29: https://numpy.org/neps/nep-0029-deprecation_policy.html
