@@ -81,7 +81,7 @@ APE-able. Posting to the astropy-dev mailing list is the best way to go about
 doing this.
 
 Following a discussion on astropy-dev, the proposal should be submitted as a
-Pull Request to astropy-APEs with the name APE<n>.rst where <n> is an
+pull request to astropy-APEs with the name APE<n>.rst where <n> is an
 appropriately assigned number. The draft must use the APEtemplate.rst file.
 That a formal proposal has been submitted as a PR should be announced to the
 astropy-dev list.
@@ -146,7 +146,7 @@ An APE can be modified, with one person acting as "champion" for the APE update.
 Similar to the APE development procedure, the update champion should discuss
 their desired changes with the Astropy community (e.g., through the astropy-dev
 mailing list). Following a discussion on astropy-dev, the APE update should be
-submitted as a Pull Request which should be advertised on astropy-dev.
+submitted as a pull request which should be advertised on astropy-dev.
 
 The APE should be modified directly without annotating the changes. If not
 already listed, the update champion can add themselves to the author list for
@@ -155,11 +155,11 @@ be added to the bottom of the APE (if not already there) with a bullet point
 list of dates which link to the DOI of the previous versions of APEs.
 
 The Astropy Coordinating Committee is responsible for reviewing and ultimately
-accepting Pull Requests for changes to individual APEs, unless otherwise
+accepting pull requests for changes to individual APEs, unless otherwise
 specified within the APE document of interest. For non-trivial changes,
 community consensus should generally be reached before acceptance.
 
-Branches and Pull requests
+Branches and Pull Requests
 --------------------------
 
 N/A
