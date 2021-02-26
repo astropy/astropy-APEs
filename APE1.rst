@@ -188,4 +188,4 @@ The coordinating committee thought it was a honking great idea.
 Previous versions of this APE
 -----------------------------
 
-* 2013-11-08 [`DOI <https://zenodo.org/record/1043886>`_] [`GitHub <https://github.com/astropy/astropy-APEs/blob/42951733ac42c0ea178d8df30705274a43c93091/APE1.rst>`_]
+* 2013-11-08 [`DOI <http://doi.org/10.5281/zenodo.1043886>`_] [`GitHub <https://github.com/astropy/astropy-APEs/blob/42951733ac42c0ea178d8df30705274a43c93091/APE1.rst>`_]
