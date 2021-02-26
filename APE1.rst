@@ -1,11 +1,11 @@
 APE Purpose and Process
 -----------------------
 
-author: Perry Greenfield, Lia Corrales
+author: Perry Greenfield, Lia Corrales, Thomas Robitaille
 
 date-created: 2013 October 11
 
-date-last-revised: 2020 July 22
+date-last-revised: 2021 February 26
 
 date-accepted: 2013 November 8
 
@@ -142,24 +142,22 @@ An APE's status can
 Modifications to an APE
 .......................
 
-**Addendum: July 22, 2020**
+An APE can be modified, with one person acting as "champion" for the APE update.
+Similar to the APE development procedure, the update champion should discuss
+their desired changes with the Astropy community (e.g., through the astropy-dev
+mailing list). Following a discussion on astropy-dev, the APE update should be
+submitted as a Pull Request which should be advertised on astropy-dev.
 
-An APE can be modified, with one person acting as "champion" for the
-APE update. Similar to the APE development procedure, the update
-champion should discuss their desired changes with the Astropy
-community (e.g., through the astropy-dev mailing list).
+The APE should be modified directly without annotating the changes. If not
+already listed, the update champion can add themselves to the author list for
+the APE being updated. A new section, **Previous versions of this APE** should
+be added to the bottom of the APE (if not already there) with a bullet point
+list of dates which link to the DOI of the previous versions of APEs.
 
-Following a discussion on astropy-dev, the APE update shall be
-submitted as a Pull Request. The submission of the Pull Request should
-be announced formally on the astropy-dev list before they are
-accepted. If not already listed, the update champion can add
-themselves to the author list for the APE being updated. When
-appropriate, major changes to an APE document are encouraged to be
-clearly labeled as an addendum.
-
-The Astropy Coordinating Committee is responsible for reviewing and
-ultimately accepting Pull Requests for changes to individual APEs,
-unless otherwise specified within the APE document of interest.
+The Astropy Coordinating Committee is responsible for reviewing and ultimately
+accepting Pull Requests for changes to individual APEs, unless otherwise
+specified within the APE document of interest. For non-trivial changes,
+community consensus should generally be reached before acceptance.
 
 Branches and Pull requests
 --------------------------
@@ -185,3 +183,8 @@ Decision Rationale
 ------------------
 
 The coordinating committee thought it was a honking great idea.
+
+Previous versions of this APE
+-----------------------------
+
+* `2013-11-08 <https://zenodo.org/record/1043886>`_
