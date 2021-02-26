@@ -152,7 +152,8 @@ The APE should be modified directly without annotating the changes. If not
 already listed, the update champion can add themselves to the author list for
 the APE being updated. A new section, **Previous versions of this APE** should
 be added to the bottom of the APE (if not already there) with a bullet point
-list of dates which link to the DOI of the previous versions of APEs.
+list of dates which link to the DOI of the previous versions of APEs as well as
+links to the merge commits of the APEs.
 
 The Astropy Coordinating Committee is responsible for reviewing and ultimately
 accepting pull requests for changes to individual APEs, unless otherwise
@@ -187,4 +188,4 @@ The coordinating committee thought it was a honking great idea.
 Previous versions of this APE
 -----------------------------
 
-* `2013-11-08 <https://zenodo.org/record/1043886>`_
+* 2013-11-08 [`DOI <https://zenodo.org/record/1043886>`_] [`GitHub <https://github.com/astropy/astropy-APEs/blob/42951733ac42c0ea178d8df30705274a43c93091/APE1.rst>`_]
