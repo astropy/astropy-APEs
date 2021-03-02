@@ -155,7 +155,10 @@ already listed, the update champion can add themselves to the author list for
 the APE being updated. A new section, **Previous versions of this APE** should
 be added to the bottom of the APE (if not already there) with a bullet point
 list of dates which link to the DOI of the previous versions of APEs as well as
-links to the merge commits of the APEs.
+links to the merge commits of the APEs. The `date-last-revised` header for the APE
+should be updated, and a `revised-by` header should be added for each
+update (see the first `revised-by` section of *this* APE for a formatting 
+example).
 
 The review process is the same as for a newly-proposed APE as described in the
 **APE Review** section above.
