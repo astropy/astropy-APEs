@@ -13,7 +13,7 @@ type: Process
 
 status: Accepted
 
-revised-by: Lia Corrales, Thomas Robitaille - 2021 February 26 - Added APE modification process
+revised-by: Lia Corrales, Thomas Robitaille, Erik Tollerud - 2021 February 26 - Added APE modification process
 
 Abstract
 --------
