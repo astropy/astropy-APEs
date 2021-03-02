@@ -1,7 +1,7 @@
 APE Purpose and Process
 -----------------------
 
-author: Perry Greenfield, Lia Corrales, Thomas Robitaille
+author: Perry Greenfield
 
 date-created: 2013 October 11
 
@@ -12,6 +12,8 @@ date-accepted: 2013 November 8
 type: Process
 
 status: Accepted
+
+revised-by: Lia Corrales, Thomas Robitaille - 2021 February 26 - Added APE modification process
 
 Abstract
 --------
@@ -142,7 +144,7 @@ An APE's status can
 Modifications to an APE
 .......................
 
-An APE can be modified, with one person acting as "champion" for the APE update.
+An APE can be modified, with one person acting as champion for the APE update.
 Similar to the APE development procedure, the update champion should discuss
 their desired changes with the Astropy community (e.g., through the astropy-dev
 mailing list). Following a discussion on astropy-dev, the APE update should be
@@ -155,10 +157,8 @@ be added to the bottom of the APE (if not already there) with a bullet point
 list of dates which link to the DOI of the previous versions of APEs as well as
 links to the merge commits of the APEs.
 
-The Astropy Coordinating Committee is responsible for reviewing and ultimately
-accepting pull requests for changes to individual APEs, unless otherwise
-specified within the APE document of interest. For non-trivial changes,
-community consensus should generally be reached before acceptance.
+The review process is the same as for a newly-proposed APE as described in the
+**APE Review** section above.
 
 Branches and Pull Requests
 --------------------------
