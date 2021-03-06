@@ -401,7 +401,7 @@ Each column specifier is a dictionary structure with the following keys:
   Column data type.  Allowed types are: ``bool``, ``int8``,
   ``int16``, ``int32``, ``int64``, ``uint8``, ``uint16``, ``uint32``,
   ``uint64``, ``float16``, ``float32``, ``float64``, ``float128``,
-  ``complex64``, ``complex128``, ``complex256``, and ``string``.
+  ``complex64``, ``complex128``, ``complex256``, ``string``, and ``object``.
   Some implementations may not support all types.
 
 ``unit``: string, optional
@@ -451,6 +451,21 @@ the following rules:
 - A double quote character in a field must be represented by two double quote
   characters.
 
+Object columns
+""""""""""""""
+
+ECSV allows storing a heterogenous column of objects that correspond to the
+following Python object types: strings, bytes, numbers, tuples, lists, dicts,
+sets, booleans, and ``None``. The object types need not be identical within the
+column, so one might store a column like ``[1, 'hello', {'a': [3.0, 4.0]}, [1,
+2]]``. More commonly, object columns can be used to store a variable-length
+array such as ``[[1], [2, 3, 4], [5, 6]]``.
+
+The string representation of the object in the ECSV standard must be compatible
+with the Python representation (``repr``) for a literal of that object to be
+fully compliant with ECSV. The ECSV parser behavior for an object column string
+value that does not parse as a Python literal is not specified here and depends
+on the implementation.
 
 Multidimensional columns
 """"""""""""""""""""""""
