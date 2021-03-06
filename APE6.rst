@@ -5,13 +5,15 @@ author: Tom Aldcroft
 
 date-created: 2014 April 12
 
-date-last-revised: 2019 March 8
+date-last-revised: 2021 May ??
 
 date-accepted: 2015 January 26
 
 type: Standard Track
 
 status: Accepted
+
+revised-by: Tom Aldcroft, Mark Taylor - 2021 May ?? - Added subtype keyword and extended data types
 
 Abstract
 --------
@@ -213,7 +215,7 @@ overall structure:
 - A CSV-formatted data section in which the first line contains the column names
   and subsequent lines contains the data values.
 
-Version 0.9 of the ECSV format specification and the reference Python
+Version 1.0 of the ECSV format specification and the reference Python
 implementation assumes ASCII-encoded header and data sections.  Support
 for unicode (in particular UTF-8) may be added in subsequent versions.
 
@@ -271,7 +273,7 @@ Now we write this to a file using the ECSV format and print it::
 
   >>> t.write('example.ecsv', format='ascii.ecsv')
   >>> cat example.ecsv
-  # %ECSV 0.9
+  # %ECSV 1.0
   # ---
   # datatype:
   # - {name: a, unit: m / s, datatype: int64, format: '%03d'}
@@ -313,7 +315,7 @@ Now we write the table to standard out::
 
   >>> import sys
   >>> t.write(sys.stdout, format='ascii.ecsv')
-  # %ECSV 0.9
+  # %ECSV 1.0
   # ---
   # datatype:
   # - {name: a, unit: m / s, datatype: float64, format: '%5.2f', description: Column A}
@@ -404,6 +406,12 @@ Each column specifier is a dictionary structure with the following keys:
   ``complex64``, ``complex128``, ``complex256``, and ``string``.
   Some implementations may not support all types.
 
+``subtype``: string, optional
+   The ``subtype`` keyword indicates the presence of an extended data type such
+   as a variable-length array or an object column. If ``subtype`` is defined the
+   ``datatype`` must be set to ``string``. See the section below on `Subtype
+   data`_ for details.
+
 ``unit``: string, optional
    Data unit (unit system could be part of schema?).
 
@@ -451,25 +459,104 @@ the following rules:
 - A double quote character in a field must be represented by two double quote
   characters.
 
+Subtype data
+""""""""""""
 
-Multidimensional columns
-""""""""""""""""""""""""
+From version 1.0 and later it is possible to embed extended data types beyond
+simple typed scalars in the data section. The data are encoded as a string, with
+details of the encoded data being captured in the ``subtype`` keyword which is
+new in version 1.0 of ECSV.
 
-Multidimensional columns are not supported in version 0.9 of the ECSV format.
+For extended data the ``datatype`` is set to ``string``. This informs the table
+reader that the literal values in the data section will be strings, ensuring
+back-compatibility with readers that do not implement the functionality to
+decode the values using the ``subtype`` key.
 
-None of the available text data formats supports multidimensional columns
-with more than one element per row.  Although in many cases
-having such data would indicate using a binary storage format, there is
-utility in supporting this for cases where the column shape is "reasonable",
-perhaps with no more than about 10 elements.
+The ECSV standard defines three types of extended data that can be represented:
+fixed-dimension array data, variable-length array data, and object data. These
+correspond to specified ``subtype`` values described below. It is also allowed
+to define new custom ``subtype`` values for specific applications. If table
+readers do not recognize the subtype then the column should be returned as a
+string.
 
-One possible solution is to store the individual data elements as a series of
-columns with a naming convention such as ``<name>__<index0>_<index1>_...``.  In
-this case one would include a keyword in the column specification that
-indicates the column is one element of a multidimensional column ``<name>``.
-The specifics might need iteration, but again the idea is to maintain the
-ability to always read a ECSV file with a simple CSV reader, even if using the
-results then takes more effort.
+Fixed-length array data
+@@@@@@@@@@@@@@@@@@@@@@@
+
+For columns where each data cell is an array with consistent dimensions, the
+``datatype`` is set to ``string`` and the ``subtype`` is set to the actual data
+type (one of the allowed values of the ``datatype`` keyword specified
+previously) followed by the `JSON <https://www.json.org/>`_ representation of
+the shape (dimensions) of each cell.
+
+The contents of each cell are represented as a string using the JSON encoding of
+the array values. The encoding shall use row-major ordering with array shapes
+defined accordingly.
+
+In the example below each cell is a ``3 x 2`` array of ``float64`` type. The shape
+is ``[3,2]`` so the ``subtype`` is ``float64[3,2]``::
+
+  # %ECSV 1.0
+  # ---
+  # datatype:
+  # - {name: a, datatype: string, subtype: 'float64[3,2]'}
+  # schema: astropy-2.0
+  a
+  [[0.0,1.0],[2.0,3.0],[4.0,5.0]]
+  [[6.0,7.0],[8.0,9.0],[10.0,11.0]]
+
+Variable-length array data
+@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+For columns where the data cell are arrays which are consistent in all
+dimensions *except* for the final dimension, the ``datatype`` is set to
+``string`` and the ``subtype`` is set to the actual data type (one of the
+allowed values of the ``datatype`` keyword specified previously)  followed by
+the JSON representation of shape (dimensions) of the cells. Here the shape is
+set to the consistent dimensions plus a ``null`` dimension.
+
+The contents of each cell are represented as a string using the JSON encoding of
+the array values. The encoding shall use row-major ordering with array shapes
+defined accordingly.
+
+For example a column that has 3-d arrays in each cell with shapes of
+``[4,4,2]``, ``[4,4,5]`` and ``[4,4,3]``, the ``subtype`` would be
+``int64[4,4,null]``. For a column that has 1-d ``int64`` arrays having lengths of
+2, 5, and 3 respectively the ``subtype`` would be ``int64[null]``.
+
+An example for a 1-d variable-length array follows::
+
+  # %ECSV 1.0
+  # ---
+  # datatype:
+  # - {name: a, datatype: string, subtype: 'int64[null]'}
+  # schema: astropy-2.0
+  a
+  [1,2]
+  [3,4,5,6,7]
+  [8,9,10]
+
+Object columns
+@@@@@@@@@@@@@@
+
+For object-type columns, the ``datatype`` is set to ``string`` and the
+``subtype`` is set to ``object``. Each object in the column is converted to a
+string representation using `JSON <https://www.json.org/>`_ encoding. This
+implies that the supported object types include integer and float numbers,
+boolean, null, strings, arrays, and mappings.
+
+The example below shows writing an object array to ECSV. Note that JSON requires
+a double-quote around strings, and ECSV requires ``""`` to represent
+a double-quote within a string, hence the double-double quotes.
+
+  # %ECSV 1.0
+  # ---
+  # datatype:
+  # - {name: a, datatype: string, subtype: object}
+  # schema: astropy-2.0
+  a
+  "{""a"":1}"
+  "{""b"":[2.5,null]}"
+  true
 
 Branches and pull requests
 --------------------------
@@ -478,18 +565,24 @@ Branches and pull requests
 
 `PR# 683 <https://github.com/astropy/astropy/pull/683>`_: Initial version "Support table metadata in io.ascii"
 
+`PR# 11569 <https://github.com/astropy/astropy/pull/11569>`_: "Support reading and writing multidimensional and object columns in ECSV"
 
 Implementation
 --------------
 
-The implementation is done in PR# 2319, which was based on PR# 683.
-
+The initial implementation is done in PR# 2319, which was based on PR# 683. PR#
+11569 added support for extended data types (multidimensional and object
+columns) via a new ``subtype`` keyword.
 
 Backward compatibility
 ----------------------
 
 This is a new feature and there are no issues with backward compatibility.
 
+The 1.0 update adds a new ``subtype`` keyword. This is backward compatible with
+the previous 0.9 version since that keyword will simply be ignored by older
+readers that are only compliant with the 0.9 standard. In this case the
+extended data values will be returned as the string representation.
 
 Alternatives
 ------------
@@ -515,3 +608,8 @@ A number of good suggestions and ideas were incorporated from the discussion,
 particularly related to compatibility with the ASDF standard.  All comments
 from interested parties were agreeably resolved.  As a result, the coordination
 committee unanimously agreed to accept this APE on 2015 January 26.
+
+Previous versions of this APE
+-----------------------------
+
+* 2015-01-26 [`DOI <?>`_] [`GitHub <?>`_]
