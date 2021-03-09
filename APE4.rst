@@ -128,7 +128,7 @@ Finally, a PR to the package-template repostory,
 affiliated package template to use the machinery availabe in ``astropy_helpers``
 rather than depending on ``astropy`` itself.
 
-These PRs have already been merged into the master branches of their respective
+These PRs have already been merged into the main branches of their respective
 repositories.  It was determined that prior to final acceptance of this APE we
 should see how the proposed implementation works in pracice so that any tweaks
 can be made if necessary.
