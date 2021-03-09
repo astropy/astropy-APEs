@@ -143,7 +143,7 @@ download Astropy v3.0 regardless of the active Python version.
 the ``Requires-Python`` metadata field for Python packages, which can be used
 to explicitly specify which Python versions a package is compatible with.
 Support for this was added to `setuptools v24.2
-<https://github.com/pypa/setuptools/blob/main/CHANGES.rst#v2420>`_ via the
+<https://github.com/pypa/setuptools/blob/master/CHANGES.rst#v2420>`_ via the
 ``python_requires`` keyword argument to ``setup``::
 
     setup(name=...,
@@ -164,7 +164,7 @@ version of Astropy not compatible with Python 2.
 
 One possible solution is described in the
 `Jupyter roadmap
-<https://github.com/jupyter/roadmap/blob/main/accepted/migration-to-python-3-only.md#multiple-source-distributions>`_,
+<https://github.com/jupyter/roadmap/blob/master/accepted/migration-to-python-3-only.md#multiple-source-distributions>`_,
 which is to upload tar files that have a ``-py3.x`` suffix (one file per Python
 3.x version, e.g. ``astropy-3.0-py3.5.tar.gz``). We could choose to do this if
 we believe that the fraction of users with old pip installations is too high.

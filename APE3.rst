@@ -413,8 +413,8 @@ to science state:
      - ``vo.samp.conf.use_internet``
    * - ``[vo.validator.validate] cs_mstr_list``
      - ``vo.validator.validate.CS_MSTR_LIST``
-     - ``[vo.validator] conesearch_main_list``
-     - ``vo.validator.conf.conesearch_main_list``
+     - ``[vo.validator] conesearch_master_list``
+     - ``vo.validator.conf.conesearch_master_list``
    * - ``[vo.validator.validate] cs_urls``
      - ``vo.validator.validate.CS_URLS``
      - ``[vo.validator] conesearch_urls``
