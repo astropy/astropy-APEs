@@ -5,13 +5,15 @@ author: Perry Greenfield
 
 date-created: 2013 October 11
 
-date-last-revised: 2013 November 8
+date-last-revised: 2021 February 26
 
 date-accepted: 2013 November 8
 
 type: Process
 
 status: Accepted
+
+revised-by: Lia Corrales, Thomas Robitaille, Erik Tollerud - 2021 February 26 - Added APE modification process
 
 Abstract
 --------
@@ -81,7 +83,7 @@ APE-able. Posting to the astropy-dev mailing list is the best way to go about
 doing this.
 
 Following a discussion on astropy-dev, the proposal should be submitted as a
-Pull Request to astropy-APEs with the name APE<n>.rst where <n> is an
+pull request to astropy-APEs with the name APE<n>.rst where <n> is an
 appropriately assigned number. The draft must use the APEtemplate.rst file.
 That a formal proposal has been submitted as a PR should be announced to the
 astropy-dev list.
@@ -139,7 +141,29 @@ An APE's status can
   rationales, so that new community members can understand why a decision was
   made.
 
-Branches and Pull requests
+Modifications to an APE
+.......................
+
+An APE can be modified, with one person acting as champion for the APE update.
+Similar to the APE development procedure, the update champion should discuss
+their desired changes with the Astropy community (e.g., through the astropy-dev
+mailing list). Following a discussion on astropy-dev, the APE update should be
+submitted as a pull request which should be advertised on astropy-dev.
+
+The APE should be modified directly without annotating the changes. If not
+already listed, the update champion can add themselves to the author list for
+the APE being updated. A new section, **Previous versions of this APE** should
+be added to the bottom of the APE (if not already there) with a bullet point
+list of dates which link to the DOI of the previous versions of APEs as well as
+links to the merge commits of the APEs. The `date-last-revised` header for the APE
+should be updated, and a `revised-by` header should be added for each
+update (see the first `revised-by` section of *this* APE for a formatting 
+example).
+
+The review process is the same as for a newly-proposed APE as described in the
+**APE Review** section above.
+
+Branches and Pull Requests
 --------------------------
 
 N/A
@@ -163,3 +187,8 @@ Decision Rationale
 ------------------
 
 The coordinating committee thought it was a honking great idea.
+
+Previous versions of this APE
+-----------------------------
+
+* 2013-11-08 [`DOI <http://doi.org/10.5281/zenodo.1043886>`_] [`GitHub <https://github.com/astropy/astropy-APEs/blob/42951733ac42c0ea178d8df30705274a43c93091/APE1.rst>`_]
