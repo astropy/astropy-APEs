@@ -5,7 +5,7 @@ author: Tom Aldcroft
 
 date-created: 2014 April 12
 
-date-last-revised: 2021 May ??
+date-last-revised: 2021 May 02
 
 date-accepted: 2015 January 26
 
@@ -13,7 +13,7 @@ type: Standard Track
 
 status: Accepted
 
-revised-by: Tom Aldcroft, Mark Taylor - 2021 May ?? - Added subtype keyword and extended data types
+revised-by: Tom Aldcroft, Mark Taylor - 2021 May 02 - Added subtype keyword and extended data types
 
 Abstract
 --------
@@ -612,4 +612,4 @@ committee unanimously agreed to accept this APE on 2015 January 26.
 Previous versions of this APE
 -----------------------------
 
-* 2015-01-26 [`DOI <?>`_] [`GitHub <?>`_]
+* 2019-03-08 [`DOI <https://doi.org/10.5281/zenodo.1043901>`_] [`GitHub <https://github.com/astropy/astropy-APEs/blob/d2c90199a87b59c2b3e8465586c34a029287766c/APE6.rst>`_]
