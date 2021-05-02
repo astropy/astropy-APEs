@@ -407,10 +407,9 @@ Each column specifier is a dictionary structure with the following keys:
   Some implementations may not support all types.
 
 ``subtype``: string, optional
-   The ``subtype`` keyword indicates the presence of an extended data type such
-   as a variable-length array or an object column. If ``subtype`` is defined the
-   ``datatype`` must be set to ``string``. See the section below on `Subtype
-   data`_ for details.
+   The ``subtype`` keyword describes an extended data type such as a
+   variable-length array or an object column. See the section below on `Subtype
+   data`_ for details. This is new in version 1.0 of the ECSV standard.
 
 ``unit``: string, optional
    Data unit (unit system could be part of schema?).
@@ -463,44 +462,40 @@ Subtype data
 """"""""""""
 
 From version 1.0 and later it is possible to embed extended data types beyond
-simple typed scalars in the data section. The data are encoded as a string, with
-details of the encoded data being captured in the ``subtype`` keyword which is
-new in version 1.0 of ECSV.
+simple typed scalars in the data section. The column data in the ECSV output
+shall be consistent with the specified ``datatype``, with additional details of
+the data being captured in the``subtype`` keyword.
 
-For extended data the ``datatype`` is set to ``string``. This informs the table
-reader that the literal values in the data section will be strings, ensuring
-back-compatibility with readers that do not implement the functionality to
-decode the values using the ``subtype`` key.
+If table readers do not recognise or support the ``subtype`` then they may
+ignore it and use the ``datatype`` only.
 
 The ECSV standard defines three types of extended data that can be represented:
 fixed-dimension array data, variable-length array data, and object data. These
 correspond to specified ``subtype`` values described below. It is also allowed
-to define new custom ``subtype`` values for specific applications. If table
-readers do not recognize the subtype then the column should be returned as a
-string.
+to define new custom ``subtype`` values for specific applications.
 
 Fixed-length array data
 @@@@@@@@@@@@@@@@@@@@@@@
 
 For columns where each data cell is an array with consistent dimensions, the
 ``datatype`` is set to ``string`` and the ``subtype`` is set to the actual data
-type (one of the allowed values of the ``datatype`` keyword specified
-previously) followed by the `JSON <https://www.json.org/>`_ representation of
-the shape (dimensions) of each cell.
+type (one of the allowed values of the ``datatype`` keyword) followed by the
+`JSON <https://www.json.org/>`_ representation of the shape (dimensions) of each
+cell.
 
 The contents of each cell are represented as a string using the JSON encoding of
 the array values. The encoding shall use row-major ordering with array shapes
 defined accordingly.
 
-In the example below each cell is a ``3 x 2`` array of ``float64`` type. The shape
-is ``[3,2]`` so the ``subtype`` is ``float64[3,2]``::
+In the example below each cell is a ``3 x 2`` array of ``float64`` type. The
+shape is ``[3,2]`` so the ``subtype`` is ``float64[3,2]``::
 
   # %ECSV 1.0
   # ---
   # datatype:
-  # - {name: a, datatype: string, subtype: 'float64[3,2]'}
+  # - {name: array3x2, datatype: string, subtype: 'float64[3,2]'}
   # schema: astropy-2.0
-  a
+  array3x2
   [[0.0,1.0],[2.0,3.0],[4.0,5.0]]
   [[6.0,7.0],[8.0,9.0],[10.0,11.0]]
 
@@ -528,9 +523,9 @@ An example for a 1-d variable-length array follows::
   # %ECSV 1.0
   # ---
   # datatype:
-  # - {name: a, datatype: string, subtype: 'int64[null]'}
+  # - {name: array_var, datatype: string, subtype: 'int64[null]'}
   # schema: astropy-2.0
-  a
+  array_var
   [1,2]
   [3,4,5,6,7]
   [8,9,10]
@@ -539,10 +534,15 @@ Object columns
 @@@@@@@@@@@@@@
 
 For object-type columns, the ``datatype`` is set to ``string`` and the
-``subtype`` is set to ``object``. Each object in the column is converted to a
+``subtype`` is set to ``json``. Each object in the column is converted to a
 string representation using `JSON <https://www.json.org/>`_ encoding. This
-implies that the supported object types include integer and float numbers,
-boolean, null, strings, arrays, and mappings.
+implies that the supported object types are those that can be represented in
+JSON, namely integer and float numbers, boolean, null, strings, arrays, and
+mappings.
+
+As a point of clarification, "object" here refers to the common usage in the
+context of object-oriented programming. In the JSON standard, "object" refers to
+what we call a "mapping", for instance ``{"a":1, "b":2}``.
 
 The example below shows writing an object array to ECSV. Note that JSON requires
 a double-quote around strings, and ECSV requires ``""`` to represent
@@ -551,9 +551,9 @@ a double-quote within a string, hence the double-double quotes.
   # %ECSV 1.0
   # ---
   # datatype:
-  # - {name: a, datatype: string, subtype: object}
+  # - {name: objects, datatype: string, subtype: object}
   # schema: astropy-2.0
-  a
+  objects
   "{""a"":1}"
   "{""b"":[2.5,null]}"
   true
@@ -582,7 +582,7 @@ This is a new feature and there are no issues with backward compatibility.
 The 1.0 update adds a new ``subtype`` keyword. This is backward compatible with
 the previous 0.9 version since that keyword will simply be ignored by older
 readers that are only compliant with the 0.9 standard. In this case the
-extended data values will be returned as the string representation.
+extended data values will be returned as defined by the ``datatype`` keyword.
 
 Alternatives
 ------------
