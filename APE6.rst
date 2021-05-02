@@ -547,6 +547,7 @@ what we call a "mapping", for instance ``{"a":1, "b":2}``.
 The example below shows writing an object array to ECSV. Note that JSON requires
 a double-quote around strings, and ECSV requires ``""`` to represent
 a double-quote within a string, hence the double-double quotes.
+::
 
   # %ECSV 1.0
   # ---
