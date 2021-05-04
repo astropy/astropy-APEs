@@ -78,7 +78,7 @@ not support Python 2.
 Note that v3.0 would not be an LTS release, since we would
 otherwise need to maintain two LTS releases in parallel. This is a one-off
 deviation from the version numbering policy outlined in `APE 2
-<https://github.com/astropy/astropy-APEs/blob/master/APE2.rst>`_, and subsequent releases will follow the pattern established by APE 2.
+<https://github.com/astropy/astropy-APEs/blob/main/APE2.rst>`_, and subsequent releases will follow the pattern established by APE 2.
 
 In order to decide which Python 3.x releases to support, we would follow the
 Python support calendar: the Python 3.x versions supported by an Astropy
@@ -196,9 +196,9 @@ Maintenance of v2.0 LTS
 According to the proposed release calendar, the v2.0 LTS release would be
 supported until the end of 2019. However, soon after the v2.0 release, the
 Astropy code will no longer be Python 2-compatible. As a result, pull requests
-that subsequently fix bugs in Astropy in master will in some cases not be
+that subsequently fix bugs in Astropy in main will in some cases not be
 easily backportable. One possible solution would be to also accept bug fixes in
-the v2.0.x branch and forward-port them to master.
+the v2.0.x branch and forward-port them to main.
 
 Benefits
 --------

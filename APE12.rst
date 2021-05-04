@@ -178,7 +178,7 @@ repository. To mitigate this lack of backwards compatibility a new branch on the
 current package-template repository will be created which holds the cookiecutter
 template version of the package-template. An automatically rendered (i.e. using
 Travis CI) version of the template with the default settings will be kept in the
-master branch of the package-template repository. This will result in a master
+main branch of the package-template repository. This will result in a main
 branch that looks like the current package-template repository. This could then
 be used as a git remote for people who wish to continue using this update
 method.

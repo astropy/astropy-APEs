@@ -315,9 +315,9 @@ Switching to `setuptools_scm`_ requires minimal configuration, which is well
 described in its documentation and we therefore do not repeat here. However, one
 subtlety is that since it relies on tags to determine versions, for packages
 such as the core astropy package which have all their tags on branches (at least
-in recent years), we will need to add a 'developer' tag on ``master`` straight
+in recent years), we will need to add a 'developer' tag on ``main`` straight
 after branching, e.g., after creating a ``v4.0.x`` branch we should tag the next
-commit on ``master`` as ``v4.1.dev``. In any case, the documentation about `how
+commit on ``main`` as ``v4.1.dev``. In any case, the documentation about `how
 to release the core package
 <http://docs.astropy.org/en/stable/development/releasing.html>`_ will need to
 be updated to reflect the use of setuptools_scm.

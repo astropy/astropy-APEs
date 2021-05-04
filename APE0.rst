@@ -362,7 +362,7 @@ Infrastructure
 (`YTEP 1776 <https://ytep.readthedocs.io/en/latest/YTEPs/YTEP-1776.html>`_), and
 earlier less-formal descriptions of the Astropy governance.
 
-.. _APE 1: https://github.com/astropy/astropy-APEs/blob/master/APE1.rst
+.. _APE 1: https://github.com/astropy/astropy-APEs/blob/main/APE1.rst
 
 
 Branches and Pull Requests
