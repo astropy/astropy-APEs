@@ -592,7 +592,12 @@ Branches and pull requests
 
 `PR# 683 <https://github.com/astropy/astropy/pull/683>`_: Initial version "Support table metadata in io.ascii"
 
-`PR# 11569 <https://github.com/astropy/astropy/pull/11569>`_: "Support reading and writing multidimensional and object columns in ECSV"
+PR#
+`11569 <https://github.com/astropy/astropy/pull/11569>`_,
+`11662 <https://github.com/astropy/astropy/pull/11662>`_,
+`11720 <https://github.com/astropy/astropy/pull/11720>`_:
+"Support reading and writing multidimensional and object columns in ECSV"
+
 
 Implementation
 --------------
