@@ -21,7 +21,7 @@ Abstract
 Data tables in astronomical analysis frequently contain additional metadata
 beyond just the column names and data values.  Common attributes include the
 numerical data type, the physical unit, and a longer textual description of the
-column content.  These attributes can be reprented in binary formats such as
+column content.  These attributes can be represented in binary formats such as
 FITS, but the available options for a text-only format are inadequate.
 
 APE6 proposes to fill this void by specification of a standard for the interchange of
@@ -86,7 +86,7 @@ with journal articles.  The format is alternately referred to as the CDS or
 Machine Readable Table (MRT) format.
 
 The CDS format has reasonable support for basic table and column metadata,
-include column types, null values, range checking, units, and labels.  From
+including column types, null values, range checking, units, and labels.  From
 its heritage as a catalog descriptor format, it includes table metadata
 like ADC_Keywords, Literature Reference, table description, authors, notes,
 and comments.  Within that context it provides a well-documented standard.
@@ -162,7 +162,7 @@ VOTable
 
 `VOTable <http://www.ivoa.net/documents/latest/VOT.html>`_ is by design a
 fully-flexible data format that can handle all of the needs for text
-serialization of complex data structures, including tablular data sets.  The
+serialization of complex data structures, including tabular data sets.  The
 issue in this context is in simplicity and data interchange with the broader
 community.  In essence if someone wants to read or write a VOTable then they
 must use one of a small number of implementations of this protocol.  It is not
@@ -279,8 +279,8 @@ Now we write this to a file using the ECSV format and print it::
   # - {name: a, unit: m / s, datatype: int64, format: '%03d'}
   # - {name: b, unit: km, datatype: int64, description: This is column b}
   a b
-  001 2
-  004 3
+  1 2
+  4 3
 
 We see that header starts with a header line and YAML block marker to identify
 the format and the beginning of the data block.  After that comes the YAML data
@@ -330,8 +330,8 @@ Now we write the table to standard out::
   # - comments: [Comment 1, Comment 2, Comment 3]
   # schema: astropy-2.0
   a b
-  1.00 2
-  4.00 3
+  1.0 2
+  4.0 3
 
 In this case there are Ordered dictionary elements which must be preserved
 during serialization.  This is done via the ``!!omap`` element tag.  The
@@ -353,8 +353,8 @@ necessary information to define the table columns and metadata.  This
 is expressed as a YAML-encoded data structure which has a small set of
 required keywords and standard specifiers.
 
-Each line of the YAML-encoded data structure must start with the two
-characters ``# `` (hash followed by space) to indicate the presence of
+Each line of the YAML-encoded data structure must start with the hash
+character ``#`` followed by a single space to indicate the presence of
 header content.  All content within this header section must be parseable
 as a single YAML document.  The first line which does not start with ``#``
 signifies the end of the header and the start of the data section.  Subsequent
@@ -483,7 +483,7 @@ Subtype data
 From version 1.0 and later it is possible to embed extended data types beyond
 simple typed scalars in the data section. The column data in the ECSV output
 shall be consistent with the specified ``datatype``, with additional details of
-the data being captured in the``subtype`` keyword.
+the data being captured in the ``subtype`` keyword.
 
 If table readers do not recognise or support the ``subtype`` then they may
 ignore it and use the ``datatype`` only.
@@ -575,7 +575,7 @@ a double-quote within a string, hence the double-double quotes.
   # %ECSV 1.0
   # ---
   # datatype:
-  # - {name: objects, datatype: string, subtype: object}
+  # - {name: objects, datatype: string, subtype: json}
   # schema: astropy-2.0
   objects
   "{""a"":1}"
