@@ -458,6 +458,25 @@ the following rules:
 - A double quote character in a field must be represented by two double quote
   characters.
 
+Missing values
+""""""""""""""
+
+Missing values in a data column are, by default, represented by a blank entry at
+the corresponding data location. For a comma-delimited file the following
+example shows the 3rd and 5th columns in this row as missing values::
+
+  1,2.0,,Hello,
+
+For a space-delimited file the corresponding row would be::
+
+  1 2.0 "" Hello ""
+
+With this convention it is not possible to have a zero-length string within a
+string column.  Specialized schemas may choose to use a different convention for
+missing (or masked) data. For instance it is possible to write a masked column
+as two separate columns, one for the data and one for the mask. In this case the
+empty string no longer serves as a marker for missing values.
+
 Subtype data
 """"""""""""
 
@@ -497,7 +516,9 @@ shape is ``[3,2]`` so the ``subtype`` is ``float64[3,2]``::
   # schema: astropy-2.0
   array3x2
   [[0.0,1.0],[2.0,3.0],[4.0,5.0]]
-  [[6.0,7.0],[8.0,9.0],[10.0,11.0]]
+  [[6.0,7.0],[8.0,null],[10.0,11.0]]
+
+Missing values are indicated by the ``null`` marker, as seen in the second row.
 
 Variable-length array data
 @@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -527,8 +548,10 @@ An example for a 1-d variable-length array follows::
   # schema: astropy-2.0
   array_var
   [1,2]
-  [3,4,5,6,7]
+  [3,4,5,null,7]
   [8,9,10]
+
+Missing values are indicated by the ``null`` marker, as seen in the second row.
 
 Object columns
 @@@@@@@@@@@@@@
@@ -558,6 +581,9 @@ a double-quote within a string, hence the double-double quotes.
   "{""a"":1}"
   "{""b"":[2.5,null]}"
   true
+
+In this subtype, the ``null`` marker is decoded by JSON as the language-specific
+representation of a null value. In Python this will be ``None``.
 
 Branches and pull requests
 --------------------------
