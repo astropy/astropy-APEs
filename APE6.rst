@@ -489,18 +489,18 @@ If table readers do not recognise or support the ``subtype`` then they may
 ignore it and use the ``datatype`` only.
 
 The ECSV standard defines three types of extended data that can be represented:
-fixed-dimension array data, variable-length array data, and object data. These
+multidimensional array data, variable-length array data, and object data. These
 correspond to specified ``subtype`` values described below. It is also allowed
 to define new custom ``subtype`` values for specific applications.
 
-Fixed-length array data
-@@@@@@@@@@@@@@@@@@@@@@@
+Multidimensional array data
+@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-For columns where each data cell is an array with consistent dimensions, the
-``datatype`` is set to ``string`` and the ``subtype`` is set to the actual data
-type (one of the allowed values of the ``datatype`` keyword) followed by the
-`JSON <https://www.json.org/>`_ representation of the shape (dimensions) of each
-cell.
+For multidimensional columns where each data cell is an array with consistent
+dimensions, the ``datatype`` is set to ``string`` and the ``subtype`` is set to
+the actual data type (one of the allowed values of the ``datatype`` keyword)
+followed by the `JSON <https://www.json.org/>`_ representation of the shape
+(dimensions) of each cell.
 
 The contents of each cell are represented as a string using the JSON encoding of
 the array values. The encoding shall use row-major ordering with array shapes
@@ -523,7 +523,7 @@ Missing values are indicated by the ``null`` marker, as seen in the second row.
 Variable-length array data
 @@@@@@@@@@@@@@@@@@@@@@@@@@
 
-For columns where the data cell are arrays which are consistent in all
+For columns where the data cells are arrays which are consistent in all
 dimensions *except* for the final dimension, the ``datatype`` is set to
 ``string`` and the ``subtype`` is set to the actual data type (one of the
 allowed values of the ``datatype`` keyword specified previously)  followed by
