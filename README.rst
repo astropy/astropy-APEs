@@ -157,7 +157,9 @@ or rejection.  One of the committee members should then:
 
 #. Get the source for the DOI badge from the newly-created Zenodo record page by
    clicking on the DOI badge on the right side of the page and copying the
-   reStructuredText source.
+   reStructuredText source. You will need to update that with the "all versions"
+   DOI number, which you can see under the "versions" section of Zenodo. (It is
+   typically the first version minus 1.)
 #. On GitHub (or locally) edit ``README.rst`` and add an entry for the new APE to the
    "Accepted APEs" table.  Use the DOI link from the previous step.  Add
    corresponding RST link refs for both the DOI link and the new APE.  Preview
