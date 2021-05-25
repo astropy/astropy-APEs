@@ -50,53 +50,53 @@ Accepted APEs
 .. _A roadmap for package infrastructure without astropy-helpers: https://github.com/astropy/astropy-APEs/blob/main/APE17.rst
 .. _Adopt NEP 29 for CPython and Numpy Version Support: https://github.com/astropy/astropy-APEs/blob/main/APE18.rst
 
-.. |APE 0 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4552791.svg
-   :target: https://doi.org/10.5281/zenodo.4552791
+.. |APE 0 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4552790.svg
+   :target: https://doi.org/10.5281/zenodo.4552790
 
-.. |APE 1 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043886.svg
-   :target: https://doi.org/10.5281/zenodo.1043886
+.. |APE 1 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043885.svg
+   :target: https://doi.org/10.5281/zenodo.1043885
 
-.. |APE 2 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043888.svg
-   :target: https://doi.org/10.5281/zenodo.1043888
+.. |APE 2 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043887.svg
+   :target: https://doi.org/10.5281/zenodo.1043887
 
-.. |APE 3 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043890.svg
-   :target: https://doi.org/10.5281/zenodo.1043890
+.. |APE 3 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043889.svg
+   :target: https://doi.org/10.5281/zenodo.1043889
 
-.. |APE 4 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043892.svg
-   :target: https://doi.org/10.5281/zenodo.1043892
+.. |APE 4 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043891.svg
+   :target: https://doi.org/10.5281/zenodo.1043891
 
-.. |APE 5 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043897.svg
-   :target: https://doi.org/10.5281/zenodo.1043897
+.. |APE 5 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043896.svg
+   :target: https://doi.org/10.5281/zenodo.1043896
 
 .. |APE 6 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043900.svg
    :target: https://doi.org/10.5281/zenodo.1043900
 
-.. |APE 7 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043907.svg
-   :target: https://doi.org/10.5281/zenodo.1043907
+.. |APE 7 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043906.svg
+   :target: https://doi.org/10.5281/zenodo.1043906
 
-.. |APE 8 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043913.svg
-   :target: https://doi.org/10.5281/zenodo.1043913
+.. |APE 8 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043912.svg
+   :target: https://doi.org/10.5281/zenodo.1043912
 
-.. |APE 10 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1038587.svg
-   :target: https://doi.org/10.5281/zenodo.1038587
+.. |APE 10 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1038586.svg
+   :target: https://doi.org/10.5281/zenodo.1038586
 
-.. |APE 12 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1044484.svg
-   :target: https://doi.org/10.5281/zenodo.1044484
+.. |APE 12 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1044483.svg
+   :target: https://doi.org/10.5281/zenodo.1044483
 
-.. |APE 13 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1117943.svg
-   :target: https://doi.org/10.5281/zenodo.1117943
+.. |APE 13 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1117942.svg
+   :target: https://doi.org/10.5281/zenodo.1117942
 
-.. |APE 14 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1188875.svg
-   :target: https://doi.org/10.5281/zenodo.1188875
+.. |APE 14 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1188874.svg
+   :target: https://doi.org/10.5281/zenodo.1188874
 
-.. |APE 15 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1246834.svg
-   :target: https://doi.org/10.5281/zenodo.1246834
+.. |APE 15 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1246833.svg
+   :target: https://doi.org/10.5281/zenodo.1246833
 
-.. |APE 17 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.3572844.svg
-   :target: https://doi.org/10.5281/zenodo.3572844
+.. |APE 17 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.3572843.svg
+   :target: https://doi.org/10.5281/zenodo.3572843
 
-.. |APE 18 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4563083.svg
-   :target: https://doi.org/10.5281/zenodo.4563083
+.. |APE 18 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4563082.svg
+   :target: https://doi.org/10.5281/zenodo.4563082
 
 
 Proposing a new APE
