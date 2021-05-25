@@ -5,7 +5,7 @@ author: Tom Aldcroft
 
 date-created: 2014 April 12
 
-date-last-revised: 2019 March 8
+date-last-revised: 2021 May 25
 
 date-accepted: 2015 January 26
 
@@ -13,13 +13,15 @@ type: Standard Track
 
 status: Accepted
 
+revised-by: Tom Aldcroft, Mark Taylor - 2021 May 02 - Added subtype keyword and extended data types
+
 Abstract
 --------
 
 Data tables in astronomical analysis frequently contain additional metadata
 beyond just the column names and data values.  Common attributes include the
 numerical data type, the physical unit, and a longer textual description of the
-column content.  These attributes can be reprented in binary formats such as
+column content.  These attributes can be represented in binary formats such as
 FITS, but the available options for a text-only format are inadequate.
 
 APE6 proposes to fill this void by specification of a standard for the interchange of
@@ -84,7 +86,7 @@ with journal articles.  The format is alternately referred to as the CDS or
 Machine Readable Table (MRT) format.
 
 The CDS format has reasonable support for basic table and column metadata,
-include column types, null values, range checking, units, and labels.  From
+including column types, null values, range checking, units, and labels.  From
 its heritage as a catalog descriptor format, it includes table metadata
 like ADC_Keywords, Literature Reference, table description, authors, notes,
 and comments.  Within that context it provides a well-documented standard.
@@ -160,7 +162,7 @@ VOTable
 
 `VOTable <http://www.ivoa.net/documents/latest/VOT.html>`_ is by design a
 fully-flexible data format that can handle all of the needs for text
-serialization of complex data structures, including tablular data sets.  The
+serialization of complex data structures, including tabular data sets.  The
 issue in this context is in simplicity and data interchange with the broader
 community.  In essence if someone wants to read or write a VOTable then they
 must use one of a small number of implementations of this protocol.  It is not
@@ -213,7 +215,7 @@ overall structure:
 - A CSV-formatted data section in which the first line contains the column names
   and subsequent lines contains the data values.
 
-Version 0.9 of the ECSV format specification and the reference Python
+Version 1.0 of the ECSV format specification and the reference Python
 implementation assumes ASCII-encoded header and data sections.  Support
 for unicode (in particular UTF-8) may be added in subsequent versions.
 
@@ -271,14 +273,14 @@ Now we write this to a file using the ECSV format and print it::
 
   >>> t.write('example.ecsv', format='ascii.ecsv')
   >>> cat example.ecsv
-  # %ECSV 0.9
+  # %ECSV 1.0
   # ---
   # datatype:
   # - {name: a, unit: m / s, datatype: int64, format: '%03d'}
   # - {name: b, unit: km, datatype: int64, description: This is column b}
   a b
-  001 2
-  004 3
+  1 2
+  4 3
 
 We see that header starts with a header line and YAML block marker to identify
 the format and the beginning of the data block.  After that comes the YAML data
@@ -313,7 +315,7 @@ Now we write the table to standard out::
 
   >>> import sys
   >>> t.write(sys.stdout, format='ascii.ecsv')
-  # %ECSV 0.9
+  # %ECSV 1.0
   # ---
   # datatype:
   # - {name: a, unit: m / s, datatype: float64, format: '%5.2f', description: Column A}
@@ -328,8 +330,8 @@ Now we write the table to standard out::
   # - comments: [Comment 1, Comment 2, Comment 3]
   # schema: astropy-2.0
   a b
-  1.00 2
-  4.00 3
+  1.0 2
+  4.0 3
 
 In this case there are Ordered dictionary elements which must be preserved
 during serialization.  This is done via the ``!!omap`` element tag.  The
@@ -351,8 +353,8 @@ necessary information to define the table columns and metadata.  This
 is expressed as a YAML-encoded data structure which has a small set of
 required keywords and standard specifiers.
 
-Each line of the YAML-encoded data structure must start with the two
-characters ``# `` (hash followed by space) to indicate the presence of
+Each line of the YAML-encoded data structure must start with the hash
+character ``#`` followed by a single space to indicate the presence of
 header content.  All content within this header section must be parseable
 as a single YAML document.  The first line which does not start with ``#``
 signifies the end of the header and the start of the data section.  Subsequent
@@ -404,6 +406,11 @@ Each column specifier is a dictionary structure with the following keys:
   ``complex64``, ``complex128``, ``complex256``, and ``string``.
   Some implementations may not support all types.
 
+``subtype``: string, optional
+   The ``subtype`` keyword describes an extended data type such as a
+   variable-length array or an object column. See the section below on `Subtype
+   data`_ for details. This is new in version 1.0 of the ECSV standard.
+
 ``unit``: string, optional
    Data unit (unit system could be part of schema?).
 
@@ -451,25 +458,132 @@ the following rules:
 - A double quote character in a field must be represented by two double quote
   characters.
 
+Missing values
+""""""""""""""
 
-Multidimensional columns
-""""""""""""""""""""""""
+Missing values in a data column are, by default, represented by a blank entry at
+the corresponding data location. For a comma-delimited file the following
+example shows the 3rd and 5th columns in this row as missing values::
 
-Multidimensional columns are not supported in version 0.9 of the ECSV format.
+  1,2.0,,Hello,
 
-None of the available text data formats supports multidimensional columns
-with more than one element per row.  Although in many cases
-having such data would indicate using a binary storage format, there is
-utility in supporting this for cases where the column shape is "reasonable",
-perhaps with no more than about 10 elements.
+For a space-delimited file the corresponding row would be::
 
-One possible solution is to store the individual data elements as a series of
-columns with a naming convention such as ``<name>__<index0>_<index1>_...``.  In
-this case one would include a keyword in the column specification that
-indicates the column is one element of a multidimensional column ``<name>``.
-The specifics might need iteration, but again the idea is to maintain the
-ability to always read a ECSV file with a simple CSV reader, even if using the
-results then takes more effort.
+  1 2.0 "" Hello ""
+
+With this convention it is not possible to have a zero-length string within a
+string column.  Specialized schemas may choose to use a different convention for
+missing (or masked) data. For instance it is possible to write a masked column
+as two separate columns, one for the data and one for the mask. In this case the
+empty string no longer serves as a marker for missing values.
+
+Subtype data
+""""""""""""
+
+From version 1.0 and later it is possible to embed extended data types beyond
+simple typed scalars in the data section. The column data in the ECSV output
+shall be consistent with the specified ``datatype``, with additional details of
+the data being captured in the ``subtype`` keyword.
+
+If table readers do not recognise or support the ``subtype`` then they may
+ignore it and use the ``datatype`` only.
+
+The ECSV standard defines three types of extended data that can be represented:
+multidimensional array data, variable-length array data, and object data. These
+correspond to specified ``subtype`` values described below. It is also allowed
+to define new custom ``subtype`` values for specific applications.
+
+Multidimensional array data
+@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+For multidimensional columns where each data cell is an array with consistent
+dimensions, the ``datatype`` is set to ``string`` and the ``subtype`` is set to
+the actual data type (one of the allowed values of the ``datatype`` keyword)
+followed by the `JSON <https://www.json.org/>`_ representation of the shape
+(dimensions) of each cell.
+
+The contents of each cell are represented as a string using the JSON encoding of
+the array values. The encoding shall use row-major ordering with array shapes
+defined accordingly.
+
+In the example below each cell is a ``3 x 2`` array of ``float64`` type. The
+shape is ``[3,2]`` so the ``subtype`` is ``float64[3,2]``::
+
+  # %ECSV 1.0
+  # ---
+  # datatype:
+  # - {name: array3x2, datatype: string, subtype: 'float64[3,2]'}
+  # schema: astropy-2.0
+  array3x2
+  [[0.0,1.0],[2.0,3.0],[4.0,5.0]]
+  [[6.0,7.0],[8.0,null],[10.0,11.0]]
+
+Missing values are indicated by the ``null`` marker, as seen in the second row.
+
+Variable-length array data
+@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+For columns where the data cells are arrays which are consistent in all
+dimensions *except* for the final dimension, the ``datatype`` is set to
+``string`` and the ``subtype`` is set to the actual data type (one of the
+allowed values of the ``datatype`` keyword specified previously)  followed by
+the JSON representation of shape (dimensions) of the cells. Here the shape is
+set to the consistent dimensions plus a ``null`` dimension.
+
+The contents of each cell are represented as a string using the JSON encoding of
+the array values. The encoding shall use row-major ordering with array shapes
+defined accordingly.
+
+For example a column that has 3-d arrays in each cell with shapes of
+``[4,4,2]``, ``[4,4,5]`` and ``[4,4,3]``, the ``subtype`` would be
+``int64[4,4,null]``. For a column that has 1-d ``int64`` arrays having lengths of
+2, 5, and 3 respectively the ``subtype`` would be ``int64[null]``.
+
+An example for a 1-d variable-length array follows::
+
+  # %ECSV 1.0
+  # ---
+  # datatype:
+  # - {name: array_var, datatype: string, subtype: 'int64[null]'}
+  # schema: astropy-2.0
+  array_var
+  [1,2]
+  [3,4,5,null,7]
+  [8,9,10]
+
+Missing values are indicated by the ``null`` marker, as seen in the second row.
+
+Object columns
+@@@@@@@@@@@@@@
+
+For object-type columns, the ``datatype`` is set to ``string`` and the
+``subtype`` is set to ``json``. Each object in the column is converted to a
+string representation using `JSON <https://www.json.org/>`_ encoding. This
+implies that the supported object types are those that can be represented in
+JSON, namely integer and float numbers, boolean, null, strings, arrays, and
+mappings.
+
+As a point of clarification, "object" here refers to the common usage in the
+context of object-oriented programming. In the JSON standard, "object" refers to
+what we call a "mapping", for instance ``{"a":1, "b":2}``.
+
+The example below shows writing an object array to ECSV. Note that JSON requires
+a double-quote around strings, and ECSV requires ``""`` to represent
+a double-quote within a string, hence the double-double quotes.
+::
+
+  # %ECSV 1.0
+  # ---
+  # datatype:
+  # - {name: objects, datatype: string, subtype: json}
+  # schema: astropy-2.0
+  objects
+  "{""a"":1}"
+  "{""b"":[2.5,null]}"
+  true
+
+In this subtype, the ``null`` marker is decoded by JSON as the language-specific
+representation of a null value. In Python this will be ``None``.
 
 Branches and pull requests
 --------------------------
@@ -478,18 +592,29 @@ Branches and pull requests
 
 `PR# 683 <https://github.com/astropy/astropy/pull/683>`_: Initial version "Support table metadata in io.ascii"
 
+PR#
+`11569 <https://github.com/astropy/astropy/pull/11569>`_,
+`11662 <https://github.com/astropy/astropy/pull/11662>`_,
+`11720 <https://github.com/astropy/astropy/pull/11720>`_:
+"Support reading and writing multidimensional and object columns in ECSV"
+
 
 Implementation
 --------------
 
-The implementation is done in PR# 2319, which was based on PR# 683.
-
+The initial implementation is done in PR# 2319, which was based on PR# 683. PR#
+11569 added support for extended data types (multidimensional and object
+columns) via a new ``subtype`` keyword.
 
 Backward compatibility
 ----------------------
 
 This is a new feature and there are no issues with backward compatibility.
 
+The 1.0 update adds a new ``subtype`` keyword. This is backward compatible with
+the previous 0.9 version since that keyword will simply be ignored by older
+readers that are only compliant with the 0.9 standard. In this case the
+extended data values will be returned as defined by the ``datatype`` keyword.
 
 Alternatives
 ------------
@@ -515,3 +640,13 @@ A number of good suggestions and ideas were incorporated from the discussion,
 particularly related to compatibility with the ASDF standard.  All comments
 from interested parties were agreeably resolved.  As a result, the coordination
 committee unanimously agreed to accept this APE on 2015 January 26.
+
+A significant update wa made in
+`astropy-APEs PR 68 <https://github.com/astropy/astropy-APEs/pull/68>`_, adding
+support for extended data types. There was significant discussion in the PR
+but broad agreement with the change.
+
+Previous versions of this APE
+-----------------------------
+
+* 2019-03-08 [`DOI <https://doi.org/10.5281/zenodo.1043901>`_] [`GitHub <https://github.com/astropy/astropy-APEs/blob/d2c90199a87b59c2b3e8465586c34a029287766c/APE6.rst>`_]
