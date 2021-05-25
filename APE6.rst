@@ -5,7 +5,7 @@ author: Tom Aldcroft
 
 date-created: 2014 April 12
 
-date-last-revised: 2021 May 02
+date-last-revised: 2021 May 25
 
 date-accepted: 2015 January 26
 
@@ -640,6 +640,11 @@ A number of good suggestions and ideas were incorporated from the discussion,
 particularly related to compatibility with the ASDF standard.  All comments
 from interested parties were agreeably resolved.  As a result, the coordination
 committee unanimously agreed to accept this APE on 2015 January 26.
+
+A significant update wa made in
+`astropy-APEs PR 68 <https://github.com/astropy/astropy-APEs/pull/68>`_, adding
+support for extended data types. There was significant discussion in the PR
+but broad agreement with the change.
 
 Previous versions of this APE
 -----------------------------
