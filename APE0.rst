@@ -308,7 +308,7 @@ The procedure for voting to add new Voting Members is:
   and additional nominations will be accepted until two weeks before the
   election date. The voting will be open for at least two weeks. To successfully
   gain an appointment as a Voting Member, the nominee must receive at least four
-  positive votes, as long as that constitutes a majority of those voting.
+  positive votes, as long as that constitutes a majority of those voting for that candidate.
 * The candidate will be informed promptly at the close of voting by a
   Coordination Committee member. If the vote is not affirmative, the
   Coordination Committee will provide feedback to the nominee.
