@@ -300,12 +300,14 @@ The procedure for voting to add new Voting Members is:
 * The Coordination Committee and Ombudsperson receive each nomination, check
   that it is factually accurate, that the nominated person accepts the
   nomination, and that their record of community activity adheres to the Code of
-* Once a nomination is accepted by the Coordination Committee, the Coordination
-  Committee will put it to a vote among active Voting Members. Votes for adding
-  voting members will be carried out at most twice a year to avoid too many
-  elections. The voting dates will be announced with at least four weeks notice,
   Conduct. If the candidate accepts, they should provide a brief statement in
   support of their nomination.
+* Once a nomination is accepted by the Coordination Committee, it will be put it
+  to a vote among active Voting Members. Votes for adding voting members will be
+  carried out at most twice a year to avoid too many elections. The returns
+  officer for the voting member election can be a voting member, and those
+  officer are entitled to vote in the election.
+* The voting dates will be announced with at least four weeks notice,
   and additional nominations will be accepted until two weeks before the
   election date. The voting will be open for at least two weeks. To successfully
   gain an appointment as a Voting Member, the nominee must receive at least four
