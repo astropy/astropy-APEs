@@ -326,6 +326,8 @@ response is received, the Coordination Committee may automatically change a
 Voting Member’s status to *emeritus*. To record and honor their contributions,
 *emeritus* Voting Members will continue to be listed. *Emeritus* Voting Members
 are not able to participate in votes.
+An emeritus member may request to be marked as active at any time if they feel
+they are making contributions.
 
 Removing Voting Members
 ^^^^^^^^^^^^^^^^^^^^^^^
