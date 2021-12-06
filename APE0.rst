@@ -129,7 +129,9 @@ least two weeks:
 * Phase 1, Nominations: Candidates will be nominated and confirm their interest
   in serving. Candidates can be nominated by anyone, including themselves, and
   do not have to be `Voting Members <votingmembers>`_ to be nominated.
-  Candidates should provide a brief statement in support of their candidacy.
+  Candidates should provide a brief statement in support of their candidacy,
+  these statements should be made public as they are received during the
+  nominations period.
 * Phase 2, Voting: Each `Voting Member <votingmembers>`_ can vote for zero or
   more of the candidates, up to the number of candidates. Voting is performed
   anonymously. Candidates are ranked by the total number of votes they receive.
