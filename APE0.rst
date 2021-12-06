@@ -134,9 +134,10 @@ least two weeks:
   nominations period.
 * Phase 2, Voting: Each `Voting Member <votingmembers>`_ can vote for zero or
   more of the candidates, up to the number of candidates. Voting is performed
-  anonymously. Candidates are ranked by the total number of votes they receive.
-  If a tie occurs, it may be resolved by mutual agreement among the candidates,
-  or else the winner will be chosen at random.
+  anonymously. Candidates who receive votes from a majority of the voting
+  members participating in the election are ranked by the total number of votes
+  they receive. If a tie occurs, it may be resolved by mutual agreement among
+  the candidates, or else the winner will be chosen at random.
 
 The election process is managed by a non-voting Returns Officer nominated by
 the outgoing Coordination Committee, although the process (specific choice of
