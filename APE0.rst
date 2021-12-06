@@ -122,8 +122,9 @@ Electing the Coordination Committee
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 A Coordination Committee election is held annually to fill any vacant seats.
 Notice of the election must be posted via the Project’s standard communication
-channels (reaching all active members) at least one month before the election
-begins. The election consists of two phases, each lasting two weeks:
+channels for users, contributors and voting members, at least one month before
+the voting phase begins. The election consists of two phases, each lasting at
+least two weeks:
 
 * Phase 1, Nominations: Candidates will be nominated and confirm their interest
   in serving. Candidates can be nominated by anyone, including themselves, and
