@@ -67,7 +67,7 @@ How to decide what to pay for
 
 Restricted / earmarked funding sources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Much of the Project’s funding comes from specific grants from private foundations and government agencies. In these cases, the fundable activities are explicitly described in the proposal text. Such funds must be spent following the proposed plan and often come with further restrictions on who can be funded. In particular, government agencies, such as NASA and ESA, may have restrictions on the geographic location of the institutions and individuals receiving funding. The Finance Committee should make these restrictions clear to the community so that they may submit funding requests aligned with the existing grants.
+Much of the Project’s funding comes from specific grants from private foundations and government agencies. In these cases, the fundable activities are explicitly described in the proposal text. Such funds must be spent following the proposed plan and in accordance with any other conditions imposed by the funding agency. The Finance Committee should make these restrictions clear to the community so that they may submit funding requests aligned with the existing grants.
 
 Whom to pay
 ^^^^^^^^^^^
