@@ -110,7 +110,7 @@ We define three separate categories of expense, by value:
 
 Items in the first category — up to $2000 — may be approved by majority vote of the Finance Committee.
 
-Items in the second category — up to $10000 — can be approved by majority vote of the Finance Committee. If, in the judgment of one or more Finance Committee members, the item would not receive widespread support, the Committee will communicate these concerns to the CoCo. The CoCo may provide a decision, or may request that the Finance Committee organize a vote among the Astropy membership to approve the expense.
+Items in the second category — up to $10000 — can be approved by majority vote of the Finance Committee. If, in the judgment of one or more Finance Committee members, the item would not receive widespread support, the Committee will communicate these concerns to the Coordination Committee (CoCo). The CoCo may provide a decision, or may request that the Finance Committee organize a vote among the Astropy membership to approve the expense.
 
 Items in the third category — more than $10000 — should follow approved Project decision making methods from APE0, or a vote among the Astropy voting membership unless specifically allocated in a grant to a specific person or organization already; in the latter case the Finance Committee is tasked to ensure it is spend according to the provisions of the grant. The Finance Committee will periodically solicit suggestions from the community for projects and other major expenses and coordinate a selection process.
 
