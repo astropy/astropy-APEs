@@ -1,7 +1,7 @@
 <APE title here>
 ================
 
-author: H. Moritz Günther for the finance committee
+author: Kelle Cruz, H. Moritz Günther, Aarya Patil, John Swinbank, Erik Tollerud
 
 date-created: 2022 January 21
 
@@ -67,11 +67,11 @@ How to decide what to pay for
 
 Restricted / earmarked funding sources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Much of the Project’s funding comes from specific grants from private foundations and government agencies. In these cases, the fundable activities are explicitly described in the proposal text. Such funds must be spent following the proposed plan and often come with further restrictions on who can be funded. For example, NASA funding can only go to individuals or institutions in the USA and EU funding is generally restricted to institutions or individuals in the EU or associated countries. The Finance Committee should make these restrictions clear to the community so that they may submit funding requests aligned with the existing grants.
+Much of the Project’s funding comes from specific grants from private foundations and government agencies. In these cases, the fundable activities are explicitly described in the proposal text. Such funds must be spent following the proposed plan and often come with further restrictions on who can be funded. In particular, government agencies, such as NASA and ESA, may have restrictions on the geographic location of the institutions and individuals receiving funding. The Finance Committee should make these restrictions clear to the community so that they may submit funding requests aligned with the existing grants.
 
 Whom to pay
 ^^^^^^^^^^^
-1. All else being equal, give preference to existing maintainers/contributors.
+1. All else being equal, give preference to existing contributors.
 2. When looking outside of the current team, consider this an opportunity to make the project more diverse.
 3. Pay attention to the following when considering paying someone:
     * the necessary skills to execute the tasks,
@@ -79,13 +79,13 @@ Whom to pay
     * experience contributing to and working with open source projects,
     * likelihood of long-term involvement with the Astropy community.
 
-It will likely depend on the particular activity as to whether there’s already a clear best candidate within the Astropy team, or if we must look for new people to get involved. This decision should be taken in accordance with documented Project governance procedures. If the position is not filled from within the project, it should generally be publicly advertised to give a broader group of people a chance to apply for it.
+It will likely depend on the particular activity as to whether there’s already a clear best candidate within the Astropy team, or if we must look for new people to get involved. This decision should be taken in accordance with documented Project governance procedures. If the position is not filled from within the project, it should be publicly advertised to give a broader group of people a chance to apply for it.
 
 Compensating an appropriate amount 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Process
 +++++++
-In general (see next section), we put the funding level directly in the hands of the community and the project members making funding requests. We use a process where community members suggest work and include a budget request which they think is required to achieve the suggested work. These suggestions are then put to the community for input and feedback. As part of the review process, the community is expected to take “value-for-money” into account. This mechanism places the trust to decide when compensation is unreasonably high or low to the community. In other cases, the Finance Committee will determine an appropriate amount taking into account the discussion and rationale below.
+In general (see next section), we put the funding level directly in the hands of the community and those making funding requests. We use a process where proposers suggest work and include a budget request which they think is required to achieve the suggested work. These suggestions are then put to the community for input and feedback. As part of the review process, the community is expected to take “value-for-money” into account. This mechanism places the trust to decide when compensation is unreasonably high or low to the community. In other cases, the Finance Committee will determine an appropriate amount taking into account the discussion and rationale below.
 
 Discussion and Rationale
 ++++++++++++++++++++++++
@@ -98,7 +98,7 @@ Setting an appropriate level of pay for certain work is a difficult task, since 
 
 `NEP 48 <https://numpy.org/neps/nep-0048-spending-project-funds.html>`_ has extensive discussion and a good list of further references on this topic.
 
-We recognize though that the approach of leaving the budget entirely up to project members also has downsides: In particular, less experienced people may be tempted to suggest work packages with a compensation that is unfairly low for the work required to increase their perceived chances to obtain funding. We place trust in the community to recognize these short-comings of the process and to advise and mentor each other to propose realistic budgets that allow the proposed work to be completed with a fair rate of pay. As the diversity of proposers increases, we recognize that this approach will likely need to be modified and potentially be made more prescriptive. This may come in the form of a future APE or more incremental changes as experience grows.
+We recognize though that the approach of leaving the approved budget entirely up to project members also has downsides: In particular, less experienced people may be tempted to suggest work packages with a compensation that is unfairly low for the work required to increase their perceived chances to obtain funding. We place trust in the community to recognize these short-comings of the process and to advise and mentor each other to propose realistic budgets that allow the proposed work to be completed with a fair rate of pay. As the diversity of proposers increases, we recognize that this approach will likely need to be modified and potentially be made more prescriptive. This may come in the form of a future APE or more incremental changes as experience grows.
 
 Defining fundable activities and projects
 -----------------------------------------
@@ -118,7 +118,7 @@ Items in the third category — more than $10000 — should follow approved Proj
 
 Strategy for spending/saving funds
 ----------------------------------
-There is an expectation from Astropy funders that the funds will be used for the benefit of the project and the community. Therefore, we should spend available funds thoughtfully, strategically, and fairly, as they become available. For emergencies, we should keep a reserve of $10,000 to $15,000 (US) which could cover, for example, a year of CI and hosting services, 1–2 months of full-time maintenance work, or engaging a consultant to address a specific need.
+There is an expectation from Astropy funders that the funds will be used for the benefit of the project and the community. Therefore, we should spend available funds thoughtfully, strategically, and fairly, as they become available. For emergencies, we should keep a reserve of $10,000 to $15,000 (US) which could cover, for example, a year of CI and hosting services, a few weeks of full-time maintenance work, or engaging a consultant to address a specific need.
 
 How project funds get administered
 -----------------------------------
