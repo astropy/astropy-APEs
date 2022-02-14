@@ -104,7 +104,7 @@ likelilhood) and prior giving the function to be maximized.
 Fitters
 =======
 
-A new class of fitters need to be added.  This is the Sampler class that would
+A new class of fitters needs to be added.  This is the Sampler class that would
 provide the interface to different samplers.  Unlike the existing Optimizers
 where the best fitting model is the result, Samplers provide a sampling of the
 posterior where the number of samples is set as an input.  Effectively, the
@@ -112,7 +112,7 @@ samplers provide a set of models and the set reflects the posterior. This set
 of models is usually returned as a 1D array of for each model parameter
 (called a chain) where the posterior is reflected as the frequency of a model
 parameter in the chain or as a parallel 1D array of posterior weights.
-The chain for each parameter will be stored in `Parameter.posterior` as an
+The chain for each parameter will be stored in `Parameter.sampled_posterior` as an
 astropy.uncertainty distribution.
 
 At least two samplers will be implemented.  The specific samplers planned are
@@ -134,7 +134,7 @@ Evidence
 A useful statistic from probabilistic inference is the evidence.  The evidence
 is the integration over all of parameters space of the posterior.  A function
 to compute the evidence should be implemented (probably using the
-`Parameter.posterior` attribute).
+`Parameter.sampled_posterior` attribute).
 
 ***instruction text***
 This section lists the major steps required to implement the APE.  Where
