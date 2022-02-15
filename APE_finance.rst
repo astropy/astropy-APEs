@@ -46,7 +46,7 @@ Astropy will likely always be a project with many times more volunteer contribut
 
 We identify four distinct considerations when disbursing funds:
 
-* Agreeing upon the types of activities that can be funded,,
+* Agreeing upon the types of activities that can be funded,
 * Establishing a process for deciding which specific activities should be funded,
 * Finding someone to do the work (if necessary),
 * Determining an appropriate compensation level.
@@ -72,7 +72,7 @@ Much of the Project’s funding comes from specific grants from private foundati
 Whom to pay
 ^^^^^^^^^^^
 1. All else being equal, give preference to existing contributors.
-2. When looking outside of the current team, consider this an opportunity to make the project more diverse.
+2. When looking outside of the current team (from here on we use the word "team" to include anyone in the Astropy community, including code contributors, mentors, workshop facilitators, outreach, or any other activity for the benefit of the project), consider this an opportunity to make the project team more diverse.
 3. Pay attention to the following when considering paying someone:
     * the necessary skills to execute the tasks,
     * communication and self-management skills,
@@ -112,7 +112,7 @@ Items in the first category — up to $2000 — may be approved by majority vote
 
 Items in the second category — up to $10000 — can be approved by majority vote of the Finance Committee. If, in the judgment of one or more Finance Committee members, the item would not receive widespread support, the Committee will communicate these concerns to the Coordination Committee (CoCo). The CoCo may provide a decision, or may request that the Finance Committee organize a vote among the Astropy membership to approve the expense.
 
-Items in the third category — more than $10000 — should follow approved Project decision making methods from APE0, or a vote among the Astropy voting membership unless specifically allocated in a grant to a specific person or organization already; in the latter case the Finance Committee is tasked to ensure it is spend according to the provisions of the grant. The Finance Committee will periodically solicit suggestions from the community for projects and other major expenses and coordinate a selection process.
+Items in the third category — more than $10000 — should follow approved Project decision making methods from `APE0 <https://github.com/astropy/astropy-APEs/blob/main/APE0.rst>`_, or a vote among the Astropy voting membership unless specifically allocated in a grant to a specific person or organization already; in the latter case the Finance Committee is tasked to ensure it is spend according to the provisions of the grant. The Finance Committee will periodically solicit suggestions from the community for projects and other major expenses and coordinate a selection process.
 
 *Rationale: We want the community to make the big and important decisions, but also not overburden community members with frequent discussions and voting.*
 
