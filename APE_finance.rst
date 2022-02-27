@@ -59,8 +59,8 @@ We can pay for anything which contributes to the broad mission of the Astropy Pr
 
 How to decide what to pay for
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-1. Pay for things that are important and otherwise won’t get done. *Rationale: there is much more work to be done than there are funds to do all of that work. There are also many volunteers and externally sponsored people interested and willing to do some of the work without compensation from the Project.*
-2. Don’t rely on funding always being there. Plan for sustainability: how will activities be continued when the funds dry up? Invest in documentation, infrastructure, and easy to maintain workflows. For example, funded work on governance should always record the process clearly so that volunteers who follow have less work to do to figure it out. 
+1. Pay for things that are important and otherwise will not get done. *Rationale: there is much more work to be done than there are funds to do all of that work. There are also many volunteers and externally sponsored people interested and willing to do some of the work without compensation from the Project.*
+2. Do not rely on funding always being there. Plan for sustainability: how will activities be continued when the funds dry up? Invest in documentation, infrastructure, and easy to maintain workflows. For example, funded work on governance should always record the process clearly so that volunteers who follow have less work to do to figure it out. 
 3. Consider potential positive benefits to Astropy maintainers and contributors, maintainers of other projects, end users, and other stakeholders like packagers and educators. 
 4. Also consider the long-term costs to Astropy maintainers and contributors, to counterbalance 3.
 5. Do not increase the load on volunteer maintainers by assuming they are available to review or otherwise support the work. Instead, proposals should include paid time for reviews and other necessary activities. *Rationale: the effect of spending funds should be positive for everyone, not just for the people getting paid. This is also a matter of fairness.*
@@ -73,7 +73,7 @@ Whom to pay
 ^^^^^^^^^^^
 1. All else being equal, give preference to existing contributors.
 2. When looking outside of the current team (from here on we use the word "team" to include anyone in the Astropy community, including code contributors, mentors, workshop facilitators, outreach, or any other activity for the benefit of the project), consider this an opportunity to make the project team more diverse.
-3. Pay attention to the following when considering paying someone:
+3. Pay attention to the following when considering whether to pay someone:
     * the necessary skills to execute the tasks,
     * communication and self-management skills,
     * experience contributing to and working with open source projects,
@@ -90,15 +90,15 @@ In general (see next section), we put the funding level directly in the hands of
 Discussion and Rationale
 ++++++++++++++++++++++++
 This is motivated by the fundamental tension that we, as a community, want to get the most out of the funds available, but we also want to avoid a “race to the bottom” where developers undercut others on price until the pay is too low to live on.
-Setting an appropriate level of pay for certain work is a difficult task, since a range of factors influences what people think is “fair”. This includes, to name just a few considerations,
+Setting an appropriate level of pay for certain work is a difficult task, since a range of factors influence what people think is “fair.” This includes, to name just a few considerations,
 
 * external factors like the cost of living in a certain place or country, 
-* if people are paid as independent contractors (and thus have to factor vacation, sick time, medical insurance etc. into an hourly rate) or as a subaward to e.g. an academic institution (which usually set rates that include overheads and fringe benefits which are then provided  to the employee),
-* What monetary value one puts on experience (e.g. an undergraduate student vs. an experienced software developer).
+* if people are paid as independent contractors (and thus have to factor vacation, sick time, medical insurance, etc. into an hourly rate) or as a subaward to, for example, an academic institution (which usually set rates that include overheads and fringe benefits that are then provided to the employee),
+* What monetary value one puts on experience (e.g., an undergraduate student vs. an experienced software developer).
 
 `NEP 48 <https://numpy.org/neps/nep-0048-spending-project-funds.html>`_ has extensive discussion and a good list of further references on this topic.
 
-We recognize though that the approach of leaving the approved budget entirely up to project members also has downsides: In particular, less experienced people may be tempted to suggest work packages with a compensation that is unfairly low for the work required to increase their perceived chances to obtain funding. We place trust in the community to recognize these short-comings of the process and to advise and mentor each other to propose realistic budgets that allow the proposed work to be completed with a fair rate of pay. As the diversity of proposers increases, we recognize that this approach will likely need to be modified and potentially be made more prescriptive. This may come in the form of a future APE or more incremental changes as experience grows.
+However, we recognize that the approach of leaving the approved budget entirely up to project members also has downsides. In particular, less experienced people may be tempted to suggest work packages with a compensation that is unfairly low for the work required to increase their perceived chances to obtain funding. We place trust in the community to recognize these short-comings of the process and to advise and mentor each other to propose realistic budgets that allow the proposed work to be completed with a fair rate of pay. As the diversity of proposers increases, we recognize that this approach will likely need to be modified and potentially be made more prescriptive. This may come in the form of a future APE or more incremental changes as experience grows.
 
 Defining fundable activities and projects
 -----------------------------------------
@@ -112,13 +112,13 @@ Items in the first category — up to $2000 — may be approved by majority vote
 
 Items in the second category — up to $10000 — can be approved by majority vote of the Finance Committee. If, in the judgment of one or more Finance Committee members, the item would not receive widespread support, the Committee will communicate these concerns to the Coordination Committee (CoCo). The CoCo may provide a decision, or may request that the Finance Committee organize a vote among the Astropy membership to approve the expense.
 
-Items in the third category — more than $10000 — should follow approved Project decision making methods from `APE0 <https://github.com/astropy/astropy-APEs/blob/main/APE0.rst>`_, or a vote among the Astropy voting membership unless specifically allocated in a grant to a specific person or organization already; in the latter case the Finance Committee is tasked to ensure it is spend according to the provisions of the grant. The Finance Committee will periodically solicit suggestions from the community for projects and other major expenses and coordinate a selection process.
+Items in the third category — more than $10000 — should follow approved Project decision making methods from `APE0 <https://github.com/astropy/astropy-APEs/blob/main/APE0.rst>`_, or a vote among the Astropy voting membership unless specifically allocated in a grant to a specific person or organization already. In the latter case, the Finance Committee is tasked to ensure it is spend according to the provisions of the grant. The Finance Committee will periodically solicit suggestions from the community for projects and other major expenses and coordinate a selection process.
 
 *Rationale: We want the community to make the big and important decisions, but also not overburden community members with frequent discussions and voting.*
 
 Strategy for spending/saving funds
 ----------------------------------
-There is an expectation from Astropy funders that the funds will be used for the benefit of the project and the community. Therefore, we should spend available funds thoughtfully, strategically, and fairly, as they become available. For emergencies, we should keep a reserve of $10,000 to $15,000 (US) which could cover, for example, a year of CI and hosting services, a few weeks of full-time maintenance work, or engaging a consultant to address a specific need.
+There is an expectation from Astropy funders that the funds will be used for the benefit of the project and the community. Therefore, we should spend available funds thoughtfully, strategically, and fairly, as they become available. For emergencies, we should keep a reserve of $10,000 to $15,000 (US) that could cover, for example, a year of CI and hosting services, a few weeks of full-time maintenance work, or engaging a consultant to address a specific need.
 
 How project funds get administered
 -----------------------------------
