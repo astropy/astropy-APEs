@@ -5,13 +5,13 @@ author: Kelle Cruz, H. Moritz Günther, Aarya Patil, John Swinbank, Erik Tolleru
 
 date-created: 2022 January 21
 
-date-last-revised: 2022 January 21
+date-last-revised: 2022 February 28
 
-date-accepted: TBD
+date-accepted: 2022 February 28
 
 type: Process
 
-status: Discussion
+status: Accepted
 
 
 Abstract
@@ -140,4 +140,6 @@ The main alternative to having this APE is **not** having this APE and continue 
 Decision rationale
 ==================
 
-<To be filled in by the coordinating committee when the APE is accepted or rejected>
+Following discussion and comments on GitHub in the [APE pull
+request](https://github.com/astropy/astropy-APEs/pull/72), this APE was accepted
+by the Coordinating Committee after community consensus was reached.
