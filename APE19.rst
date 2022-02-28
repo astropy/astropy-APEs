@@ -140,6 +140,4 @@ The main alternative to having this APE is **not** having this APE and continue 
 Decision rationale
 ==================
 
-Following discussion and comments on GitHub in the [APE pull
-request](https://github.com/astropy/astropy-APEs/pull/72), this APE was accepted
-by the Coordinating Committee after community consensus was reached.
+Following discussion and comments on GitHub in the `APE pull request <https://github.com/astropy/astropy-APEs/pull/72>`_, this APE was accepted by the Coordinating Committee after community consensus was reached.
