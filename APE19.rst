@@ -73,11 +73,12 @@ Whom to pay
 ^^^^^^^^^^^
 1. All else being equal, give preference to existing contributors.
 2. When looking outside of the current team (from here on we use the word "team" to include anyone in the Astropy community, including code contributors, mentors, workshop facilitators, outreach, or any other activity for the benefit of the project), consider this an opportunity to make the project team more diverse.
-3. Pay attention to the following when considering whether to pay someone:
-    * the necessary skills to execute the tasks,
-    * communication and self-management skills,
-    * experience contributing to and working with open source projects,
-    * likelihood of long-term involvement with the Astropy community.
+3. Pay attention to the following when considering whether to pay someone
+
+   * the necessary skills to execute the tasks,
+   * communication and self-management skills,
+   * experience contributing to and working with open source projects,
+   * likelihood of long-term involvement with the Astropy community.
 
 It will likely depend on the particular activity as to whether there's already a clear best candidate within the Astropy team, or if we must look for new people to get involved. This decision should be taken in accordance with documented Project governance procedures. If the position is not filled from within the project, it should be publicly advertised to give a broader group of people a chance to apply for it.
 
