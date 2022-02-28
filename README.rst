@@ -31,6 +31,7 @@ Accepted APEs
 15  `An Updated Model for the Affiliated Package Ecosystem`_         2018-May-14 |APE 15 DOI|
 17  `A roadmap for package infrastructure without astropy-helpers`_  2019-Dec-12 |APE 17 DOI|
 18  `Adopt NEP 29 for CPython and Numpy Version Support`_            2021-Dec-25 |APE 18 DOI|
+19  `Distributing Astropy Project Funding`_                          2022-Feb-28 |APE 19 DOI|
 === ================================================================ =========== ============
 
 .. _The Astropy Project Governance Charter: https://github.com/astropy/astropy-APEs/blob/main/APE0.rst
@@ -49,6 +50,7 @@ Accepted APEs
 .. _An Updated Model for the Affiliated Package Ecosystem: https://github.com/astropy/astropy-APEs/blob/main/APE15.rst
 .. _A roadmap for package infrastructure without astropy-helpers: https://github.com/astropy/astropy-APEs/blob/main/APE17.rst
 .. _Adopt NEP 29 for CPython and Numpy Version Support: https://github.com/astropy/astropy-APEs/blob/main/APE18.rst
+.. _Distributing Astropy Project Funding: https://github.com/astropy/astropy-APEs/blob/main/APE19.rst
 
 .. |APE 0 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4552791.svg
    :target: https://doi.org/10.5281/zenodo.4552791
@@ -98,6 +100,8 @@ Accepted APEs
 .. |APE 18 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4563083.svg
    :target: https://doi.org/10.5281/zenodo.4563083
 
+.. |APE 19 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.6312048.svg
+   :target: https://doi.org/10.5281/zenodo.6312048
 
 Proposing a new APE
 ^^^^^^^^^^^^^^^^^^^
