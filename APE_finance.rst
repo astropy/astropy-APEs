@@ -17,7 +17,7 @@ status: Discussion
 Abstract
 =========
 
-This APE aims to provide guidance about spending Astropy Project funds by formulating a set of principles about what to pay for and who to pay. It will also touch on how expenditure decisions are made, how funds get administered, and a principle of strong transparency around these topics. It is heavily inspired by `Numpy’s NEP 48 <https://numpy.org/neps/nep-0048-spending-project-funds.html>`_.
+This APE aims to provide guidance about spending Astropy Project funds by formulating a set of principles about what to pay for and who to pay. It will also touch on how expenditure decisions are made, how funds get administered, and a principle of strong transparency around these topics. It is heavily inspired by `Numpy's NEP 48 <https://numpy.org/neps/nep-0048-spending-project-funds.html>`_.
 
 
 Detailed description
@@ -35,7 +35,7 @@ A key assumption of this APE is that Astropy is developed and maintained by an i
 In scope for this APE are:
 
 * Principles of spending project funds: what to pay for, and who to pay, and how much to pay.
-* Describing how Astropy’s funds get administered.
+* Describing how Astropy's funds get administered.
 * Describing how expenditure decisions are proposed and made.
 
 
@@ -60,14 +60,14 @@ We can pay for anything which contributes to the broad mission of the Astropy Pr
 How to decide what to pay for
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 1. Pay for things that are important and otherwise will not get done. *Rationale: there is much more work to be done than there are funds to do all of that work. There are also many volunteers and externally sponsored people interested and willing to do some of the work without compensation from the Project.*
-2. Do not rely on funding always being there. Plan for sustainability: how will activities be continued when the funds dry up? Invest in documentation, infrastructure, and easy to maintain workflows. For example, funded work on governance should always record the process clearly so that volunteers who follow have less work to do to figure it out. 
-3. Consider potential positive benefits to Astropy maintainers and contributors, maintainers of other projects, end users, and other stakeholders like packagers and educators. 
+2. Do not rely on funding always being there. Plan for sustainability: how will activities be continued when the funds dry up? Invest in documentation, infrastructure, and easy to maintain workflows. For example, funded work on governance should always record the process clearly so that volunteers who follow have less work to do to figure it out.
+3. Consider potential positive benefits to Astropy maintainers and contributors, maintainers of other projects, end users, and other stakeholders like packagers and educators.
 4. Also consider the long-term costs to Astropy maintainers and contributors, to counterbalance 3.
 5. Do not increase the load on volunteer maintainers by assuming they are available to review or otherwise support the work. Instead, proposals should include paid time for reviews and other necessary activities. *Rationale: the effect of spending funds should be positive for everyone, not just for the people getting paid. This is also a matter of fairness.*
 
 Restricted / earmarked funding sources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Much of the Project’s funding comes from specific grants from private foundations and government agencies. In these cases, the fundable activities are explicitly described in the proposal text. Such funds must be spent following the proposed plan and in accordance with any other conditions imposed by the funding agency. The Finance Committee should make these restrictions clear to the community so that they may submit funding requests aligned with the existing grants.
+Much of the Project's funding comes from specific grants from private foundations and government agencies. In these cases, the fundable activities are explicitly described in the proposal text. Such funds must be spent following the proposed plan and in accordance with any other conditions imposed by the funding agency. The Finance Committee should make these restrictions clear to the community so that they may submit funding requests aligned with the existing grants.
 
 Whom to pay
 ^^^^^^^^^^^
@@ -79,9 +79,9 @@ Whom to pay
     * experience contributing to and working with open source projects,
     * likelihood of long-term involvement with the Astropy community.
 
-It will likely depend on the particular activity as to whether there’s already a clear best candidate within the Astropy team, or if we must look for new people to get involved. This decision should be taken in accordance with documented Project governance procedures. If the position is not filled from within the project, it should be publicly advertised to give a broader group of people a chance to apply for it.
+It will likely depend on the particular activity as to whether there's already a clear best candidate within the Astropy team, or if we must look for new people to get involved. This decision should be taken in accordance with documented Project governance procedures. If the position is not filled from within the project, it should be publicly advertised to give a broader group of people a chance to apply for it.
 
-Compensating an appropriate amount 
+Compensating an appropriate amount
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Process
 +++++++
@@ -92,7 +92,7 @@ Discussion and Rationale
 This is motivated by the fundamental tension that we, as a community, want to get the most out of the funds available, but we also want to avoid a “race to the bottom” where developers undercut others on price until the pay is too low to live on.
 Setting an appropriate level of pay for certain work is a difficult task, since a range of factors influence what people think is “fair.” This includes, to name just a few considerations,
 
-* external factors like the cost of living in a certain place or country, 
+* external factors like the cost of living in a certain place or country,
 * if people are paid as independent contractors (and thus have to factor vacation, sick time, medical insurance, etc. into an hourly rate) or as a subaward to, for example, an academic institution (which usually set rates that include overheads and fringe benefits that are then provided to the employee),
 * What monetary value one puts on experience (e.g., an undergraduate student vs. an experienced software developer).
 
