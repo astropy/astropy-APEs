@@ -1,5 +1,5 @@
-<APE title here>
-================
+Distributing Astropy Project Funding
+====================================
 
 author: Kelle Cruz, H. Moritz Günther, Aarya Patil, John Swinbank, Erik Tollerud
 
