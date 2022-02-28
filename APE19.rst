@@ -62,7 +62,7 @@ How to decide what to pay for
 1. Pay for things that are important and otherwise will not get done. *Rationale: there is much more work to be done than there are funds to do all of that work. There are also many volunteers and externally sponsored people interested and willing to do some of the work without compensation from the Project.*
 2. Do not rely on funding always being there. Plan for sustainability: how will activities be continued when the funds dry up? Invest in documentation, infrastructure, and easy to maintain workflows. For example, funded work on governance should always record the process clearly so that volunteers who follow have less work to do to figure it out.
 3. Consider potential positive benefits to Astropy maintainers and contributors, maintainers of other projects, end users, and other stakeholders like packagers and educators.
-4. Also consider the long-term costs to Astropy maintainers and contributors, to counterbalance 3.
+4. Also consider the long-term costs to Astropy maintainers and contributors, to counterbalance item number 3.
 5. Do not increase the load on volunteer maintainers by assuming they are available to review or otherwise support the work. Instead, proposals should include paid time for reviews and other necessary activities. *Rationale: the effect of spending funds should be positive for everyone, not just for the people getting paid. This is also a matter of fairness.*
 
 Restricted / earmarked funding sources
@@ -112,7 +112,7 @@ Items in the first category — up to $2000 — may be approved by majority vote
 
 Items in the second category — up to $10000 — can be approved by majority vote of the Finance Committee. If, in the judgment of one or more Finance Committee members, the item would not receive widespread support, the Committee will communicate these concerns to the Coordination Committee (CoCo). The CoCo may provide a decision, or may request that the Finance Committee organize a vote among the Astropy membership to approve the expense.
 
-Items in the third category — more than $10000 — should follow approved Project decision making methods from `APE0 <https://github.com/astropy/astropy-APEs/blob/main/APE0.rst>`_, or a vote among the Astropy voting membership unless specifically allocated in a grant to a specific person or organization already. In the latter case, the Finance Committee is tasked to ensure it is spend according to the provisions of the grant. The Finance Committee will periodically solicit suggestions from the community for projects and other major expenses and coordinate a selection process.
+Items in the third category — more than $10000 — should follow approved Project decision making methods from `APE0 <https://github.com/astropy/astropy-APEs/blob/main/APE0.rst>`_, or a vote among the Astropy voting membership unless specifically allocated in a grant to a specific person or organization already. In the latter case, the Finance Committee is tasked to ensure it is spent according to the provisions of the grant. The Finance Committee will periodically solicit suggestions from the community for projects and other major expenses and coordinate a selection process.
 
 *Rationale: We want the community to make the big and important decisions, but also not overburden community members with frequent discussions and voting.*
 
