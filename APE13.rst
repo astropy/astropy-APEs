@@ -215,7 +215,7 @@ intertwined with the ``.wcs`` representation, discussed further below).
 object with the same shape as the ``flux``.  If it has an `uncertainty_type`
 attribute, `arithmetic operations`_ will propagate uncertainties following
 standard rules (see `the nddata APE for details about the uncertainty attribute
-<https://github.com/astropy/astropy-APEs/blob/master/APE7.rst#proposal-for-an-nddatabase-abstract-base-class>`_).
+<https://github.com/astropy/astropy-APEs/blob/main/APE7.rst#proposal-for-an-nddatabase-abstract-base-class>`_).
 Conveniences to create common types of ``uncertainty`` (e.g. standard deviation,
 inverse variance) will be provided, although the exact syntax is considered an
 implementation detail (and not covered in this APE).
