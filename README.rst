@@ -31,6 +31,7 @@ Accepted APEs
 15  `An Updated Model for the Affiliated Package Ecosystem`_         2018-May-14 |APE 15 DOI|
 17  `A roadmap for package infrastructure without astropy-helpers`_  2019-Dec-12 |APE 17 DOI|
 18  `Adopt NEP 29 for CPython and Numpy Version Support`_            2021-Dec-25 |APE 18 DOI|
+19  `Distributing Astropy Project Funding`_                          2022-Feb-28 |APE 19 DOI|
 === ================================================================ =========== ============
 
 .. _The Astropy Project Governance Charter: https://github.com/astropy/astropy-APEs/blob/main/APE0.rst
@@ -49,10 +50,11 @@ Accepted APEs
 .. _An Updated Model for the Affiliated Package Ecosystem: https://github.com/astropy/astropy-APEs/blob/main/APE15.rst
 .. _A roadmap for package infrastructure without astropy-helpers: https://github.com/astropy/astropy-APEs/blob/main/APE17.rst
 .. _Adopt NEP 29 for CPython and Numpy Version Support: https://github.com/astropy/astropy-APEs/blob/main/APE18.rst
+.. _Distributing Astropy Project Funding: https://github.com/astropy/astropy-APEs/blob/main/APE19.rst
 
 .. |APE 0 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4552791.svg
    :target: https://doi.org/10.5281/zenodo.4552791
-   
+
 .. |APE 1 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043886.svg
    :target: https://doi.org/10.5281/zenodo.1043886
 
@@ -68,8 +70,8 @@ Accepted APEs
 .. |APE 5 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043897.svg
    :target: https://doi.org/10.5281/zenodo.1043897
 
-.. |APE 6 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043901.svg
-   :target: https://doi.org/10.5281/zenodo.1043901
+.. |APE 6 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043900.svg
+   :target: https://doi.org/10.5281/zenodo.1043900
 
 .. |APE 7 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043907.svg
    :target: https://doi.org/10.5281/zenodo.1043907
@@ -94,10 +96,12 @@ Accepted APEs
 
 .. |APE 17 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.3572844.svg
    :target: https://doi.org/10.5281/zenodo.3572844
-   
+
 .. |APE 18 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4563083.svg
    :target: https://doi.org/10.5281/zenodo.4563083
 
+.. |APE 19 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.6312048.svg
+   :target: https://doi.org/10.5281/zenodo.6312048
 
 Proposing a new APE
 ^^^^^^^^^^^^^^^^^^^
@@ -177,3 +181,16 @@ accepted, etc.), changes can be made directly via PR, but the
 will need to be updated with a new version of the APE (*not* a completely new
 Zenodo entry), by using the "New version" button and then filling out the forms
 as described above.
+
+
+If you locally cloned this repo before 10 Mar 2021
+--------------------------------------------------
+
+The primary branch for this repo has been transitioned from ``master`` to ``main``.  If you have a local clone of this repository and want to keep your local branch in sync with this repo, you'll need to do the following in your local clone from your terminal::
+
+   git fetch --all --prune
+   # you can stop here if you don't use your local "master"/"main" branch
+   git branch -m master main
+   git branch -u origin/main main
+
+If you are using a GUI to manage your repos you'll have to find the equivalent commands as it's different for different programs. Alternatively, you can just delete your local clone and re-clone!
