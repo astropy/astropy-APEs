@@ -1,11 +1,11 @@
-Enhance Modeling to Support Probability Techniques
---------------------------------------------------
+Enhance Modeling to Support Probabilistic Fitting
+-------------------------------------------------
 
 author: Karl Gordon, Nadia, Dencheva, William Jamieson, Erik Tollerud
 
 date-created: 2022 Mar ??
 
-date-last-revised: 2022 Feb 14
+date-last-revised: 2022 Mar 11
 
 date-accepted:
 
@@ -17,38 +17,62 @@ status: Discussion
 Abstract
 --------
 
-Enhance astropy modeling to support probability techniques in addition to the
-currently supported fequentist techniques.  Specifically to fully implement
-priors as part of the model, including fitting using probabilities
-(i.e., prior times likelihood), and add sampling techniques to fitting.
+Enhance astropy modeling to support general probabilistic techniques in addition
+to the currently supported fequentist philosophy.  This includes fully supporting
+priors as part of the model, fitting using a more general Bayesian-compatible
+approach to the objective function (i.e., prior times likelihood), and adding
+support for sampling techniques to fitting.
 
 
 Detailed description
 --------------------
 
-The use of probabilistic techniques when modeling data while always happened in
-astronomy, it has been become very common in the last few years (e.g., the use
-of Bayesian techniques).  Currently, astropy modeling does not provide much
-support for such techniques focusing the fitting on minimizing the simple chisqr
-likelihood.
+The use of probabilistic techniques when modeling data have been long a part of
+astronomy, it has been become much more common in the last few years, particularly 
+with the dramatic growth of Bayesian methods.  Currently, astropy modeling does not 
+provide support for such techniques, as it focuses the fitting on minimizing
+chi-squared likelihoods.  While this was a reasonable starting approach given the
+wide range of techniques ``scipy`` provides, modern astronomy requires more
+flexibility.
 
-Probabilistic techniques work by maximizing the probability of a fit to data
-and usually explicitly include priors in the fitting statistic.  The combination
-of the prior and the likelihood probabilities is the posterior probability.
-Priors reflect prior knowledge of model parameters.  Probabilistic based
-fitting can result in the best fit model (just like minimizing the chisqr
-fitting) and/or posterior functions giving the probability of the model
-parameters.
+Probilistic fitting techniques explicitly assume data are inherently probabilistic,
+and Bayesian inference takes this one step further to also allow fitted models to
+be probabilistic and include the assumptions before the data are measured - i.e. 
+priors. This is statistically formalized via Bayes' Theorem, and while there are 
+a wide range of Bayesian methods (more than Astropy could ever hope to support),
+in astronomy a very common use case is a physical model for the data with an 
+explicit data distribution around that model.  This makes it relatively 
+straightforward to explicitly express the prior and the likelihood function.
+With an appropriate statistical sampling method (e.g. Markov Chain Monte Carlo),
+these can be used to infer the posterior probability distribution of the
+parameters of the model.  This leads to a more statistically rigorous and
+often more useful version of "fitting a model" . That is, probabilistic sed
+fitting can result in the best fit model (just like minimizing the existing
+fitting that focuses on minimization of an objective function like chi-squared) 
+*and* provide a fully probabilistic description of the model that captures
+uncertainties as fully as the model allows.
 
-***instruction text***
-This section describes the need for the APE.  It should describe the existing
-problem that it is trying to solve and why this APE makes the situation better.
-It should include examples of how the new functionality would be used and
-perhaps some use cases.
+However, all of this is not possible with the current implementation of 
+``modeling``, as models assume that parameters are a single value, not a
+distribution. While this makes understanding models simpler, it also makes the
+probabilistic approach to fitting impossible.  This APE aims to remove that
+limitation, while still allowing the existing simpler approach to modeling for
+the existing cases where it is already of clear use.
 
+This APE will also enhance ``fitting`` to allow the use of probabilistic samplers
+that are necessary for Bayesian inference.  Note though, that this APE does
+*not* aim to include samplers in Astropy itself, but rather provide layers that
+interface with samplers already used in the astronomy community like emcee_ or
+dynesty_ . This is akin to the already-existing approach ``fitting`` takes of
+using ``scipy``'s fitters but wrapping them in a more astronomy-friendly
+interface. 
 
 Branches and pull requests
 --------------------------
+
+N/A
+
+(note we should probably mention the proof-of-concept tests we've done here, though.)
 
 ***instruction text***
 Any pull requests or development branches containing work on this APE should be
@@ -151,6 +175,9 @@ details needed by someone who can provide details.]
 Backward compatibility
 ----------------------
 
+The goal of this APE is to not break backwards compatibility at all, but
+rather to allow previous code to work while also adding the new capabilities.
+
 ***instruction text***
 This section describes the ways in which the APE breaks backward compatibility.
 
@@ -167,3 +194,6 @@ Decision rationale
 ------------------
 
 <To be filled in by the coordinating committee when the APE is accepted or rejected>
+
+.. _emcee: https://emcee.readthedocs.io/
+.. _dynesty: https://dynesty.readthedocs.io/
