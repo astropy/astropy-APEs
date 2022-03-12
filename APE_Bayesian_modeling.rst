@@ -112,6 +112,31 @@ This generic ``prior`` function then uses any ``Parameter.prior`` functions and 
 any ``Parameter.bounds`` implied flat prior functions.  For any ``Parameters``
 without any prior, this function would just give a constant prior (e.g., 1).
 
+class Parameter:
+    ...
+    self._prior = <user_supplied_prior>
+
+    @property
+    def prior(self):
+        if self._prior is not None:
+            return self._prior
+        elif not any(b is None for b in self.bounds):
+            return self.bounds
+        else:
+        return [1] * len(self.param_names)
+
+
+class Model:
+    ...
+    def prior(self):
+        """
+        Returns a list of priors of all parameters.
+        """
+        pars = [getattr(self, parname) for parname in self.param_names]
+        par_priors = [getattr(par, 'prior') for par in pars]
+        return par_priors
+
+
 Statistics
 ==========
 
