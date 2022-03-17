@@ -3,7 +3,7 @@ Enhance Modeling to Support Probabilistic Fitting
 
 author: Karl Gordon, Nadia, Dencheva, William Jamieson, Erik Tollerud
 
-date-created: 2022 Mar ??
+date-created: 2022 Feb 14
 
 date-last-revised: 2022 Mar 17
 
