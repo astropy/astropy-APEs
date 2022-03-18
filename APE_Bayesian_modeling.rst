@@ -157,32 +157,33 @@ exp(-chisqr/2)) with the prior function is needed.  An alternative would be to
 create a new class (`Posterior`?) that combines both a statistic (i.e.,
 likelilhood) and prior allowing the function to be maximized.
 
-Fitters
-=======
+Samplers
+========
 
-A new class of fitters needs to be added.  This is the ``Sampler`` class that would
-provide the interface to different samplers.  Unlike the existing Optimizers
-where the best fitting model is the result, Samplers provide a sampling of the
-posterior where the number of samples is set as an input.  Effectively, the
-samplers provide a set of models and the set reflects the posterior. This set
-of models is usually returned as a 1D array of for each model parameter
-(called a chain) where the posterior is reflected as the frequency of a model
-parameter in the chain or as a parallel 1D array of posterior weights.
-The chain for each parameter will be stored in `Parameter.sampled_posterior` as an
-``astropy.uncertainty`` distribution.
+A new module akin to fitting needs to be added.  This module would be based
+around a ``Sampler`` class (similar to the ``Fitter`` class), which would
+provide the generic interface for different samplers.  Unlike the existing
+Optimizers where the best fitting model is the result, Samplers provide a
+sampling of the posterior where the number of samples is set as an input.
+Effectively, the samplers provide a set of models where the set reflects the
+posterior.  This set of models is usually returned as a 1D array of values
+for each model parameter (called a chain), where the posterior is reflected
+as the frequency of a model parameter in the chain or as a parallel 1D array
+of posterior weights. The chain for each parameter will be stored in
+`Parameter.sampled_posterior` as an ``astropy.uncertainty`` distribution.
 
 At least two samplers will be implemented.  The specific samplers planned are
 `emcee` and `dynasty`.
 
 The current ``Optimizer`` class should be abstracted to a generic class
-(``Solver``?) that provides the common portions of the generic ```Optimizer`` and
+(``Solver``?) that provides the common portions of generic ```Optimizer`` and
 ``Sampler`` classes.  The ``Optimizer`` and ``Sampler`` will provide a specific
 functionality needed for these two different fitting methods.  All
 implementations of optimizers and samplers will be subclassed from these two
 generic classes that are both subclassed from the generic ``Solver`` class.
 
-Implementing the ``dynasty`` sampler will require a weighted distribution to be
-implemented in ``astropy.uncertainty``.
+Note that, implementing the ``dynasty`` sampler will require a weighted
+distribution to be implemented in ``astropy.uncertainty``.
 
 Evidence
 ========
