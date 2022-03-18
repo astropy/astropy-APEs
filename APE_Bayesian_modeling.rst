@@ -17,8 +17,8 @@ status: Discussion
 Abstract
 --------
 
-Enhance ``astropy.modeling`` to support general probabilistic techniques in addition
-to the currently supported fequentist philosophy.  This includes fully supporting
+We propose to enhance ``astropy.modeling`` to support general probabilistic techniques in addition
+to the currently supported fequentist philosophy.  This would include fully supporting
 priors as part of the model, fitting using a more general Bayesian-compatible
 approach to the objective function (i.e., prior times likelihood), and adding
 support for sampling techniques to ``fitting``.
@@ -28,25 +28,25 @@ Detailed description
 --------------------
 
 The use of probabilistic techniques when modeling data has long been a part of
-astronomy, it has been become much more common in the last few years, particularly
+astronomy, but it has become much more common in the last few years, particularly
 with the dramatic growth of Bayesian methods.  Currently, ``astropy.modeling`` does not
 provide support for such techniques, as it focuses the fitting on minimizing
-chi-squared likelihoods.  While this was a reasonable starting approach given the
+chi-squared likelihoods.  While this has proven to be a reasonable starting approach given the
 wide range of techniques ``scipy`` provides, modern astronomy requires more
 flexibility.
 
 Probilistic fitting techniques explicitly assume data are inherently probabilistic,
 and Bayesian inference takes this one step further to also allow fitted models to
-be probabilistic and include the assumptions before the data are measured - i.e.
+be probabilistic and include the effects of assumptions before the data are measured - i.e.
 priors. This is statistically formalized via Bayes' Theorem, and while there are
-a wide range of Bayesian methods (more than Astropy could ever hope to support),
-in astronomy a very common use case is a physical model for the data with an
+a wide range of Bayesian methods (more than Astropy could ever hope to support)
+in astronomy, a very common use case is a physical model for the data with an
 explicit data distribution around that model.  This makes it relatively
 straightforward to explicitly express the prior and the likelihood function.
 With an appropriate statistical sampling method (e.g. Markov Chain Monte Carlo),
 these can be used to infer the posterior probability distribution of the
 parameters of the model.  This leads to a more statistically rigorous and
-often more useful version of "fitting a model" . That is, probabilistic sed
+often more useful version of "fitting a model" . That is, probabilistic
 fitting can result in the best fit model (just like minimizing the existing
 fitting that focuses on minimization of an objective function like chi-squared)
 *and* provide a fully probabilistic description of the model that captures
@@ -75,7 +75,7 @@ N/A
 (note we should probably mention the proof-of-concept tests we've done here, though.)
 
 Exploration of some of the ideas in this APE was done in
-https://github.com/astropy/astropy/pull/10839
+https://urldefense.com/v3/__https://github.com/astropy/astropy/pull/10839__;!!CrWY41Z8OgsX0i-WU-0LuAcUu2o!iJ81QawZILE3axNS7djxPiZ8NspaMrnko8faGJqIfW4SFwptwnmT0JcKhBpBVBrDNA$ 
 
 ***instruction text***
 Any pull requests or development branches containing work on this APE should be
@@ -143,7 +143,7 @@ without any prior, this function would just give a constant prior (e.g., 1).
 Statistics
 ==========
 
-A statistic that combines the likelihood the data fits the model with the
+A statistic that combines the likelihood that the data fits the model with the
 prior function will be implemented.  This is called the posterior and is the
 multiplication of the likelihood function by the prior function.  The maximum
 of the posterior provides the best fit model.  For numerical reasons, the
@@ -154,8 +154,8 @@ The current set of fitters are based on optimizers that minimize the statistic
 and the only currently implemented statistic is the Gaussian chisqr.  At a
 minimum, a new statistic that combines a Gaussian probability (i.e.,
 exp(-chisqr/2)) with the prior function is needed.  An alternative would be to
-create a new class (`Posterior`?) that combined both a statistic (i.e.,
-likelilhood) and prior giving the function to be maximized.
+create a new class (`Posterior`?) that combines both a statistic (i.e.,
+likelilhood) and prior allowing the function to be maximized.
 
 Fitters
 =======
