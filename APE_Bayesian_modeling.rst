@@ -161,7 +161,7 @@ Samplers
 ========
 
 A new module akin to fitting needs to be added.  This module would be based
-around a ``Sampler`` class (similar to the ``Fitter`` class), which would
+around a ``Sampler`` class (similar to the ``Optimization`` class), which would
 provide the generic interface for different samplers.  Unlike the existing
 Optimizers where the best fitting model is the result, Samplers provide a
 sampling of the posterior where the number of samples is set as an input.
@@ -175,12 +175,12 @@ of posterior weights. The chain for each parameter will be stored in
 At least two samplers will be implemented.  The specific samplers planned are
 `emcee` and `dynasty`.
 
-The current ``Optimizer`` class should be abstracted to a generic class
-(``Solver``?) that provides the common portions of generic ```Optimizer`` and
-``Sampler`` classes.  The ``Optimizer`` and ``Sampler`` will provide a specific
-functionality needed for these two different fitting methods.  All
-implementations of optimizers and samplers will be subclassed from these two
-generic classes that are both subclassed from the generic ``Solver`` class.
+The current ``Optimization`` class should be abstracted to a generic class
+(``Solver``?) that provides the common portions of generic ``Optimization`` and
+``Sampler`` classes.  The ``Optimization`` and ``Sampler`` will provide a specific
+functionality needed for fitting or sampling methods.  All implementations of
+optimizers and samplers will be subclassed from these two generic classes that
+are both subclassed from the generic ``Solver`` class.
 
 Note that, implementing the ``dynasty`` sampler will require a weighted
 distribution to be implemented in ``astropy.uncertainty``.
