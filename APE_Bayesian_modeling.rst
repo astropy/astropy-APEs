@@ -75,7 +75,7 @@ N/A
 (note we should probably mention the proof-of-concept tests we've done here, though.)
 
 Exploration of some of the ideas in this APE was done in
-https://urldefense.com/v3/__https://github.com/astropy/astropy/pull/10839__;!!CrWY41Z8OgsX0i-WU-0LuAcUu2o!iJ81QawZILE3axNS7djxPiZ8NspaMrnko8faGJqIfW4SFwptwnmT0JcKhBpBVBrDNA$ 
+https://github.com/astropy/astropy/pull/10839
 
 ***instruction text***
 Any pull requests or development branches containing work on this APE should be
