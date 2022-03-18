@@ -150,12 +150,12 @@ of the posterior provides the best fit model.  For numerical reasons, the
 natural log of the likelihood and prior function are added and the posterior
 probability is reported as ln(prob).
 
-The current set of fitters are based on optimizers that minimize the statistic
-and the only currently implemented statistic is the Gaussian chisqr.  At a
-minimum, a new statistic that combines a Gaussian probability (i.e.,
-exp(-chisqr/2)) with the prior function is needed.  An alternative would be to
-create a new class (`Posterior`?) that combines both a statistic (i.e.,
-likelilhood) and prior allowing the function to be maximized.
+The current set of fitters are based on optimizers, which minimize the statistic.
+Currently, the only implemented statistic is the Gaussian chisqr.  At a minimum,
+a new statistic that combines a Gaussian probability (i.e., exp(-chisqr/2)) with
+the prior function is needed.  An alternative would be to create a new class
+(`Posterior`?) that combines both a statistic (i.e., likelilhood) and prior
+allowing the function to be maximized.
 
 Samplers
 ========
