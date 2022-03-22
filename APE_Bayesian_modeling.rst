@@ -1,11 +1,16 @@
 Enhance Modeling to Support Probabilistic Fitting
 -------------------------------------------------
 
+**DRAFT**
+
+**Those interested are welcome to join this APE.  We welcome feedback, comments,
+etc.**
+
 author: Karl Gordon, Nadia, Dencheva, William Jamieson, Erik Tollerud
 
 date-created: 2022 Feb 14
 
-date-last-revised: 2022 Mar 17
+date-last-revised: 2022 Mar 22
 
 date-accepted:
 
@@ -70,19 +75,10 @@ interface.
 Branches and pull requests
 --------------------------
 
-N/A
-
-(note we should probably mention the proof-of-concept tests we've done here, though.)
-
 Exploration of some of the ideas in this APE was done in
 https://github.com/astropy/astropy/pull/10839
 
-***instruction text***
-Any pull requests or development branches containing work on this APE should be
-linked to from here.  (An APE does not need to be implemented in a single pull
-request if it makes sense to implement it in discrete phases). If no code is yet
-implemented, just put "N/A"
-
+(PRs implementing portions of this proposal planned)
 
 Implementation
 --------------
@@ -193,12 +189,6 @@ is the integration over all of parameters space of the posterior.  A function
 to compute the evidence should be implemented (probably using the
 ``Parameter.sampled_posterior`` attribute).
 
-***instruction text***
-This section lists the major steps required to implement the APE.  Where
-possible, it should be noted where one step is dependent on another, and which
-steps may be optionally omitted.  Where it makes sense, each  step should
-include a link related pull requests as the implementation progresses.
-
 Serialization
 =============
 
@@ -215,16 +205,16 @@ Backward compatibility
 The goal of this APE is to not break backwards compatibility at all, but
 rather to allow previous code to work while also adding the new capabilities.
 
-***instruction text***
-This section describes the ways in which the APE breaks backward compatibility.
-
-
 Alternatives
 ------------
 
-***instruction text***
-If there were any alternative solutions to solving the same problem, they should
-be discussed here, along with a justification for the chosen approach.
+There are alternative approaches that provide portions of the capabilities
+proposed here.  For example, the ``BayesicFitting`` package (bayesicfitting_) and providing an
+interface between ``astropy.modeling`` and this package.  There is significant
+overlap between the capabilities of ``BayesicFitting`` and ``astropy.modeling``.
+
+The solution proposed in this APE provides a tighter integration of probabilistic/Bayesian
+techniques into ``astropy.modeling`` and avoids having redundant capabilities.
 
 
 Decision rationale
@@ -235,3 +225,4 @@ Decision rationale
 .. _emcee: https://emcee.readthedocs.io/
 .. _dynesty: https://dynesty.readthedocs.io/
 .. _ASDF: https://asdf-standard.readthedocs.io/
+.. _bayesicfitting: https://github.com/dokester/BayesicFitting/
