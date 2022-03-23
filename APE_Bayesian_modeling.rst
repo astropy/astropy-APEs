@@ -168,17 +168,17 @@ as the frequency of a model parameter in the chain or as a parallel 1D array
 of posterior weights. The chain for each parameter will be stored in
 `Parameter.sampled_posterior` as an ``astropy.uncertainty`` distribution.
 
-At least two samplers will be implemented.  The specific samplers planned are
+Interfaces to at least two samplers will be implemented.  The specific samplers planned are
 `emcee` and `dynasty`.
 
 The current ``Optimization`` class should be abstracted to a generic class
 (``Solver``?) that provides the common portions of generic ``Optimization`` and
 ``Sampler`` classes.  The ``Optimization`` and ``Sampler`` will provide a specific
-functionality needed for fitting or sampling methods.  All implementations of
+functionality needed for fitting or sampling methods.  All implementations of interfaces to
 optimizers and samplers will be subclassed from these two generic classes that
 are both subclassed from the generic ``Solver`` class.
 
-Note that, implementing the ``dynasty`` sampler will require a weighted
+Note that, implementing the interface to the ``dynasty`` sampler will require a weighted
 distribution to be implemented in ``astropy.uncertainty``.
 
 Evidence
