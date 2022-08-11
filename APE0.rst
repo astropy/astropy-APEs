@@ -122,18 +122,22 @@ Electing the Coordination Committee
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 A Coordination Committee election is held annually to fill any vacant seats.
 Notice of the election must be posted via the Project’s standard communication
-channels (reaching all active members) at least one month before the election
-begins. The election consists of two phases, each lasting two weeks:
+channels for users, contributors and voting members, at least one month before
+the voting phase begins. The election consists of two phases, each lasting at
+least two weeks:
 
 * Phase 1, Nominations: Candidates will be nominated and confirm their interest
   in serving. Candidates can be nominated by anyone, including themselves, and
   do not have to be `Voting Members <votingmembers>`_ to be nominated.
-  Candidates should provide a brief statement in support of their candidacy.
+  Candidates should provide a brief statement in support of their candidacy,
+  these statements should be made public as they are received during the
+  nominations period.
 * Phase 2, Voting: Each `Voting Member <votingmembers>`_ can vote for zero or
   more of the candidates, up to the number of candidates. Voting is performed
-  anonymously. Candidates are ranked by the total number of votes they receive.
-  If a tie occurs, it may be resolved by mutual agreement among the candidates,
-  or else the winner will be chosen at random.
+  anonymously. Candidates who receive votes from a majority of the voting
+  members participating in the election are ranked by the total number of votes
+  they receive. If a tie occurs, it may be resolved by mutual agreement among
+  the candidates, or else the winner will be chosen at random.
 
 The election process is managed by a non-voting Returns Officer nominated by
 the outgoing Coordination Committee, although the process (specific choice of
@@ -296,15 +300,18 @@ The procedure for voting to add new Voting Members is:
 * The Coordination Committee and Ombudsperson receive each nomination, check
   that it is factually accurate, that the nominated person accepts the
   nomination, and that their record of community activity adheres to the Code of
-  Conduct.
-* Once a nomination is accepted by the Coordination Committee, the Coordination
-  Committee will put it to a vote among active Voting Members. Votes for adding
-  voting members will be carried out at most twice a year to avoid too many
-  elections. The voting dates will be announced with at least four weeks notice,
+  Conduct. If the candidate accepts, they should provide a brief statement in
+  support of their nomination.
+* Once a nomination is accepted by the Coordination Committee, it will be put it
+  to a vote among active Voting Members. Votes for adding voting members will be
+  carried out at most twice a year to avoid too many elections. The returns
+  officer for the voting member election can be a voting member, and those
+  officer are entitled to vote in the election.
+* The voting dates will be announced with at least four weeks notice,
   and additional nominations will be accepted until two weeks before the
   election date. The voting will be open for at least two weeks. To successfully
   gain an appointment as a Voting Member, the nominee must receive at least four
-  positive votes, as long as that constitutes a majority of those voting.
+  positive votes, as long as that constitutes a majority of those voting for that candidate.
 * The candidate will be informed promptly at the close of voting by a
   Coordination Committee member. If the vote is not affirmative, the
   Coordination Committee will provide feedback to the nominee.
@@ -322,6 +329,8 @@ response is received, the Coordination Committee may automatically change a
 Voting Member’s status to *emeritus*. To record and honor their contributions,
 *emeritus* Voting Members will continue to be listed. *Emeritus* Voting Members
 are not able to participate in votes.
+An emeritus member may request to be marked as active at any time if they feel
+they are making contributions.
 
 Removing Voting Members
 ^^^^^^^^^^^^^^^^^^^^^^^
