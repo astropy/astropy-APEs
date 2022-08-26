@@ -47,7 +47,7 @@ been documented in other projects, for instance in `Django DEP-0008`_.
 We do not expect unanimous agreement on this APE but do hope to demonstrate the
 value of Black for the collective needs of the community and Astropy Project.
 
-.. _astropy-dev thread: https://groups.google.com/g/astropy-dev/c/6cRJCMgaFyM/m/oUiebLIhAgAJ
+.. _astropy-dev thread: https://groups.google.com/g/astropy-dev/c/6cRJCMgaFyM/
 
 Note that ideas and some text for this APE have been adapted from a similar
 enhancement proposal for Django `Django DEP-0008`_.
@@ -89,7 +89,7 @@ come up in the past.
 While there are multiple code formatters for Python, the Black Python code
 formatter produces good enough results that it is getting significant traction
 in many open source projects, including: scikit-learn, pytest, tox, Pyramid,
-Django, Hypothesis, SQLAlchemy, virtualenv, pandas, Pillow, Twisted. While
+Django, Hypothesis, SQLAlchemy, virtualenv, pandas, Pillow, and Twisted. While
 adoption by this list of high-profile community-based open source projects does
 not automatically imply that it is a good fit for ``astropy``, it demonstrates
 unequivocally several points:
@@ -215,7 +215,7 @@ Implementing this change requires:
 
    * Adding documentation about Black, with a particular emphasis on the rationale expressed here and the exception policy described above.
    * Adding documentation about using pre-commit, ala `pandas pre-commit`_.
-   * Document the black exception guidelines (as described in this APE)
+   * Document the Black exception guidelines (as described in this APE)
    * Removing other references to code formatting in the documentation.
 
 2. Updating flake8 configuration to be compatible with Black.
