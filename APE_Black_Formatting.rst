@@ -155,7 +155,7 @@ diff won't. But we are already doing other bulk changes that hit every file.
 
 Code correctness
 ~~~~~~~~~~~~~~~~
-Black guarantees correctness of the code formatter to not change the code AST.
+Black guarantees semantic equivalence of the formatted code, and will not (`except in a few limited cases <https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html#ast-before-and-after-formatting>`_) change the code AST.
 
 Migration effort
 ~~~~~~~~~~~~~~~~
