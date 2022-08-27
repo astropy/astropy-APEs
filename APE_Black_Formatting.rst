@@ -202,7 +202,7 @@ mechanistic process that humans need not control.
 Exception Policy
 ^^^^^^^^^^^^^^^^
 As described above, there are cases Black formatting makes the code
-substantially more difficult to read or understand.. These should be treated
+substantially more difficult to read or understand. These should be treated
 explicitly as exceptions, using the ``#fmt: off``/``#fmt: on`` escape hatch for
 multi-line exceptions, or ``#fmt: skip`` for single-line exceptions. **This is
 allowed if the code author and PR reviewer(s) agree that the code line or block
