@@ -23,7 +23,7 @@ Abstract
 --------
 
 This APE proposes that the `astropy core package
-<https://github.com/astropy/astropy>`_ adopt Black_ as the default code format.
+<https://github.com/astropy/astropy>`_ adopt Black_ for formatting code.
 
 Detailed description
 --------------------
@@ -38,6 +38,14 @@ distinct from the Astropy project as a whole and coordinated and affiliated
 Astropy packages. While coordinated or affiliated packages may choose to adopt
 this APE's conventions in the future, this APE is concerned solely with the core
 package itself.
+
+Black_ is a fast and reliable Python automated code formatter supported by the
+Python Software Foundation. The project motto "The uncompromising code
+formatter" reflects that the code is strongly opinionated about formatting and
+there are very few configuration options. From their documentation, "By using
+*Black*, you agree to cede control over minutiae of hand-formatting. In return,
+Black gives you speed, determinism, and freedom from ``pycodestyle`` nagging
+about formatting."
 
 Code formatting is controversial and the `astropy-dev thread`_ about Black
 generated a spirited discussion but did not result in a clear consensus. This
@@ -94,14 +102,16 @@ adoption by this list of high-profile community-based open source projects does
 not automatically imply that it is a good fit for ``astropy``, it demonstrates
 unequivocally several points:
 
-Technical issues related to the initial transition and subsequent maintenance of
-Black formatting are surmountable. There is plenty of prior art and good
-documentation. Sociological issues related to developer preferences are
-surmountable. Evidence from other projects is that developers either embrace or
-at least accept autoformatting. Developer documentation can provide clear
-instructions to contributors on how to implement Black formatting in their
-development process. Issues with this process are no more difficult (and
-arguably easier) to resolve than enforcing PEP-8 standards.
+- Technical issues related to the initial transition and subsequent maintenance of
+  Black formatting are surmountable. There is plenty of prior art and good
+  documentation.
+- Sociological issues related to developer preferences are surmountable.
+  Evidence from other projects is that developers either embrace or
+  at least accept autoformatting.
+- Developer documentation can provide clear instructions to contributors on how
+  to implement Black formatting in their development process. Issues with this
+  process are no more difficult (and arguably easier) to resolve than enforcing
+  PEP-8 standards.
 
 Therefore, this APE proposes to adopt Black for ``astropy``.
 
@@ -150,12 +160,17 @@ thinks the improved readability warrants it.
 
 History
 ~~~~~~~
-This changes almost every Python file. Git blame can skip the commit, but git
-diff won't. But we are already doing other bulk changes that hit every file.
+This changes almost every Python file and a large fraction of code lines (for
+example about one third of non-blank lines in the ``astropy.time`` subpackage).
+This is more than previous bulk changes and it is an impact that needs to be
+accepted with this APE.
 
 Code correctness
 ~~~~~~~~~~~~~~~~
-Black guarantees semantic equivalence of the formatted code, and will not (`except in a few limited cases <https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html#ast-before-and-after-formatting>`_) change the code AST.
+Black guarantees semantic equivalence of the formatted code, and will not
+(`except in a few limited cases
+<https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html#ast-before-and-after-formatting>`_)
+change the code AST.
 
 Migration effort
 ~~~~~~~~~~~~~~~~
@@ -169,13 +184,12 @@ This is addressed in the Implementation section.
 
 New contributors
 ~~~~~~~~~~~~~~~~
-New contributors may be more discouraged by more steps. However:
-
-This *replaces* the existing PEP8 check, so that it is not "another step" To
-make it better, leave very clear explicit messages in the status checks on GH
-(not putting up a barrier) Scikit-learn had a few issues with contributors but
-not at a level that caused regret about the decision to adopt black formatting.
-One developer described the change as a "net benefit".
+New contributors may be more discouraged by more steps. However, this *replaces*
+the existing PEP8 check, so that it is not "another step". To make it better,
+leave very clear explicit messages in the status checks on GitHub to reduce the
+barrier. Scikit-learn had a few issues with contributors but not at a level that
+caused regret about the decision to adopt black formatting. One developer
+described the change as a "net benefit".
 
 Removing the humanity
 ~~~~~~~~~~~~~~~~~~~~~
@@ -213,7 +227,8 @@ Implementing this change requires:
 
 1. Updating the `coding style`_:
 
-   * Adding documentation about Black, with a particular emphasis on the rationale expressed here and the exception policy described above.
+   * Adding documentation about Black, with a particular emphasis on the
+     rationale expressed here and the exception policy described above.
    * Adding documentation about using pre-commit, ala `pandas pre-commit`_.
    * Document the Black exception guidelines (as described in this APE)
    * Removing other references to code formatting in the documentation.
@@ -262,11 +277,10 @@ steps.
 
 Backward compatibility
 ----------------------
-
-This APE renders all previous code formatting styles no longer compatible. In
-practice this has little impact because the "standard" style has grown
-organically and is not applied consistently beyond the PEP8 checks (which Black
-is a superset of).
+This APE would supersede any previous code formatting styles recommended for the
+core package. In practice this has little impact because the "standard" style
+has grown organically and is not applied consistently beyond the PEP8 checks
+(which Black is a superset of).
 
 Alternatives
 ------------
