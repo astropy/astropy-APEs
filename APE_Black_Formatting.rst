@@ -52,6 +52,13 @@ generated a spirited discussion but did not result in a clear consensus. This
 strong division of opinions about automated code formatting is common and has
 been documented in other projects, for instance in `Django DEP-0008`_.
 
+Other projects, including NumPy and SciPy, have considered using Black for
+formatting (see e.g. `SciPy PR #14330
+<https://github.com/scipy/scipy/pull/14330>`_). Neither of those projects felt
+that auto-formatting with the current version of Black (circa 2022) was a good
+choice for their codebase, with particular emphasis on needing improvements
+in formatting of mathematical expressions.
+
 We do not expect unanimous agreement on this APE but do hope to demonstrate the
 value of Black for the collective needs of the community and Astropy Project.
 
