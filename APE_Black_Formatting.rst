@@ -2,6 +2,7 @@
 .. _Django DEP-0008: https://github.com/django/deps/blob/main/final/0008-black.rst
 .. _pandas pre-commit: https://pandas.pydata.org/docs/development/contributing_codebase.html#pre-commit
 .. _coding style: https://docs.astropy.org/en/latest/development/codeguide.html#coding-style-conventions
+.. _PEP8: https://peps.python.org/pep-0008/
 
 Formatting Code with Black
 ===========================
