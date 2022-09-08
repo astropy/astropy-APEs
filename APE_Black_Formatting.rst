@@ -227,7 +227,7 @@ Implementation
 --------------
 
 All Python code in ``astropy`` is formatted with Black_, using its default
-settings, that is, 88 characters per line and double quotes. Note that, by
+settings except the maximum line width which is set to 94 characters. Note that, by
 design, most of Black_ is inflexible, and there is not a way to pick-and-choose
 some elements and not others of Black's format.
 
@@ -237,7 +237,6 @@ Implementing this change requires:
 
    * Adding documentation about Black, with a particular emphasis on the
      rationale expressed here and the exception policy described above.
-   * Adding documentation about using pre-commit, ala `pandas pre-commit`_.
    * Document the Black exception guidelines (as described in this APE)
    * Removing other references to code formatting in the documentation.
 
@@ -250,10 +249,9 @@ Implementing this change requires:
 
    * Add a CI check that runs ``black --check`` on the whole code base, failing
      if it meets a violation
-   * Allow for the Black CI bot to fix formatting errors via documented single
-     line comments. This is an opt-in step which could be used by maintainers to
-     fix errors prior to merging. Having such an option available could lower
-     the barrier for new contributors.
+   * Document the process for using the pre-commit CI bot to fix formatting
+     errors via single line comments. This is an opt-in step which can be used by
+     maintainers to fix errors prior to merging.
 
 4. Reformatting Astropy's code.  This will be done on a subpackage-by-subpackage
    basis over a transition period. The process for each subpackage to be
