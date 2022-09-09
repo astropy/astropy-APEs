@@ -248,9 +248,6 @@ Implementing this change requires:
 3. Checking Black in CI.
 
    * Add a CI check that runs black to ensure consistency, failing if it meets a violation.
-   * Document the process for using the pre-commit CI bot to fix formatting
-     errors via single line comments. This is an opt-in step which can be used by
-     maintainers to fix errors prior to merging.
 
 4. Reformatting Astropy's code.  This will be done on a subpackage-by-subpackage
    basis over a transition period. The process for each subpackage to be
