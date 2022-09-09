@@ -227,7 +227,7 @@ Implementation
 --------------
 
 All Python code in ``astropy`` is formatted with Black_, using its default
-settings except the maximum line width which is set to 94 characters. Note that, by
+settings, that is, 88 characters per line and double quotes. Note that, by
 design, most of Black_ is inflexible, and there is not a way to pick-and-choose
 some elements and not others of Black's format.
 
