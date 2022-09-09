@@ -242,8 +242,7 @@ Implementing this change requires:
 
 2. Updating flake8 configuration to be compatible with Black.
 
-   This is straightforward and well documented. It may even be removed if it
-   does not provide any added checks that ``black –check`` does not.
+   This is straightforward and well documented. 
 
 3. Checking Black in CI.
 
