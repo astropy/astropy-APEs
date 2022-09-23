@@ -12,13 +12,13 @@ authors: Tom Aldcroft, Erik Tollerud
 
 date-created: 2022 July 13
 
-date-last-revised: 2022 August 25
+date-last-revised: 2022 September 23
 
-date-accepted: <replace with accepted date>
+date-accepted: 2022 September 23
 
 type: Standard Track
 
-status: Discussion
+status: Accepted
 
 
 Abstract
