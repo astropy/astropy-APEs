@@ -5,9 +5,9 @@ author: The Astropy Governance Working Group; Tom Aldcroft, Matt Craig, Kelle Cr
 
 date-created: 2020 July 31
 
-date-last-revised: 2021 February 19
+date-last-revised: 2022 October 13
 
-date-accepted: 2021 February 19
+date-accepted:
 
 type: Process
 
@@ -49,8 +49,8 @@ The Coordination Committee
 
 Composition
 ^^^^^^^^^^^
-The Coordination Committee is a committee that is composed of four or five
-members (this number will be decided by vote at the same time as the first
+The Coordination Committee is a committee that is composed of five
+members (this number was decided by vote at the same time as the first
 Coordination Committee election). Unless it would
 be short of candidates otherwise, it should not have more than one member from
 any particular employer. The Ombudsperson (described in
@@ -157,7 +157,7 @@ In the case of a vacancy partway through a term, a by-election will be held.
 The term of the newly-elected member runs for the remainder of the term of
 the member they are replacing. 
 
-For the initial election of Coordination Committee members, two seats will have
+For the initial election of Coordination Committee members (four at the time instead of five), two seats will have
 terms of one year, one has a term of two years, and one has a term of three
 years to create a staggered set of replacements and provide continuity in the
 Coordination Committee. The candidate with the largest number of votes gets the
