@@ -157,8 +157,8 @@ In the case of a vacancy partway through a term, a by-election will be held.
 The term of the newly-elected member runs for the remainder of the term of
 the member they are replacing. 
 
-For the initial election of Coordination Committee members (four at the time instead of five), two seats will have
-terms of one year, one has a term of two years (two here now that there are five), and one has a term of three
+For the initial election of Coordination Committee members, two seats will have
+terms of one year, two have a term of two years, and one has a term of three
 years to create a staggered set of replacements and provide continuity in the
 Coordination Committee. The candidate with the largest number of votes gets the
 longest available seat and the smallest the shortest, unless the new committee
