@@ -5,7 +5,7 @@ author: Thomas Robitaille, Pey Lian Lim, Simon Conseil
 
 date-created: 2023 February 16
 
-date-last-revised: 2023 February 20 <keep this up to date anytime something changes>
+date-last-revised: 2023 February 21 <keep this up to date anytime something changes>
 
 date-accepted: <replace with accepted date>
 
@@ -18,7 +18,7 @@ Abstract
 --------
 
 This APE proposes to no longer designate any releases of the core package as being
-'long term support' (LTS) and provide guidance on how to handle API changes and deprecations.
+"long-term support" (LTS) and provide guidance on how to handle API changes and deprecations.
 
 
 Detailed description
@@ -27,15 +27,15 @@ Detailed description
 `APE 2: Astropy Release Cycle and Version Numbering <https://doi.org/10.5281/zenodo.1043887>`_ describes the release cycle
 for the core astropy package, which consists of major releases every 6 months that
 add new features (e.g., v5.2), and releases in between this that are limited to fixing bugs
-or updating documentation (e.g., v5.2.1). Every two years, major releases are designated
+or updating documentation (e.g., v5.2.1). Every 2 years, major releases are designated
 as being LTS (e.g., v5.0) and we have committed to releasing bugfix releases
-for this version (e.g., v5.0.3) for up to two years.
+for this version (e.g., v5.0.3) for up to 2 years.
 
 At the start of the project, having LTS releases was critical for acceptance by
 large organizations/projects for which stability is paramount, as the core package went through
 significant API changes from version to version due to the youth of the project and LTS
 releases were a way to shield against these changes, or at least reduce disruption to
-be every two years.
+be every 2 years.
 
 LTS releases are however not free:
 
@@ -58,10 +58,10 @@ in astropy either.
 This APE proposes the following:
 
 * No longer designate any releases as LTS.
-* Keep the 6-month release cycle and bump releases to x.0 every two years.
-* Refer to the x.0 releases every two years (e.g., v6.0) as 'major'
-  releases, other releases every 6 months (e.g., v6.1) as 'minor', and bug fixing
-  releases (e.g., v6.1.2) as 'bugfix releases'.
+* Keep the 6-month release cycle and bump releases to x.0 every 2 years.
+* Refer to the x.0 releases every 2 years (e.g., v6.0) as "major"
+  releases, other releases every 6 months (e.g., v6.1) as "minor", and bug fixing
+  releases (e.g., v6.1.2) as "bugfix" releases.
 * Minimize as much as possible any changes that break API or change results in
   minor releases, but being pragmatic and accepting such changes if they would
   not affect many users.
@@ -71,7 +71,7 @@ This APE proposes the following:
   are deemed to be high impact enough to wait longer).
 
 With this in place, we would effectively be striving to maximize stability over
-two year periods but users would see deprecation warnings to prepare them for
+two-year periods but users would see deprecation warnings to prepare them for
 changes. This is in contrast to the current LTS system where users might not see
 a deprecation warning until the next LTS release as deprecations are not typically
 backported.
@@ -91,9 +91,11 @@ Backward compatibility
 ----------------------
 
 N/A
+
 Alternatives
 ------------
 
+<Remove placeholder below before merge>
 If there were any alternative solutions to solving the same problem, they should
 be discussed here, along with a justification for the chosen approach.
 
