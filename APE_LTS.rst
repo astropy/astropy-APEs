@@ -1,11 +1,11 @@
 Ending Long Term Support Releases
 ---------------------------------
 
-author: Thomas Robitaille
+author: Thomas Robitaille, Pey Lian Lim, Simon Conseil
 
-date-created: 2023 February 16 <replace with the date you submit the APE>
+date-created: 2023 February 16
 
-date-last-revised: 2023 February 16 <keep this up to date anytime something changes>
+date-last-revised: 2023 February 20 <keep this up to date anytime something changes>
 
 date-accepted: <replace with accepted date>
 
@@ -28,13 +28,13 @@ Detailed description
 for the core astropy package, which consists of major releases every 6 months that
 add new features (e.g., v5.2), and releases in between this that are limited to fixing bugs
 or updating documentation (e.g., v5.2.1). Every two years, major releases are designated
-as being 'long term support' (e.g., v5.0) and we have committed to releasing bugfix releases
+as being LTS (e.g., v5.0) and we have committed to releasing bugfix releases
 for this version (e.g., v5.0.3) for up to two years.
 
-At the start of the project, having long term support releases was critical for acceptance by
+At the start of the project, having LTS releases was critical for acceptance by
 large organizations/projects for which stability is paramount, as the core package went through
-significant API changes from version to version due to the youth of the project and long term
-support releases were a way to shield against these changes, or at least reduce disruption to
+significant API changes from version to version due to the youth of the project and LTS
+releases were a way to shield against these changes, or at least reduce disruption to
 be every two years.
 
 LTS releases are however not free:
@@ -44,7 +44,6 @@ LTS releases are however not free:
   branch and automated backports are more likely to fail as time goes on,
   requiring human effort to manually do the backports, which can sometimes be
   non-trivial.
-
 * Even once fixes are backported to the LTS branch, carrying out releases is not
   fully automated and requires manual steps, so having to do
   bugfix releases for both the latest release branch and LTS branch puts an extra
@@ -52,20 +51,20 @@ LTS releases are however not free:
 
 In addition, it is not clear that LTS releases are needed anymore - now that the
 core package is over ten years old, it has reached a much higher level of
-stability. No other main package in the scientific Python ecosystem has long
-term support releases, and there is no longer a strong argument for having this
+stability. No other main package in the scientific Python ecosystem has LTS
+releases, and there is no longer a strong argument for having this
 in astropy either.
 
 This APE proposes the following:
 
-* No longer designate any releases as LTS
-* Keep the 6-month release cycle and bump releases to x.0 every two years
-* Refer to the x.0 releases every two years (e.g. v6.0) as 'major'
-  releases, other releases every 6 months (e.g. v6.1) as 'minor', and bug fixing
-  releases (e.g. v6.1.2) as 'bugfix releases'
+* No longer designate any releases as LTS.
+* Keep the 6-month release cycle and bump releases to x.0 every two years.
+* Refer to the x.0 releases every two years (e.g., v6.0) as 'major'
+  releases, other releases every 6 months (e.g., v6.1) as 'minor', and bug fixing
+  releases (e.g., v6.1.2) as 'bugfix releases'.
 * Minimize as much as possible any changes that break API or change results in
   minor releases, but being pragmatic and accepting such changes if they would
-  not affect many users
+  not affect many users.
 * Add deprecation warnings or future warnings in minor and major releases but only
   go through with the breaking changes in major releases (either the next major
   release following when a warning was added, or subsequent ones if the changes
@@ -77,7 +76,6 @@ changes. This is in contrast to the current LTS system where users might not see
 a deprecation warning until the next LTS release as deprecations are not typically
 backported.
 
-
 Branches and pull requests
 --------------------------
 
@@ -86,22 +84,19 @@ N/A
 Implementation
 --------------
 
-This APE proposes to continue supporting the 5.0.x LTS series but to not
-designate 6.0 as LTS.
-
+This APE proposes to continue supporting the v5.0.x LTS series but to not
+designate v6.0 as LTS.
 
 Backward compatibility
 ----------------------
 
 N/A
 
-
 Alternatives
 ------------
 
 If there were any alternative solutions to solving the same problem, they should
 be discussed here, along with a justification for the chosen approach.
-
 
 Decision rationale
 ------------------
