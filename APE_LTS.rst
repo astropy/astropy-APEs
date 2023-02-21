@@ -91,7 +91,6 @@ Backward compatibility
 ----------------------
 
 N/A
-
 Alternatives
 ------------
 
