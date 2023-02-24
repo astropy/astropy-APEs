@@ -24,6 +24,9 @@ This APE proposes to no longer designate any releases of the core package as bei
 Detailed description
 --------------------
 
+Motivation
+^^^^^^^^^^
+
 `APE 2: Astropy Release Cycle and Version Numbering <https://doi.org/10.5281/zenodo.1043887>`_ describes the release cycle
 for the core astropy package, which consists of major releases every 6 months that
 add new features (e.g., v5.2), and releases in between this that are limited to fixing bugs
@@ -37,7 +40,7 @@ significant API changes from version to version due to the youth of the project 
 releases were a way to shield against these changes, or at least reduce disruption to
 be every 2 years.
 
-LTS releases are however not free:
+LTS releases are however not without cost:
 
 * While we use infrastructure to automate backporting fixes to release branches,
   in practice the LTS branch diverges more and more from the main development
@@ -55,10 +58,15 @@ stability. No other main package in the scientific Python ecosystem has LTS
 releases, and there is no longer a strong argument for having this
 in astropy either.
 
+Proposed release procedure
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 This APE proposes the following:
 
 * No longer designate any releases as LTS.
-* Keep the 6-month release cycle and bump releases to x.0 every 2 years.
+* Keep the 6-month release cycle and bump releases to x.0 every 2 years (with
+  the possibility of allowing this to be more or less than 2 years if there is a
+  consensus amongst core package maintainers that this can be changed)
 * Refer to the x.0 releases every 2 years (e.g., v6.0) as "major"
   releases, other releases every 6 months (e.g., v6.1) as "minor", and bug fixing
   releases (e.g., v6.1.2) as "bugfix" releases.
@@ -77,37 +85,56 @@ a deprecation warning until the next LTS release as deprecations are not typical
 backported.
 
 Guidelines on deprecations and API changes
-------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The main guidelines are as follows:
+The main proposed guidelines are as follows:
 
 * API changes should only be carried out in major releases.
 * Any API changes should be preceded by deprecation warnings that should be
   visible to users in at least one minor release cycle prior to the API change
   being carried out.
 * New deprecations should not be introduced in bugfix releases - this will
-  ensure that deprecations will therefore be advertised for at least 6 months
+  ensure that deprecations will therefore be emitted for at least 6 months
   before a major release.
-* If developers wish to make an API change at the point where the next release
+* If developers wish to make an API change at a point in time where the next release
   is a major release, they should introduce the deprecation in the major release
   and carry out the change in the following major release.
 
-As with all guidelines, there will be exceptions:
+As with all guidelines, there are exceptions where we can deviate from these guidelines:
 
 * API changes can be carried out in major releases without deprecation if it is
-  not possible to have a deprecation phase.
+  not possible to have a deprecation phase due to the nature of the change.
 * Changes breaking or changing the behavior of code may be needed in order to
   fix bugs. Such changes can be made in bugfix or minor releases and do not need
   to be considered API changes.
 * Changes to exception types or warning/error messages may occasionally be
-  needed in non-major releases but these should be minimized as users may rely
-  on these and they may therefore be considered API
+  needed in non-major releases.
 
 These exceptions will require judgment calls on the part of maintainers, but any
-such changes should be clearly communicated to users (e.g., via the 'What's New' page).
+such changes should be minimized as much as possible and clearly communicated to
+users (see `Communication with users`_).
 
 Communication with users
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+It is imperative that we communicate effectively with users so that they understand
+what to expect from different releases:
+
+* We should include documentation for the core package that describes the
+  release policy above, namely that in general minor releases will not
+  break/remove functionality, but that major releases might.
+
+* We should ensure that any changes in releases which deviate from the
+  guidelines above are clearly communicated to users - for example any API/breaking
+  changes in minor releases should be included in the "What's New" page for the
+  minor release.
+
+* Deprecations should always be mentioned in the changelog, as well as any removal
+  of deprecated code/API changes. We do not specify how exactly this should be done,
+  but note that e.g. Numpy have separate sections entitled *Deprecations*,
+  *Expired Deprecations* and *Compatibility Notes* in their release notes (see
+  `here <https://numpy.org/doc/stable/release/1.24.0-notes.html>`_ for an
+  example) which is clearer than having a single *API changes* section.
 
 Branches and pull requests
 --------------------------
@@ -128,7 +155,9 @@ N/A
 Alternatives
 ------------
 
-N/A
+We could keep the current release workflow - however as mentioned above this has
+a maintenance cost and it is not something that is done by any other major
+packages in the scientific Python ecosystem.
 
 Decision rationale
 ------------------
