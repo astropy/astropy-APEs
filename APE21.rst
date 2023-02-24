@@ -63,7 +63,7 @@ This APE proposes the following:
   releases, other releases every 6 months (e.g., v6.1) as "minor", and bug fixing
   releases (e.g., v6.1.2) as "bugfix" releases.
 * Minimize as much as possible any changes that break API or change results in
-  minor releases, but being pragmatic and accepting such changes if they would
+  minor releases, but be pragmatic and occasionally allow such changes if they would
   not affect many users.
 * Add deprecation warnings or future warnings in minor and major releases but only
   go through with the breaking changes in major releases (either the next major
@@ -75,6 +75,39 @@ two-year periods but users would see deprecation warnings to prepare them for
 changes. This is in contrast to the current LTS system where users might not see
 a deprecation warning until the next LTS release as deprecations are not typically
 backported.
+
+Guidelines on deprecations and API changes
+------------------------------------------
+
+The main guidelines are as follows:
+
+* API changes should only be carried out in major releases.
+* Any API changes should be preceded by deprecation warnings that should be
+  visible to users in at least one minor release cycle prior to the API change
+  being carried out.
+* New deprecations should not be introduced in bugfix releases - this will
+  ensure that deprecations will therefore be advertised for at least 6 months
+  before a major release.
+* If developers wish to make an API change at the point where the next release
+  is a major release, they should introduce the deprecation in the major release
+  and carry out the change in the following major release.
+
+As with all guidelines, there will be exceptions:
+
+* API changes can be carried out in major releases without deprecation if it is
+  not possible to have a deprecation phase.
+* Changes breaking or changing the behavior of code may be needed in order to
+  fix bugs. Such changes can be made in bugfix or minor releases and do not need
+  to be considered API changes.
+* Changes to exception types or warning/error messages may occasionally be
+  needed in non-major releases but these should be minimized as users may rely
+  on these and they may therefore be considered API
+
+These exceptions will require judgment calls on the part of maintainers, but any
+such changes should be clearly communicated to users (e.g., via the 'What's New' page).
+
+Communication with users
+------------------------
 
 Branches and pull requests
 --------------------------
@@ -95,9 +128,7 @@ N/A
 Alternatives
 ------------
 
-<Remove placeholder below before merge>
-If there were any alternative solutions to solving the same problem, they should
-be discussed here, along with a justification for the chosen approach.
+N/A
 
 Decision rationale
 ------------------
