@@ -136,6 +136,11 @@ what to expect from different releases:
   `here <https://numpy.org/doc/stable/release/1.24.0-notes.html>`_ for an
   example) which is clearer than having a single *API changes* section.
 
+* Maintainers should be encouraged to advertise pull requests with API changes
+  that are likely to affect users and developers of other packages to the
+  developer mailing list, and ensuring that the pull request has adequate time
+  (at least two weeks) to be reviewed properly.
+
 Branches and pull requests
 --------------------------
 
