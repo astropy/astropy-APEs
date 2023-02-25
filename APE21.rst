@@ -5,7 +5,7 @@ author: Thomas Robitaille, Pey Lian Lim, Simon Conseil
 
 date-created: 2023 February 16
 
-date-last-revised: 2023 February 21 <keep this up to date anytime something changes>
+date-last-revised: 2023 February 25
 
 date-accepted: <replace with accepted date>
 
@@ -54,7 +54,7 @@ LTS releases are however not without cost:
 
 In addition, it is not clear that LTS releases are needed anymore - now that the
 core package is over ten years old, it has reached a much higher level of
-stability. No other main package in the scientific Python ecosystem has LTS
+stability. Most packages in the scientific Python ecosystem do not have LTS
 releases, and there is no longer a strong argument for having this
 in astropy either.
 
@@ -96,9 +96,18 @@ The main proposed guidelines are as follows:
 * New deprecations should not be introduced in bugfix releases - this will
   ensure that deprecations will therefore be emitted for at least 6 months
   before a major release.
-* If developers wish to make an API change at a point in time where the next release
-  is a major release, they should introduce the deprecation in the major release
-  and carry out the change in the following major release.
+* If developers wish to make an API change at a point in time where the next
+  release is a major release, they should introduce the deprecation in the major
+  release and carry out the change in the following major release.
+* The following will not be considered to be part of the API and can therefore
+  be changed in bugfix and minor releases:
+
+    * Changes to warning messages
+    * Changes to exception messages
+    * Changes to the ``__repr__`` or ``__repr_*__`` of objects
+
+  However, exception and warning *types* will be considered to be part of the
+  API.
 
 As with all guidelines, there are exceptions where we can deviate from these guidelines:
 
@@ -107,8 +116,8 @@ As with all guidelines, there are exceptions where we can deviate from these gui
 * Changes breaking or changing the behavior of code may be needed in order to
   fix bugs. Such changes can be made in bugfix or minor releases and do not need
   to be considered API changes.
-* Changes to exception types or warning/error messages may occasionally be
-  needed in non-major releases.
+* Changes to exception or warning types may occasionally be done in minor
+  releases.
 
 These exceptions will require judgment calls on the part of maintainers, but any
 such changes should be minimized as much as possible and clearly communicated to
@@ -122,19 +131,21 @@ what to expect from different releases:
 
 * We should include documentation for the core package that describes the
   release policy above, namely that in general minor releases will not
-  break/remove functionality, but that major releases might.
+  break/remove functionality, but that major releases might, and also explaining
+  what is considered API.
 
 * We should ensure that any changes in releases which deviate from the
   guidelines above are clearly communicated to users - for example any API/breaking
   changes in minor releases should be included in the "What's New" page for the
   minor release.
 
-* Deprecations should always be mentioned in the changelog, as well as any removal
-  of deprecated code/API changes. We do not specify how exactly this should be done,
-  but note that e.g. Numpy have separate sections entitled *Deprecations*,
-  *Expired Deprecations* and *Compatibility Notes* in their release notes (see
-  `here <https://numpy.org/doc/stable/release/1.24.0-notes.html>`_ for an
-  example) which is clearer than having a single *API changes* section.
+* Deprecations should always be mentioned in the changelog, as well as any
+  removal of deprecated code/API changes. We do not specify how exactly this
+  should be done, but note that e.g. Numpy release notes have separate sections
+  entitled *Deprecations*, *Expired Deprecations* and *Compatibility Notes* in
+  their release notes (see `here
+  <https://numpy.org/doc/stable/release/1.24.0-notes.html>`_ for an example)
+  which is clearer than having a single *API changes* section.
 
 * Maintainers should be encouraged to advertise pull requests with API changes
   that are likely to affect users and developers of other packages to the
@@ -152,6 +163,12 @@ Implementation
 This APE proposes to continue supporting the v5.0.x LTS series but to not
 designate v6.0 as LTS.
 
+After acceptance of this APE, the documentation for the core package should be
+updated appropriately as described in `Communication with users`_, and `APE 2:
+Astropy Release Cycle and Version Numbering
+<https://doi.org/10.5281/zenodo.1043887>`_ should be updated to point to this
+APE as superseding it in terms of LTS releases.
+
 Backward compatibility
 ----------------------
 
@@ -161,7 +178,7 @@ Alternatives
 ------------
 
 We could keep the current release workflow - however as mentioned above this has
-a maintenance cost and it is not something that is done by any other major
+a maintenance cost and it is not something that is done by most other major
 packages in the scientific Python ecosystem.
 
 Decision rationale
