@@ -102,7 +102,7 @@ Implementation
 This APE proposes to continue supporting the v5.0.x LTS series but to not
 designate v6.0.0 as LTS.
 
-Changes to APE 2 can be reviewed in https://github.com/astropy/astropy-APEs/pull/84
+Changes to APE 2 can be reviewed in https://github.com/astropy/astropy-APEs/pull/82
 
 After acceptance of this APE, the documentation for the core package should be
 updated appropriately.
