@@ -27,12 +27,13 @@ Detailed description
 Motivation
 ^^^^^^^^^^
 
-`APE 2: Astropy Release Cycle and Version Numbering <https://doi.org/10.5281/zenodo.1043887>`_ describes the release cycle
-for the core astropy package, which consists of major releases every 6 months that
-add new features (e.g., v5.2), and releases in between this that are limited to fixing bugs
-or updating documentation (e.g., v5.2.1). Every 2 years, major releases are designated
-as being LTS (e.g., v5.0) and we have committed to releasing bugfix releases
-for this version (e.g., v5.0.3) for up to 2 years.
+The original `APE 2: Astropy Release Cycle and Version Numbering <https://doi.org/10.5281/zenodo.1043887>`_
+describes the release cycle for the core astropy package, which consists of
+major releases every 6 months that add new features (e.g., v5.2), and releases
+in between this that are limited to fixing bugs or updating documentation (e.g.,
+v5.2.1). Every 2 years, major releases are designated as being LTS (e.g., v5.0)
+and we have committed to releasing bugfix releases for this version (e.g.,
+v5.0.3) for up to 2 years.
 
 At the start of the project, having LTS releases was critical for acceptance by
 large organizations/projects for which stability is paramount, as the core package went through
@@ -87,70 +88,8 @@ backported.
 Guidelines on deprecations and API changes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The main proposed guidelines are as follows:
-
-* API changes should only be carried out in major releases.
-* Any API changes should be preceded by deprecation warnings that should be
-  visible to users in at least one minor release cycle prior to the API change
-  being carried out.
-* New deprecations should not be introduced in bugfix releases - this will
-  ensure that deprecations will therefore be emitted for at least 6 months
-  before a major release.
-* If developers wish to make an API change at a point in time where the next
-  release is a major release, they should introduce the deprecation in the major
-  release and carry out the change in the following major release.
-* The following will not be considered to be part of the API and can therefore
-  be changed in bugfix and minor releases:
-
-    * Changes to warning messages
-    * Changes to exception messages
-    * Changes to the ``__repr__`` or ``__repr_*__`` of objects
-
-  However, exception and warning *types* will be considered to be part of the
-  API.
-
-As with all guidelines, there are exceptions where we can deviate from these guidelines:
-
-* API changes can be carried out in major releases without deprecation if it is
-  not possible to have a deprecation phase due to the nature of the change.
-* Changes breaking or changing the behavior of code may be needed in order to
-  fix bugs. Such changes can be made in bugfix or minor releases and do not need
-  to be considered API changes.
-* Changes to exception or warning types may occasionally be done in minor
-  releases.
-
-These exceptions will require judgment calls on the part of maintainers, but any
-such changes should be minimized as much as possible and clearly communicated to
-users (see `Communication with users`_).
-
-Communication with users
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-It is imperative that we communicate effectively with users so that they understand
-what to expect from different releases:
-
-* We should include documentation for the core package that describes the
-  release policy above, namely that in general minor releases will not
-  break/remove functionality, but that major releases might, and also explaining
-  what is considered API.
-
-* We should ensure that any changes in releases which deviate from the
-  guidelines above are clearly communicated to users - for example any API/breaking
-  changes in minor releases should be included in the "What's New" page for the
-  minor release.
-
-* Deprecations should always be mentioned in the changelog, as well as any
-  removal of deprecated code/API changes. We do not specify how exactly this
-  should be done, but note that e.g. Numpy release notes have separate sections
-  entitled *Deprecations*, *Expired Deprecations* and *Compatibility Notes* in
-  their release notes (see `here
-  <https://numpy.org/doc/stable/release/1.24.0-notes.html>`_ for an example)
-  which is clearer than having a single *API changes* section.
-
-* Maintainers should be encouraged to advertise pull requests with API changes
-  that are likely to affect users and developers of other packages to the
-  developer mailing list, and ensuring that the pull request has adequate time
-  (at least two weeks) to be reviewed properly.
+To avoid duplication, guidelines on deprecations and API changes as well as
+recommendations for communication with users will be added directly to APE 2.
 
 Branches and pull requests
 --------------------------
@@ -161,13 +100,12 @@ Implementation
 --------------
 
 This APE proposes to continue supporting the v5.0.x LTS series but to not
-designate v6.0 as LTS.
+designate v6.0.0 as LTS.
+
+Changes to APE 2 can be reviewed in https://github.com/astropy/astropy-APEs/pull/84
 
 After acceptance of this APE, the documentation for the core package should be
-updated appropriately as described in `Communication with users`_, and `APE 2:
-Astropy Release Cycle and Version Numbering
-<https://doi.org/10.5281/zenodo.1043887>`_ should be updated to point to this
-APE as superseding it in terms of LTS releases.
+updated appropriately.
 
 Backward compatibility
 ----------------------
