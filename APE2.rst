@@ -125,9 +125,9 @@ The guidelines in relation to API changes and backward compatibility are as foll
 * The following will not be considered to be part of the API and can therefore
   be changed in bugfix and minor releases:
 
-    * Changes to warning messages
-    * Changes to exception messages
-    * Changes to the ``__repr__`` or ``__repr_*__`` of objects
+  * Changes to warning messages
+  * Changes to exception messages
+  * Changes to the ``__repr__`` or ``__repr_*__`` of objects
 
   However, exception and warning *types* will be considered to be part of the
   API.
