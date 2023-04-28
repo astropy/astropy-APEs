@@ -188,7 +188,7 @@ Implementation
 --------------
 
 Whenever this APE is updated, the core package documentation should be updated
-to reflect the latest guidelines described above.
+to reflect the latest guidelines described above: https://github.com/astropy/astropy/pull/14713
 
 Backward compatibility
 ----------------------
