@@ -112,10 +112,13 @@ Releases and backwards compatibility
 
 The guidelines in relation to API changes and backward compatibility are as follows:
 
-* API changes (i.e., modifications as opposed to additions) should only be carried out in major releases.
+* API changes (i.e., modifications as opposed to additions) should only be
+  carried out in major releases.
 * Any API changes should be preceded by deprecation warnings that should be
   visible to users in at least one minor release cycle prior to the API change
   being carried out.
+* API changes should be documented, with clear guidance on what is changing,
+  why the change is being made, and how to migrate existing code to the new behavior.
 * New deprecations should not be introduced in bugfix releases - this will
   ensure that deprecations will therefore be emitted for at least 6 months
   before a major release.
