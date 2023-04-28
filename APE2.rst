@@ -21,8 +21,8 @@ Abstract
 
 This APE describes the general plan for timing of releases of the core package
 and their version numbers. The basic premise follows the terminology of semantic
-versioning: *major* releases (e.g. 6.0.0) every two years, *minor* releases (e.g.
-6.1.0) every six months in between, and *bugfix* releases (e.g. 6.1.2) as
+versioning: *major* releases (e.g., 6.0.0) every two years, *minor* releases (e.g.,
+6.1.0) every six months in between, and *bugfix* releases (e.g., 6.1.2) as
 needed within the six months between minor releases.
 
 Detailed description
@@ -49,7 +49,7 @@ Release versioning and scheduling
 The release cycle for the core package should be as follows:
 
 * Major releases every two years. These are releases that can introduce breaking
-  API changes, and should be numbered as x.0.0 (e.g. 6.0.0).
+  API changes, and should be numbered as x.0.0 (e.g., 6.0.0).
 * Minor releases every six months in between. These releases should minimize any
   API changes and focus on adding new features.
 * Bugfix releases as needed between minor releases.
@@ -167,7 +167,7 @@ what to expect from different releases:
 
 * Deprecations should always be mentioned in the changelog, as well as any
   removal of deprecated code/API changes. We do not specify how exactly this
-  should be done, but note that e.g. Numpy release notes have separate sections
+  should be done, but note that, e.g., Numpy release notes have separate sections
   entitled *Deprecations*, *Expired Deprecations* and *Compatibility Notes* in
   their release notes (see `here
   <https://numpy.org/doc/stable/release/1.24.0-notes.html>`_ for an example)
