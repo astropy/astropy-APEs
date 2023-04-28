@@ -85,8 +85,7 @@ additions are still acceptable.  The standard calendar for a release will be:
 
 This is not meant to be an exactly strict calendar, as the day of the week,
 existence of holidays, and degree of readiness of key features or critical bug
-fixes necessitate slop in the exact timing.  So more what you'd call guidelines
-than actual rules.
+fixes necessitate slop in the exact timing.
 
 Rapid Feature Releases
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -104,7 +103,7 @@ release, a v6.1.0 release could occur at that time.  Once that release has
 completed, the release clock is "reset", so v6.2.0 would be released six months
 after v6.1.0, even though it is not yet 12 months after v6.0.0. The next two
 releases would then be v6.3.0 and v6.4.0, because v6.4.0 would only be 21 months after
-v6.0.0. v7.0 would then either come three months or six months later, depending on
+v6.0.0. v7.0.0 would then either come three months or six months later, depending on
 how much work is planned to be new in v7.0.0.
 
 Releases and backwards compatibility
