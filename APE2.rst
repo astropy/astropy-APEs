@@ -20,7 +20,7 @@ Abstract
 --------
 
 This APE describes the general plan for timing of releases of the core package
-and their version numbers. The basic premise follows the terminology of semantic
+and their version numbers. The basic premise follows semantic
 versioning: *major* releases (e.g., 6.0.0) every year (or longer), *minor*
 releases (e.g., 6.1.0) typically every six months in between, and *bugfix*
 releases (e.g., 6.1.2) as needed between minor releases.
