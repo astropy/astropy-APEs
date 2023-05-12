@@ -21,9 +21,9 @@ Abstract
 
 This APE describes the general plan for timing of releases of the core package
 and their version numbers. The basic premise follows the terminology of semantic
-versioning: *major* releases (e.g., 6.0.0) every two years, *minor* releases (e.g.,
-6.1.0) every six months in between, and *bugfix* releases (e.g., 6.1.2) as
-needed within the six months between minor releases.
+versioning: *major* releases (e.g., 6.0.0) every year (or longer), *minor*
+releases (e.g., 6.1.0) typically every six months in between, and *bugfix*
+releases (e.g., 6.1.2) as needed between minor releases.
 
 Detailed description
 --------------------
@@ -48,10 +48,11 @@ Release versioning and scheduling
 
 The release cycle for the core package should be as follows:
 
-* Major releases every two years. These are releases that can introduce breaking
+* Major releases every year (or longer). These are releases that can introduce breaking
   API changes, and should be numbered as x.0.0 (e.g., 6.0.0).
-* Minor releases every six months in between. These releases should minimize any
-  API changes and focus on adding new features.
+* Minor releases by default every six months in between major releases (or more
+  frequent if needed). These releases should minimize any API changes and focus
+  on adding new features.
 * Bugfix releases as needed between minor releases.
 
 As an example, starting from the 6.0.0 release, the version number schedule might be:
@@ -62,13 +63,29 @@ As an example, starting from the 6.0.0 release, the version number schedule migh
 * 6.1.0 (six months after 6.0.0)
 * 6.1.1
 * 6.1.2
+* 7.0.0 (six months after 6.1.0, one year after 6.0.0)
+
+In the above scenario, we would adopt the default 6-month release schedule, and
+introduce a new major version with breaking changes one year later. However, the
+release schedule could also look like the following:
+
+* 6.0.0
+* 6.0.1
+* 6.0.2
+* 6.1.0 (three months after 6.0.0)
+* 6.1.1
+* 6.1.2
 * 6.2.0 (six months after 6.1.0)
 * 6.2.1
-* 6.3.0 (six months after 6.2.0)
+* 6.3.0 (four months after 6.2.0)
 * 6.3.1
 * 6.3.2
 * 6.3.3
-* 7.0.0 (six months after 6.3.0, two years after 6.0.0)
+* 7.0.0 (five months after 6.3.0, 18 months after 6.0.0)
+
+In the above hypothetical scenario, the developers have decided to release minor
+releases more frequently than every six months, and a year after 6.0.0 there was
+no need for a major version, so this was delayed until 18 months after 6.0.0.
 
 Feature freeze/testing calendar
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -94,17 +111,16 @@ This plan is not meant to exclude the possibility of minor releases *more* frequ
 than every six months.  Six months should be considered both the maximum and the
 default timeline, but a *shorter* time between releases is allowable, if the
 community agrees it is worthwhile. When/if this happens, the subsequent major
-release should be timed such that is at least two years after the last major release, even
-though that may mean there are more than 3 releases between the major releases.
+release should be timed such that is at least one year after the last major release, even
+though that may mean there are more than one minor release between the major releases.
 
 For example, if a new feature is perceived by the Astropy developer community as
 being of great importance, and is completed only three months after the v6.0.0
 release, a v6.1.0 release could occur at that time.  Once that release has
 completed, the release clock is "reset", so v6.2.0 would be released six months
-after v6.1.0, even though it is not yet 12 months after v6.0.0. The next two
-releases would then be v6.3.0 and v6.4.0, because v6.4.0 would only be 21 months after
-v6.0.0. v7.0.0 would then either come three months or six months later, depending on
-how much work is planned to be new in v7.0.0.
+after v6.1.0, even though it is not yet 12 months after v6.0.0. The next release
+could then be v7.0.0 three or more months after v6.2.0, or could also be another
+minor release.
 
 Releases and backwards compatibility
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -114,13 +130,11 @@ The guidelines in relation to API changes and backward compatibility are as foll
 * API changes (i.e., modifications as opposed to additions) should only be
   carried out in major releases.
 * Any API changes should be preceded by deprecation warnings that should be
-  visible to users in at least one minor release cycle prior to the API change
+  visible to users for at least a year prior to the API change
   being carried out.
 * API changes should be documented, with clear guidance on what is changing,
   why the change is being made, and how to migrate existing code to the new behavior.
-* New deprecations should not be introduced in bugfix releases - this will
-  ensure that deprecations will therefore be emitted for at least 6 months
-  before a major release.
+* New deprecations should not be introduced in bugfix releases.
 * If developers wish to make an API change at a point in time where the next
   release is a major release, they should introduce the deprecation in the major
   release and carry out the change in the following major release.

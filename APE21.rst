@@ -66,25 +66,33 @@ Proposed release procedure
 This APE proposes the following:
 
 * No longer designate any releases as LTS.
-* Keep the 6-month release cycle and bump releases to x.0.0 every 2 years (with
-  the possibility of allowing this to be more or less than 2 years if there is a
-  consensus amongst core package maintainers that this can be changed)
-* Refer to the x.0.0 releases every 2 years (e.g., v6.0.0) as "major"
-  releases, other releases every 6 months (e.g., v6.1.0) as "minor", and bug fixing
-  releases (e.g., v6.1.2) as "bugfix" releases.
-* Use the x.x.0 format for the first major/minor release in a cycle, rather than the
-  x.x format previously used, as this is more standard practice in particular since
-  we will be essentially doing semantic versioning.
+* Refer to the x.0.0 releases (e.g., v6.0.0) as *major*, x.x.0 releases (e.g.,
+  v6.1.0) as *minor*, and x.x.x releases (e.g., v6.1.2) as *bugfix* releases
+  (essentially `semantic versioning <https://semver.org>`_)
+* Use the x.x.0 format for the first major/minor release in a cycle, rather than
+  the x.x format previously used, as this is more standard practice with
+  semantic versioning.
+* Keep the default 6-month release cycle for non-bugfix releases, noting that in
+  line with `APE 2`_, minor versions can also be released more frequently if
+  needed.
+* Leave at least one year between major releases. If one year after the last
+  major release there are no breaking changes to be made (such as pending
+  deprecations to remove) then there is no need to release a major version.
+  The one year timescale for major releases is a minimum, not a fixed
+  interval.
 * Minimize as much as possible any changes that break API or change results in
-  minor releases, but be pragmatic and occasionally allow such changes if they would
-  not affect many users.
-* Add deprecation warnings or future warnings in minor and major releases but only
-  go through with the breaking changes in major releases (either the next major
-  release following when a warning was added, or subsequent ones if the changes
-  are deemed to be high impact enough to wait longer).
+  minor releases, but be pragmatic and occasionally allow such changes if they
+  would not affect many users.
+* Add deprecation warnings or future warnings in minor and major releases, and
+  make sure that these are present in released versions for a year before
+  carrying out the breaking changes in a major release. Therefore, if a deprecation
+  warning is added in a major release, the breaking changes can be made in the
+  following major release. If a deprecation warning is added a few months before
+  a major release, the breaking changes can only be made in the subsequent major
+  release.
 
 With this in place, we would effectively be striving to maximize stability over
-two-year periods but users would see deprecation warnings to prepare them for
+one-year periods but users would see deprecation warnings to prepare them for
 changes. This is in contrast to the current LTS system where users might not see
 a deprecation warning until the next LTS release as deprecations are not typically
 backported.
@@ -93,7 +101,7 @@ Guidelines on deprecations and API changes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To avoid duplication, guidelines on deprecations and API changes as well as
-recommendations for communication with users will be added directly to APE 2.
+recommendations for communication with users will be added directly to `APE 2`_.
 
 Branches and pull requests
 --------------------------
@@ -106,7 +114,7 @@ Implementation
 This APE proposes to continue supporting the v5.0.x LTS series but to not
 designate v6.0.0 as LTS.
 
-Changes to APE 2 can be reviewed in https://github.com/astropy/astropy-APEs/pull/82
+Changes to `APE 2`_ can be reviewed in https://github.com/astropy/astropy-APEs/pull/82
 
 After acceptance of this APE, the documentation for the core package should be
 updated appropriately: https://github.com/astropy/astropy/pull/14713
@@ -127,3 +135,5 @@ Decision rationale
 ------------------
 
 <To be filled in by the coordinating committee when the APE is accepted or rejected>
+
+.. _APE 2: https://doi.org/10.5281/zenodo.1043887
