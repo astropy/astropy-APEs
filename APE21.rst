@@ -97,6 +97,11 @@ changes. This is in contrast to the current LTS system where users might not see
 a deprecation warning until the next LTS release as deprecations are not typically
 backported.
 
+As astropy becomes increasingly mature and stable, and since as described above
+the 1-year timescale between major releases is a minimum, the interval between
+major releases may become arbitrarily longer, and the package may reach a stage
+when the major version is no longer or very rarely increased.
+
 Guidelines on deprecations and API changes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -106,7 +111,7 @@ recommendations for communication with users will be added directly to `APE 2`_.
 Branches and pull requests
 --------------------------
 
-N/A
+Updates to the core package documentation: https://github.com/astropy/astropy/pull/14713
 
 Implementation
 --------------
