@@ -31,15 +31,15 @@ Motivation
 The original `APE 2: Astropy Release Cycle and Version Numbering
 <https://doi.org/10.5281/zenodo.1043887>`_ describes the release cycle for the
 core astropy package, which consists of major releases every 6 months that add
-new features (e.g., v5.2), and releases in between this that are limited to
+new features (e.g., v5.2), and releases in between these that are limited to
 fixing bugs or updating documentation (e.g., v5.2.1). Every 2 years, major
 releases are designated as being LTS (e.g., v5.0) and we have committed to
-releasing bugfix releases for this version (e.g., v5.0.3) for up to 2 years.
+having bugfix releases for this version (e.g., v5.0.3) for up to 2 years.
 
 At the start of the project, having LTS releases was critical for acceptance by
 large organizations/projects for which stability is paramount, as the core
-package went through significant API changes from version to version due to the
-youth of the project and LTS releases were a way to shield against these
+package went through significant API changes between versions due to the
+youth of the project and LTS releases were a way to shield against such
 changes, or at least reduce disruption to be every 2 years.
 
 LTS releases are however not without cost:
@@ -47,11 +47,11 @@ LTS releases are however not without cost:
 * While we use infrastructure to automate backporting fixes to release branches,
   in practice the LTS branch diverges more and more from the main development
   branch and automated backports are more likely to fail as time goes on,
-  requiring human effort to manually do the backports, which can sometimes be
+  requiring human effort to manually perform the backports, which can sometimes be
   non-trivial.
 * Even once fixes are backported to the LTS branch, carrying out releases is not
   fully automated and requires manual steps, so having to do bugfix releases for
-  both the latest release branch and LTS branch puts an extra burden on the core
+  both the latest release branch and LTS branch puts an additional burden on the core
   package release team.
 
 In addition, it is not clear that LTS releases are needed anymore - now that the
