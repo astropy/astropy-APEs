@@ -7,11 +7,11 @@ date-created: 2023 February 16
 
 date-last-revised: 2023 May 15
 
-date-accepted: <replace with accepted date>
+date-accepted: 2023 May 31
 
 type: Process
 
-status: Discussion
+status: accepted
 
 
 Abstract
@@ -139,6 +139,8 @@ packages in the scientific Python ecosystem.
 Decision rationale
 ------------------
 
-<To be filled in by the coordinating committee when the APE is accepted or rejected>
+There is broad consensus in the community that the old model of LTE releases is no longer required, given the
+stability that the astropy core package has reached. On the other hand, the maintenance burden described in this APE binds significant resources that are needed in other parts of the project. Thus, this APE is accepted
+to simplify the workflow. 
 
 .. _APE 2: https://doi.org/10.5281/zenodo.1043887
