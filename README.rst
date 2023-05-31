@@ -33,7 +33,7 @@ Accepted APEs
 18  `Adopt NEP 29 for CPython and Numpy Version Support`_            2021-Dec-25 |APE 18 DOI|
 19  `Distributing Astropy Project Funding`_                          2022-Feb-28 |APE 19 DOI|
 20  `Formatting Code with Black`_                                    2022-Sep-23 |APE 20 DOI|
-21  `Astropy Release Cycle and Version Numbering`_                   2023-May-15 |APE 21 DOI|
+21  `Ending Long Term Support Releases`_                             2023-May-31 |APE 21 DOI|
 === ================================================================ =========== ============
 
 .. _The Astropy Project Governance Charter: https://github.com/astropy/astropy-APEs/blob/main/APE0.rst
@@ -54,6 +54,7 @@ Accepted APEs
 .. _Adopt NEP 29 for CPython and Numpy Version Support: https://github.com/astropy/astropy-APEs/blob/main/APE18.rst
 .. _Distributing Astropy Project Funding: https://github.com/astropy/astropy-APEs/blob/main/APE19.rst
 .. _Formatting Code with Black: https://github.com/astropy/astropy-APEs/blob/main/APE20.rst
+.. _Ending Long Term Support Releases: https://github.com/astropy/astropy-APEs/blob/main/APE21.rst
 
 .. |APE 0 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4552790.svg
    :target: https://doi.org/10.5281/zenodo.4552790
