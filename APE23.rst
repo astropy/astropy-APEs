@@ -196,10 +196,12 @@ suggestions going forward:
 * Unintuitive dependencies should ideally never be optional. In cases where the
   depedency is large or tricky to install on some platforms, it could at least
   be made required on some platforms, but such platform-dependent dependencies
-  should be minimized as much as possible. If a dependency is actually required
-  for a lot of functionality in astropy but is not easy for users to install,
-  it may be better to investigate whether other dependencies could be used
-  instead.
+  should be minimized as much as possible. It should be first demonstrated that
+  there is a real issue with installing the dependency on some platforms and that
+  this will actually impact users in practice. If a dependency is actually required
+  for a lot of functionality in astropy but is not easy for a non-negligeable
+  fraction of users to install, it may be better to investigate whether other
+  dependencies could be used instead.
 
 Minimal installations of astropy
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -238,6 +240,11 @@ and then have the option for users wanting a minimal install to do::
 However, this would need to first be written up as a PEP, so if this were to happen
 it could still be a long time before it becomes a possibility, and we cannot rely
 on it at this point.
+
+Implementation
+--------------
+
+TBD
 
 Decision rationale
 ------------------
