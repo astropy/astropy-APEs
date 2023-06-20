@@ -241,11 +241,6 @@ However, this would need to first be written up as a PEP, so if this were to hap
 it could still be a long time before it becomes a possibility, and we cannot rely
 on it at this point.
 
-Implementation
---------------
-
-TBD
-
 Decision rationale
 ------------------
 
