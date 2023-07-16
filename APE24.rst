@@ -47,8 +47,10 @@ though the concept could have been even earlier. Back then, there were a handful
 JOSS was established in 2016 (source:
 `Wikipedia <https://en.wikipedia.org/wiki/Journal_of_Open_Source_Software>`_)
 but it was perceived as a different enough system that there was no effort
-to consolidate with them. Meanwhile, pyOpenSci started a peer review process
-in ???? and then collaborated with `Pangeo <https://pangeo.io/>`_ in ????.
+to consolidate with them.
+Meanwhile, pyOpenSci was founded in 2018 with the peer review beginning in March 2019,
+partnership with the JOSS soon after, and with `Pangeo <https://pangeo.io/>`_
+in Fall 2022 using Sloan Foundation funding.
 
 Fast forward to July 2023, there are 47 accepted Affiliated packages and
 7 undergoing the review process. We have two editors (Derek Homeier and
