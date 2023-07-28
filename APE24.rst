@@ -143,10 +143,11 @@ In a nutshell
 .. _pyOpenSci Editorial Board: https://www.pyopensci.org/about-peer-review/#our-editorial-board
 .. _Astropy team roles: https://www.astropy.org/team#roles
 
-As of July 2023, Astropy had the following
-`pre-APE 24 Affiliated Package review guidelines <https://github.com/astropy/astropy-project/blob/1afe5df1728e86dac51b9b87bc30a7c2cdb289ac/affiliated/affiliated_package_review_guidelines.md>`_
-and followed this
-`Affiliated Package review process, with templates <https://github.com/astropy/astropy-project/blob/1afe5df1728e86dac51b9b87bc30a7c2cdb289ac/affiliated/affiliated_package_review_process.md>`_.
+As of July 2023, Astropy had the following `pre-APE 24 Affiliated Package review guidelines`_
+and followed this `pre-APE 24 Affiliated Package review process, with templates`_.
+
+.. _pre-APE 24 Affiliated Package review guidelines: https://github.com/astropy/astropy-project/blob/1afe5df1728e86dac51b9b87bc30a7c2cdb289ac/affiliated/affiliated_package_review_guidelines.md
+.. _pre-APE 24 Affiliated Package review process, with templates: https://github.com/astropy/astropy-project/blob/1afe5df1728e86dac51b9b87bc30a7c2cdb289ac/affiliated/affiliated_package_review_process.md
 
 Meanwhile, pyOpenSci has its own
 `submission guide for package authors <https://www.pyopensci.org/software-peer-review/how-to/author-guide.html>`_,
@@ -355,7 +356,8 @@ If we decide to move forward with this partnership, these are the proposed steps
    and publish the updated guidelines and process, including new
    COI policy, packaging guidelines, and so forth.
    These new guidelines need to be compatible with
-   `Affiliated Guidelines (Dec 23, 2021) <https://github.com/astropy/astropy-project/tree/a9ea09ccd27703ea3ef2a80a811a5f70f91bc94b/affiliated>`_.
+   `pre-APE 24 Affiliated Package review guidelines`_ and
+   `pre-APE 24 Affiliated Package review process, with templates`_.
    At the same time, we should link to more modern
    practices over at pyOpenSci and `Scientific Python`_, in addition
    to the "old ways" in Astropy and OpenAstronomy.
