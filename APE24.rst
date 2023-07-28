@@ -355,7 +355,7 @@ If we decide to move forward with this partnership, these are the proposed steps
    and publish the updated guidelines and process, including new
    COI policy, packaging guidelines, and so forth.
    These new guidelines need to be compatible with
-   `Affiliated Guidelines (Dec 23, 2021) <https://github.com/astropy/astropy-project/tree/a9ea09ccd27703ea3ef2a80a811a5f70f91bc94b>`_.
+   `Affiliated Guidelines (Dec 23, 2021) <https://github.com/astropy/astropy-project/tree/a9ea09ccd27703ea3ef2a80a811a5f70f91bc94b/affiliated>`_.
    At the same time, we should link to more modern
    practices over at pyOpenSci and `Scientific Python`_, in addition
    to the "old ways" in Astropy and OpenAstronomy.
