@@ -410,17 +410,25 @@ supported, and what is not, remain.
 
 This is not great.
 
-The only time this might be good is when a mudule has dynamic symbols from a
+The only time this might be good is when a module has dynamic symbols from a
 `PEP 562 <https://peps.python.org/pep-0562/>`_ module-level ``__getattr__``
 method. However if it truly dynamic then it cannot be statically analyzed, which
-is undesirable for other reasons. We haven't encountered this situation in
-Astropy yet, so I don't think it's a good reason to allow ``__all__`` to be
-optional.
+is undesirable for other reasons. If it is not truly dynamic, then the "dynamic"
+symbols can be added to ``__all__`` and an ``__init__.pyi`` file used to
+communicate the public interface to static analyzers.
 
-**We just use the documentation.**
+**We make the documentation the authoritative definition of the API.**
 
 Good code is self-documenting.  What is public versus internal is an important
-aspect of the code, and should be communicated in the code itself.
+aspect of the code, and should be communicated in the code itself. It is vitally
+important that the code and user-facing documentation are consistent, and this
+means that the user-facing documentation must reflect the code.
+
+**We make tab-completion the authoritative definition of the API.**
+
+This is not a good option because it it does not work with implicit namespace
+packages nor `PEP 562 <https://peps.python.org/pep-0562/>`_ module-level
+``__getattr__`` methods.
 
 
 Decision rationale
