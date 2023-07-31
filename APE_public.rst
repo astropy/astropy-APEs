@@ -302,8 +302,8 @@ Let's consider an example::
 In this case, ``bar`` is public in ``foo``, and  ``foo`` is public in ``src``,
 so ``src.foo.func`` is public. This is public. In contrast, while ``bunc`` is
 public in ``_bar``,  ``src._bar`` is not public, so ``src._bar.bunc`` is not
-public either. This is "locally" public, as in private. Both ``_func`` and
-``_bunc`` are private.
+public either. This is "locally" public, as in internal. Both ``_func`` and
+``_bunc`` are internal.
 
 =======  =========  ==========  ==========  =========================
 Symbol                                      Status                            
@@ -311,13 +311,13 @@ Symbol                                      Status
 ``src``                                     public
          ``.foo``                           public
                     ``.func``               public
-                    ``._func``              private
+                    ``._func``              internal
          ``._bar``                          public
-                    ``.bunc``               private (locally public)
-                    ``._bunc``              private
-         ``.baz``                           private
-                    ``.bunc``               private (locally public)
-                    ``._bunc``              private
+                    ``.bunc``               internal (locally public)
+                    ``._bunc``              internal
+         ``.baz``                           internal
+                    ``.bunc``               internal (locally public)
+                    ``._bunc``              internal
          ``spam``                           public
                     ``.ham``                public
                                 ``.eggs``   public
@@ -359,7 +359,8 @@ following 5 phases:
    - Add a scipy-like section to the developer documentation explaining the
      public vs internal rules.
    - Fix links to always point to the public interface, not the internal
-     interface.
+     interface. (This will presumably require a similar implementation as used
+     in ``numpy`` to change the ``__module__`` attribute of many objects.)
    - Add a reminder to the maintainer checklist that to be public a symbol must be
      in ``__all__`` and documented.
    - Clearly state if a documented object is actually private.
@@ -415,6 +416,11 @@ method. However if it truly dynamic then it cannot be statically analyzed, which
 is undesirable for other reasons. We haven't encountered this situation in
 Astropy yet, so I don't think it's a good reason to allow ``__all__`` to be
 optional.
+
+**We just use the documentation.**
+
+Good code is self-documenting.  What is public versus internal is an important
+aspect of the code, and should be communicated in the code itself.
 
 
 Decision rationale
