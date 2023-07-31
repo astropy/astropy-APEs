@@ -337,14 +337,15 @@ The process of adopting this APE will change Astropy's API. This APE formally
 establishes Astropy's API, so what is meant by "change"?  There is already a *de
 facto* API, which is what users *think* is the API.  This is determined
 primarily by the documentation, but also by tab-completion within an interactive
-session.  In the implementation of this APE, we aim to minimize changes to the
-*de facto* API. This will be accomplished in the following 4 phases:
+session.  In the implementation of this APE to establish a *formal* API, we aim
+to minimize changes to the *de facto* API. This will be accomplished in the
+following 5 phases:
 
 1. **snapshot the documentation**. As of the adoption of the APE a snapshot of
    the documentation will be saved. This will be used to determine what is
    currently public and what is not. Until the APE's adoption is complete, this
-   snapshot is authoritative, e.g. for deciding what must undergo a deprecation
-   process to be changed.
+   snapshot is authoritative, e.g. dictating what must be added and removed from
+   ``__all__``, for deciding what must undergo a deprecation process, etc.
 
 2. **Add / update** ``__all__``. The ``__all__`` in each module will be updated
    to reflect phase 1. Any modules' missing ``__all__`` will have one added.
@@ -359,11 +360,18 @@ session.  In the implementation of this APE, we aim to minimize changes to the
      public vs internal rules.
    - Fix links to always point to the public interface, not the internal
      interface.
-   - Add a reminder to the maintainer checklist that public symbols must be
+   - Add a reminder to the maintainer checklist that to be public a symbol must be
      in ``__all__`` and documented.
    - Clearly state if a documented object is actually private.
 
-4. **Add prefixes**: Add prefixes to the top-most private symbols. For modules
+4. **Add a pre-commit bot**. This will ensure that the ``__all__`` attribute is
+   always present and up-to-date. It will also ensure that the documentation is
+   always up-to-date with the ``__all__`` attribute. This can be accomplished
+   with a pre-commit hook that runs a script that checks the ``__all__``
+   attribute and, if the module is public, searches in the ``docs/api``
+   directory for symbols in ``__all__``.
+
+5. **Add prefixes**: Add prefixes to the top-most private symbols. For modules
    this makes all their contents private.
 
 In Astropy core each phase will be be implemented on a per-subpackage basis with
