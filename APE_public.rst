@@ -25,11 +25,11 @@ their contents.
 Scope
 -----
 
-A library's API is the set of publicly accessible "surface": the modules,
+A library's API is the publicly accessible "surface": the set of modules,
 classes, functions, and other symbols provided to the library's users. This APE
 is narrowly focused on the module level of the API -- what modules are public
-and what modules are internal -- and the objects within those modules -- what
-are public and this is communicated. This APE does not address any other
+and what modules are internal -- and the objects within those modules -- which
+are public and how this is communicated. This APE does not address any other
 questions of API design, e.g. public versus internal methods in classes.
 
 
@@ -45,7 +45,7 @@ constructs to establish public versus private interfaces. Differentiating
 between public and internal interfaces is important for everyone, users and
 developers alike, to know what interfaces are stable and supported, and which
 are not. Consequently, Python has developed conventions for communicating what
-is public versus internal. Nominally there are three means, (discussed more
+is public versus internal. Nominally there are three means (discussed more
 formally later):
 
 1. **Underscore Prefix**.  By convention, names that begin with an underscore
@@ -84,9 +84,9 @@ an example. Consider an example library with the following layout::
          def qux():
             pass
 
-- Is ``foo`` public? Probably, what what if it's not documented?
+- Is ``foo`` public? Probably, but what if it's not documented?
 - Is ``func`` public? It is not in ``foo.__all__``. 
-- Is ``_func``public?  It is prefixed with an underscore, but in ``foo.__all__``. 
+- Is ``_func`` public?  It is prefixed with an underscore, but in ``foo.__all__``. 
 - Is ``_bar`` public? It is prefixed with an underscore, but in ``src.__all__``.
 - Is ``bunc`` public? It is in ``_bar.__all__``, but what if ``_bar`` is private?
 - Is ``_bunc`` public? Probably not, but what if it's documented?
@@ -118,20 +118,20 @@ Having established that we need a uniform and systematic approach to public vs
 internal interfaces, we now decide what that approach should be. The approach
 should fulfill a few criteria:
 
-1. It should align closely with established conventions, so that it is familiar
-   to users, developers, and hopefully detected by assistive tools.
-2. It should be unambiguous and easy to understand.
-3. It should be straightforward to implement and maintain, so that it is not a
+1. Align closely with established conventions, so that it is familiar
+   to users and developers, and hopefully detected by assistive tools.
+2. Be unambiguous and easy to understand.
+3. Be straightforward to implement and maintain, so that it is not a
    burden on developers.
 
 We start by considering established practice, for criteria 1, and how to ensure
-that it satisfies the latter two criteria and can be implemented in a uniform and
+that we satisfy the latter two criteria and can be implemented in a uniform and
 systematic way. There are three important documents that describe established
 practice as it relates to Astropy:
 
 1. `PEP 8 <https://peps.python.org/pep-0008/#public-and-internal-interfaces>`_ :
    the Python style guide.
-2. `scipy
+2. `SciPy
    <https://docs.scipy.org/doc/scipy/reference/index.html#importing-from-scipy>`_:
    the largest scientific Python project.
 3. `Python's typing guide
@@ -141,7 +141,7 @@ practice as it relates to Astropy:
 
 Starting with `PEP 8
 <https://peps.python.org/pep-0008/#public-and-internal-interfaces>`_, it states
-that ::
+that::
 
    Documented interfaces are considered public, unless the documentation
    explicitly declares them to be provisional or internal interfaces exempt
@@ -162,7 +162,7 @@ that ::
    Imported names should always be considered an implementation detail. Other
    modules must not rely on indirect access to such imported names unless they
    are an explicitly documented part of the containing module’s API, such as
-   os.path or a package’s __init__ module that exposes functionality from
+   ``os.path`` or a package’s ``__init__`` module that exposes functionality from
    submodules.
 
 
@@ -172,7 +172,7 @@ it is the official Python style guide.  However, it is not as unambiguous as we
 require: which takes precedence, the ``__all__`` attribute or the underscore
 prefix?
 
-`Scipy
+`SciPy
 <https://docs.scipy.org/doc/scipy/reference/index.html#importing-from-scipy>`_
 tries to resolve this ambiguity by stating that ::
 
@@ -188,7 +188,7 @@ tries to resolve this ambiguity by stating that ::
      don’t start with a leading underscore are public.
 
 This is a good solution, and is consistent with PEP 8, but for our goal of
-complete unambiguity and uniformity it falls short on two counts:  first, it
+complete unambiguity and uniformity it falls short on two counts: first, it
 does not mention the documentation; second, PEP 8 recommends "modules should
 explicitly declare the names in their public API using the ``__all__``
 attribute. Setting ``__all__`` to an empty list indicates that the module has no
@@ -199,7 +199,7 @@ introspection by both users and automated systems.
 
 Finally, let's consider what `Python typing guide
 <https://github.com/python/typing/blob/master/docs/source/libraries.rst#library-interface-public-and-private-symbols>`
-adds. :: 
+adds.:: 
 
    - Symbols whose names begin with an underscore (but are not dunder names) are
      considered private.
@@ -225,42 +225,42 @@ Solution
 We propose the following:
 
 1. That Astropy adopts the PEP 8 rules on public versus internal interfaces
-2. That Astropy disambiguates these rules similarly to SciPy, by adopting the
+2. That Astropy disambiguate these rules similarly to SciPy, by adopting the
    subsequent rules for its API:
 3. That Astropy ensures its documentation is consistent with its code, the
    latter being the authoritative source.
 4. That Astropy strongly recommends these rules for coordinated packages, and
-   enourange affiliated packages to follow these rules as well.
+   encourage affiliated packages to follow these rules as well.
 
 **Rules for Public Interfaces:**
 
-1. A symbol is public if it is *locally* public in it's containing
-   namespace, and each containing namespace is *locally* public to the top-level
-   namespace -- i.e. all containing namespaces are public.
-   A symbol is private if any containing namespace is private.
+1. A symbol is public if all containing namespaces are public.
+   A symbol is internal if any containing namespace is internal.
 
 2. All modules must have an ``__all__`` attribute, even if it is empty. The
-   ``__all__`` attribute defines the public and private interface of the module
-   in which it is defined. Anything in ``__all__`` is *locally* public,
-   including underscore-prefixed symbols. Anything not in ``__all__`` is private
-   in that module. The exception to this rule are modules that cannot have an
-   ``__all__`` attribute, for example implicit namespace packages.
-   In these cases, the public interface is defined by the sub-rule.
+   ``__all__`` attribute specifies the public and internal interface of the
+   module in which it is defined. Anything in ``__all__`` is *locally* public,
+   including underscore-prefixed symbols. Anything not in ``__all__`` is
+   internal in that module. The exception to this rule are modules that cannot
+   have an ``__all__`` attribute, for example implicit namespace packages, which
+   lack an ``__init__.py``. In these cases, the public interface is defined by
+   the sub-rules:
 
    - A symbol is *locally* public if it does not start with an underscore, and
-     private otherwise. The only exception to this rule is dunder symbols
-     (``__<...>__``), the rules for which are not determined in this APE.
+     internal otherwise, unless it is a dunder symbol (``__<...>__``).
+   - Dunder symbols (``__<...>__``) have their own public vs internal rules,
+     which are not determined in this APE.
 
 3. Public symbols must not be prefixed with an underscore.
 
-   - Private symbols need not be prefixed with an underscore, but it is often
+   - Internal symbols need not be prefixed with an underscore, but it is often
      recommended. An example of when it is not needed are symbols defined in
-     private modules, making the prefix redundant.
+     internal modules, making the prefix redundant.
 
 4. Public symbols must be documented.
 
-   - If a private symbol is documented (which is not recommended), it must be
-     obviously, explicitly, (and preferably repeatedly) noted as private.
+   - If an internal symbol is documented (which is not recommended), it must be
+     obviously, explicitly, (and preferably repeatedly) noted as internal.
 
 
 Let's consider an example::
@@ -301,7 +301,7 @@ Let's consider an example::
 
 In this case, ``bar`` is public in ``foo``, and  ``foo`` is public in ``src``,
 so ``src.foo.func`` is public. This is public. In contrast, while ``bunc`` is
-public in ``_bar``,  ``src._bar`` is not public, so ``src._bar.bunc`` is not
+public in ``_bar``, ``src._bar`` is not public, so ``src._bar.bunc`` is not
 public either. This is "locally" public, as in internal. Both ``_func`` and
 ``_bunc`` are internal.
 
@@ -341,7 +341,7 @@ session.  In the implementation of this APE to establish a *formal* API, we aim
 to minimize changes to the *de facto* API. This will be accomplished in the
 following 5 phases:
 
-1. **snapshot the documentation**. As of the adoption of the APE a snapshot of
+1. **Snapshot the documentation**. As of the adoption of the APE a snapshot of
    the documentation will be saved. This will be used to determine what is
    currently public and what is not. Until the APE's adoption is complete, this
    snapshot is authoritative, e.g. dictating what must be added and removed from
@@ -356,11 +356,11 @@ following 5 phases:
      deprecated.
    - Deprecate any public symbol that is not intended to be public, but was made
      public as part of steps 1 and 2.
-   - Add a scipy-like section to the developer documentation explaining the
+   - Add a SciPy-like section to the developer documentation explaining the
      public vs internal rules.
    - Fix links to always point to the public interface, not the internal
      interface. (This will presumably require a similar implementation as used
-     in ``numpy`` to change the ``__module__`` attribute of many objects.)
+     in NumPy to change the ``__module__`` attribute of many objects.)
    - Add a reminder to the maintainer checklist that to be public a symbol must be
      in ``__all__`` and documented.
    - Clearly state if a documented object is actually private.
@@ -375,7 +375,7 @@ following 5 phases:
 5. **Add prefixes**: Add prefixes to the top-most private symbols. For modules
    this makes all their contents private.
 
-In Astropy core each phase will be be implemented on a per-subpackage basis with
+In Astropy core each phase will be implemented on a per-sub-package basis with
 individual pull requests.
 
 
@@ -392,7 +392,7 @@ This APE breaks backward compatibility in two ways:
    symbols and uses ``import *``.
 2. Adds prefixes to many objects that are not public. This can be done in a
    backward compatible way by adding a ``__getattr__`` method to the module that
-   raises an warning for any object that is not public. This will allow existing
+   raises a warning for any object that is not public. This will allow existing
    code to continue to work, while encouraging people to fix their code to use
    the public interface.
 
@@ -412,21 +412,22 @@ This is not great.
 
 The only time this might be good is when a module has dynamic symbols from a
 `PEP 562 <https://peps.python.org/pep-0562/>`_ module-level ``__getattr__``
-method. However if it truly dynamic then it cannot be statically analyzed, which
+method. However, if it truly dynamic then it cannot be statically analyzed, which
 is undesirable for other reasons. If it is not truly dynamic, then the "dynamic"
 symbols can be added to ``__all__`` and an ``__init__.pyi`` file used to
 communicate the public interface to static analyzers.
 
 **We make the documentation the authoritative definition of the API.**
 
-Good code is self-documenting.  What is public versus internal is an important
-aspect of the code, and should be communicated in the code itself. It is vitally
-important that the code and user-facing documentation are consistent, and this
-means that the user-facing documentation must reflect the code.
+Good code is well documented. Beyond code comments and docstrings, what is
+public versus internal is an important aspect of the code, and should be
+communicated in the code itself. It is vitally important that the code and
+user-facing documentation are consistent, and the user-facing documentation
+should reflect the code.
 
 **We make tab-completion the authoritative definition of the API.**
 
-This is not a good option because it it does not work with implicit namespace
+This is not a good option because it does not work with implicit namespace
 packages nor `PEP 562 <https://peps.python.org/pep-0562/>`_ module-level
 ``__getattr__`` methods.
 
