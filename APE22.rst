@@ -1,4 +1,4 @@
-Astropy's Public API Policy
+Astropy's API Policy on Modules and their Contents
 ---------------------------
 
 author: Nathaniel Starkman
@@ -30,7 +30,8 @@ classes, functions, and other symbols provided to the library's users. This APE
 is narrowly focused on the module level of the API -- what modules are public
 and what modules are internal -- and the objects within those modules -- which
 are public and how this is communicated. This APE does not address any other
-questions of API design, e.g. public versus internal methods in classes.
+questions of API design, e.g. public versus internal methods in classes, leaving
+these for future APEs or future revisions to this APE.
 
 
 .. _description_of_the_problem:
@@ -390,7 +391,7 @@ This APE breaks backward compatibility in two ways:
    break code that directly imports the symbols (as Python does not use
    ``__all__`` for this purpose), but it will break code that expects private
    symbols and uses ``import *``.
-2. Adds prefixes to many objects that are not public. This can be done in a
+2. Adds prefixes to many symbols that are not public. This can be done in a
    backward compatible way by adding a ``__getattr__`` method to the module that
    raises a warning for any object that is not public. This will allow existing
    code to continue to work, while encouraging people to fix their code to use
@@ -419,7 +420,7 @@ communicate the public interface to static analyzers.
 
 **We make the documentation the authoritative definition of the API.**
 
-Good code is well documented. Beyond code comments and docstrings, what is
+Good code is well documented in the code. Beyond code comments and docstrings, what is
 public versus internal is an important aspect of the code, and should be
 communicated in the code itself. It is vitally important that the code and
 user-facing documentation are consistent, and the user-facing documentation
