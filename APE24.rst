@@ -6,7 +6,7 @@ author: Pey Lian Lim, Leah Wasser, William Jamieson, Derek Homeier
 
 date-created: 2023 July 13
 
-date-last-revised: 2023 July 27
+date-last-revised: 2023 September 13
 
 date-accepted: TBD
 
@@ -75,7 +75,8 @@ What do we gain from a partnership with pyOpenSci?
 
 * Larger exposure for Affiliated packages within scientific Python ecosystem,
   not just Astropy.
-* They get to be listed in JOSS "for free" from the
+* If they are in scope for JOSS, they can be fast-tracked through the JOSS
+  review process and get a publication via the
   `partnership between pyOpenSci and JOSS <https://www.pyopensci.org/software-peer-review/partners/joss.html>`_.
 * pyOpenSci's objective way of initial triage will automatically weed out
   packages that do not even meet basic standards (e.g., not installable),
@@ -92,7 +93,7 @@ What do we gain from a partnership with pyOpenSci?
 Who owns this process?
 ----------------------
 
-pyOpenSci already has an ongoing process and it is a community-driven one.
+pyOpenSci already has an established software peer review process and it is community-driven.
 It is compatible with Astropy but it is up to us to decide if a package
 applied to pyOpenSci also qualifies as Affiliated.
 
@@ -110,7 +111,7 @@ Funding
 pyOpenSci has its own funding structure beyond the control of Astropy.
 As of July 2023, it is fully funded for the next 2 years.
 Given the number of projects currently looking into a similar partnership
-with pyOpenSci (SunPy, Heliophysics, etc.) and that it has a full-time staff
+with pyOpenSci (SunPy, PlasmaPy, pyHeliophysics, etc.) and that it has a full-time staff
 dedicated to seeking out more funding, we find that the benefits outweigh
 the risks.
 
@@ -153,12 +154,15 @@ Meanwhile, pyOpenSci has its own
 `submission guide for package authors <https://www.pyopensci.org/software-peer-review/how-to/author-guide.html>`_,
 `accompanying GitHub issue templates <https://github.com/pyOpenSci/software-submission/issues/new/choose>`_, and
 `listing of accepted packages <https://www.pyopensci.org/python-packages.html#our-accepted-python-open-source-packages>`_.
-As of July 2023, they are in the process of revamping the submission form to handle
-collaborations with different communities (e.g., Astropy), including but not limited to:
+As of July 2023, they are in the process of revamping their process to handle
+collaborations with different communities (e.g., Astropy). They are also:
 
-* creating a community-specific label for filtering and link to current reviews
-  for that community; and
-* customizing the editorial bot to add community-specific tags.
+* creating a community-specific label for package filtering
+  for that community on their website package listing;
+* updating the submission template so a potential Astropy affiliated package
+  can select Astropy for the actual review;
+* adding an Astropy label on their GitHub repository; and
+* creating a new editorial bot to add community-specific tags.
 
 Is open review a deal breaker?
 ------------------------------
@@ -173,17 +177,22 @@ pyOpenSci uses.
 Rejecting packages
 ------------------
 
-If a package is "rejected," it is likely not in technical or domain scope.
-The rejection will come from pyOpenSci Editor-in-Chief or the editor;
-it does *not* have to come from the Astropy community directly and will be objective.
-Rejection can also happen if the maintainer of the package under review
-is unwilling to ensure the package can be used and maintained.
-While in practice, rejection is rare, usually the Editor-in-Chief would be
-the one doing the rejection.
+A package may be "rejected" in different stages of the review, either by the
+pyOpenSci Editor-in-Chief or the editor, including but not limited to causes
+such as:
 
-A package may still be listed under pyOpenSci (and JOSS) if it
-passes the general criteria but fails the Astropy-specific ones;
-e.g., a very nice Python package that has little to do with the Astropy ecosystem.
+* the package is not in technical or domain scope;
+* the package fails one of the pre-review checks done by the Editor-in-Chief;
+* the package maintainer stops responding to review comments; or
+* the package maintainer is unwilling to ensure the package can be used and maintained.
+
+While in practice, rejection is rare, a rejection does *not* have to come from
+the Astropy community directly and will be objective.
+
+A package that fails the Astropy-specific criteria may still be accepted into the
+pyOpenSci ecosystem (and also published by JOSS) if it is in scope;
+an example of this might be a well-documented and developed Python package that
+is useful to the scientific community that fails to relate well to the Astropy ecosystem.
 
 "Re-review" of packages
 -----------------------
@@ -198,24 +207,25 @@ re-review of packages (involving Editor-in-Chief, editor, and 2 reviewers).
 However, it has plans to set up automated checks that track the "health"
 and maintenance level of a package over time, with the goal of identifying
 packages that have become "orphans" (i.e, unmaintained). Once a package is
-identified as needing additional maintenance, it will be flagged for the community.
+identified as needing additional maintenance, it will be flagged.
 
 "Health" might include frequency of commits, releases, CI status, etc.
 Some, if not most, of this data will be collected using
 `devstats <https://github.com/scientific-python/devstats>`_ and
 `repo-review <https://github.com/scientific-python/repo-review>`_ from
-`Scientific Python`_. This information will be displayed on public dashboards.
+`Scientific Python`_. This information will be displayed on public dashboards
+hosted on the pyOpenSci website.
 
 However, automation can only go so far; for instance, if automation
 is deployed in GitHub Actions, then any package hosted outside of GitHub
 would be excluded from these checks. In that case, manual intervention
-might still be necessary.
+or alternate implementation might still be necessary.
 
 If the package is no longer maintained, one of the following can happen:
 
 1. If it is a widely used package and the maintainer wants to see it live on,
-   they will try to help the maintainer to find a new maintainer team;
-2. Otherwise, they will gracefully sunset it from the list of maintained/accepted
+   pyOpenSci will try to help the maintainer build a new maintainer team;
+2. Otherwise, pyOpenSci will gracefully sunset it from the list of maintained/accepted
    packages.
 
 After sunsetting, if a package becomes active again, it is up to the package
@@ -265,6 +275,29 @@ pyOpenSci invites the Astropy community to review this language to ensure it mee
 
 .. _reviewer sign-up form: https://forms.gle/GHfxvmS47nQFDcBM6
 
+Review turnaround time
+----------------------
+
+Astropy currently does not enforce any concrete turnaround time mainly because
+we do not know who ends up reviewing a given submission nor have control
+over their schedule. Furthermore, we only have two editors who may not have
+sufficient time themselves to actively push a review forward. Therefore, a review
+could take weeks, months, or (gasp) years.
+
+If we partner with pyOpenSci, Astropy would need to adhere to their expected
+timeline for each step, as laid out in `An Overview Of the Peer Review Process`_.
+For example, editor is expected to find reviewers within 2-3 weeks and
+a peer review should be completed within 3 weeks after that.
+This is to ensure that the package maintainer have a good experience with the review
+and things do not languish over a long period of time.
+
+Generally, the editor role should not take a huge amount of time, *but* it is
+important for an editor, once the review starts, to check in on the review periodically
+(every few weeks and more often during wrap-up).
+
+.. _An Overview Of the Peer Review Process: https://www.pyopensci.org/software-peer-review/our-process/review-timeline.html
+
+
 Packaging guidelines
 --------------------
 
@@ -273,7 +306,6 @@ that covers modern best practices and recommendations for scientific Python pack
 This guide has a stringent community review process. Reviewers for this guide
 represent members of PyPA, core Python, Anaconda (conda/conda-forge), and
 core packages for front- and back-end tools (e.g., ``flit``, PDM, ``hatch``/``hatchling``, etc.).
-It is also maintained by `Scientific Python`_.
 
 Meanwhile, the Astropy community prefers a more laid-back
 `OpenAstronomy packaging guide <https://packaging-guide.openastronomy.org/en/latest/>`_.
@@ -304,7 +336,7 @@ therefore, getting rid of the need for static badges altogether.
 pyOpenSci is willing to create the following specifically for Astropy
 if we agree to this partnership:
 
-* A RSS/XML feed of Affiliated packages that we could ingest and
+* A feed of Affiliated packages that we could ingest and
   use to rebuild our own `Astropy Affiliated Packages`_ listing.
   This way, the packages would be listed both over at pyOpenSci and at Astropy
   websites.
@@ -377,7 +409,8 @@ If we decide to move forward with this partnership, these are the proposed steps
    Meanwhile, we would keep the pre-APE 24 listing on a "legacy affiliation" page
    that will be kept alive during the lifetime of the Astropy project.
 5. Work with pyOpenSci to cross-list Affiliated editors, between their
-   editors listing and our roles page.
+   editors listing and our roles page. For example, pyOpenSci could
+   mark Astropy editors on the `pyOpenSci Editorial Board`_ with Astropy logo.
 6. Work with pyOpenSci to hash out a more concrete plan on how to
    get a previously sunsetted package to be listed actively again
    if the package is revived.
