@@ -367,6 +367,7 @@ Pull requests:
 
 * `Feat: add text associated with astropy partnership <https://github.com/pyOpenSci/software-peer-review/pull/225>`_
 * `FEAT: Start at community mockup / astropy <https://github.com/pyOpenSci/pyopensci.github.io/pull/207>`_
+* `Add: more specific community partners page with FAQ <https://github.com/pyOpenSci/software-peer-review/pull/253>`_
 * *TODO: A future PR by William Jamieson to update our Affiliated guidelines and process,
   after consolidating what we have with that of pyOpenSci.*
 
