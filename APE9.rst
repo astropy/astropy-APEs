@@ -5,11 +5,11 @@ author: Stuart Mumford
 
 date-created: 2016 March 24
 
-date-last-revised: 2017 November 10
+date-last-revised: 2023 Oct 20
 
 type: Standard Track
 
-status: Discussion
+status: Accepted
 
 
 Abstract
@@ -147,4 +147,4 @@ Forego the functionality provided by Time and Units and recommend everyone use p
 
 Decision rationale
 ------------------
-
+This APE has long been implemented in https://github.com/astropy/astropy/pull/8540 and somehow the Coco just never merged it.
