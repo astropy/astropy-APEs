@@ -24,6 +24,7 @@ Accepted APEs
 6   `Enhanced Character Separated Values table format`_              2015-Jan-26 |APE 6 DOI|
 7   `NDData Plan`_                                                   2014-Dec-17 |APE 7 DOI|
 8   `Astropy Community Code of Conduct`_                             2015-May-04 |APE 8 DOI|
+9   `Timeseries object for Astropy`_                                 2023-Oct-20 Ask Erik Tollerud to make one
 10  `Roadmap for Python 3-only support`_                             2016-Aug-22 |APE 10 DOI|
 12  `Using Cookiecutter for the package-template`_                   2017-Mar-28 |APE 12 DOI|
 13  `Vision for Astropy Spectroscopic Tools`_                        2017-Dec-12 |APE 13 DOI|
@@ -45,6 +46,7 @@ Accepted APEs
 .. _Enhanced Character Separated Values table format: https://github.com/astropy/astropy-APEs/blob/main/APE6.rst
 .. _NDData Plan: https://github.com/astropy/astropy-APEs/blob/main/APE7.rst
 .. _Astropy Community Code of Conduct: https://github.com/astropy/astropy-APEs/blob/main/APE8.rst
+.. _Timeseries object for Astropy: https://github.com/astropy/astropy-APEs/blob/main/APE9.rst
 .. _Roadmap for Python 3-only support: https://github.com/astropy/astropy-APEs/blob/main/APE10.rst
 .. _Using Cookiecutter for the package-template: https://github.com/astropy/astropy-APEs/blob/main/APE12.rst
 .. _Vision for Astropy Spectroscopic Tools: https://github.com/astropy/astropy-APEs/blob/main/APE13.rst
