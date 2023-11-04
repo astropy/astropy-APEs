@@ -204,7 +204,8 @@ an alternative point of contact for sensitive issues such as code of conduct
 violations and ethical concerns. Candidates for this project role are publicly
 nominated by the Coordination Committee, after which the Coordination Committee
 allows at least two weeks for comment, and then the nominee must be confirmed by
-two-thirds of the active `Voting Members`_.
+two-thirds of the active `Voting Members <votingmembers>`_.
+The Ombudsperson cannot be a member of the Coordination Committee.
 
 The Ombudsperson has no term limit but can resign at any time, or be removed by
 the same process as being confirmed: the Coordination Committee initiates, there
@@ -213,6 +214,21 @@ is a two-week comment period, and two-thirds of the active
 between removal/resignation and new appointment, the Coordination Committee will
 temporarily take over the responsibilities of the Ombudsperson, should the need
 arise.
+
+The role of the "Astropy Ombudsperson" with all duties and responsibilities can
+also be performed by a group of people from different projects that pool resources.
+The Ombudsperson and the Coordination Committee can decide jointly for Astropy to
+join a group of NumFOCUS affiliated or sponsored projects, where each project
+delegates one representative; the Astropy Ombudsperson would then be the
+representative for Astropy.
+In this case, all members in this group shall be bound by the same
+expectation of confidentiality and impartiality; this group will then take up
+any ethical concerns, discuss and investigate violations of the code and conduct
+for the Astropy project in the same way the Astropy Ombudsperson would do if acting
+alone. Because being able to draw on the experience of other projects and
+having a group of people to look at problems from different perspectives is likely
+to lead to more fair and balanced outcomes, the Astropy Ombudsperson is encouraged
+to join such a group if one exists.
 
 .. On GitHub this anchor doesn't work.
 .. _votingmembers:
