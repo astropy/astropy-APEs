@@ -54,9 +54,8 @@ Composition
 ^^^^^^^^^^^
 The Coordination Committee is a committee that is composed of five
 members (this number was decided by vote at the same time as the first
-Coordination Committee election). Unless it would
-be short of candidates otherwise, it should not have more than one member from
-any particular employer. The Ombudsperson (described in
+Coordination Committee election).
+The Ombudsperson (described in
 Section 4) and the Coordination Committee will work to maintain this composition
 following the processes laid out in this Charter.
 
