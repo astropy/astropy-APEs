@@ -142,7 +142,7 @@ least two weeks:
   they receive. If a tie occurs, it may be resolved by mutual agreement among
   the candidates, or else the winner will be chosen at random.
 
-The election process is managed by a non-voting Returns Officer nominated by
+The election process is managed by a Returns Officer nominated by
 the outgoing Coordination Committee, although the process (specific choice of
 website, etc) can be set up by the Coordination Committee or their delegates.
 For the initial election, the Returns Officer will be nominated by the NumFOCUS
