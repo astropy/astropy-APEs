@@ -139,7 +139,7 @@ least two weeks:
   they receive. If a tie occurs, it may be resolved by mutual agreement among
   the candidates, or else the winner will be chosen at random.
 
-The election process is managed by a non-voting Returns Officer nominated by
+The election process is managed by a Returns Officer nominated by
 the outgoing Coordination Committee, although the process (specific choice of
 website, etc) can be set up by the Coordination Committee or their delegates.
 For the initial election, the Returns Officer will be nominated by the NumFOCUS
@@ -153,9 +153,9 @@ Each Coordination Committee member's term runs for three years from when
 the election results are finalized. There is no limit to the number of terms that
 a single individual can be elected for.
 
-In the case of a vacancy partway through a term, a by-election will be held. 
+In the case of a vacancy partway through a term, a by-election will be held.
 The term of the newly-elected member runs for the remainder of the term of
-the member they are replacing. 
+the member they are replacing.
 
 For the initial election of Coordination Committee members, two seats will have
 terms of one year, two have a term of two years, and one has a term of three
