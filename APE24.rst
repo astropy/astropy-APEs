@@ -2,7 +2,7 @@
 Astropy Affiliated Packages with pyOpenSci
 ******************************************
 
-author: Pey Lian Lim, Leah Wasser, William Jamieson, Derek Homeier
+author: Pey Lian Lim, Leah Wasser, William Jamieson, Derek Homeier, Moritz Guenther
 
 date-created: 2023 July 13
 
@@ -57,12 +57,15 @@ in Fall 2022 using Sloan Foundation funding.
 
 Fast forward to July 2023, there are 47 accepted Affiliated packages and
 7 undergoing the review process. We have two editors (Derek Homeier and
-William Jamieson as of July 2023) and no formal/public pool of reviewers.
+William Jamieson as of July 2023) and recruit reviewers from the Astropy community.
+Editors identify community members with sufficient experience in the Astropy ecosystem and practices
+to review packages, usually asking reviewers with scientific domain experience related to a potentially
+affiliated package. This process mirrors what is commonly done for scientific journals, where editors 
+invite scientific peers of a study to be reviewers.
 Given that reviewers are anonymous by default, we are unable to provide
 a fully transparent review process (even though results are publicly posted
-and discussed, they are posted second-hand by the editors). We are also
-unable to let people publicly sign up to be reviewers, as that would break
-anonymity. Furthermore, we have no resources nor infrastructure to
+and discussed, they are posted second-hand by the editors).
+Furthermore, we have no resources nor infrastructure to
 re-review the 47 accepted packages to ensure that they still meet the
 Affiliated standards. Therefore, there is a need to restructure our Affiliated
 process to be sustainable. We are confident that a partnership with
@@ -278,11 +281,9 @@ pyOpenSci invites the Astropy community to review this language to ensure it mee
 Review turnaround time
 ----------------------
 
-Astropy currently does not enforce any concrete turnaround time mainly because
-we do not know who ends up reviewing a given submission nor have control
-over their schedule. Furthermore, we only have two editors who may not have
-sufficient time themselves to actively push a review forward. Therefore, a review
-could take weeks, months, or (gasp) years.
+Astropy currently does not enforce any concrete turnaround time. Reviews typically
+come within weeks, but the response time for submitted packages to address the review
+is very non-uniform from "within days" to "years".
 
 If we partner with pyOpenSci, Astropy would need to adhere to their expected
 timeline for each step, as laid out in `An Overview Of the Peer Review Process`_.
@@ -422,8 +423,10 @@ If we decide to move forward with this partnership, these are the proposed steps
    Affiliated editor assignment is not permanent.
 
 The goal is to have a migration that is not too disruptive to current process.
-While this migration could take years to complete, the turnaround time
-for any one package should be much shorter (months, perhaps).
+Once this APE is accepted, new package submissions will go through the pyOpenSci process.
+Packages currently under review can choose to continue under the old process
+(and then be treated and listed like packages accepted as Affiliated before this APE),
+or be transferred to the new process and follow pyOpenSci procedures.
 
 The trial period
 ----------------
