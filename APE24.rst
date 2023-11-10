@@ -65,7 +65,11 @@ invite scientific peers of a study to be reviewers.
 Given that reviewers are anonymous by default, we are unable to provide
 a fully transparent review process (even though results are publicly posted
 and discussed, they are posted second-hand by the editors).
-Furthermore, we have no resources nor infrastructure to
+
+Unlike scientific articles, which are static after publication, software continues to develop,
+adding features and bugs; if it is not continuously developed, it will become obsolete and might
+not work with future NumPy and Python versions. Thus, a process of "re-review" for affiliated packages
+has been envisioned, but never executed because we have no resources nor infrastructure to
 re-review the 47 accepted packages to ensure that they still meet the
 Affiliated standards. Therefore, there is a need to restructure our Affiliated
 process to be sustainable. We are confident that a partnership with
