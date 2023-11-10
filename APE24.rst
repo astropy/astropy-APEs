@@ -300,15 +300,17 @@ important for an editor, once the review starts, to check in on the review perio
 
 Packaging guidelines
 --------------------
+The Astropy community has followed packaging guidelines published in the 
+`OpenAstronomy packaging guide <https://packaging-guide.openastronomy.org/en/latest/>`_ for a few years.
 
-pyOpenSci has been developing a `community-driven packaging guide`_
-that covers modern best practices and recommendations for scientific Python packaging.
+pyOpenSci is also developing a `community-driven packaging guide`_
+that covers modern best practices and recommendations for scientific Python packaging. 
 This guide has a stringent community review process. Reviewers for this guide
 represent members of PyPA, core Python, Anaconda (conda/conda-forge), and
-core packages for front- and back-end tools (e.g., ``flit``, PDM, ``hatch``/``hatchling``, etc.).
+core packages for front- and back-end tools (e.g., ``flit``, PDM, ``hatch``/``hatchling``, etc.).  
 
-Meanwhile, the Astropy community prefers a more laid-back
-`OpenAstronomy packaging guide <https://packaging-guide.openastronomy.org/en/latest/>`_.
+If we partner with pyOpenSci, we encourage our Affiliated packages to continue to follow the OpenAstronomy packaging guide for packaging structure. However maintainers will find the pyOpenSci guide to be a useful reference given it provides community-wide guidelines and is targeted to those newer to packaging. 
+
 
 If we partner with pyOpenSci, we would encourage our Affiliated packages to follow
 their `community-driven packaging guide`_ so that they are consistent with the
