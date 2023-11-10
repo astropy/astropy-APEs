@@ -2,11 +2,11 @@
 Astropy Affiliated Packages with pyOpenSci
 ******************************************
 
-author: Pey Lian Lim, Leah Wasser, William Jamieson, Derek Homeier, Moritz Guenther
+author: Pey Lian Lim, Leah Wasser, William Jamieson, Derek Homeier, Moritz Günther
 
 date-created: 2023 July 13
 
-date-last-revised: 2023 September 13
+date-last-revised: 2023 November 10
 
 date-accepted: TBD
 
@@ -56,7 +56,7 @@ partnership with the JOSS soon after, and with `Pangeo <https://pangeo.io/>`_
 in Fall 2022 using Sloan Foundation funding.
 
 Fast forward to July 2023, there are 47 accepted Affiliated packages and
-7 undergoing the review process. We have two editors (Derek Homeier and
+8 undergoing the review process. We have two editors (Derek Homeier and
 William Jamieson as of July 2023) and recruit reviewers from the Astropy community.
 Editors identify community members with sufficient experience in the Astropy ecosystem and practices
 to review packages, usually asking reviewers with scientific domain experience related to a potentially
@@ -67,8 +67,9 @@ a fully transparent review process (even though results are publicly posted
 and discussed, they are posted second-hand by the editors).
 
 Unlike scientific articles, which are static after publication, software continues to develop,
-adding features and bugs; if it is not continuously developed, it will become obsolete and might
-not work with future NumPy and Python versions. Thus, a process of "re-review" for affiliated packages
+adding features and fixing bugs; otherwise, it will become obsolete and might be
+incompatible with future versions of its dependencies (e.g., NumPy or Python).
+Thus, a process of "re-review" for Affiliated packages
 has been envisioned, but never executed because we have no resources nor infrastructure to
 re-review the 47 accepted packages to ensure that they still meet the
 Affiliated standards. Therefore, there is a need to restructure our Affiliated
@@ -80,7 +81,7 @@ pyOpenSci is the best solution currently available.
 What do we gain from a partnership with pyOpenSci?
 --------------------------------------------------
 
-* Larger exposure for Affiliated packages within scientific Python ecosystem,
+* Larger exposure for Affiliated packages within the scientific Python ecosystem,
   not just Astropy.
 * If they are in scope for JOSS, they can be fast-tracked through the JOSS
   review process and get a publication via the
@@ -181,6 +182,13 @@ Given that the Astropy ecosystem is open-source anyway, it makes sense for us
 to move away from the journal-style tradition and embrace a more open process that
 pyOpenSci uses.
 
+Will we no longer need Editors?
+-------------------------------
+
+We still need them! However, instead of managing the whole process themselves,
+they will now be part of the `pyOpenSci Editorial Board`_ and perform their
+duties within the pyOpenSci process as laid out in this APE.
+
 Rejecting packages
 ------------------
 
@@ -221,7 +229,9 @@ Some, if not most, of this data will be collected using
 `devstats <https://github.com/scientific-python/devstats>`_ and
 `repo-review <https://github.com/scientific-python/repo-review>`_ from
 `Scientific Python`_. This information will be displayed on public dashboards
-hosted on the pyOpenSci website.
+hosted on the pyOpenSci website; we may also grab those same badges,
+where applicable, for a similar dashboard on Astropy website
+focused only in our Affiliated packages.
 
 However, automation can only go so far; for instance, if automation
 is deployed in GitHub Actions, then any package hosted outside of GitHub
@@ -470,7 +480,7 @@ Not backward compatible:
 * Reviewers can no longer be anonymous and have to sign up via `reviewer sign-up form`_.
   The whole review process is open.
 * Instead of static color badges, there will be a link to full pyOpenSci
-  review for that package.
+  review for that package. More dynamic badges might come later (see **"Re-review" of packages**).
 * Inactive packages will be sunsetted if revival is not an option.
 
 
