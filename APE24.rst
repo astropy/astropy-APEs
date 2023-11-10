@@ -305,8 +305,10 @@ important for an editor, once the review starts, to check in on the review perio
 
 Packaging guidelines
 --------------------
+
 The Astropy community has followed packaging guidelines published in the 
-`OpenAstronomy packaging guide <https://packaging-guide.openastronomy.org/en/latest/>`_ for a few years.
+`OpenAstronomy packaging guide`_ for a few years,
+and `Astropy package template <https://github.com/astropy/package-template>`_ before that.
 
 pyOpenSci is also developing a `community-driven packaging guide`_
 that covers modern best practices and recommendations for scientific Python packaging. 
@@ -314,17 +316,16 @@ This guide has a stringent community review process. Reviewers for this guide
 represent members of PyPA, core Python, Anaconda (conda/conda-forge), and
 core packages for front- and back-end tools (e.g., ``flit``, PDM, ``hatch``/``hatchling``, etc.).  
 
-If we partner with pyOpenSci, we encourage our Affiliated packages to continue to follow the OpenAstronomy packaging guide for packaging structure. However maintainers will find the pyOpenSci guide to be a useful reference given it provides community-wide guidelines and is targeted to those newer to packaging. 
-
-
-If we partner with pyOpenSci, we would encourage our Affiliated packages to follow
-their `community-driven packaging guide`_ so that they are consistent with the
-broader scientific community, allowing the streamlining of new contributor experience
-across different domains.
+If we partner with pyOpenSci, we encourage our Affiliated packages to continue to follow the
+`OpenAstronomy packaging guide`_ for packaging structure. However maintainers will find the
+pyOpenSci guide to be a useful reference, given it provides community-wide guidelines and
+is targeted to those newer to packaging.
 
 Regardless, the
 `Editor-in-Chief checks <https://www.pyopensci.org/software-peer-review/how-to/editor-in-chief-guide.html#editor-checklist-template>`_
 are the bare minimum for a package being able to go through the pyOpenSci review process.
+
+.. _OpenAstronomy packaging guide: https://packaging-guide.openastronomy.org/en/latest/
 
 .. _community-driven packaging guide: https://www.pyopensci.org/python-package-guide/
 
