@@ -307,7 +307,7 @@ If we partner with pyOpenSci, Astropy would need to adhere to their expected
 timeline for each step, as laid out in `An Overview Of the Peer Review Process`_.
 For example, editor is expected to find reviewers within 2-3 weeks and
 a peer review should be completed within 3 weeks after that.
-This is to ensure that the package maintainer have a good experience with the review
+This is to ensure that the package maintainers have a good experience with the review
 and things do not languish over a long period of time.
 
 Generally, the editor role should not take a huge amount of time, *but* it is
