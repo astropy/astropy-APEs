@@ -44,9 +44,10 @@ Detailed description
 .. perhaps some use cases.
 
 The Affiliated page has existed since 2013 (i.e,
-`28d9d03 <https://github.com/astropy/astropy.github.com/commit/28d9d038054f34385563bfc0b3e2b1a5812d612c>`_)
-though the concept could have been even earlier. Back then, there were a handful of
-"featured" packages and the "affiliated" section was just "INSERT JSON TABLE".
+`245a237 <https://github.com/astropy/astropy.github.com/tree/245a2373133e4cd8333da3fd7a5bbe1055c5c80b/affiliated>`_)
+though the concept could have been incepted even earlier. At that time it included 10 packages,
+3 of which were highlighted as "featured" packages and 4 others considered still in (early)
+development.
 `JOSS`_ was established in 2016 (source:
 `Wikipedia <https://en.wikipedia.org/wiki/Journal_of_Open_Source_Software>`_)
 but it was perceived as a different enough system that there was no effort
@@ -56,7 +57,10 @@ partnership with the JOSS soon after, and with `Pangeo <https://pangeo.io/>`_
 in Fall 2022 using Sloan Foundation funding.
 
 Fast forward to July 2023, there are 47 accepted Affiliated packages and
-8 undergoing the review process. We have two editors (Derek Homeier and
+7 undergoing the review process, plus 10 that have been elevated to the status
+of Coordinated package. The latter provide crucial extension functionality and
+are maintained by Astropy team members to ensure their continued development
+and availability. We have two editors (Derek Homeier and
 William Jamieson as of July 2023) and recruit reviewers from the Astropy community.
 Editors identify community members with sufficient experience in the Astropy ecosystem and practices
 to review packages, usually asking reviewers with scientific domain experience related to a potentially
@@ -327,9 +331,13 @@ represent members of PyPA, core Python, Anaconda (conda/conda-forge), and
 core packages for front- and back-end tools (e.g., ``flit``, PDM, ``hatch``/``hatchling``, etc.).  
 
 If we partner with pyOpenSci, we encourage our Affiliated packages to continue to follow the
-`OpenAstronomy packaging guide`_ for packaging structure. However maintainers will find the
-pyOpenSci guide to be a useful reference, given it provides community-wide guidelines and
-is targeted to those newer to packaging.
+`OpenAstronomy packaging guide`_ for packaging structure, which ensures a packaging
+style consistent with the majority of existing Affiliated packages as well as much of
+the core scientific Python environment Astropy relies on, in particular Numpy and Scipy.
+However maintainers will find the pyOpenSci guide to be a useful reference, given it provides
+community-wide guidelines and is targeted to those newer to packaging (e.g., just creating the initial package for their code).
+Editors and reviewer shall not let a particular choice of packaging influence their rating of
+a package.
 
 Regardless, the
 `Editor-in-Chief checks <https://www.pyopensci.org/software-peer-review/how-to/editor-in-chief-guide.html#editor-checklist-template>`_
