@@ -21,8 +21,10 @@ Abstract
 ========
 
 Since the early days of the Astropy Project, we had recognized the need
-and developed an internal process for `Astropy Affiliated Packages`_
-(hereafter, for brevity, Affiliated).
+to accommodate and developed an internal process for acknowledging 
+`Astropy Affiliated Packages`_ (hereafter, for brevity, Affiliated) –
+packages that are developed outside of the core package, but interoperate
+with it and are extending its functionality.
 As our ecosystem thrives and grows, so does the wider scientific Python ecosystem,
 which resulted in similar processes like `JOSS`_ and
 `pyOpenSci software peer review <https://www.pyopensci.org/software-peer-review/about/intro.html>`_
