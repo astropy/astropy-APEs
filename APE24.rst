@@ -109,7 +109,7 @@ Who owns this process?
 
 pyOpenSci already has an established software peer review process and it is community-driven.
 It is compatible with Astropy but it is up to us to decide if a package
-applied to pyOpenSci also qualifies as Affiliated.
+reviewed and accepted by pyOpenSci also qualifies as Affiliated.
 
 Will the new process still foster a sense of community in Astropy?
 ------------------------------------------------------------------
