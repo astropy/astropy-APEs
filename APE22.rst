@@ -41,7 +41,7 @@ Description of the Problem
 
 Pure Python has no language-level means to establish and enforce separations
 between public versus internal interfaces -- all code objects can be accessed.
-This is in contrast to languages like C++ and Java, which have language-level
+This is in contrast to languages like C++ or Java, which have language-level
 constructs to establish public versus private interfaces. Differentiating
 between public and internal interfaces is important for everyone, users and
 developers alike, to know what interfaces are stable and supported, and which
@@ -49,7 +49,7 @@ are not. Consequently, Python has developed conventions for communicating what
 is public versus internal. Nominally there are three means (discussed more
 formally later):
 
-1. **Underscore Prefix**.  By convention, names that begin with an underscore
+1. **Underscore Prefix**.  By convention, names that begin with a single underscore
    are considered internal.
 2. ``__all__``.  The dunder attribute ``__all__`` of a module is a list of
    names that are considered public.
@@ -125,7 +125,7 @@ should fulfill a few criteria:
 3. Be straightforward to implement and maintain, so that it is not a
    burden on developers.
 
-We start by considering established practice, for criteria 1, and how to ensure
+We start by considering established practice, for criterion 1, and how to ensure
 that we satisfy the latter two criteria and can be implemented in a uniform and
 systematic way. There are three important documents that describe established
 practice as it relates to Astropy:
@@ -261,7 +261,7 @@ We propose the following:
 4. Public symbols must be documented.
 
    - If an internal symbol is documented (which is not recommended), it must be
-     obviously, explicitly, (and preferably repeatedly) noted as internal.
+     unambiguously, explicitly, (and preferably repeatedly) noted as internal.
 
 
 Let's consider an example::
@@ -301,7 +301,7 @@ Let's consider an example::
                pass
 
 In this case, ``bar`` is public in ``foo``, and  ``foo`` is public in ``src``,
-so ``src.foo.func`` is public. This is public. In contrast, while ``bunc`` is
+so ``src.foo.func`` is public. In contrast, while ``bunc`` is
 public in ``_bar``, ``src._bar`` is not public, so ``src._bar.bunc`` is not
 public either. This is "locally" public, as in internal. Both ``_func`` and
 ``_bunc`` are internal.
@@ -366,7 +366,7 @@ following 5 phases:
      in ``__all__`` and documented.
    - Clearly state if a documented object is actually private.
 
-4. **Add a pre-commit bot**. This will ensure that the ``__all__`` attribute is
+4. **Add a pre-commit hook**. This will ensure that the ``__all__`` attribute is
    always present and up-to-date. It will also ensure that the documentation is
    always up-to-date with the ``__all__`` attribute. This can be accomplished
    with a pre-commit hook that runs a script that checks the ``__all__``
@@ -403,8 +403,8 @@ Alternatives
 
 **We do nothing:**
 
-This is the status quo.  It is not a good option because it is not solve the
-issue.  The aforementioned problems of not i) knowing what is stable and
+This is the status quo.  It is not a good option because it does not solve the
+issue.  The aforementioned problems of not knowing what is stable and
 supported, and what is not, remain.
 
 **We allow** ``__all__`` **to be optional:**
@@ -413,7 +413,7 @@ This is not great.
 
 The only time this might be good is when a module has dynamic symbols from a
 `PEP 562 <https://peps.python.org/pep-0562/>`_ module-level ``__getattr__``
-method. However, if it truly dynamic then it cannot be statically analyzed, which
+method. However, if it is truly dynamic then it cannot be statically analyzed, which
 is undesirable for other reasons. If it is not truly dynamic, then the "dynamic"
 symbols can be added to ``__all__`` and an ``__init__.pyi`` file used to
 communicate the public interface to static analyzers.
