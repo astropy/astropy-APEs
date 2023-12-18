@@ -24,7 +24,7 @@ Accepted APEs
 6   `Enhanced Character Separated Values table format`_              2015-Jan-26 |APE 6 DOI|
 7   `NDData Plan`_                                                   2014-Dec-17 |APE 7 DOI|
 8   `Astropy Community Code of Conduct`_                             2015-May-04 |APE 8 DOI|
-9   `Timeseries object for Astropy`_                                 2023-Oct-20 Ask Erik Tollerud to make one
+9   `Timeseries object for Astropy`_                                 2023-Oct-20 |APE 9 DOI|
 10  `Roadmap for Python 3-only support`_                             2016-Aug-22 |APE 10 DOI|
 12  `Using Cookiecutter for the package-template`_                   2017-Mar-28 |APE 12 DOI|
 13  `Vision for Astropy Spectroscopic Tools`_                        2017-Dec-12 |APE 13 DOI|
@@ -84,6 +84,9 @@ Accepted APEs
 
 .. |APE 8 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043912.svg
    :target: https://doi.org/10.5281/zenodo.1043912
+
+.. |APE 9 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.10403160.svg
+   :target: https://doi.org/10.5281/zenodo.10403160
 
 .. |APE 10 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1038586.svg
    :target: https://doi.org/10.5281/zenodo.1038586
