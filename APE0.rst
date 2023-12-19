@@ -51,9 +51,8 @@ Composition
 ^^^^^^^^^^^
 The Coordination Committee is a committee that is composed of five
 members (this number was decided by vote at the same time as the first
-Coordination Committee election). Unless it would
-be short of candidates otherwise, it should not have more than one member from
-any particular employer. The Ombudsperson (described in
+Coordination Committee election).
+The Ombudsperson (described in
 Section 4) and the Coordination Committee will work to maintain this composition
 following the processes laid out in this Charter.
 
@@ -139,7 +138,7 @@ least two weeks:
   they receive. If a tie occurs, it may be resolved by mutual agreement among
   the candidates, or else the winner will be chosen at random.
 
-The election process is managed by a non-voting Returns Officer nominated by
+The election process is managed by a Returns Officer nominated by
 the outgoing Coordination Committee, although the process (specific choice of
 website, etc) can be set up by the Coordination Committee or their delegates.
 For the initial election, the Returns Officer will be nominated by the NumFOCUS
@@ -150,12 +149,13 @@ term or decided to step down.
 Term
 ^^^^
 Each Coordination Committee member's term runs for three years from when
-the election results are finalized. There is no limit to the number of terms that
-a single individual can be elected for.
+the election results are finalized. After serving a full term, a Coordination
+Committee member must step down for at least one year before being eligible to
+run again.
 
-In the case of a vacancy partway through a term, a by-election will be held. 
+In the case of a vacancy partway through a term, a by-election will be held.
 The term of the newly-elected member runs for the remainder of the term of
-the member they are replacing. 
+the member they are replacing.
 
 For the initial election of Coordination Committee members, two seats will have
 terms of one year, two have a term of two years, and one has a term of three
@@ -202,6 +202,7 @@ violations and ethical concerns. Candidates for this project role are publicly
 nominated by the Coordination Committee, after which the Coordination Committee
 allows at least two weeks for comment, and then the nominee must be confirmed by
 two-thirds of the active `Voting Members <votingmembers>`_.
+The Ombudsperson cannot be a member of the Coordination Committee.
 
 The Ombudsperson has no term limit but can resign at any time, or be removed by
 the same process as being confirmed: the Coordination Committee initiates, there
@@ -211,6 +212,20 @@ between removal/resignation and new appointment, the Coordination Committee will
 temporarily take over the responsibilities of the Ombudsperson, should the need
 arise.
 
+The role of the "Astropy Ombudsperson" with all duties and responsibilities can
+also be performed by a group of people from different projects that pool resources.
+The Ombudsperson and the Coordination Committee can decide jointly for Astropy to
+join a group of NumFOCUS affiliated or sponsored projects, where each project
+delegates one representative; the Astropy Ombudsperson would then be the
+representative for Astropy.
+In this case, all members in this group shall be bound by the same
+expectation of confidentiality and impartiality; this group will then take up
+any ethical concerns, discuss and investigate violations of the code and conduct
+for the Astropy project in the same way the Astropy Ombudsperson would do if acting
+alone. Because being able to draw on the experience of other projects and
+having a group of people to look at problems from different perspectives is likely
+to lead to more fair and balanced outcomes, the Astropy Ombudsperson is encouraged
+to join such a group if one exists.
 
 .. _votingmembers:
 
