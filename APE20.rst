@@ -1,9 +1,11 @@
 .. _Black: https://github.com/psf/black
+.. _ruff: https://docs.astral.sh/ruff/
 .. _Django DEP-0008: https://github.com/django/deps/blob/main/final/0008-black.rst
 .. _pandas pre-commit: https://pandas.pydata.org/docs/development/contributing_codebase.html#pre-commit
 .. _coding style: https://docs.astropy.org/en/latest/development/codeguide.html#coding-style-conventions
 .. _PEP8: https://peps.python.org/pep-0008/
 .. |Black| replace:: *Black*
+.. |ruff| replace:: *ruff*
 
 Formatting Code with *Black*
 ============================
@@ -12,7 +14,7 @@ authors: Tom Aldcroft, Erik Tollerud
 
 date-created: 2022 July 13
 
-date-last-revised: 2022 September 23
+date-last-revised: 2023 December 19
 
 date-accepted: 2022 September 23
 
@@ -25,7 +27,14 @@ Abstract
 --------
 
 This APE proposes that the `astropy core package
-<https://github.com/astropy/astropy>`_ adopt |Black|_ for formatting code.
+<https://github.com/astropy/astropy>`_ adopt Black formatting for the code. Black
+formatting refers to the default code style defined by the |Black|_ code formatter.
+
+Since this APE was accepted in 2022, the Black code format has been implemented by other
+tools, most notably |ruff|_. In the text below we will use the term |Black| to refer to
+|Black| or any other tool that provides robust auto-formatting in the Black code format.
+Beyond the initial migration of the code base to black formatting, the tool(s) used
+to maintain |Black| formatting is not a requirement of this APE.
 
 Detailed description
 --------------------
@@ -33,7 +42,8 @@ Detailed description
 Foreword
 ^^^^^^^^^
 
-This APE presents a rationale that code formatting with |Black|_ can be beneficial
+This APE presents a rationale that Black code formatting with an auto-formatter such
+as |Black|_ or |ruff|_ can be beneficial
 both for the ``astropy`` code development process and for the community.
 Hereafter we refer to the astropy core package as ``astropy``, noting that it is
 distinct from the Astropy project as a whole and coordinated and affiliated
@@ -122,7 +132,7 @@ unequivocally several points:
   process are no more difficult (and arguably easier) to resolve than enforcing
   PEP-8 standards.
 
-Therefore, this APE proposes to adopt *Black* for ``astropy``.
+Therefore, this APE proposes to adopt *Black* code formatting for ``astropy``.
 
 Concerns and mitigations
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -243,7 +253,7 @@ Implementing this change requires:
 
 2. Updating flake8 configuration to be compatible with *Black*.
 
-   This is straightforward and well documented. 
+   This is straightforward and well documented.
 
 3. Checking *Black* in CI.
 
