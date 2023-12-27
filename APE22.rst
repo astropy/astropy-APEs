@@ -235,7 +235,7 @@ We propose the following:
 
 **Rules for Public Interfaces:**
 
-1. A symbol is public if all containing namespaces are public.
+1. A symbol is public if and only if all containing namespaces are public.
    A symbol is internal if any containing namespace is internal.
 
 2. All modules must have an ``__all__`` attribute, even if it is empty. The
