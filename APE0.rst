@@ -216,11 +216,14 @@ Test Internal Links
 
 * This is a link to votingmembers_.
 * This is a link to `Voting Members <votingmembers>`_.
+* This is a link to `Voting Members <The Voting Members>`_.
 * This is a link to `The Voting Members`_.
 * This is a link to `Voting Members`__.
 
-__ votingmembers_
+__ `The Voting Members`_
 
+
+.. On GitHub this anchor doesn't work.
 .. _votingmembers:
 
 The Voting Members
