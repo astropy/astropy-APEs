@@ -41,10 +41,8 @@ users, and even potential participants in the broader astronomical and
 scientific software community. All have a vested interest in the success of the
 Project, so all governance in the end belongs to this community in its entirety.
 The governance Charter described below provides levels of delegation of that
-authority, particularly to the `Voting Members`__ and the
+authority, particularly to the `Voting Members <The Voting Members>`_ and the
 Coordination Committee.
-
-__ `The Voting Members`_
 
 The Coordination Committee
 --------------------------
@@ -130,11 +128,11 @@ least two weeks:
 
 * Phase 1, Nominations: Candidates will be nominated and confirm their interest
   in serving. Candidates can be nominated by anyone, including themselves, and
-  do not have to be `Voting Members`__ to be nominated.
+  do not have to be `Voting Members <The Voting Members>`_ to be nominated.
   Candidates should provide a brief statement in support of their candidacy,
   these statements should be made public as they are received during the
   nominations period.
-* Phase 2, Voting: Each `Voting Member`__ can vote for zero or
+* Phase 2, Voting: Each `Voting Member <The Voting Members>`_ can vote for zero or
   more of the candidates, up to the number of candidates. Voting is performed
   anonymously. Candidates who receive votes from a majority of the voting
   members participating in the election are ranked by the total number of votes
@@ -180,18 +178,18 @@ them for the duration of their term.
 
 Removing Members
 ^^^^^^^^^^^^^^^^
-In exceptional circumstances, the `Voting Members`__ may remove
+In exceptional circumstances, the `Voting Members <The Voting Members>`_ may remove
 one or more sitting Coordination Committee members via a single vote.
 
-Such a vote is triggered when a `Voting Member`__ calls for one
+Such a vote is triggered when a `Voting Member <The Voting Members>`_ calls for one
 publicly on an appropriate Project-wide communication channel, and two other
 active Voting Members second the proposal.
 
 For Coordination Committee Member(s) to be removed, two-thirds of the active
-`Voting Members`_APE_ (where the count *includes* the member being
+`Voting Members <The Voting Members>`_ (where the count *includes* the member being
 voted on if they are a voting member) must vote in support of the removal.
 
-To avoid repeated removal votes, any individual `Voting Member`__
+To avoid repeated removal votes, any individual `Voting Member <The Voting Members>`_
 who has called for, or seconded such a vote, may not call for or second a vote
 to remove any Coordination Committee member for one year from the original
 motion.
@@ -203,12 +201,12 @@ an alternative point of contact for sensitive issues such as code of conduct
 violations and ethical concerns. Candidates for this project role are publicly
 nominated by the Coordination Committee, after which the Coordination Committee
 allows at least two weeks for comment, and then the nominee must be confirmed by
-two-thirds of the active `Voting Members`__.
+two-thirds of the active `Voting Members <The Voting Members>`_.
 
 The Ombudsperson has no term limit but can resign at any time, or be removed by
 the same process as being confirmed: the Coordination Committee initiates, there
 is a two-week comment period, and two-thirds of the active
-`Voting Members`__ have to approve the removal. In the period
+`Voting Members <The Voting Members>`_ have to approve the removal. In the period
 between removal/resignation and new appointment, the Coordination Committee will
 temporarily take over the responsibilities of the Ombudsperson, should the need
 arise.
@@ -361,7 +359,7 @@ consensus of the community on accepting the final version.
 Changes to this Charter after it has been accepted should follow the
 modification process in `APE 1`_, with the exception that the final approval of
 the modification requires approval by a two-thirds vote of the
-`Voting Members`__ rather than approval by the Coordination
+`Voting Members <The Voting Members>`_ rather than approval by the Coordination
 Committee.
 
 Attribution and Acknowledgments
