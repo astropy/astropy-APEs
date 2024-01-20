@@ -23,7 +23,36 @@ type checking to Astropy.
 Detailed description
 --------------------
 
+Type hint annotations allow us to specify the expected data types of
+function arguments, return values, and variable assignments. For
+example,
 
+.. code-block::
+
+   def f(x: int) -> float:
+       ...
+
+indicates that ``x`` should be an ``int`` and the return value should
+be a ``float``. Type hints are not enforced by Python during
+runtime. Type hints can be used by static type checkers to find
+problems with the code and by Jupyter notebooks and integrated
+development environments (IDEs) to help with code completion. Type
+hints also serve as a form of documentation in function and method
+signatures.
+
+For most of its history, type hint annotations have not been applied
+within Astropy's source code (though annotations have been used to
+indicate the expected units or physical types of function arguments
+and return values). Only recently have type hint annotations begun to
+be applied to Astropy. However, no mechanism is in place to check the
+correctness and validity of type hint annotations. ...
+
+Most guides on adding type hint annotations and enabling static type
+checking recommend starting small, running mypy consistently,
+prioritize annotating widely used imports, add type hint annotations
+for new code, gradually increase the fraction of the code base that is
+checked my mypy, and gradually increase the strictness of the checks
+performed by mypy.
 
 .. This section describes the need for the APE.  It should describe
    the existing problem that it is trying to solve and why this APE
@@ -31,8 +60,8 @@ Detailed description
    new functionality would be used and perhaps some use cases.
 
 
-Benefits of adding type hint annotations with static type checking
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Benefits of static type checking
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Can find programming errors that would be difficult to find
    otherwise
@@ -40,8 +69,10 @@ Benefits of adding type hint annotations with static type checking
 #. Helps IDEs to make things easier for humans
 #. Helpful for downstream package maintainers
 
-Disadvantages of adding type hint annotations with static type checking
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Disadvantages of static type checking
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Requiring type 
 
 1. Requiring type hint annotations that mypy doesn't complain about
    adds an extra step to contributing to Astropy...
@@ -125,9 +156,9 @@ Alternatives
    annotations have begun to be added to Astropy. At present, there is
    no way to check the validity or accuracy of type hint annotations. 
 2. **Take a more aggressive approach to static type checking.** Most
-   recommendations 
+   recommendations
 3. **Delay adding a static type checker to Astropy's continuous
-   integration suite.** 
+   integration suite.**
 
 Decision rationale
 ------------------
