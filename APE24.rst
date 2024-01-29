@@ -14,14 +14,14 @@ type: Process
 
 status: Discussion
 
-.. NOTE: Most of this stuff is from https://docs.google.com/document/d/1hIl3y6nrcepv-tKKQLVB4u0a3fXACQ1Qrg0Y6VrJykg/view
+.. note: This APE is derived from brainstorming and discussions in https://docs.google.com/document/d/1hIl3y6nrcepv-tKKQLVB4u0a3fXACQ1Qrg0Y6VrJykg/view
 
 
 Abstract
 ========
 
 Since the early days of the Astropy Project, we had recognized the need
-to accommodate and developed an internal process for acknowledging 
+to accommodate and develop an internal process for acknowledging 
 `Astropy Affiliated Packages`_ (hereafter, for brevity, Affiliated) –
 packages that are developed outside of the core package, but interoperate
 with it and are extending its functionality.
@@ -30,7 +30,7 @@ which resulted in similar processes like `JOSS`_ and
 `pyOpenSci software peer review <https://www.pyopensci.org/software-peer-review/about/intro.html>`_
 (hereafter, pyOpenSci).
 Between the two, while JOSS has existed longer, pyOpenSci is more closely aligned
-with what we already do in Affiliated. This APE overhauls our existing Affiliated
+with what we already do with Astropy Affiliated Packages. This APE overhauls our existing Affiliated
 process to partner with pyOpenSci in order to share resources and gain wider exposure.
 
 .. _Astropy Affiliated Packages: https://www.astropy.org/affiliated/#affiliated-packages
@@ -40,10 +40,6 @@ process to partner with pyOpenSci in order to share resources and gain wider exp
 Detailed description
 ====================
 
-.. This section describes the need for the APE.  It should describe the existing
-.. problem that it is trying to solve and why this APE makes the situation better.
-.. It should include examples of how the new functionality would be used and
-.. perhaps some use cases.
 
 The Affiliated page has existed since 2013 (i.e,
 `245a237 <https://github.com/astropy/astropy.github.com/tree/245a2373133e4cd8333da3fd7a5bbe1055c5c80b/affiliated>`_)
@@ -379,10 +375,6 @@ if we agree to this partnership:
 Branches and pull requests
 ==========================
 
-.. Any pull requests or development branches containing work on this APE should be
-.. linked to from here.  (An APE does not need to be implemented in a single pull
-.. request if it makes sense to implement it in discrete phases). If no code is yet
-.. implemented, just put "N/A"
 
 Issues:
 
@@ -403,10 +395,6 @@ Pull requests:
 Implementation
 ==============
 
-.. This section lists the major steps required to implement the APE.  Where
-.. possible, it should be noted where one step is dependent on another, and which
-.. steps may be optionally omitted.  Where it makes sense, each  step should
-.. include a link related pull requests as the implementation progresses.
 
 If we decide to move forward with this partnership, these are the proposed steps:
 
