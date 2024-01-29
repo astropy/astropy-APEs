@@ -35,6 +35,7 @@ Accepted APEs
 19  `Distributing Astropy Project Funding`_                          2022-Feb-28 |APE 19 DOI|
 20  `Formatting Code with Black`_                                    2022-Sep-23 |APE 20 DOI|
 21  `Ending Long Term Support Releases`_                             2023-May-31 |APE 21 DOI|
+21  `Astropy Affiliated Packages with pyOpenSci`_                    2024-Jan-29 |APE 22 DOI|
 === ================================================================ =========== ============
 
 .. _The Astropy Project Governance Charter: https://github.com/astropy/astropy-APEs/blob/main/APE0.rst
@@ -57,6 +58,7 @@ Accepted APEs
 .. _Distributing Astropy Project Funding: https://github.com/astropy/astropy-APEs/blob/main/APE19.rst
 .. _Formatting Code with Black: https://github.com/astropy/astropy-APEs/blob/main/APE20.rst
 .. _Ending Long Term Support Releases: https://github.com/astropy/astropy-APEs/blob/main/APE21.rst
+.. _Astropy Affiliated Packages with pyOpenSci: https://github.com/astropy/astropy-APEs/blob/main/APE22.rst
 
 .. |APE 0 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4552790.svg
    :target: https://doi.org/10.5281/zenodo.4552790
@@ -117,6 +119,9 @@ Accepted APEs
 
 .. |APE 21 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.7990988.svg
    :target: https://doi.org/10.5281/zenodo.7990988
+
+.. |APE 22 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.10581892.svg
+   :target: https://doi.org/10.5281/zenodo.10581891
 
 Proposing a new APE
 ^^^^^^^^^^^^^^^^^^^
