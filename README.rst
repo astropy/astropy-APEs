@@ -152,18 +152,20 @@ Coordination Committee.  Once the community discussion on the APE has wound
 down, the committee discusses the APE and makes a final decision on acceptance
 or rejection.  One of the committee members should then:
 
-1. Fill in the "Decision rationale" section of the APE with a description of why
+#. Fill in the "Decision rationale" section of the APE with a description of why
    the APE was accepted or rejected, including a summary of the community's
    discussion as relevant.
-2. Update the "date-last-revised" to the day of merging and "status" to
+#. Update the "date-last-revised" to the day of merging and "status" to
    "Accepted" or "Rejected".
-3. If necessary, rename the APE file to be ``APE##.rst``, where ## is the next
+#. If necessary, rename the APE file to be ``APE##.rst``, where ## is the next
    free number on the list of APEs.
 #. Leave a brief comment in the PR indicating the result.
 #. Merge the PR with the above changes.
-#. If the APE was accepted then continue with the remaining steps, otherwise stop now.
-#. Upload the APE to Zenodo to give it a DOI.  Go to https://zenodo.org/deposit/new, upload
-   the .rst file, and set the fields to the following:
+#. If the APE was accepted then continue with the remaining steps, otherwise 
+   stop now.
+#. Upload the APE to Zenodo to give it a DOI.  Log into the astropy team Zenodo
+   account (*not your personal account*), go to https://zenodo.org/deposit/new,
+   upload the .rst file, and set the fields to the following:
 
    ============================= ======================================================
    Zenodo field                  Set to
