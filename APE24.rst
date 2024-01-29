@@ -115,6 +115,10 @@ page, but now instead of hosting the content ourselves, we grab an RSS/XML feed
 from pyOpenSci for the packages marked as Affiliated. To keep the history,
 we will move the existing listing to a "legacy affiliation" page and keep it static.
 
+Coordinated packages are separate from this due to their tighter integration with
+the Astropy project's team structure, so they will remain listed on this page without
+a connection to pyOpenSci.
+
 Funding
 -------
 
