@@ -35,7 +35,7 @@ Accepted APEs
 19  `Distributing Astropy Project Funding`_                          2022-Feb-28 |APE 19 DOI|
 20  `Formatting Code with Black`_                                    2022-Sep-23 |APE 20 DOI|
 21  `Ending Long Term Support Releases`_                             2023-May-31 |APE 21 DOI|
-21  `Astropy Affiliated Packages with pyOpenSci`_                    2024-Jan-29 |APE 22 DOI|
+22  `Astropy Affiliated Packages with pyOpenSci`_                    2024-Jan-29 |APE 22 DOI|
 === ================================================================ =========== ============
 
 .. _The Astropy Project Governance Charter: https://github.com/astropy/astropy-APEs/blob/main/APE0.rst
