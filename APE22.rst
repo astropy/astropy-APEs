@@ -8,7 +8,7 @@ date-created: 2023 July 13
 
 date-last-revised: 2024 January 29
 
-date-accepted: TBD
+date-accepted: 2024 January 29
 
 type: Process
 
@@ -496,4 +496,6 @@ similar effort in a wider scientific Python community.
 Decision rationale
 ==================
 
-<To be filled in by the coordinating committee when the APE is accepted or rejected>
+After significant discussion in the PR, this APE ended up with clear support by all the commenters,
+and was unanimously supported by the Coordination Committee (aside from the two co-authors on the
+commitee, who abstained due to being co-authors).  Hence it was accepted.
