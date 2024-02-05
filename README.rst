@@ -148,7 +148,7 @@ Finalizing APEs
 ^^^^^^^^^^^^^^^
 
 The final decision on accepting or rejecting APEs lies with the Astropy
-Coordination Committee.  Once the community discussion on the APE has wound
+Coordination Committee (CoCo).  Once the community discussion on the APE has wound
 down, the committee discusses the APE and makes a final decision on acceptance
 or rejection.  One of the committee members should then:
 
@@ -158,7 +158,7 @@ or rejection.  One of the committee members should then:
 #. Update the "date-last-revised" to the day of merging and "status" to
    "Accepted" or "Rejected".
 #. If necessary, rename the APE file to be ``APE##.rst``, where ## is the next
-   free number on the list of APEs.
+   free number on the list of APEs. Only do this if there is a conflict.
 #. Leave a brief comment in the PR indicating the result.
 #. Merge the PR with the above changes.
 #. If the APE was accepted then continue with the remaining steps, otherwise 
@@ -198,7 +198,7 @@ or rejection.  One of the committee members should then:
 Updating APEs
 ^^^^^^^^^^^^^
 
-In the cases where an updated APE requires updating (e.g. references to a  new
+In the cases where an updated APE requires updating (e.g., references to a new
 APE that supercedes it, clarifying information that emerges after the APE is
 accepted, etc.), changes can be made directly via PR, but the
 "date-last-revised" should be updated in the APE. Additionally, the Zenodo entry

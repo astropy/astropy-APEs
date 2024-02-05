@@ -1,11 +1,11 @@
 APE Purpose and Process
 -----------------------
 
-author: Perry Greenfield
+author: Perry Greenfield, Lia Corrales, Thomas Robitaille, Erik Tollerud, Pey Lian Lim
 
 date-created: 2013 October 11
 
-date-last-revised: 2021 February 26
+date-last-revised: 2024 February 5
 
 date-accepted: 2013 November 8
 
@@ -13,7 +13,10 @@ type: Process
 
 status: Accepted
 
-revised-by: Lia Corrales, Thomas Robitaille, Erik Tollerud - 2021 February 26 - Added APE modification process
+revised-by:
+
+* Lia Corrales, Thomas Robitaille, Erik Tollerud - 2021 February 26 - Added APE modification process
+* Pey Lian Lim - 2024 February 5 - Added APE numbering process
 
 Abstract
 --------
@@ -84,7 +87,8 @@ doing this.
 
 Following a discussion on astropy-dev, the proposal should be submitted as a
 pull request to astropy-APEs with the name APE<n>.rst where <n> is an
-appropriately assigned number. The draft must use the APEtemplate.rst file.
+appropriately assigned number (i.e., not already an accepted/proposed/rejected APE).
+The draft must follow the APEtemplate.rst file.
 That a formal proposal has been submitted as a PR should be announced to the
 astropy-dev list.
 
@@ -192,3 +196,4 @@ Previous versions of this APE
 -----------------------------
 
 * 2013-11-08 [`DOI <http://doi.org/10.5281/zenodo.1043886>`_] [`GitHub <https://github.com/astropy/astropy-APEs/blob/42951733ac42c0ea178d8df30705274a43c93091/APE1.rst>`_]
+* 2021-03-09 [`GitHub <https://github.com/astropy/astropy-APEs/commit/f2afc2ec72575d3c592b3a5c6257117b07b5b755>`_]
