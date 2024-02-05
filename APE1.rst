@@ -1,7 +1,7 @@
 APE Purpose and Process
 -----------------------
 
-author: Perry Greenfield, Lia Corrales, Thomas Robitaille, Erik Tollerud, Pey Lian Lim
+author: Perry Greenfield
 
 date-created: 2013 October 11
 
@@ -90,7 +90,7 @@ pull request to astropy-APEs with the name <description>.rst where <description>
 concise short description of its purpose. At the time of acceptance, <description>.rst
 would be renamed to APE<n>.rst by the CoCo member doing the PR merge, where <n>
 is the next available number in the listing of accepted APEs.
-The draft must follow the APEtemplate.rst file.
+The draft must use the APEtemplate.rst file.
 That a formal proposal has been submitted as a PR should be announced to the
 astropy-dev list.
 
