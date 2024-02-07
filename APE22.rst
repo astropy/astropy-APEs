@@ -133,7 +133,7 @@ In a nutshell
 -------------
 
 +--------------------------+-----------------------------+----------------------------+
-| Step                     | pyOpenSci                   | Astropy (pre-APE 24)       |
+| Step                     | pyOpenSci                   | Astropy (pre-APE 22)       |
 +==========================+=============================+============================+
 | Editorial infrastructure | Editor-in-Chief,            | Editor, reviewer           |
 | for a single review      | editor (domain specific),   |                            |
@@ -158,11 +158,11 @@ In a nutshell
 .. _pyOpenSci Editorial Board: https://www.pyopensci.org/about-peer-review/#our-editorial-board
 .. _Astropy team roles: https://www.astropy.org/team#roles
 
-As of July 2023, Astropy had the following `pre-APE 24 Affiliated Package review guidelines`_
-and followed this `pre-APE 24 Affiliated Package review process, with templates`_.
+As of July 2023, Astropy had the following `pre-APE 22 Affiliated Package review guidelines`_
+and followed this `pre-APE 22 Affiliated Package review process, with templates`_.
 
-.. _pre-APE 24 Affiliated Package review guidelines: https://github.com/astropy/astropy-project/blob/1afe5df1728e86dac51b9b87bc30a7c2cdb289ac/affiliated/affiliated_package_review_guidelines.md
-.. _pre-APE 24 Affiliated Package review process, with templates: https://github.com/astropy/astropy-project/blob/1afe5df1728e86dac51b9b87bc30a7c2cdb289ac/affiliated/affiliated_package_review_process.md
+.. _pre-APE 22 Affiliated Package review guidelines: https://github.com/astropy/astropy-project/blob/1afe5df1728e86dac51b9b87bc30a7c2cdb289ac/affiliated/affiliated_package_review_guidelines.md
+.. _pre-APE 22 Affiliated Package review process, with templates: https://github.com/astropy/astropy-project/blob/1afe5df1728e86dac51b9b87bc30a7c2cdb289ac/affiliated/affiliated_package_review_process.md
 
 Meanwhile, pyOpenSci has its own
 `submission guide for package authors <https://www.pyopensci.org/software-peer-review/how-to/author-guide.html>`_,
@@ -181,7 +181,7 @@ collaborations with different communities (e.g., Astropy). They are also:
 Is open review a deal breaker?
 ------------------------------
 
-We do not think so! In the pre-APE 24 process, the reviewer was anonymous by default
+We do not think so! In the pre-APE 22 process, the reviewer was anonymous by default
 because we modeled the process after traditional astronomical journals.
 Even then, the reviewer had the option to reveal themselves if they wanted to.
 Given that the Astropy ecosystem is open-source anyway, it makes sense for us
@@ -287,7 +287,7 @@ reviewer for Affiliated request, namely:
 
 * familiarity with the Astropy project,
 * ability to judge whether a package integrates well with the Astropy ecosystem
-  (as per pre-APE 24 guidelines), and
+  (as per pre-APE 22 guidelines), and
 * having domain expertise in the area of the package (e.g., galaxy evolution).
 
 pyOpenSci and Astropy both ask editors/reviewers disclose any potential conflict of interest (COI)
@@ -352,7 +352,7 @@ are the bare minimum for a package being able to go through the pyOpenSci review
 Listing on websites
 -------------------
 
-The pre-APE 24 `Astropy Affiliated Packages`_ listing are listed by alphabetical order
+The pre-APE 22 `Astropy Affiliated Packages`_ listing are listed by alphabetical order
 with hard-coded badges. While these badges are color-coded to give a at-a-glance status
 of packages, they become outdated over time and now could even be misleading
 (i.e., they really are showing the status at the time of acceptance, not the current status).
@@ -409,8 +409,8 @@ If we decide to move forward with this partnership, these are the proposed steps
    and publish the updated guidelines and process, including new
    COI policy, packaging guidelines, and so forth.
    These new guidelines need to be compatible with
-   `pre-APE 24 Affiliated Package review guidelines`_ and
-   `pre-APE 24 Affiliated Package review process, with templates`_.
+   `pre-APE 22 Affiliated Package review guidelines`_ and
+   `pre-APE 22 Affiliated Package review process, with templates`_.
    At the same time, we should link to the actively developed
    `community-driven packaging guide`_ over at pyOpenSci and `Scientific Python`_,
     in addition to the `OpenAstronomy packaging guide`_ already implemented in Astropy.
@@ -427,7 +427,7 @@ If we decide to move forward with this partnership, these are the proposed steps
 4. For the new packages, have our project website ingest a RSS/XML feed
    from pyOpenSci for cross-listing (also see **Listing on websites**).
    We would also link back to pyOpenSci on our page.
-   Meanwhile, we would keep the pre-APE 24 listing on a "legacy affiliation" page
+   Meanwhile, we would keep the pre-APE 22 listing on a "legacy affiliation" page
    that will be kept alive during the lifetime of the Astropy project.
 5. Work with pyOpenSci to cross-list Affiliated editors, between their
    editors listing and our roles page. For example, pyOpenSci could
