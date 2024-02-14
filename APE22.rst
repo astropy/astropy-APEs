@@ -413,7 +413,7 @@ If we decide to move forward with this partnership, these are the proposed steps
    `pre-APE 22 Affiliated Package review process, with templates`_.
    At the same time, we should link to the actively developed
    `community-driven packaging guide`_ over at pyOpenSci and `Scientific Python`_,
-    in addition to the `OpenAstronomy packaging guide`_ already implemented in Astropy.
+   in addition to the `OpenAstronomy packaging guide`_ already implemented in Astropy.
 3. Come up with a plan to transition already accepted packages over to
    the pyOpenSci review process. This could be a process that happens over time
    in that new packages just go through the new review process and get the value
