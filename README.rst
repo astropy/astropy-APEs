@@ -16,7 +16,7 @@ Accepted APEs
 #     Title                                                          Date        DOI
 === ================================================================ =========== ============
 0   `The Astropy Project Governance Charter`_                        2021-Feb-19 |APE 0 DOI|
-1   `APE Purpose and Process`_                                       2013-Nov-08 |APE 1 DOI|
+1   `APE Purpose and Process`_                                       2024-Feb-05 |APE 1 DOI|
 2   `Astropy Release Cycle and Version Numbering`_                   2013-Dec-11 |APE 2 DOI|
 3   `Configuration`_                                                 2013-Dec-10 |APE 3 DOI|
 4   `Astropy Setup Helpers`_                                         2014-Jun-28 |APE 4 DOI|
@@ -63,8 +63,8 @@ Accepted APEs
 .. |APE 0 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4552790.svg
    :target: https://doi.org/10.5281/zenodo.4552790
 
-.. |APE 1 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043885.svg
-   :target: https://doi.org/10.5281/zenodo.1043885
+.. |APE 1 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.10805921.svg
+   :target: https://doi.org/10.5281/zenodo.10805921
 
 .. |APE 2 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043887.svg
    :target: https://doi.org/10.5281/zenodo.1043887
@@ -127,11 +127,12 @@ Proposing a new APE
 ^^^^^^^^^^^^^^^^^^^
 
 New APEs should be created using the ``APEtemplate.rst`` file in this repository.
-Fork the repository, copy ``APEtemplate.rst`` to
-``APE_<some_working_name>.rst`` and issue a Pull Request with that file once
+Fork the repository, copy ``APEtemplate.rst`` to ``APE##.rst`` where ## is the next 
+free number on the list of APEs (don't forget to check the open PRs when finding 
+this number). Issue a Pull Request with that file once
 you've written it up (little explanation is required in the PR itself given that
 the document has all the content - usually it's easiest to just paste in the
-abstract). The APE number will be assigned once the PR is merged.
+abstract).
 
 Note that there is not much point to making proposals unless someone or some
 group has signed up to implement it if the APE is accepted
@@ -157,8 +158,6 @@ or rejection.  One of the committee members should then:
    discussion as relevant.
 #. Update the "date-last-revised" to the day of merging and "status" to
    "Accepted" or "Rejected".
-#. If necessary, rename the APE file to be ``APE##.rst``, where ## is the next
-   free number on the list of APEs. Only do this if there is a conflict.
 #. Leave a brief comment in the PR indicating the result.
 #. Merge the PR with the above changes.
 #. If the APE was accepted then continue with the remaining steps, otherwise 
