@@ -5,7 +5,7 @@ author: Thomas Robitaille
 
 date-created: 2022 April 20
 
-date-last-revised: 2023 June 20
+date-last-revised: 2024 June 10
 
 date-accepted: <replace with accepted date>
 
@@ -20,8 +20,8 @@ Abstract
 The original scope of the Astropy project was to develop a single core package,
 and it was decided at the time that the only required dependency should be Numpy
 to maximize portability across platforms and ease of installation. Since then
-however, there has been three instances where a required dependency has been
-added to the core package (packaging, PyERFA and PyYAML), along with 19
+however, there has been four instances where a required dependency has been
+added to the core package (packaging, PyERFA, PyYAML, and astropy-iers-data), along with 21
 'optional' dependencies. The extensive use of optional dependencies can cause
 frustration for users who don't realise that some dependencies are not installed
 by default, and there are no clear guidelines for the core package or other
@@ -49,7 +49,7 @@ SciPy, and Matplotlib) was not straighforward and required building all these
 packages from source. As a result, the original vision for the project included
 the goal to only have Numpy as a required dependency for the core astropy package.
 
-Since then, there have been three instances where a required dependency has been
+Since then, there have been four instances where a required dependency has been
 added:
 
 * PyERFA (in 2020): the core astropy package used to include ERFA wrappers, which
@@ -67,12 +67,16 @@ added:
 * packaging (in 2021): used for comparison of versions, to replace the
   deprecated build-in module ``distutils``.
 
+* astropy-iers-data (in 2023): this package includes recent versions of the
+  Earth rotation and leap second files used by ``astropy.utils.iers`` to
+  make sure these files do not have to be downloaded at runtime.
+
 Adding these dependencies has had no reported impact on users, thanks to these
 dependencies being lightweight and portable, which makes their automatic
 installation by tools such as pip and conda almost unnoticeable to users.
 
 In parallel to this evolution in required dependencies, many 'optional'
-dependencies have been added to the core package (19 at the time of writing).
+dependencies have been added to the core package (21 at the time of writing).
 This has created a more problematic situation where dependencies that are
 needed for some parts of the astropy core package are not installed by
 default and therefore with a clean and default installation of astropy,
