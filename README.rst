@@ -28,7 +28,7 @@ Accepted APEs
 10  `Roadmap for Python 3-only support`_                             2016-Aug-22 |APE 10 DOI|
 12  `Using Cookiecutter for the package-template`_                   2017-Mar-28 |APE 12 DOI|
 13  `Vision for Astropy Spectroscopic Tools`_                        2017-Dec-12 |APE 13 DOI|
-14  `A shared Python interface for World Coordinate Systems`_        2018-Feb-28 |APE 14 DOI|
+14  `A shared Python interface for World Coordinate Systems`_        2018-Nov-09 |APE 14 DOI|
 15  `An Updated Model for the Affiliated Package Ecosystem`_         2018-May-14 |APE 15 DOI|
 17  `A roadmap for package infrastructure without astropy-helpers`_  2019-Dec-12 |APE 17 DOI|
 18  `Adopt NEP 29 for CPython and Numpy Version Support`_            2021-Dec-25 |APE 18 DOI|
