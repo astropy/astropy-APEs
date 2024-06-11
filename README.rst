@@ -204,16 +204,3 @@ accepted, etc.), changes can be made directly via PR, but the
 will need to be updated with a new version of the APE (*not* a completely new
 Zenodo entry), by using the "New version" button and then filling out the forms
 as described above.
-
-
-If you locally cloned this repo before 10 Mar 2021
---------------------------------------------------
-
-The primary branch for this repo has been transitioned from ``master`` to ``main``.  If you have a local clone of this repository and want to keep your local branch in sync with this repo, you'll need to do the following in your local clone from your terminal::
-
-   git fetch --all --prune
-   # you can stop here if you don't use your local "master"/"main" branch
-   git branch -m master main
-   git branch -u origin/main main
-
-If you are using a GUI to manage your repos you'll have to find the equivalent commands as it's different for different programs. Alternatively, you can just delete your local clone and re-clone!
