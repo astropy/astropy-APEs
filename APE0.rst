@@ -152,8 +152,8 @@ term or decided to step down.
 Term
 ^^^^
 Each Coordination Committee member's term runs for three years from when
-the election results are finalized. After serving a full term, a Coordination
-Committee member must step down for at least one year before being eligible to
+the election results are finalized. After serving two full terms, a Coordination
+Committee member must step down for at least two years before being eligible to
 run again.
 
 In the case of a vacancy partway through a term, a by-election will be held.
