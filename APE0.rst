@@ -216,19 +216,8 @@ temporarily take over the responsibilities of the Ombudsperson, should the need
 arise.
 
 The role of the "Astropy Ombudsperson" with all duties and responsibilities can
-also be performed by a group of people from different projects that pool resources.
-The Ombudsperson and the Coordination Committee can decide jointly for Astropy to
-join a group of NumFOCUS affiliated or sponsored projects, where each project
-delegates one representative; the Astropy Ombudsperson would then be the
-representative for Astropy.
-In this case, all members in this group shall be bound by the same
-expectation of confidentiality and impartiality; this group will then take up
-any ethical concerns, discuss and investigate violations of the code and conduct
-for the Astropy project in the same way the Astropy Ombudsperson would do if acting
-alone. Because being able to draw on the experience of other projects and
-having a group of people to look at problems from different perspectives is likely
-to lead to more fair and balanced outcomes, the Astropy Ombudsperson is encouraged
-to join such a group if one exists.
+also be performed by a group of people from Astropy and different open source projects
+that pool resources.
 
 .. On GitHub this anchor doesn't work.
 .. _votingmembers:
