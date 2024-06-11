@@ -101,7 +101,7 @@ should look for ways to use its authority as little as possible, striving
 to involve the community in decisions whenever possible, and delegating
 responsibilities.
 
-When delegating its authority to create roles or make appointments, the
+When delegating its authority by creating roles or making appointments, the
 Coordination Committee must solicit community feedback for no less than two
 weeks.
 
