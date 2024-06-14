@@ -11,6 +11,9 @@ type:  Process, Standard Track
 
 status: Accepted
 
+revised-by:
+
+* Benjamin Weaver - 2024 June 30 - Spectrum visualization is now out-of-scope.
 
 Abstract
 --------
@@ -475,3 +478,7 @@ Decision rationale
 ------------------
 There were extensive discussions with multiple stakeholders undertaken in the process of putting together this APE and it appears as though concensus has been reached. This APE was accepted on Dec 18, 2017.
 
+Previous versions of this APE
+-----------------------------
+
+* 2017-12-12 [`DOI <https://doi.org/10.5281/zenodo.1117942>`_] [`GitHub <https://github.com/astropy/astropy-APEs/blob/b544e82ed1942045886c15acd4985ae3ed2ead6d/APE13.rst>`_]
