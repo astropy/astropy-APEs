@@ -414,9 +414,7 @@ The next steps: specreduce
 This APE is not intended to specify the full details of the
 ``specreduce`` package.  It will develop separately following the
 standard process for developing astropy packages, but this section
-outlines *example* functionality expected for these packages.
-
-``specreduce``:
+outlines *example* functionality expected for this package:
 
 * Methods for extracting a 1D spectrum from a 2D image of a dispersed spectrum, including boxcar and “optimal” extraction
 * Wavelength calibration
