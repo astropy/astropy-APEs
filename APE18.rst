@@ -5,11 +5,17 @@ author: Stuart Mumford and Thomas Robitaille
 
 date-created: 2020 October 16
 
-date-last-revised: 2021 February 25
+date-last-revised: 2024 July 12
 
 type: Standard Track
 
 status: Accepted
+
+.. note::
+  NEP 29 has been superseded by the Scientific Python ecosystem coordination guideline
+  `SPEC 0 — Minimum Supported Versions <https://scientific-python.org/specs/spec-0000/>`__.
+  All mentions of NEP 29 apply to SPEC 0 likewise and the latter should be used in all future
+  references.
 
 
 Abstract
