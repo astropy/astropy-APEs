@@ -11,6 +11,12 @@ type: Standard Track
 
 status: Accepted
 
+.. note::
+  NEP 29 has been superseded by the scientific python ecosystem coordination guideline
+  `SPEC 0 — Minimum Supported Versions <https://scientific-python.org/specs/spec-0000/>`__.
+  All mentions of NEP 29 apply to SPEC 0 likewise and the latter should be used in all future
+  references.
+
 
 Abstract
 --------
