@@ -13,7 +13,7 @@ status: Accepted
 
 revised-by:
 
-* Benjamin Weaver - 2024 June 30 - Spectrum visualization is now out-of-scope.
+* Benjamin Weaver - 2024 July 19 - Spectrum visualization is now out-of-scope.
 
 Abstract
 --------
@@ -133,7 +133,7 @@ develop as they are called for by the community.
 
 The development outlined in this APE will consist of two packages:
 
-* `specutils <https://github.com/astropy/specutils)>`_.  This will provide the
+* `specutils <https://github.com/astropy/specutils>`_.  This will provide the
   basic interface classes (including the `Spectrum1D` object), as well as
   *basic* analysis of spectroscopic data (which are enumerated in `Analysis
   tools to be included in specutils`_ below).  This package is the primary
