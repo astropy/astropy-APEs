@@ -134,7 +134,7 @@ develop as they are called for by the community.
 The development outlined in this APE will consist of two packages:
 
 * `specutils <https://github.com/astropy/specutils>`_.  This will provide the
-  basic interface classes (including the `Spectrum1D` object), as well as
+  basic interface classes (including the `Spectrum1D` object, to be renamed `Spectrum` in specutils 2.0), as well as
   *basic* analysis of spectroscopic data (which are enumerated in `Analysis
   tools to be included in specutils`_ below).  This package is the primary
   focus of this APE.
