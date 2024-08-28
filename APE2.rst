@@ -138,7 +138,7 @@ The guidelines in relation to API changes and backward compatibility are as foll
 * If developers wish to make an API change at a point in time where the next
   release is a major release, they should introduce the deprecation in the major
   release and carry out the change in the following major release
-  (i.e., the second feature release after deprecation).
+  (i.e., the next x.0.0 that is at least a year away).
 * The following will not be considered to be part of the API and can therefore
   be changed in bugfix and minor releases:
 
