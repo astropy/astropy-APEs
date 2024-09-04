@@ -111,7 +111,7 @@ The path forward
 ^^^^^^^^^^^^^^^^
 
 This APE proposes a coordinated suite of packages for doing astronomical
-spectroscopy in Python.  It suggests a division of functionality into three
+spectroscopy in Python.  It suggests a division of functionality into two
 packages, then specifies in detail the structure and API of the core spectral
 object, `Spectrum1D`.
 
@@ -139,7 +139,7 @@ The development outlined in this APE will consist of two packages:
   tools to be included in specutils`_ below).  This package is the primary
   focus of this APE.
 
-* `specreduce`.  This will provide a standard toolbox for reducing spectra,
+* `specreduce <https://github.com/astropy/specreduce>`_.  This will provide a standard toolbox for reducing spectra,
   roughly akin to the IRAF “specred” functionality (although not necessarily
   *all* of those tasks, nor in a one-to-one manner).  Note that this should
   *not* contain any instrument-specific code.  Observatories or instruments are
@@ -435,10 +435,10 @@ Implementation
 --------------
 
 `specutils <https://github.com/astropy/specutils>`_ already exists in its
-github repository, and *part* of the `Spectrum1D` class in this APE has been
-implemented there, but  will need to be completed if this APE is accepted.
-`specreduce <https://github.com/crawfordsm/specreduce>`_
-also has an implementation, which can be adapted to use the framework described
+github repository, and the `Spectrum1D` class in this APE has been
+implemented there. Additional features are in development.
+`specreduce <https://github.com/astropy/specreduce>`_
+also has an implementation, which has been adapted to use the framework described
 here. Of course, other packages for spectroscopic analysis exist, and hopefully will
 also be adapted to this framework in due time.
 
