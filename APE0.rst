@@ -54,9 +54,8 @@ Composition
 ^^^^^^^^^^^
 The Coordination Committee is a committee that is composed of five
 members (this number was decided by vote at the same time as the first
-Coordination Committee election). Unless it would
-be short of candidates otherwise, it should not have more than one member from
-any particular employer. The Ombudsperson (described in
+Coordination Committee election).
+The Ombudsperson (described in
 Section 4) and the Coordination Committee will work to maintain this composition
 following the processes laid out in this Charter.
 
@@ -142,7 +141,7 @@ least two weeks:
   they receive. If a tie occurs, it may be resolved by mutual agreement among
   the candidates, or else the winner will be chosen at random.
 
-The election process is managed by a non-voting Returns Officer nominated by
+The election process is managed by a Returns Officer nominated by
 the outgoing Coordination Committee, although the process (specific choice of
 website, etc) can be set up by the Coordination Committee or their delegates.
 For the initial election, the Returns Officer will be nominated by the NumFOCUS
@@ -153,8 +152,9 @@ term or decided to step down.
 Term
 ^^^^
 Each Coordination Committee member's term runs for three years from when
-the election results are finalized. There is no limit to the number of terms that
-a single individual can be elected for.
+the election results are finalized. After serving two full terms, a Coordination
+Committee member must step down for at least one year before being eligible to
+run again.
 
 In the case of a vacancy partway through a term, a by-election will be held.
 The term of the newly-elected member runs for the remainder of the term of
@@ -204,7 +204,8 @@ an alternative point of contact for sensitive issues such as code of conduct
 violations and ethical concerns. Candidates for this project role are publicly
 nominated by the Coordination Committee, after which the Coordination Committee
 allows at least two weeks for comment, and then the nominee must be confirmed by
-two-thirds of the active `Voting Members`_.
+two-thirds of the active `Voting Members <votingmembers>`_.
+The Ombudsperson cannot be a member of the Coordination Committee.
 
 The Ombudsperson has no term limit but can resign at any time, or be removed by
 the same process as being confirmed: the Coordination Committee initiates, there
@@ -213,6 +214,10 @@ is a two-week comment period, and two-thirds of the active
 between removal/resignation and new appointment, the Coordination Committee will
 temporarily take over the responsibilities of the Ombudsperson, should the need
 arise.
+
+The role of the "Astropy Ombudsperson" with all duties and responsibilities can
+also be performed by a group of people from Astropy and different open source projects
+that pool resources.
 
 .. On GitHub this anchor doesn't work.
 .. _votingmembers:
