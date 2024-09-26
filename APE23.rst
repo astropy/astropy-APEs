@@ -65,7 +65,7 @@ added:
   would be required for this.
 
 * packaging (in 2021): used for comparison of versions, to replace the
-  deprecated build-in module ``distutils``.
+  deprecated standard library module ``distutils``.
 
 * astropy-iers-data (in 2023): this package includes recent versions of the
   Earth rotation and leap second files used by ``astropy.utils.iers`` to
