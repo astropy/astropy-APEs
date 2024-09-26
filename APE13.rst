@@ -11,6 +11,9 @@ type:  Process, Standard Track
 
 status: Accepted
 
+revised-by:
+
+* Benjamin Weaver - 2024 July 19 - Spectrum visualization is now out-of-scope.
 
 Abstract
 --------
@@ -18,7 +21,7 @@ Abstract
 The goal of this APE is to coordinate and plan the development of spectroscopic
 software within the astropy project.  The requirements for spectroscopic tools
 include handling and reducing observations, different types of analysis, and
-visualization of spectra. The goal of this APE is to provide a framework that
+supporting IO on data files used in the community. The goal of this APE is to provide a framework that
 different astronomy packages can use to coordinate the development of
 spectroscopic tools. The idea is a set of foundational packages that can then
 be extended to build other tools. As part of this coordination effort, this APE
@@ -108,7 +111,7 @@ The path forward
 ^^^^^^^^^^^^^^^^
 
 This APE proposes a coordinated suite of packages for doing astronomical
-spectroscopy in Python.  It suggests a division of functionality into three
+spectroscopy in Python.  It suggests a division of functionality into two
 packages, then specifies in detail the structure and API of the core spectral
 object, `Spectrum1D`.
 
@@ -128,15 +131,15 @@ domain-specific classes are not defined in this APE; instead, the intent is for
 `Spectrum1D` to provide a starting point for such efforts, which will then
 develop as they are called for by the community.
 
-The development outlined in this APE will consist of three packages:
+The development outlined in this APE will consist of two packages:
 
-* `specutils <https://github.com/astropy/specutils)>`_.  This will provide the
-  basic interface classes (including the `Spectrum1D` object), as well as
+* `specutils <https://github.com/astropy/specutils>`_.  This will provide the
+  basic interface classes (including the `Spectrum1D` object, to be renamed `Spectrum` in specutils 2.0), as well as
   *basic* analysis of spectroscopic data (which are enumerated in `Analysis
   tools to be included in specutils`_ below).  This package is the primary
   focus of this APE.
 
-* `specreduce`.  This will provide a standard toolbox for reducing spectra,
+* `specreduce <https://github.com/astropy/specreduce>`_.  This will provide a standard toolbox for reducing spectra,
   roughly akin to the IRAF “specred” functionality (although not necessarily
   *all* of those tasks, nor in a one-to-one manner).  Note that this should
   *not* contain any instrument-specific code.  Observatories or instruments are
@@ -145,23 +148,12 @@ The development outlined in this APE will consist of three packages:
   This package will provide the tools to quickly be able to build specific
   instrument pipelines.
 
-* `specviz`. This package will provide 1D spectrum visualization capabilities,
-  but is scoped to be focused primarily on that, and not arbitrarily complex
-  spectrum visualization (e.g., data cubes). Note that, unlike the above two,
-  this package should *not* be considered a toolbox that other tools should be
-  derived from.  While other packages are welcome to use it, it is meant to
-  provide a critical piece of functionality, while acknowledging that
-  visualization, GUI code, and even personal taste are variable enough that
-  there is room for a few other visualization packages in the ecosystem. It
-  will, however, have a plugin architecture that may allow users/developers to
-  add to it.
-
 In addition to the packages described above, there are a wide range of more
 domain-specific, experimental, or taste-specific packages that are likely to be
 desired in the field of astronomical spectroscopy. These packages can be
 developed as independent affiliated packages, and this APE encourages such
 development.  However, the intent is for such packages to not *duplicate*
-behavior in the foundational three packages described above. Because of the
+behavior in the foundational packages described above. Because of the
 wide range of scientific use cases for spectra, it is understood that some
 level of duplication between affiliated packages is expected.  E.g., multiple
 line-fitting packages may be reasonable because different science cases may be
@@ -420,28 +412,18 @@ This should *not* be taken as an exhaustive list, however.  Additional
 functionality that meets the above guidelines will be implemented or accepted
 via PRs to `specutils` if of sufficient general interest.
 
-The next steps: specreduce and specviz
---------------------------------------
-This APE is not intended to specify the full details of the ``specviz`` and
-``specreduce`` packages.  They will develop separately following the
+The next steps: specreduce
+--------------------------
+This APE is not intended to specify the full details of the
+``specreduce`` package.  It will develop separately following the
 standard process for developing astropy packages, but this section
-outlines *example* functionality expected for these packages.
-
-``specreduce``:
+outlines *example* functionality expected for this package:
 
 * Methods for extracting a 1D spectrum from a 2D image of a dispersed spectrum, including boxcar and “optimal” extraction
 * Wavelength calibration
 * Removal of sky features
 * Flux calibration of spectra
 * Integration with (but *not* duplication of) 2D image-level reduction steps from packages like `ccdproc <https://github.com/astropy/ccdproc>`_
-
-``specviz``:
-* Display a spectrum
-* Explore the spectra by zooming in on features or moving to different areas.
-*
-* Do analysis like line flux measurements (using algorithms provided in `specutils`) or line fitting
-* Overlay spectral line lists (including redshift offsets if relevant)
-
 
 
 Branches and pull requests
@@ -453,13 +435,11 @@ Implementation
 --------------
 
 `specutils <https://github.com/astropy/specutils>`_ already exists in its
-github repository, and *part* of the `Spectrum1D` class in this APE has been
-implemented there, but  will need to be completed if this APE is accepted.
-`specreduce <https://github.com/crawfordsm/specreduce>`_
-also has an implementation, which can be adapted to use the framework described
-here.  Similarly, visualization via the `specviz
-<https://github.com/spacetelescope/specviz>`_ package will do the same.  Of
-course, other packages for spectroscopic analysis exist, and hopefully will
+github repository, and the `Spectrum1D` class in this APE has been
+implemented there. Additional features are in development.
+`specreduce <https://github.com/astropy/specreduce>`_
+also has an implementation, which has been adapted to use the framework described
+here. Of course, other packages for spectroscopic analysis exist, and hopefully will
 also be adapted to this framework in due time.
 
 
@@ -498,3 +478,7 @@ Decision rationale
 ------------------
 There were extensive discussions with multiple stakeholders undertaken in the process of putting together this APE and it appears as though concensus has been reached. This APE was accepted on Dec 18, 2017.
 
+Previous versions of this APE
+-----------------------------
+
+* 2017-12-12 [`DOI <https://doi.org/10.5281/zenodo.1117942>`_] [`GitHub <https://github.com/astropy/astropy-APEs/blob/b544e82ed1942045886c15acd4985ae3ed2ead6d/APE13.rst>`_]
