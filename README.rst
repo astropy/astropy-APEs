@@ -31,7 +31,7 @@ Accepted APEs
 14  `A shared Python interface for World Coordinate Systems`_        2018-Nov-09 |APE 14 DOI|
 15  `An Updated Model for the Affiliated Package Ecosystem`_         2018-May-14 |APE 15 DOI|
 17  `A roadmap for package infrastructure without astropy-helpers`_  2019-Dec-12 |APE 17 DOI|
-18  `Adopt NEP 29 for CPython and Numpy Version Support`_            2021-Dec-25 |APE 18 DOI|
+18  `Adopt NEP 29 for CPython and Numpy Version Support`_            2024-Jul-12 |APE 18 DOI|
 19  `Distributing Astropy Project Funding`_                          2022-Feb-28 |APE 19 DOI|
 20  `Formatting Code with Black`_                                    2022-Sep-23 |APE 20 DOI|
 21  `Ending Long Term Support Releases`_                             2023-May-31 |APE 21 DOI|
