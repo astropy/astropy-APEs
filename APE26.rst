@@ -155,13 +155,17 @@ to maintain backward compatibility and not break the API too quickly. Therefore,
 propose implementing this APE through 3 steps (and substeps).
 
 1. Splitting the frame classes into two hierarchies: ones with and without data.
+
 2. Switching ``SkyCoord`` to use the data-less frame classes, and enabling automatic 
 conversion of the with-data frames into ``SkyCoord`` objects.
+
 3. Deprecating the legacy with-data frame classes.
-   1. Emitting warnings when instantiated.
-   2. Still warn, but return a ``SkyCoord``, not an instance of its class type (by 
+   a. Emitting warnings when instantiated.
+
+   b. Still warn, but return a ``SkyCoord``, not an instance of its class type (by 
    overriding ``__new__``)
-   3. Remove.
+   
+   c. Remove.
 
 The 3 steps (at stage 3a) are illustrated in the following pseudocode:
 
