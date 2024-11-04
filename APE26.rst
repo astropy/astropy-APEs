@@ -161,12 +161,12 @@ conversion of the with-data frames into ``SkyCoord`` objects.
 
 3. Deprecating the legacy with-data frame classes.
 
-   a. Emitting warnings when instantiated.
+   - Emitting warnings when instantiated.
 
-   b. Still warn, but return a ``SkyCoord``, not an instance of its class type (by 
+   - Still warn, but return a ``SkyCoord``, not an instance of its class type (by 
    overriding ``__new__``)
 
-   c. Remove.
+   - Remove.
 
 The 3 steps (at stage 3a) are illustrated in the following pseudocode:
 
