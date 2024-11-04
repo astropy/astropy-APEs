@@ -137,8 +137,7 @@ Additionally, multiple pull requests have factored out common code between frame
 ``SkyCoord``, showing that there is no proper separation of concern:
 
 - `Introduction of shared CoordinateFrameInfo <https://github.com/astropy/astropy/pull/16831>`_
-- `Introduction of CoordinateSharedMethods <https://github.com/astropy/astropy/pull/17016>`_ (this was later removed and instead methods 
-were duplicated)
+- `Introduction of CoordinateSharedMethods <https://github.com/astropy/astropy/pull/17016>`_ (this was later removed and instead methods were duplicated)
 
 Further, pull requests have added methods to make frames and ``SkyCoord`` even more 
 similar, underscoring that frames *with* data should not be separate entities from 
