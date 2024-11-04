@@ -130,21 +130,21 @@ Several issues have been raised regarding topics such as confusion differentiati
 use of ``frame`` and ``SkyCoord`` for data storage, and problems arising in other astropy 
 subpackages when using frames that store data. For example:
 
-- `Comparing Frame with data and SkyCoord with same data raises exception <https://github.com/astropy/astropy/issues/13476>`_
-- `Add Frame objects without data to a Table <https://github.com/astropy/astropy/issues/16823>`_
+- `Comparing Frame with data and SkyCoord with same data raises exception #13476 <https://github.com/astropy/astropy/issues/13476>`_
+- `Add Frame objects without data to a Table #16823 <https://github.com/astropy/astropy/issues/16823>`_
 
 Additionally, multiple pull requests have factored out common code between frames and 
 ``SkyCoord``, showing that there is no proper separation of concern:
 
-- `Introduction of shared CoordinateFrameInfo <https://github.com/astropy/astropy/pull/16831>`_
-- `Introduction of CoordinateSharedMethods <https://github.com/astropy/astropy/pull/17016>`_ (this was later removed and instead methods were duplicated)
+- `Allow BaseCoordinateFrames to be stored in tables (by giving them .info) #16831 <https://github.com/astropy/astropy/pull/16831>`_
+- `Masked frames and SkyCoord #17106 <https://github.com/astropy/astropy/pull/17016>`_ (this was later removed and instead methods were duplicated)
 
 Further, pull requests have added methods to make frames and ``SkyCoord`` even more 
 similar, underscoring that frames *with* data should not be separate entities from 
 ``SkyCoord``:
 
-- `Add .to_table() to frames <https://github.com/astropy/astropy/pull/17009>`_
-- `Add .frame attribute to frames <https://github.com/astropy/astropy/pull/16356>`_
+- `Implement BaseCoordinateFrame.to_table() #17009 <https://github.com/astropy/astropy/pull/17009>`_
+- `Implement BaseCoordinateFrame.frame property #16356 <https://github.com/astropy/astropy/pull/16356>`_
 
 Implementation
 --------------
