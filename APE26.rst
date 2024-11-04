@@ -163,8 +163,7 @@ conversion of the with-data frames into ``SkyCoord`` objects.
 
    - Emitting warnings when instantiated.
 
-   - Still warn, but return a ``SkyCoord``, not an instance of its class type (by 
-   overriding ``__new__``)
+   - Still warn, but return a ``SkyCoord``, not an instance of its class type (by overriding ``__new__``)
 
    - Remove.
 
