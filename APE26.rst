@@ -40,9 +40,9 @@ insufficient `separation of concerns <https://en.wikipedia.org/wiki/Separation_o
 The coordinate frame class deals with two separate issues: the definition of the frame 
 and the storage of coordinate data within that frame. Ideally the code would be more 
 modularly structured, where the coordinate frame class **only** defines the reference 
-frame. It would then be the purview of another class – `SkyCoord` – to bring these 
-concerns together and to represent data (using `Representation` and `Differential` 
-classes) in a given reference frame (using a `CoordinateFrame` class). As a demonstration 
+frame. It would then be the purview of another class – ``SkyCoord`` – to bring these 
+concerns together and to represent data (using ``Representation`` and ``Differential`` 
+classes) in a given reference frame (using a ``CoordinateFrame`` class). As a demonstration 
 of the current state of duplicated functionality, these two initializations effectively 
 represent the same thing, but return different objects with similar but not identical 
 APIs:
@@ -130,27 +130,27 @@ Several issues have been raised regarding topics such as confusion differentiati
 use of ``frame`` and ``SkyCoord`` for data storage, and problems arising in other astropy 
 subpackages when using frames that store data. For example:
 
-- *Comparing Frame with data and SkyCoord with same data raises exception*: `https://github.com/astropy/astropy/issues/13476`
-- *Add Frame objects without data to a Table*: `https://github.com/astropy/astropy/issues/16823`
+- `Comparing Frame with data and SkyCoord with same data raises exception <https://github.com/astropy/astropy/issues/13476>`_
+- `Add Frame objects without data to a Table <https://github.com/astropy/astropy/issues/16823>`_
 
 Additionally, multiple pull requests have factored out common code between frames and 
 ``SkyCoord``, showing that there is no proper separation of concern:
 
-- *Introduction of shared `CoordinateFrameInfo`*: `https://github.com/astropy/astropy/pull/16831`
-- *Introduction of `CoordinateSharedMethods`* (this was later removed and instead methods 
-were duplicated): `https://github.com/astropy/astropy/pull/17016`
+- `Introduction of shared CoordinateFrameInfo <https://github.com/astropy/astropy/pull/16831>`_
+- `Introduction of CoordinateSharedMethods <https://github.com/astropy/astropy/pull/17016>`_ (this was later removed and instead methods 
+were duplicated)
 
 Further, pull requests have added methods to make frames and ``SkyCoord`` even more 
 similar, underscoring that frames *with* data should not be separate entities from 
 ``SkyCoord``:
 
-- *Add .to_table() to frames*: `https://github.com/astropy/astropy/pull/17009`
-- *Add .frame attribute to frames*: `https://github.com/astropy/astropy/pull/16356`
+- `Add .to_table() to frames <https://github.com/astropy/astropy/pull/17009>`_
+- `Add .frame attribute to frames <https://github.com/astropy/astropy/pull/16356>`_
 
 Implementation
 --------------
 The direct use of coordinate frames instead of ``SkyCoord`` is common. In particular 
-`ICRS`` objects are frequently created with data. Given the prevalent use, it is imperative 
+``ICRS`` objects are frequently created with data. Given the prevalent use, it is imperative 
 to maintain backward compatibility and not break the API too quickly. Therefore, we 
 propose implementing this APE through 3 steps (and substeps).
 
