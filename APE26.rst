@@ -101,23 +101,24 @@ framework, the reference frame mediates how coordinate data is understood (e.g. 
 measures) or interacts (e.g. separation from other coordinates), but the coordinate data
 itself is actually independent of that information. Classes like ``SkyCoord`` will be
 composed structures bringing together the reference frame (an instance of a
-``BaseCoordinateFrame`` subclass) and the coordinate data (``Representation`` objects).
+``BaseFrame`` subclass) and the coordinate data (``BaseRepresentation`` objects).
 
 We illustrate this with the following pseudocode.
 
 .. code-block:: python
 
-    @dataclass
-    class BaseCoordinateFrame:
+    class BaseFrame:
         ...
 
-    @dataclass
-    class FK5(BaseCoordinateFrame):
-        equinox: Time
+    class ICRSFrame(BaseFrame):
+        pass  # no frame attributes
+
+    class FK5Frame(BaseFrame):
+        equinox: TimeAttribute
 
     class SkyCoord:
-        frame: BaseCoordinateFrame
-        data: Representation
+        frame: BaseFrame
+        data: BaseRepresentation
 
         def __init__(...):
             ...
@@ -155,7 +156,8 @@ The direct use of coordinate frames instead of ``SkyCoord`` is common. In partic
 to maintain backward compatibility and not break the API too quickly. Therefore, we
 propose implementing this APE through 3 steps (and substeps).
 
-1. Splitting the frame classes into two hierarchies: ones with and without data.
+1. Splitting the frame classes into two hierarchies: ones with and without data, with
+the data-less ones getting new names.
 
 2. Switching ``SkyCoord`` to use the data-less frame classes, and enabling automatic
 conversion of the with-data frames into ``SkyCoord`` objects.
@@ -168,54 +170,54 @@ conversion of the with-data frames into ``SkyCoord`` objects.
 
    - Remove.
 
-The 3 steps (at stage 3a) are illustrated in the following pseudocode:
+The third step (at stage 3a) is illustrated in the following pseudocode:
 
 .. code-block:: python
 
     # === Reference Frame (no data) ===
 
-    class AbstractReferenceFrame:
+    class BaseFrame:
         ...
 
-        # Like `unit.to`
-        def transform_data_to(self, frame: AbstractReferenceFrame, data: Representation) -> Representation:
-            """Used by `AbstractCoordinate` for transformation."""
+        # Like unit.to(new_unit, value)
+        def transform_data_to(self, frame: BaseFrame, data: BaseRepresentation) -> BaseRepresentation:
+            """Used by BaseCoordinate for transformation."""
             ...
 
-    class ICRSFrame(AbstractReferenceFrame):
-        ...
+    class ICRSFrame(BaseFrame):
+        pass  # no frame attributes
 
-    class FK5Frame(AbstractReferenceFrame):
-        equinox: Time
+    class FK5Frame(BaseFrame):
+        equinox: TimeAttribute
 
     # === Coordinates (data + frame) ===
 
-    class AbstractCoordinate:
+    class BaseCoordinate:
         """Base class for data in a reference frame."""
+        frame: BaseFrame
+        data: BaseRepresentation
         ...
 
-    class SkyCoord(AbstractCoordinate):
-        frame: AbstractReferenceFrame
-        data: Representation
+    class SkyCoord(BaseCoordinate):
 
         def __init__(...):
-            # If the frame is a `AbstractLegacyCoordinate` then it is
-            # split into a `AbstractReferenceFrame` and `Representation`
+            # If the frame is a LegacyBaseCoordinateFrame then it is
+            # split into a BaseFrame and BaseRepresentation.
             ...
 
     # === Legacy Coordinate Classes ===
 
-    class AbstractLegacyCoordinate(AbstractCoordinate):
+    class BaseCoordinateFrame(BaseCoordinate):
 
         def __new__(self):
             warnings.warn("Please use SkyCoord")
 
         @abstractpropery # implemented on subclasses
-        def frame(self) -> AbstractReferenceFrame:
+        def frame(self) -> BaseFrame:
             ...
 
-    class ICRS(AbstractLegacyCoordinate, ICRSFrame):
+    class ICRS(LegacyCoordinateFrame, ICRSFrame):
         ...
 
-    class FK5(AbstractLegacyCoordinate, FK5Frame):
+    class FK5(LegacyCoordinateFrame, FK5Frame):
         ...
