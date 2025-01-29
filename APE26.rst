@@ -198,9 +198,9 @@ The third step (at stage 3a) is illustrated in the following pseudocode:
         data: BaseRepresentation
         ...
 
-class Coordinate(BaseCoordinate):
-    """Data in a reference frame."""
-    pass
+    class Coordinate(BaseCoordinate):
+        """Data in a reference frame."""
+        pass
 
     class SkyCoord(BaseCoordinate):
          """Data in a reference frame, batteries included."""
