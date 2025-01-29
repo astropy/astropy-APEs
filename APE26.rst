@@ -219,5 +219,5 @@ The third step (at stage 3a) is illustrated in the following pseudocode:
     class ICRS(BaseCoordinateFrame, ICRSFrame):
         ...
 
-    class FK5(LegacyCoordinateFrame, FK5Frame):
+    class FK5(BaseCoordinateFrame, FK5Frame):
         ...
