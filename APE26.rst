@@ -198,7 +198,12 @@ The third step (at stage 3a) is illustrated in the following pseudocode:
         data: BaseRepresentation
         ...
 
+class Coordinate(BaseCoordinate):
+    """Data in a reference frame."""
+    pass
+
     class SkyCoord(BaseCoordinate):
+         """Data in a reference frame, batteries included."""
 
         def __init__(...):
             # If the frame is a LegacyBaseCoordinateFrame then it is
