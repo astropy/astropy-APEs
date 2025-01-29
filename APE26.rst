@@ -216,7 +216,7 @@ The third step (at stage 3a) is illustrated in the following pseudocode:
         def frame(self) -> BaseFrame:
             ...
 
-    class ICRS(LegacyCoordinateFrame, ICRSFrame):
+    class ICRS(BaseCoordinateFrame, ICRSFrame):
         ...
 
     class FK5(LegacyCoordinateFrame, FK5Frame):
