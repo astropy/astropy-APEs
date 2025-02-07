@@ -96,8 +96,8 @@ Accepted APEs
 .. |APE 12 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1044483.svg
    :target: https://doi.org/10.5281/zenodo.1044483
 
-.. |APE 13 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1117942.svg
-   :target: https://doi.org/10.5281/zenodo.1117942
+.. |APE 13 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.14834949.svg
+   :target: https://doi.org/10.5281/zenodo.14834949
 
 .. |APE 14 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.11566733.svg
    :target: https://doi.org/10.5281/zenodo.11566733
