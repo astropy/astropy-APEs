@@ -5,21 +5,23 @@ Authors (alphabetical): Jeff Jennings, Adrian Price-Whelan, Nathaniel Starkman, 
 ---------------------------------------------------------------------------------------------------
 
 :date-created: 2024 11 04
-:date-last-revised: 2024 11 04
+:date-last-revised: 2025 02 10
 :date-accepted: 202x xx xx
 :type: Standard Track
 :status: Discussion
 
 Abstract
 --------
-Coordinate frames in astropy.coordinates currently store metadata used to construct the
+Following the rationale presented in `APE 5 <https://github.com/astropy/astropy-APEs/blob/main/APE5.rst>`_,
+coordinate frames in astropy.coordinates currently store metadata used to construct the
 frame (i.e. for transforming between frames) and may also store coordinate *data* itself.
 This duplicates functionality with ``SkyCoord``, which acts as a container for both
 coordinate data and reference frame information. We propose to change the frame classes
-such that they only store metadata and never coordinate data. This would make the
-implementation more modular, remove ambiguity for users from having nearly duplicate
-functionality with slightly different APIs, and better satisfy the principle of
-Separation of Concerns.
+such that they only store metadata and never coordinate data, superseding this aspect 
+of the implementation in `APE 5 <https://github.com/astropy/astropy-APEs/blob/main/APE5.rst>`_. 
+This would make the implementation more modular, remove ambiguity for users from having 
+nearly duplicate functionality with slightly different APIs, and better satisfy the 
+principle of Separation of Concerns.
 
 Detailed description
 --------------------
@@ -35,7 +37,9 @@ frame classes can **also** contain coordinate data (positions, velocities, or ot
 differentials), which are stored internally using the ``Representation`` and
 ``Differential`` classes.
 
-The above reveals a problematic oddity with the coordinate frame implementation – an
+The above reflects a design choice in the coordinate frame implementation in 
+`APE 5 <https://github.com/astropy/astropy-APEs/blob/main/APE5.rst>`_ that, following 
+several years of use, we have learned from and think best to revise. We now view it as an 
 insufficient `separation of concerns <https://en.wikipedia.org/wiki/Separation_of_concerns>`_.
 The coordinate frame class deals with two separate issues: the definition of the frame
 and the storage of coordinate data within that frame. Ideally the code would be more
@@ -73,10 +77,13 @@ Another issue with the current implementation of coordinate frames is that the o
 inclusion of coordinate data makes the reference frames “multi-modal”. This creates
 different usage modes (with and without data), each exhibiting different behavior. For
 instance, some methods such as ``separation`` work fine with frames with data, while
-doing this on coordinate frames without data results in an error. This kind of
-multi-modal structure is considered an anti-pattern because it forces any code
-interacting with the frame classes to handle both cases (checking ``frame.has_data``),
-complicating the codebase unnecessarily.
+doing this on coordinate frames without data results in an error. While this multi-modal 
+structure as motivated in `APE 5 <https://github.com/astropy/astropy-APEs/blob/main/APE5.rst>`_ 
+can be seen as a benefit for interpretability of the logic, we also now see it from the
+perspective of an anti-pattern. It forces any code interacting with the frame classes 
+to handle both cases (checking ``frame.has_data``), complicating the codebase. We thus 
+find it worthwhile to separate coordinate data from reference frames at the possible 
+expense of ease of understanding for some developers.
 
 All the points discussed thus far – separation of concerns and code duplication –
 concern maintainers. However user experience is the more important consideration. In
@@ -85,12 +92,12 @@ importantly, documentation will be more obvious: the methods and attributes are 
 on ``SkyCoord`` proper, so sphinx will know how to typeset those, while type checkers
 can help users in finding and using them propertly. It will also be easier:
 following the Zen of Python, there should be one clear way to do something. The present
-overlap leads to confusion where beginner users end up creating ``BaseCoordinateFrame``
+overlap leads to confusion wherein beginner users end up creating ``BaseCoordinateFrame``
 objects such as ``ICRS``, when the docs are clear that these are for more advanced users
-and that ``SkyCoord`` is to be preferred. The system will also be less fragile. For
-example, if users manipulate the internal workings of ``SkyCoord`` (which is discouraged
-but possible), the coordinate data can become decoupled from the caching that ``SkyCoord``
-performs for speed.
+and that ``SkyCoord`` is to be preferred.
+The system will also be less fragile. For example, if users manipulate the 
+internal workings of ``SkyCoord`` (which is discouraged but possible), the coordinate 
+data can become decoupled from the caching that ``SkyCoord`` performs for speed.
 
 Finished Product
 ----------------
