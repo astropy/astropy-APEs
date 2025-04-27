@@ -118,7 +118,7 @@ Classes like ``SkyCoord`` will be composed structures bringing together the
 reference frame (an instance of a ``BaseFrame`` subclass) and the coordinate
 data (``BaseRepresentation`` objects). We also introduce a new class,
 ``Coordinate``, which is akin to ``SkyCoord`` (containing both frame and data),
-but without extra features like caching and flexible input parsing. In this way
+but without extra features like keeping frame attributes not associated with the current frame, caching and flexible input parsing. In this way
 ``Coordinate`` operates very similarly to the current ``BaseCoordinateFrame``
 objects when they have data, and is meant to be their direct replacement in the
 new framework as well as a more lightweight and performant alternative to
@@ -195,8 +195,9 @@ propose implementing this APE through 4 steps (and substeps).
 1. Splitting the frame classes into two hierarchies: ones with and without data, with
 the data-less ones getting new names.
 
-2. Adding a new ``Coordinate`` class that is similar to ``SkyCoord``, but
-   without extra features like caching and flexible input parsing. It will only
+2. Adding a new ``Coordinate`` class that is similar to ``SkyCoord``, but which
+   does not keep any frame attributes not in the current frame, and does not
+   have extra features like caching and flexible input parsing. It will only
    accept data-less frame classes.
 
 3. Switching ``SkyCoord`` to use the data-less frame classes, and enabling automatic
