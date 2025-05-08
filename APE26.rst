@@ -131,11 +131,9 @@ confusion wherein beginner users end up creating
 ``BaseCoordinateFrame`` instances, when the docs
 are clear that these are for more advanced users and that
 ``SkyCoord`` is to be preferred. The system will also be less
-fragile. For example, if users manipulate the internal workings
-of ``SkyCoord`` (which is discouraged but possible), the
-coordinate data can become decoupled from the caching that
-``SkyCoord`` performs for speed. With these proposed changes
-users will have a more clear, introspectable, and robust system.
+fragile; with these proposed changes, users - and importantly 
+downstream developers who subclass ``SkyCoord`` - will have a 
+more clear, introspectable, and robust system.
 
 Finished Product
 ----------------
