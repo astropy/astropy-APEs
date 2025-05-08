@@ -143,7 +143,7 @@ the reference frame they represent and never actual coordinate
 data in that reference frame. This is consistent with our
 mathematical framework, the reference frame mediates how
 coordinate data is understood (e.g., distance measures) or
-interacts (e.g. separation from other coordinates), but the
+interacts (e.g., separation from other coordinates), but the
 coordinate data itself is actually independent of that
 information.
 
