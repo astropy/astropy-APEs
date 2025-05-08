@@ -25,7 +25,8 @@ in `APE 5 <https://github.com/astropy/astropy-APEs/blob/main/APE5.rst>`_.
 This would make the implementation more modular and performant, 
 remove ambiguity for users from having nearly duplicate functionality 
 with slightly different APIs, and better satisfy the principle of 
-Separation of Concerns.
+`Separation of Concerns
+<https://en.wikipedia.org/wiki/Separation_of_concerns>`_.
 
 Detailed description
 --------------------
@@ -49,8 +50,7 @@ implementation in `APE 5
 <https://github.com/astropy/astropy-APEs/blob/main/APE5.rst>`_ 
 that, following several years of use, we have learned from and 
 think best to revise. We now view it as an insufficient 
-`separation of concerns 
-<https://en.wikipedia.org/wiki/Separation_of_concerns>`_. The 
+separation of concerns. The 
 coordinate frame class deals with two separate issues: the 
 definition of the frame and the storage of coordinate data within 
 that frame. Ideally the code would be more modularly structured, 
