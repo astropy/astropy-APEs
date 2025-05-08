@@ -78,9 +78,12 @@ are not concerned with how the values are stored (that belongs to
 
 Having both the frame classes as well as ``SkyCoord`` be able to
 store and handle data has resulted in a large amount of code
-duplication (not just in the code proper, but also in the tests,
-leading to missed combinations). Restructuring the ``Frame``
-classes to remove data storage will allow for much more
+duplication. It has also required duplicated or even quadrupled 
+tests, in order to test both ``BaseCoordinateFrame`` and 
+``SkyCoord`` methods with both ``BaseCoordinateFrame`` and 
+``SkyCoord`` arguments - where the tests have not caught every 
+combination, problems have gone unnoticed. Restructuring the 
+``frame`` classes to remove data storage will allow for much more
 maintainable, de-duplicated code. It will also make it easier to
 contribute: if there is a problem one would like to solve in a
 given method, if one looks in ``SkyCoord``, one will likely find
