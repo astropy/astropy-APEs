@@ -120,7 +120,7 @@ and attributes are defined on ``SkyCoord`` (and ``Coordinate``)
 proper, so `Sphinx <https://www.sphinx-doc.org/>`_ will know how to typeset those, while type
 checkers can help users in finding and using them properly. It
 will also be easier: following the `Zen of Python <https://peps.python.org/pep-0020/>`_, "There should be
-one clear way to do something. The present overlap leads to
+one-- and preferably only one --obvious way to do it." The present overlap leads to
 confusion wherein beginner users end up creating
 ``BaseCoordinateFrame`` objects such as ``ICRS``, when the docs
 are clear that these are for more advanced users and that
