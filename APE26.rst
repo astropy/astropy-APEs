@@ -125,7 +125,7 @@ will also be easier: following the
 be one-- and preferably only one --obvious way to do it." The 
 present overlap leads to
 confusion wherein beginner users end up creating
-``BaseCoordinateFrame`` objects such as ``ICRS``, when the docs
+``BaseCoordinateFrame`` instances, when the docs
 are clear that these are for more advanced users and that
 ``SkyCoord`` is to be preferred. The system will also be less
 fragile. For example, if users manipulate the internal workings
