@@ -39,7 +39,7 @@ coordinates between the reference frames that exist in the
 ``astropy.coordinates`` ecosystem. For example, the ``AltAz`` frame 
 class, which is used when referencing sky coordinates in altitude 
 and azimuth, must contain a location on Earth and a time in order 
-to transform to and from a fixed reference frame like the ICRS. In 
+to transform to and from an inertial reference frame like the ICRS. In 
 addition to reference frame information, these frame classes can 
 **also** contain coordinate data (positions, velocities, or other 
 differentials), which are stored internally using the 
