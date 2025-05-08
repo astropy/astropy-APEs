@@ -87,9 +87,9 @@ combination, problems have gone unnoticed. Restructuring the
 maintainable, de-duplicated code. It will also make it easier to
 contribute: if there is a problem one would like to solve in a
 given method, if one looks in ``SkyCoord``, one will likely find
-that it does not exist, but instead is defined on
-``BaseCoordinateFrame`` and gets dynamically called via
-``SkyCoord.__getattr__``. Indeed, the construction of
+that it does not exist, and might struggle to find that instead 
+it is defined on ``BaseCoordinateFrame`` and gets dynamically 
+called via  ``SkyCoord.__getattr__``. Indeed, the construction of
 ``BaseCoordinateFrame`` ends up complicating ``SkyCoord``, which
 has to manage the coordinate data **through** the stored
 ``BaseCoordinateFrame``.
