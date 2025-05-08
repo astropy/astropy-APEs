@@ -15,7 +15,7 @@ Abstract
 Following the rationale presented in `APE 5 
 <https://github.com/astropy/astropy-APEs/blob/main/APE5.rst>`_, 
 coordinate frames in astropy.coordinates currently store metadata 
-used to construct the frame (i.e. for transforming between frames) 
+used to construct the frame (i.e., for transforming between frames) 
 and may also store coordinate *data* itself. This duplicates 
 functionality with ``SkyCoord``, which acts as a container for both 
 coordinate data and reference frame information. We propose to 
