@@ -254,7 +254,7 @@ substeps).
    enabling automatic conversion of the with-data frames into 
    ``SkyCoord`` objects.
 
-4. Deprecating the legacy with-data frame classes.
+4. Deprecating the legacy with-data frame classes, and eventually removing them after a deprecation period that adheres to `APE 2 <https://github.com/astropy/astropy-APEs/blob/main/APE2.rst>`_.
 
    - Emitting warnings when instantiated.
 
