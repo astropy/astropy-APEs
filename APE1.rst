@@ -5,7 +5,7 @@ author: Perry Greenfield
 
 date-created: 2013 October 11
 
-date-last-revised: 2024 February 5
+date-last-revised: 2025 June 26
 
 date-accepted: 2013 November 8
 
@@ -15,6 +15,7 @@ status: Accepted
 
 revised-by:
 
+* Thomas Robitaille - 2025 June 26 - Modify APE process to merge APEs that are in the discussion stage
 * Lia Corrales, Thomas Robitaille, Erik Tollerud - 2021 February 26 - Added APE modification process
 * Pey Lian Lim - 2024 February 5 - Added APE numbering process
 
@@ -28,7 +29,7 @@ technical specification of the feature and a rationale for the feature.
 
 We intend APEs to be the primary mechanisms for proposing major new features,
 for collecting community input on an issue, and for documenting the design
-decisions that have gone into Python. The APE author is responsible for
+decisions that have gone into Astropy. The APE author is responsible for
 building consensus within the community and documenting dissenting opinions.
 
 Because the APEs are maintained as text files in a versioned repository
@@ -88,11 +89,21 @@ doing this.
 Following a discussion on astropy-dev, the proposal should be submitted as a
 pull request to astropy-APEs with the name APE<n>.rst where <n> is an
 appropriately assigned number (i.e., not already an accepted/proposed/rejected APE).
-The draft must use the APEtemplate.rst file.
-That a formal proposal has been submitted as a PR should be announced to the
-astropy-dev list.
+The draft must use the APEtemplate.rst file. Once the pull request is open,
+the ``@astropy/ape-editor-team`` should be mentioned in the pull request, and
+the APE will then undergo an editorial review which focuses on wording,
+spelling, grammar, and clarity, but does not focus on the substance of the APE.
+Once the APE editors are happy with the APE, they will merge the pull request,
+which should have a status of ``Discussion``. At this point, the number of the
+APE should be finalized, and should be set to the next available one in the
+main branch of the repository.
 
-The APE author may update the APE as needed.
+Once the APE is merged, a announcement should be sent to astropy-dev, with a
+link to the APE and a short summary, and the proposal should then be discussed
+on the mailing list. As the discussion proceeds, the authors can choose to
+update the APE at any point via new pull requests which are as before subject to
+editorial review before merging. Discussions about the substance of the APE
+should be kept on the mailing list.
 
 Standard Track APEs consist of two parts, a design document and a reference
 implementation. It is generally recommended that at least a prototype
@@ -108,19 +119,16 @@ appropriate.
 APE Review
 ..........
 
-Normally APEs are discussed on astropy-dev and perhaps in other forums.
-Sometimes APEs will grow out of an existing pull request, but it's better to
-have any discussion after the APE is generated on the list, as it has a wider
-audience. The final decision on any APE is made by the coordinating committee,
-though usually a consensus in the development is sufficient (but in unusual
-cases may be overridden by the coordinating committee). The decision may
-require changes to the APE and any implementation. Final acceptance is not
-done until the required changes are made to the APE and implementation.
+Once the authors feel that they have reached as close to a consensus as they
+will get, they can submit the APE to the Coordination Committee, who are
+responsible for making a final decision. The decision can either be to accept
+the APE, reject the APE, or they can instead suggest to the authors to continue
+the discussion before re-submitting the APE for a decision.
 
 APE Status
 ..........
 
-An APE's status can
+An APE's status can be:
 
 * "Discussion": New APE pull requests should always start in this status.  This
   means the APE is currently being considered and a decision has not been made
@@ -145,14 +153,27 @@ An APE's status can
   rationales, so that new community members can understand why a decision was
   made.
 
-Modifications to an APE
-.......................
+* "Withdrawn": If the APE authors no longer feel that their proposal is feasible,
+  they can choose to withdraw the APE. A withdrawn APE is in effect equivalent
+  to a Rejected APE in that it will not be implemented.
 
-An APE can be modified, with one person acting as champion for the APE update.
+* "Abandonned": If an APE is present in the repository but has been labelled
+  as "Discussion" for at least a year without any sign of further discussion
+  or progress, the APE can be marked as Abandonned (after reaching out to the
+  authors to check that they are not able to continue working on it). An
+  Abandonned APE can be picked up at any time by other members of the community,
+  and the status changed back to "Discussion".
+
+Modifications to an accepted APE
+................................
+
+An accepted APE can be modified, with one person acting as champion for the APE update.
 Similar to the APE development procedure, the update champion should discuss
 their desired changes with the Astropy community (e.g., through the astropy-dev
 mailing list). Following a discussion on astropy-dev, the APE update should be
-submitted as a pull request which should be advertised on astropy-dev.
+submitted as a pull request which should be advertised on astropy-dev. In this case,
+the pull request should only be merged once the changes are finalized and approved
+by the Coordination Committee.
 
 The APE should be modified directly without annotating the changes. If not
 already listed, the update champion can add themselves to the author list for
@@ -161,11 +182,8 @@ be added to the bottom of the APE (if not already there) with a bullet point
 list of dates which link to the DOI of the previous versions of APEs as well as
 links to the merge commits of the APEs. The `date-last-revised` header for the APE
 should be updated, and a `revised-by` header should be added for each
-update (see the first `revised-by` section of *this* APE for a formatting 
+update (see the first `revised-by` section of *this* APE for a formatting
 example).
-
-The review process is the same as for a newly-proposed APE as described in the
-**APE Review** section above.
 
 Branches and Pull Requests
 --------------------------
@@ -196,4 +214,4 @@ Previous versions of this APE
 -----------------------------
 
 * 2013-11-08 [`DOI <http://doi.org/10.5281/zenodo.1043886>`_] [`GitHub <https://github.com/astropy/astropy-APEs/blob/42951733ac42c0ea178d8df30705274a43c93091/APE1.rst>`_]
-* 2021-03-09 [`GitHub <https://github.com/astropy/astropy-APEs/commit/f2afc2ec72575d3c592b3a5c6257117b07b5b755>`_]
+* 2021-03-09 [`DOI <https://doi.org/10.5281/zenodo.10805921>`_] [`GitHub <https://github.com/astropy/astropy-APEs/blob/9896678a4a8dc7e5aeedd0230b37816953dbf800/APE1.rst>`_]
