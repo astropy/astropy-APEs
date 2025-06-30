@@ -15,9 +15,9 @@ status: Accepted
 
 revised-by:
 
-* Thomas Robitaille - 2025 June 26 - Modify APE process to merge APEs that are in the discussion stage
 * Lia Corrales, Thomas Robitaille, Erik Tollerud - 2021 February 26 - Added APE modification process
 * Pey Lian Lim - 2024 February 5 - Added APE numbering process
+* Thomas Robitaille - 2025 June 26 - Modify APE process to merge APEs that are in the discussion stage
 
 Abstract
 --------
@@ -103,7 +103,7 @@ link to the APE and a short summary, and the proposal should then be discussed
 on the mailing list. As the discussion proceeds, the authors can choose to
 update the APE at any point via new pull requests which are as before subject to
 editorial review before merging. Discussions about the substance of the APE
-should be kept on the mailing list.
+should be kept on the mailing list as far as possible.
 
 Standard Track APEs consist of two parts, a design document and a reference
 implementation. It is generally recommended that at least a prototype
@@ -157,11 +157,11 @@ An APE's status can be:
   they can choose to withdraw the APE. A withdrawn APE is in effect equivalent
   to a Rejected APE in that it will not be implemented.
 
-* "Abandonned": If an APE is present in the repository but has been labelled
+* "Abandoned": If an APE is present in the repository but has been labelled
   as "Discussion" for at least a year without any sign of further discussion
   or progress, the APE can be marked as Abandonned (after reaching out to the
   authors to check that they are not able to continue working on it). An
-  Abandonned APE can be picked up at any time by other members of the community,
+  Abandoned APE can be picked up at any time by other members of the community,
   and the status changed back to "Discussion".
 
 Modifications to an accepted APE
