@@ -331,8 +331,11 @@ Term and Active/Emeritus Status
 Voting Members have no term limits. Voting Members who have stopped
 contributing are encouraged to declare themselves as *emeritus*. Those who have
 not made any significant contribution for two years may be asked to move
-themselves to the *emeritus* category by the Coordination Committee. If no
-response is received, the Coordination Committee may automatically change a
+themselves to the *emeritus* category by the Coordination Committee.
+Additionally, otherwise active voting members who have not voted in the last
+4 elections may also be asked to move themselves to the *emeritus* category by
+the Coordination Committee.
+If no response is received, the Coordination Committee may automatically change a
 Voting Member’s status to *emeritus*. To record and honor their contributions,
 *emeritus* Voting Members will continue to be listed. *Emeritus* Voting Members
 are not able to participate in votes.
