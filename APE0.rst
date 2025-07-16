@@ -368,8 +368,8 @@ modification process in `APE 1`_, with the exception that the final approval of
 the modification requires approval by a vote of the
 `Voting Members`_ rather than approval by the Coordination
 Committee. For a proposed change to this charter to be adopted it must secure a
-2/3 majority of vote participants, where the number of participants is at least 2/3
-of the total voting members.
+2/3 majority of votes cast, where the number of participants is at least 2/3
+of the total electorate.
 
 Attribution and Acknowledgments
 -------------------------------
