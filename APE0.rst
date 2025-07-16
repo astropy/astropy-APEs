@@ -365,9 +365,11 @@ consensus of the community on accepting the final version.
 
 Changes to this Charter after it has been accepted should follow the
 modification process in `APE 1`_, with the exception that the final approval of
-the modification requires approval by a two-thirds vote of the
+the modification requires approval by a vote of the
 `Voting Members`_ rather than approval by the Coordination
-Committee.
+Committee. For a proposed change to this charter to be adopted it must secure a
+2/3 majority of vote participants, where the number of participants is at least 2/3
+of the total voting members.
 
 Attribution and Acknowledgments
 -------------------------------
