@@ -369,7 +369,9 @@ the modification requires approval by a vote of the
 `Voting Members`_ rather than approval by the Coordination
 Committee. For a proposed change to this charter to be adopted it must secure a
 2/3 majority of votes cast, where the number of participants is at least 2/3
-of the total electorate.
+of the total electorate. Vote options shall be "yes," "no," and "abstain," where
+and abstain vote counts towards the participation count, but does not affect the
+2/3 majority calculation.
 
 Attribution and Acknowledgments
 -------------------------------
