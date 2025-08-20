@@ -12,7 +12,7 @@ date-accepted: 2024 January 29
 
 type: Process
 
-status: Discussion
+status: Accepted
 
 .. note: This APE is derived from brainstorming and discussions in https://docs.google.com/document/d/1hIl3y6nrcepv-tKKQLVB4u0a3fXACQ1Qrg0Y6VrJykg/view
 
