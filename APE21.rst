@@ -11,7 +11,7 @@ date-accepted: 2023 May 31
 
 type: Process
 
-status: accepted
+status: Accepted
 
 
 Abstract
