@@ -33,8 +33,8 @@ decisions that have gone into Astropy. The APE author is responsible for
 building consensus within the community and documenting dissenting opinions.
 
 Because the APEs are maintained as text files in a versioned repository
-(indirectly since this wiki is versioned within github), their revision
-history is the historical record of the feature proposal
+(indirectly since this wiki is versioned within GitHub), their revision
+history is the historical record of the feature proposal.
 
 Detailed description
 --------------------
@@ -79,6 +79,12 @@ Astropy development workflow with a patch submission to the Astropy issue
 tracker. The more focused the APE, the more successful it tends to be. If in
 doubt, split your APE into several well-focused ones.
 
+New ideas for the following APEs should always be submitted as modifications
+to the respective APE, never as a new APE:
+
+* `APE 0: The Astropy Project Governance Charter <https://github.com/astropy/astropy-APEs/blob/main/APE0.rst>`_
+* `APE 1: APE Purpose and Process <https://github.com/astropy/astropy-APEs/blob/main/APE1.rst>`_
+
 Each APE must have a champion -- someone who writes the APE using the style
 and format described below, shepherds the discussions in the appropriate
 forums, and attempts to build community consensus around the idea. The APE
@@ -93,6 +99,7 @@ The draft must use the APEtemplate.rst file. Once the pull request is open,
 the ``@astropy/ape-editor-team`` should be mentioned in the pull request, and
 the APE will then undergo an editorial review which focuses on wording,
 spelling, grammar, and clarity, but does not focus on the substance of the APE.
+The editorial process ideally should not take longer than a month.
 Once the APE editors are happy with the APE, they will merge the pull request,
 which should have a status of ``Discussion``. At this point, the number of the
 APE should be finalized, and should be set to the next available one in the
@@ -159,7 +166,7 @@ An APE's status can be:
 
 * "Abandoned": If an APE is present in the repository but has been labelled
   as "Discussion" for at least a year without any sign of further discussion
-  or progress, the APE can be marked as Abandonned (after reaching out to the
+  or progress, the APE can be marked as Abandoned (after reaching out to the
   authors to check that they are not able to continue working on it). An
   Abandoned APE can be picked up at any time by other members of the community,
   and the status changed back to "Discussion".
