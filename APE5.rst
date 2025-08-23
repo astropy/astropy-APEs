@@ -28,6 +28,10 @@ provides a more user-friendly interface.  The transformation  framework will
 remain essentially unchanged, except that it will operate specifically on the
 low-level classes.
 
+UPDATE: Portions of the implementation presented here are amended in `APE 26 
+<https://github.com/astropy/astropy-APEs/blob/main/APE26.rst>`_. See that APE for 
+further discussion.
+
 
 Detailed description
 --------------------
