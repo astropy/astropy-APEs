@@ -5,13 +5,13 @@ authors: Kelle Cruz, Alex Hagen, Thomas Robitaille, Erik Tollerud, Alexa Villaum
 
 date-created: 2015 May 4
 
-date-last-revised: 2015 May 17
+date-last-revised: 2025 Oct 6
 
 date-accepted: 2015 May 17
 
 type: Informational
 
-status: Accepted
+status: Superceded
 
 Abstract
 --------
@@ -26,6 +26,11 @@ text of just such a code of conduct, which will be adopted by the project to
 provide guidance to the community. The code of conduct will be licensed using
 the Creative Commons Attribution license, allowing other projects to use this
 code or adapt it to their needs.
+
+Notice of Replacement
+---------------------
+
+As of 2026, the Astropy Community Code of Conduct is superceded by the NumFOCUS Code of Conduct, which can be found at https://numfocus.org/code-of-conduct/. The NumFOCUS Code of Conduct is available at https://numfocus.org/code-of-conduct, and while different in detailed language, shares the same core principles and in general is the same as the Code of Conduct described here.  This APE is retained for reference and use by others, but is no longer the active code of conduct for the Astropy community. For more details on the transition, see https://github.com/astropy/astropy.github.com/pull/669 and linked mailing list posts and related issues.
 
 
 Detailed description
