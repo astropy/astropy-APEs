@@ -17,7 +17,7 @@ revised-by:
 
 * Lia Corrales, Thomas Robitaille, Erik Tollerud - 2021 February 26 - Added APE modification process
 * Pey Lian Lim - 2024 February 5 - Added APE numbering process
-* Thomas Robitaille - 2025 June 26 - Modify APE process to merge APEs that are in the discussion stage
+* Thomas Robitaille, Pey Lian Lim - 2025 June 26 - Modify APE process to merge APEs that are in the discussion stage
 
 Abstract
 --------
@@ -32,8 +32,7 @@ for collecting community input on an issue, and for documenting the design
 decisions that have gone into Astropy. The APE author is responsible for
 building consensus within the community and documenting dissenting opinions.
 
-Because the APEs are maintained as text files in a versioned repository
-(indirectly since this wiki is versioned within GitHub), their revision
+Because the APEs are maintained as text files in a versioned repository, their revision
 history is the historical record of the feature proposal.
 
 Detailed description
@@ -48,22 +47,22 @@ But more seriously.
 
 There are three kinds of APE:
 
-* A "Standard Track" APE describes a new feature or implementation for
+* Standard Track: A "Standard Track" APE describes a new feature or implementation for
   Astropy. It may also describe an interoperability standard that will be
   supported  in current Astropy versions before a subsequent APE adds the
   feature in the future.
 
-* An "Informational" APE describes a Astropy design issue, or provides general
+* Informational: An "Informational" APE describes a Astropy design issue, or provides general
   guidelines or information to the Python community, but does not propose a new
   feature. Informational APEs do not necessarily represent an Astropy community
   consensus or recommendation, so users and implementers are free to ignore
   Informational APEs or follow their advice. We await a Zen of Astropy APE.
 
-* A "Process" APE describes a process surrounding Astropy, or proposes a change
+* Process: A "Process" APE describes a process surrounding Astropy, or proposes a change
   to (or an event in) a process. Process APEs are like Standard Track APEs but
   apply to areas other than the Astropy package itself. They may propose an
   implementation, but not to Astropy's codebase; they often require community
-  consensus; unlike Informational PEPs, they are more than recommendations, and
+  consensus; unlike Informational APEs, they are more than recommendations, and
   users are typically not free to ignore them. Examples include procedures,
   guidelines, changes to the decision-making process, and changes to the tools
   or environment used in Astropy development. Any meta-APE is also considered a
@@ -89,19 +88,20 @@ Each APE must have a champion -- someone who writes the APE using the style
 and format described below, shepherds the discussions in the appropriate
 forums, and attempts to build community consensus around the idea. The APE
 champion (a.k.a. Author) should first attempt to ascertain whether the idea is
-APE-able. Posting to the astropy-dev mailing list is the best way to go about
+APE-plicable. Posting to the `astropy-dev <https://groups.google.com/g/astropy-dev>`_ mailing list is the best way to go about
 doing this.
 
 Following a discussion on astropy-dev, the proposal should be submitted as a
-pull request to astropy-APEs with the name APE<n>.rst where <n> is an
+pull request to astropy-APEs with the name `APE<n>.rst` where `<n>` is an
 appropriately assigned number (i.e., not already an accepted/proposed/rejected APE).
 The draft must use the APEtemplate.rst file. Once the pull request is open,
-the ``@astropy/ape-editor-team`` should be mentioned in the pull request, and
+the `@astropy/ape-editor-team <https://github.com/orgs/astropy/teams/ape-editor-team>`_
+should be mentioned in the pull request, and
 the APE will then undergo an editorial review which focuses on wording,
 spelling, grammar, and clarity, but does not focus on the substance of the APE.
 The editorial process ideally should not take longer than a month.
 Once the APE editors are happy with the APE, they will merge the pull request,
-which should have a status of ``Discussion``. At this point, the number of the
+which should have a status of `Discussion`. At this point, the number of the
 APE should be finalized, and should be set to the next available one in the
 main branch of the repository.
 
@@ -112,15 +112,18 @@ update the APE at any point via new pull requests which are as before subject to
 editorial review before merging. Discussions about the substance of the APE
 should be kept on the mailing list as far as possible.
 
-Standard Track APEs consist of two parts, a design document and a reference
-implementation. It is generally recommended that at least a prototype
+Standard Track APEs consist of two parts:
+
+* a design document and
+* a reference implementation.
+
+It is generally recommended that at least a prototype
 implementation be co-developed with the APE, as ideas that sound good in
 principle sometimes turn out to be impractical when subjected to the test of
 implementation. This is not required when too onerous, but some indication of
 implementation practicality is highly recommended by actual code. The best way
-to provide that code is via a github pull request either to the
-`astropy/astropy <https://github.com/astropy/astropy>`_ repository, or
-`astropy/astropy-api <https://github.com/astropy/astropy-api>`_, as
+to provide that code is via a GitHub draft pull request to the affected Astropy repository
+(usually `astropy/astropy <https://github.com/astropy/astropy>`_), as
 appropriate.
 
 APE Review
@@ -128,9 +131,11 @@ APE Review
 
 Once the authors feel that they have reached as close to a consensus as they
 will get, they can submit the APE to the Coordination Committee, who are
-responsible for making a final decision. The decision can either be to accept
-the APE, reject the APE, or they can instead suggest to the authors to continue
-the discussion before re-submitting the APE for a decision.
+responsible for making a final decision. The decision can be to:
+
+* accept the APE,
+* reject the APE, or
+* suggest to the authors to continue the discussion before re-submitting the APE for a decision.
 
 APE Status
 ..........
@@ -141,37 +146,34 @@ An APE's status can be:
   means the APE is currently being considered and a decision has not been made
   regarding what should be done.
 
-* "Accepted": If an APE is accepted, it will be merged - either the original
-  author can do this if they wish to fill in the "decision rationale" section,
-  or the coordination committee member who merges it can change the status and
-  write the rationale.  Regardless, if the APE is an informational or process
-  APE, it is now done. If it is standard track, this status means it is in the
-  process of being implemented.
+* "Accepted": If an APE is accepted, either the original author or a
+  Coordination Committee member can change the status and fill in the "Decision rationale"
+  section. For standard track, any code implementation of this APE should
+  clearly link back to the APE document in this repository. For completeness,
+  the APE could also be updated to add implementation pull requests to its
+  "Implementation" section.
 
-* "Implemented": Only valid for a Standard Track APE.  This means the feature
-  discussed in the APE is complete and has been fully merged into the main
-  Astropy repository.
-
-* "Rejected": If it is decided that an APE should be rejected, the person
-  who merges it should change its status to "Rejected."  The "decision
-  rationale" should also be filled in, either by the merger, the original
-  author, or another community member who voiced objections to the APE.
-  The goal is to try to reflect the overall community opinion in these
-  rationales, so that new community members can understand why a decision was
+* "Rejected": If it is decided that an APE should be rejected, the original author, a
+  Coordination Committee member, or another community member who voiced objections
+  can change the status and fill in the "Decision rationale" section.
+  The goal is to try to reflect the overall community opinion in the
+  rationale, so that new community members can understand why this decision was
   made.
 
 * "Withdrawn": If the APE authors no longer feel that their proposal is feasible,
   they can choose to withdraw the APE. A withdrawn APE is in effect equivalent
   to a Rejected APE in that it will not be implemented.
-* "Superseded" : An APE that was accepted but has since had become irrelevant
+
+* "Superseded": An APE that was accepted but has since become irrelevant
   or entirely replaced by some other APE or event can be given this status.
-  Such status changes may not require the regular APE modification process if
+  Such a status change may not require the regular APE modification process if
   whatever caused this status already followed a discussion process at least
-  as long as the APE discussion process.
+  as long as the APE discussion process (at least 2 weeks as per the comment
+  period Astropy usually follow in other processes).
 
 * "Abandoned": If an APE is present in the repository but has been labelled
   as "Discussion" for at least a year without any sign of further discussion
-  or progress, the APE can be marked as Abandoned (after reaching out to the
+  or progress, the APE can be marked as "Abandoned" (after reaching out to the
   authors to check that they are not able to continue working on it). An
   Abandoned APE can be picked up at any time by other members of the community,
   and the status changed back to "Discussion".
@@ -197,7 +199,7 @@ should be updated, and a `revised-by` header should be added for each
 update (see the first `revised-by` section of *this* APE for a formatting
 example).
 
-Branches and Pull Requests
+Branches and pull requests
 --------------------------
 
 N/A
@@ -217,10 +219,10 @@ Alternatives
 
 N/A
 
-Decision Rationale
+Decision rationale
 ------------------
 
-The coordinating committee thought it was a honking great idea.
+The Coordinating Committee thought it was a honking great idea.
 
 Previous versions of this APE
 -----------------------------
