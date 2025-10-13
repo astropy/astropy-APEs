@@ -189,7 +189,7 @@ The changes outlined in this APE will be implemented as three distinct efforts:
   on the affiliated
   package instructions section of the Astropy website. The affiliated package
   listing page will also need to be updated for these new criteria - a concept
-  for this new site is `viewable here <example_affilpkg_page.png>`_.
+  for this new site is `viewable here <assets/ape15_example_affilpkg_page.png>`_.
 * The Astropy web site (and to a lesser extent, affiliated package-related docs)
   will need to be updated to reflect the existence of the coordinated
   packages. Additionally, the roles web site will need to be populated with the
@@ -240,6 +240,6 @@ Decision rationale
 ------------------
 
 The concept of this APE was discussed extensively by the Astropy Coordination
-Committee and approved.  The APE text was discussed and accepted by multiple 
-community stakeholders who have experience and project-level interest in 
+Committee and approved.  The APE text was discussed and accepted by multiple
+community stakeholders who have experience and project-level interest in
 affiliated packages.  The APE was accepted on May 14, 2018.
