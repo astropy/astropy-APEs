@@ -47,18 +47,18 @@ But more seriously.
 
 There are three kinds of APE:
 
-* Standard Track: A "Standard Track" APE describes a new feature or implementation for
+* "Standard Track": A "Standard Track" APE describes a new feature or implementation for
   Astropy. It may also describe an interoperability standard that will be
   supported  in current Astropy versions before a subsequent APE adds the
   feature in the future.
 
-* Informational: An "Informational" APE describes a Astropy design issue, or provides general
+* "Informational": An "Informational" APE describes a Astropy design issue, or provides general
   guidelines or information to the Python community, but does not propose a new
   feature. Informational APEs do not necessarily represent an Astropy community
   consensus or recommendation, so users and implementers are free to ignore
   Informational APEs or follow their advice. We await a Zen of Astropy APE.
 
-* Process: A "Process" APE describes a process surrounding Astropy, or proposes a change
+* "Process": A "Process" APE describes a process surrounding Astropy, or proposes a change
   to (or an event in) a process. Process APEs are like Standard Track APEs but
   apply to areas other than the Astropy package itself. They may propose an
   implementation, but not to Astropy's codebase; they often require community
@@ -97,6 +97,11 @@ group has signed up to implement it should the APE be accepted
 an APE in order to spur others to do work is not going to be received
 well, due to the OSS nature of the Astropy Project.
 
+While attaching additional files to an APE is discouraged, if there are no other
+options, these files could go under the `assets <https://github.com/astropy/astropy-APEs/tree/main/assets>`_
+sub-directory, with the filenames each starting with `ape<n>_` for clarity.
+Large files should be hosted externally and linked to the APE instead.
+
 Following a discussion on `astropy-dev <https://groups.google.com/g/astropy-dev>`_,
 the proposal should be submitted as a
 pull request to astropy-APEs with the name `APE<n>.rst` where `<n>` is an
@@ -110,6 +115,9 @@ The editorial process ideally should not take longer than a month.
 Once the APE editors are happy with the APE, they will:
 
 #. Make sure the APE has a status of "Discussion".
+
+#. If additional files are attached with the APE in the PR, make sure the
+   file sizes are reasonable.
 
 #. If not already, add a new entry for the APE under "APEs" table in `README.rst`
    with the:
