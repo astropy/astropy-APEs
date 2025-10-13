@@ -5,15 +5,16 @@ APEs are documents to address non-trivial enhancements that require discussion
 and thought beyond a single Pull Request. This is intended to mirror the
 long-standing Python Enhancement  Proposal process, but generally not quite as
 formally. Normally a proposal goes through various phases of consideration.
-Discussion is expected to take place using existing mechanisms (astropy-dev,
-github, hangouts, etc), and eventually a decision is made regarding whether the
-proposal should be accepted, rejected, or modified.
+Discussion is expected to take place using existing mechanisms (primarily on astropy-dev,
+if possible), and eventually a decision is made regarding whether the
+proposal status should change, as laid out in APE 1.
 
 APEs
 ^^^^
 
 === ================================================================ =========== ============ ============
-#     Title                                                          Date           Status        DOI
+#   Title                                                            Date (last  Status       DOI
+                                                                     revised)
 === ================================================================ =========== ============ ============
 0   `The Astropy Project Governance Charter`_                        2021-Feb-19   Accepted   |APE 0 DOI|
 1   `APE Purpose and Process`_                                       2024-Feb-05   Accepted   |APE 1 DOI|
@@ -126,22 +127,23 @@ APEs
 Proposing a new APE
 ^^^^^^^^^^^^^^^^^^^
 
-New APEs should be created using the ``APEtemplate.rst`` file in this repository.
-Fork the repository, copy ``APEtemplate.rst`` to ``APE##.rst`` where ## is the next
+New APEs should be created using the `APEtemplate.rst` file in this repository.
+Fork the repository, copy `APEtemplate.rst` to `APE<n>.rst` where `<n>` is the next
 free number on the list of APEs (don't forget to check the open PRs when finding
 this number). Issue a Pull Request with that file once
 you've written it up (little explanation is required in the PR itself given that
 the document has all the content - usually it's easiest to just paste in the
-abstract).
+abstract, and link to other existing GitHub Issues or PRs, if applicable).
 
 Note that there is not much point to making proposals unless someone or some
-group has signed up to implement it if the APE is accepted
+group has signed up to implement it should the APE be accepted
 (typically this would involve the author or authors of the APE).  Just issuing
-an APE in order to spur others to do work is not generally going to be received
-well. Generally, an implementation is expected before an APE can be considered
+an APE in order to spur others to do work is not going to be received
+well, due to the OSS nature of the Astropy Project.
+Generally, an implementation is expected before an APE can be considered
 fully accepted. For proposals that require extensive work that few are willing
 to perform without some assurance it will be accepted, provisional acceptance
-is an option. For serious consideration it is usually good to show that detailed
+is an option. For serious consideration, it is usually good to show that detailed
 technical aspects have been played with in real code rather (even if it isn't a
 complete implementation).
 
@@ -185,13 +187,13 @@ or rejection.  One of the committee members should then:
    reStructuredText source. You will need to update that with the "all versions"
    DOI number, which you can see under the "versions" section of Zenodo. (It is
    typically the first version minus 1.)
-#. On GitHub (or locally) edit ``README.rst`` and add an entry for the new APE to the
+#. On GitHub (or locally) edit `README.rst` and add an entry for the new APE to the
    "Accepted APEs" table.  Use the DOI link from the previous step.  Add
    corresponding RST link refs for both the DOI link and the new APE.  Preview
    the update and test the links to make sure they are all correct.  Then commit
    directly to main (or PR if you prefer).
-#. Send an email to `astropy-dev <https://groups.google.com/forum/#!forum/astropy-dev/>`_
-   announcing the acceptance In general this should just point to the accepted
+#. Send an email to `astropy-dev <https://groups.google.com/g/astropy-dev>`_
+   announcing the acceptance. In general, this should just point to the accepted
    APE rather than providing additional decision rationale.
 
 Updating APEs
