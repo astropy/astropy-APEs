@@ -1,7 +1,7 @@
 APE Purpose and Process
 -----------------------
 
-author: Perry Greenfield
+author: Perry Greenfield, Lia Corrales, Thomas Robitaille, Erik Tollerud, Pey Lian Lim
 
 date-created: 2013 October 11
 
@@ -88,36 +88,59 @@ Each APE must have a champion -- someone who writes the APE using the style
 and format described below, shepherds the discussions in the appropriate
 forums, and attempts to build community consensus around the idea. The APE
 champion (a.k.a. Author) should first attempt to ascertain whether the idea is
-APE-plicable. Posting to the `astropy-dev <https://groups.google.com/g/astropy-dev>`_ mailing list is the best way to go about
-doing this.
+APE-plicable. Posting to the `astropy-dev <https://groups.google.com/g/astropy-dev>`_
+mailing list is the best way to go about doing this.
 
-Following a discussion on astropy-dev, the proposal should be submitted as a
+Note that there is not much point to submitting new APEs unless someone or some
+group has signed up to implement it should the APE be accepted
+(typically this would involve the author or authors of the APE). Just issuing
+an APE in order to spur others to do work is not going to be received
+well, due to the OSS nature of the Astropy Project.
+
+Following a discussion on `astropy-dev <https://groups.google.com/g/astropy-dev>`_,
+the proposal should be submitted as a
 pull request to astropy-APEs with the name `APE<n>.rst` where `<n>` is an
 appropriately assigned number (i.e., not already an accepted/proposed/rejected APE).
-The draft must use the APEtemplate.rst file. Once the pull request is open,
+The draft must use the `APEtemplate.rst file`. Once the pull request is open,
 the `@astropy/ape-editor-team <https://github.com/orgs/astropy/teams/ape-editor-team>`_
 should be mentioned in the pull request, and
 the APE will then undergo an editorial review which focuses on wording,
 spelling, grammar, and clarity, but does not focus on the substance of the APE.
 The editorial process ideally should not take longer than a month.
-Once the APE editors are happy with the APE, they will merge the pull request,
-which should have a status of `Discussion`. At this point, the number of the
-APE should be finalized, and should be set to the next available one in the
-main branch of the repository.
+Once the APE editors are happy with the APE, they will:
 
-Once the APE is merged, a announcement should be sent to astropy-dev, with a
-link to the APE and a short summary, and the proposal should then be discussed
-on the mailing list. As the discussion proceeds, the authors can choose to
-update the APE at any point via new pull requests which are as before subject to
-editorial review before merging. Discussions about the substance of the APE
-should be kept on the mailing list as far as possible.
+#. Make sure the APE has a status of "Discussion".
+
+#. If not already, add a new entry for the APE under "APEs" table in `README.rst`
+   with the:
+
+   * Finalized number (the next available one in the `main` branch
+     of the repository)
+   * Title (with link to the APE RST file)
+   * Last revised date (set to day of merging)
+   * Status (set to "Discussion")
+   * DOI left blank.
+
+#. Preview the `README.rst` updates and test the new link to make sure they are all correct.
+
+#. Merge the pull request.
+
+#. Send an email to `astropy-dev <https://groups.google.com/g/astropy-dev>`_
+   with a link to the APE and a short summary to kick off the discssion period.
+   Emphasize that the proposal should be discussed on the mailing list, not the
+   pull request.
+
+As the discussion proceeds, the authors can choose to update the APE at any point via
+new pull requests, which are as before, subject to editorial review before merging.
+If needed, editors should continue to stress that discussions about the substance of the APE
+should be kept on the mailing list as much as possible.
 
 Standard Track APEs consist of two parts:
 
 * a design document and
 * a reference implementation.
 
-It is generally recommended that at least a prototype
+For serious consideration, it is generally recommended that at least a prototype
 implementation be co-developed with the APE, as ideas that sound good in
 principle sometimes turn out to be impractical when subjected to the test of
 implementation. This is not required when too onerous, but some indication of
@@ -130,38 +153,56 @@ APE Review
 ..........
 
 Once the authors feel that they have reached as close to a consensus as they
-will get, they can submit the APE to the Coordination Committee, who are
+will get (i.e., the community discussion on the APE has wound
+down), they can contact the Coordination Committee, who are
 responsible for making a final decision. The decision can be to:
 
 * accept the APE,
 * reject the APE, or
 * suggest to the authors to continue the discussion before re-submitting the APE for a decision.
 
+One of the Coordination Committee members should then:
+
+#. Fill in the "Decision rationale" section of the APE with a description of why
+   the status was chosen, including a summary of the community's discussion as relevant.
+#. Update the `date-last-revised` to the day of merging and `status` to
+   one of the options listed under "APE Status" section below.
+#. Update the "Date (last revised)" and "Status" info for the relevant row
+   in the "APEs" table in `README.txt`.
+#. Leave a brief comment in the PR indicating the result.
+#. Merge the PR with the above changes.
+#. If the APE was accepted, then see `README.rst` for archiving instructions.
+#. Send an email to `astropy-dev <https://groups.google.com/g/astropy-dev>`_
+   announcing the new status. In general, this should just point to the
+   APE rather than providing additional decision rationale.
+
 APE Status
 ..........
 
+For all the statuses below, the "Decision rationale" section should be updated
+to reflect the overall community opinion, if applicable, so that
+new community members can understand why such decision was made.
+
 An APE's status can be:
 
-* "Discussion": New APE pull requests should always start in this status.  This
+* "Discussion": New APE pull requests should always start in this status. This
   means the APE is currently being considered and a decision has not been made
   regarding what should be done.
 
-* "Accepted": If an APE is accepted, either the original author or a
-  Coordination Committee member can change the status and fill in the "Decision rationale"
-  section. For standard track, any code implementation of this APE should
+* "Accepted": Generally, an implementation is expected before a standard-track APE
+  can be considered fully accepted; For proposals that require extensive work that
+  few are willing to perform without some assurance it will be accepted, provisional
+  acceptance is an option (the provision could be clarified under "Decision rationale").
+  For standard track, any code implementation of this APE should
   clearly link back to the APE document in this repository. For completeness,
-  the APE could also be updated to add implementation pull requests to its
-  "Implementation" section.
+  the APE could also be updated later to add any additional implementation
+  pull requests to its "Implementation" section.
 
-* "Rejected": If it is decided that an APE should be rejected, the original author, a
-  Coordination Committee member, or another community member who voiced objections
-  can change the status and fill in the "Decision rationale" section.
-  The goal is to try to reflect the overall community opinion in the
-  rationale, so that new community members can understand why this decision was
-  made.
+* "Rejected"
 
 * "Withdrawn": If the APE authors no longer feel that their proposal is feasible,
-  they can choose to withdraw the APE. A withdrawn APE is in effect equivalent
+  they can choose to withdraw the APE. Reason for withdrawal should be clearly
+  stated under "Decision rationale" section. A withdrawn APE is in effect equivalent
   to a Rejected APE in that it will not be implemented.
 
 * "Superseded": An APE that was accepted but has since become irrelevant
@@ -175,22 +216,30 @@ An APE's status can be:
   as "Discussion" for at least a year without any sign of further discussion
   or progress, the APE can be marked as "Abandoned" (after reaching out to the
   authors to check that they are not able to continue working on it). An
-  Abandoned APE can be picked up at any time by other members of the community,
+  abandoned APE can be picked up at any time by other members of the community,
   and the status changed back to "Discussion".
 
-Modifications to an accepted APE
+Modifications to an existing APE
 ................................
 
-An accepted APE can be modified, with one person acting as champion for the APE update.
+An existing APE can be modified, with one person acting as champion for the APE update.
+Example cases:
+
+* Modifying the contents (including superseding) of an accepted APE.
+* Withdrawing an APE under discussion.
+* Reviving an abandoned APE.
+
 Similar to the APE development procedure, the update champion should discuss
-their desired changes with the Astropy community (e.g., through the astropy-dev
-mailing list). Following a discussion on astropy-dev, the APE update should be
-submitted as a pull request which should be advertised on astropy-dev. In this case,
-the pull request should only be merged once the changes are finalized and approved
-by the Coordination Committee.
+their desired changes with the Astropy community through the
+`astropy-dev <https://groups.google.com/g/astropy-dev>`_ mailing list.
+Following a discussion on mailing list, the APE update should be submitted
+as a pull request, which should be advertised on the relevant mailing list thread.
+After the community discussion period and the changes are finalized,
+the Coordination Committee would follow a similar procedure in "APE Review"
+should they decide to merge the pull request.
 
 The APE should be modified directly without annotating the changes. If not
-already listed, the update champion can add themselves to the author list for
+already listed, the update champions can add themselves to the author list for
 the APE being updated. A new section, **Previous versions of this APE** should
 be added to the bottom of the APE (if not already there) with a bullet point
 list of dates which link to the DOI of the previous versions of APEs as well as
