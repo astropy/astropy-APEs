@@ -163,6 +163,11 @@ An APE's status can be:
 * "Withdrawn": If the APE authors no longer feel that their proposal is feasible,
   they can choose to withdraw the APE. A withdrawn APE is in effect equivalent
   to a Rejected APE in that it will not be implemented.
+* "Superseded" : An APE that was accepted but has since had become irrelevant
+  or entirely replaced by some other APE or event can be given this status.
+  Such status changes may not require the regular APE modification process if
+  whatever caused this status already followed a discussion process at least
+  as long as the APE discussion process.
 
 * "Abandoned": If an APE is present in the repository but has been labelled
   as "Discussion" for at least a year without any sign of further discussion
