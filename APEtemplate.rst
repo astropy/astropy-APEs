@@ -32,7 +32,7 @@ perhaps some use cases.
 Branches and pull requests
 --------------------------
 
-Any pull requests or development branches containing work on this APE should be
+Any pull requests or development branches containing work on this APE before acceptance should be
 linked to from here.  (An APE does not need to be implemented in a single pull
 request if it makes sense to implement it in discrete phases). If no code is yet
 implemented, just put "N/A"
@@ -43,7 +43,7 @@ Implementation
 
 This section lists the major steps required to implement the APE.  Where
 possible, it should be noted where one step is dependent on another, and which
-steps may be optionally omitted.  Where it makes sense, each  step should
+steps may be optionally omitted.  Where it makes sense, each step should
 include a link related pull requests as the implementation progresses.
 
 
@@ -63,4 +63,4 @@ be discussed here, along with a justification for the chosen approach.
 Decision rationale
 ------------------
 
-<To be filled in by the coordinating committee when the APE is accepted or rejected>
+<To be filled in when status changes, if applicable, as laid out in APE 1>
