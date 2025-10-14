@@ -53,7 +53,7 @@ There are three kinds of APE:
   feature in the future.
 
 * "Informational": An "Informational" APE describes a Astropy design issue, or provides general
-  guidelines or information to the Python community, but does not propose a new
+  guidelines or information to the Astropy community, but does not propose a new
   feature. Informational APEs do not necessarily represent an Astropy community
   consensus or recommendation, so users and implementers are free to ignore
   Informational APEs or follow their advice. We await a Zen of Astropy APE.
@@ -95,7 +95,7 @@ Note that there is not much point to submitting new APEs unless someone or some
 group has signed up to implement it should the APE be accepted
 (typically this would involve the author or authors of the APE). Just issuing
 an APE in order to spur others to do work is not going to be received
-well, due to the OSS nature of the Astropy Project.
+well, due to the open-source nature of the Astropy Project.
 
 While attaching additional files to an APE is discouraged, if there are no other
 options, these files could go under the `assets <https://github.com/astropy/astropy-APEs/tree/main/assets>`_
