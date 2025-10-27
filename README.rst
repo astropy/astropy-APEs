@@ -61,8 +61,8 @@ APEs
 .. |APE 0 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4552790.svg
    :target: https://doi.org/10.5281/zenodo.4552790
 
-.. |APE 1 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.10805921.svg
-   :target: https://doi.org/10.5281/zenodo.10805921
+.. |APE 1 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043885.svg
+   :target: https://doi.org/10.5281/zenodo.1043885
 
 .. |APE 2 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1043887.svg
    :target: https://doi.org/10.5281/zenodo.1043887
