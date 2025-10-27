@@ -176,7 +176,7 @@ use coordinates functionality.
 Branches and pull requests
 --------------------------
 
-`PR #12 <http://github.com/astropy/astropy-api/pull/12>`_ in the astropy-api
+`PR #12 <https://github.com/astropy/astropy-api/pull/12>`_ in the astropy-api
 repository contains the file `coordinates_api_2.py` that outlines the actual
 API, and is thus a crucial part of this APE.  The PR will be merged if this APE
 is accepted.

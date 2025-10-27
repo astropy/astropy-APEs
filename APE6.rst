@@ -56,7 +56,7 @@ CSV
 ^^^^^
 
 The `Comma-Separated-Values format
-<http://en.wikipedia.org/wiki/Comma-separated_values>`_ is probably the most
+<https://en.wikipedia.org/wiki/Comma-separated_values>`_ is probably the most
 common text-based method for representing data tables.  The proposed standard in
 APE6 leverages this universality by using this format for serializing
 the actual data values.
@@ -79,9 +79,9 @@ CDS / ApJ Machine Readable Table
 
 The Centre de Données astronomiques de Strasbourg developed a `Standard for
 Documentation of Astronomical Catalogues
-<http://vizier.u-strasbg.fr/doc/catstd.htx>`_ which is very widely used.  The
+<https://vizier.u-strasbg.fr/doc/catstd.htx>`_ which is very widely used.  The
 Astrophysical Journal has adopted this standard for formatting `machine readable
-tables <http://aas.org/authors/machine-readable-table-standards>`_ associated
+tables <https://aas.org/authors/machine-readable-table-standards>`_ associated
 with journal articles.  The format is alternately referred to as the CDS or
 Machine Readable Table (MRT) format.
 
@@ -98,7 +98,7 @@ for tables that have rich metadata (e.g. WCS).
 As a tool for data interchange, CDS is far from ideal.  Despite the name "Machine
 Readable Table", the format is quite difficult for machines to read.  This
 stems from the format of the `ReadMe file
-<http://vizier.u-strasbg.fr/doc/catstd-3.1.htx>`_, which has a
+<https://vizier.u-strasbg.fr/doc/catstd-3.1.htx>`_, which has a
 non-regular format that requires tricky regex parsing and logic to fully interpret.
 
 A few options for `reading MRT files
@@ -117,7 +117,7 @@ IPAC
 ^^^^^
 
 The `IPAC Table Format
-<http://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html>`_ is the
+<https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html>`_ is the
 standard for the NASA/IPAC Infrared Science Archive and is widely used.
 
 This format is more in line with FITS in terms of providing support for
@@ -160,7 +160,7 @@ a custom serialization method to work within that confine.
 VOTable
 ^^^^^^^^
 
-`VOTable <http://www.ivoa.net/documents/latest/VOT.html>`_ is by design a
+`VOTable <https://www.ivoa.net/documents/latest/VOT.html>`_ is by design a
 fully-flexible data format that can handle all of the needs for text
 serialization of complex data structures, including tabular data sets.  The
 issue in this context is in simplicity and data interchange with the broader
@@ -185,13 +185,13 @@ Tabular Data Package
 Though not widely used in the astronomical community, since initially drafting
 this APE we have become aware of a very similar standard known as the
 `Tabular Data Package
-<http://dataprotocols.org/tabular-data-package/>`_.  This provides a
+<https://dataprotocols.org/tabular-data-package/>`_.  This provides a
 fully-formed protocol for publishing and sharing tabular-style data
 which is conceptually very similar to the proposed ECSV format, with
 the exception of using two files, one pure JSON for the header and one
 pure CSV for the data.  The JSON header follows a schema defined by
 the `JSON Table Schema
-<http://dataprotocols.org/json-table-schema/>`_.
+<https://dataprotocols.org/json-table-schema/>`_.
 
 
 After evaluation and a brief `discussion with that community
