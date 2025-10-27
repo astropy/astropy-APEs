@@ -5,7 +5,7 @@ author: Perry Greenfield, Lia Corrales, Thomas Robitaille, Erik Tollerud, Pey Li
 
 date-created: 2013 October 11
 
-date-last-revised: 2025 June 26
+date-last-revised: 2025 October 27
 
 date-accepted: 2013 November 8
 
@@ -17,7 +17,7 @@ revised-by:
 
 * Lia Corrales, Thomas Robitaille, Erik Tollerud - 2021 February 26 - Added APE modification process
 * Pey Lian Lim - 2024 February 5 - Added APE numbering process
-* Thomas Robitaille, Pey Lian Lim - 2025 June 26 - Modify APE process to merge APEs that are in the discussion stage
+* Thomas Robitaille, Pey Lian Lim - 2025 Oct 27 - Modify APE process to merge APEs that are in the discussion stage
 
 Abstract
 --------
