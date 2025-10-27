@@ -21,7 +21,7 @@ APEs
 5   `Coordinates Subpackage Plan`_                                   2014-Jan-22   Accepted   |APE 5 DOI|
 6   `Enhanced Character Separated Values table format`_              2015-Jan-26   Accepted   |APE 6 DOI|
 7   `NDData Plan`_                                                   2014-Dec-17   Accepted   |APE 7 DOI|
-8   `Astropy Community Code of Conduct`_                             2015-May-04  Superseded  |APE 8 DOI|
+8   `Astropy Community Code of Conduct`_                             2025-Oct-06  Superseded  |APE 8 DOI|
 9   `Timeseries object for Astropy`_                                 2023-Oct-20   Accepted   |APE 9 DOI|
 10  `Roadmap for Python 3-only support`_                             2016-Aug-22   Accepted   |APE 10 DOI|
 12  `Using Cookiecutter for the package-template`_                   2017-Mar-28   Accepted   |APE 12 DOI|
