@@ -31,6 +31,7 @@ provide guidance to the community. The code of conduct will be licensed using
 the Creative Commons Attribution license, allowing other projects to use this
 code or adapt it to their needs.
 
+
 Detailed description
 --------------------
 
