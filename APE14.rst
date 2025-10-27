@@ -43,7 +43,7 @@ One of the key basic operations necessary for any astronomical data analysis is
 the association of “pixels” with their “real-world” coordinates (and vice
 versa). While this concept has existed essentially for as long as computers
 have been used on astronomical data, the FITS WCS standard (`Calabretta &
-Greisen, 2002, A&A 395, 1077 <http://dx.doi.org/10.1051/0004-6361:20021327>`_)
+Greisen, 2002, A&A 395, 1077 <https://dx.doi.org/10.1051/0004-6361:20021327>`_)
 gave this concept a name: “World Coordinate System” (WCS). Because of this,
 “WCS” and “FITS-WCS” are often treated synonymously, but the concept is of
 broader applicability, as evidenced by the existence of serialization formats
@@ -227,7 +227,7 @@ low-level API:
             """
             Returns an iterable of strings describing the physical type for each
             world axis. They should be names from the VO UCD1+ controlled
-            Vocabulary (http://www.ivoa.net/documents/latest/UCDlist.html).
+            Vocabulary (https://www.ivoa.net/documents/latest/UCDlist.html).
             If no matching UCD type exists, this can instead be "custom:xxx",
             where xxx is an arbitrary string.  Alternatively, if the physical
             type is unknown/undefined, an element can be `None`.
@@ -534,7 +534,7 @@ Common UCD1+ names for physical types
 
 As outlined above, the ``world_axis_physical_types`` attribute should include
 strings that follow the VO UCD1+ vocabulary for defining physical types. The
-`full UCD1+ vocabulary <http://www.ivoa.net/documents/latest/UCDlist.html>`_
+`full UCD1+ vocabulary <https://www.ivoa.net/documents/latest/UCDlist.html>`_
 includes a large number of options, but here we summarize some of the most
 common ones that will likely be used::
 

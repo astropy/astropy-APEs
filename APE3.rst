@@ -69,8 +69,8 @@ configuration).  The configuration items are defined within each
 subpackage using declarations that look like::
 
     SESAME_URL = ConfigurationItem("sesame_url",
-                        ["http://cdsweb.u-strasbg.fr/cgi-bin/nph-sesame/",
-                         "http://vizier.cfa.harvard.edu/viz-bin/nph-sesame/"],
+                        ["https://cdsweb.u-strasbg.fr/cgi-bin/nph-sesame/",
+                         "https://vizier.cfa.harvard.edu/viz-bin/nph-sesame/"],
                         "The URL to Sesame's web-queryable database.",
                         cfgtype='string_list')
 
@@ -158,7 +158,7 @@ made:
 
 - Upgrading of the config file will roughly follow the `Debian
   configuration file guidelines
-  <http://raphaelhertzog.com/2010/09/21/debian-conffile-configuration-file-managed-by-dpkg/>`__,
+  <https://raphaelhertzog.com/2010/09/21/debian-conffile-configuration-file-managed-by-dpkg/>`__,
   which strikes a good balance between safety and simplicity.  It
   prevents the user's config file changes from being accidentally
   overwritten, but doesn't try to be too clever about
