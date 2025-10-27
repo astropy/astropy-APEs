@@ -5,13 +5,17 @@ authors: Kelle Cruz, Alex Hagen, Thomas Robitaille, Erik Tollerud, Alexa Villaum
 
 date-created: 2015 May 4
 
-date-last-revised: 2015 May 17
+date-last-revised: 2025 Oct 6
 
 date-accepted: 2015 May 17
 
 type: Informational
 
-status: Accepted
+status: Superseded
+
+revised-by:
+
+* Erik Tollerud - 2025 October 6 - Mark this APE as "superseded" on behalf of Astropy Coordination Committee
 
 Abstract
 --------
@@ -96,3 +100,18 @@ particular a clause was added that future changes to the code of conduct do
 not require a new APE, but do require a period of one week for anyone to
 raise objections to proposed changes. No objections were raised for this APE,
 and it was therefore accepted on May 17th 2015.
+
+As of November 2025, the Astropy Community Code of Conduct is superseded by the
+NumFOCUS Code of Conduct, which can be found at
+https://numfocus.org/code-of-conduct/. The NumFOCUS Code of Conduct, while different in
+detailed language, shares the same core principles and in general is the same
+as the Code of Conduct described here.  This APE is retained for reference and
+use by others, but is no longer the active code of conduct for the Astropy
+community. For more details on the transition, see
+https://github.com/astropy/astropy.github.com/pull/669 and linked mailing list
+posts and related issues.
+
+Previous versions of this APE
+-----------------------------
+
+* 2015-05-04 [`DOI <https://zenodo.org/records/1043913>`_] [`GitHub <https://github.com/astropy/astropy-APEs/blob/6c539bbb1d60587f253e8bf76b2529202315f0f1/APE8.rst>`_]
