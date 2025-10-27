@@ -22,7 +22,7 @@ status: Accepted
 .. _astropy-helpers: https://astropy-helpers.readthedocs.io/en/stable/
 .. _cython: https://cython.org/
 .. _pytest: https://pytest.org/
-.. _jinja2: https://jinja.pocoo.org/docs/2.10/
+.. _jinja2: http://jinja.pocoo.org/docs/2.10/
 .. _package-template: https://github.com/astropy/package-template
 
 Abstract
