@@ -14,7 +14,7 @@ APEs
                                                                      revised)
 === ================================================================ =========== ============ ============
 0   `The Astropy Project Governance Charter`_                        2021-Feb-19   Accepted   |APE 0 DOI|
-1   `APE Purpose and Process`_                                       2024-Feb-05   Accepted   |APE 1 DOI|
+1   `APE Purpose and Process`_                                       2025-Oct-27   Accepted   |APE 1 DOI|
 2   `Astropy Release Cycle and Version Numbering`_                   2013-Dec-11   Accepted   |APE 2 DOI|
 3   `Configuration`_                                                 2013-Dec-10   Accepted   |APE 3 DOI|
 4   `Astropy Setup Helpers`_                                         2014-Jun-28   Accepted   |APE 4 DOI|
