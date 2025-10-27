@@ -395,7 +395,7 @@ On the other hand, the downsides of having a core ``NDData`` class is that it
 reduces flexibility of the sub-classes - for instance ``Spectrum`` has to be
 implemented taking into consideration the restrictions on e.g. attribute
 names defined by the sub-classes. In the
-`spectral-cube <https://spectral-cube.readthedocs.org>`_ package, at the moment
+`spectral-cube <https://spectral-cube.readthedocs.io>`_ package, at the moment
 we do not have a ``data`` attribute because we have a custom masking
 framework and define attributes like ``unmasked_data``. Of course, we should
 aim to make this more compliant with what is decided here, but this is just
