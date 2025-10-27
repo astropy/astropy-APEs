@@ -3,40 +3,38 @@ APEs: Astropy Proposals for Enhancement
 
 APEs are documents to address non-trivial enhancements that require discussion
 and thought beyond a single Pull Request. This is intended to mirror the
-long-standing Python Enhancement  Proposal process, but generally not quite as
-formally. Normally a proposal goes through various phases of consideration.
-Discussion is expected to take place using existing mechanisms (astropy-dev,
-github, hangouts, etc), and eventually a decision is made regarding whether the
-proposal should be accepted, rejected, or modified.
+long-standing PEP (Python Enhancement Proposal) process, but generally not quite as
+formally. Please consult `APE Purpose and Process`_ for full details.
 
-Accepted APEs
-^^^^^^^^^^^^^
+APEs
+^^^^
 
-=== ================================================================ =========== ============
-#     Title                                                          Date        DOI
-=== ================================================================ =========== ============
-0   `The Astropy Project Governance Charter`_                        2021-Feb-19 |APE 0 DOI|
-1   `APE Purpose and Process`_                                       2024-Feb-05 |APE 1 DOI|
-2   `Astropy Release Cycle and Version Numbering`_                   2013-Dec-11 |APE 2 DOI|
-3   `Configuration`_                                                 2013-Dec-10 |APE 3 DOI|
-4   `Astropy Setup Helpers`_                                         2014-Jun-28 |APE 4 DOI|
-5   `Coordinates Subpackage Plan`_                                   2014-Jan-22 |APE 5 DOI|
-6   `Enhanced Character Separated Values table format`_              2015-Jan-26 |APE 6 DOI|
-7   `NDData Plan`_                                                   2014-Dec-17 |APE 7 DOI|
-8   `Astropy Community Code of Conduct`_                             2015-May-04 |APE 8 DOI|
-9   `Timeseries object for Astropy`_                                 2023-Oct-20 |APE 9 DOI|
-10  `Roadmap for Python 3-only support`_                             2016-Aug-22 |APE 10 DOI|
-12  `Using Cookiecutter for the package-template`_                   2017-Mar-28 |APE 12 DOI|
-13  `Vision for Astropy Spectroscopic Tools`_                        2017-Dec-12 |APE 13 DOI|
-14  `A shared Python interface for World Coordinate Systems`_        2018-Nov-09 |APE 14 DOI|
-15  `An Updated Model for the Affiliated Package Ecosystem`_         2018-May-14 |APE 15 DOI|
-17  `A roadmap for package infrastructure without astropy-helpers`_  2019-Dec-12 |APE 17 DOI|
-18  `Adopt NEP 29 for CPython and Numpy Version Support`_            2024-Jul-12 |APE 18 DOI|
-19  `Distributing Astropy Project Funding`_                          2022-Feb-28 |APE 19 DOI|
-20  `Formatting Code with Black`_                                    2022-Sep-23 |APE 20 DOI|
-21  `Ending Long Term Support Releases`_                             2023-May-31 |APE 21 DOI|
-22  `Astropy Affiliated Packages with pyOpenSci`_                    2024-Jan-29 |APE 22 DOI|
-=== ================================================================ =========== ============
+=== ================================================================ =========== ============ ============
+#   Title                                                            Date (last  Status       DOI
+                                                                     revised)
+=== ================================================================ =========== ============ ============
+0   `The Astropy Project Governance Charter`_                        2021-Feb-19   Accepted   |APE 0 DOI|
+1   `APE Purpose and Process`_                                       2024-Feb-05   Accepted   |APE 1 DOI|
+2   `Astropy Release Cycle and Version Numbering`_                   2013-Dec-11   Accepted   |APE 2 DOI|
+3   `Configuration`_                                                 2013-Dec-10   Accepted   |APE 3 DOI|
+4   `Astropy Setup Helpers`_                                         2014-Jun-28   Accepted   |APE 4 DOI|
+5   `Coordinates Subpackage Plan`_                                   2014-Jan-22   Accepted   |APE 5 DOI|
+6   `Enhanced Character Separated Values table format`_              2015-Jan-26   Accepted   |APE 6 DOI|
+7   `NDData Plan`_                                                   2014-Dec-17   Accepted   |APE 7 DOI|
+8   `Astropy Community Code of Conduct`_                             2015-May-04   Accepted   |APE 8 DOI|
+9   `Timeseries object for Astropy`_                                 2023-Oct-20   Accepted   |APE 9 DOI|
+10  `Roadmap for Python 3-only support`_                             2016-Aug-22   Accepted   |APE 10 DOI|
+12  `Using Cookiecutter for the package-template`_                   2017-Mar-28   Accepted   |APE 12 DOI|
+13  `Vision for Astropy Spectroscopic Tools`_                        2017-Dec-12   Accepted   |APE 13 DOI|
+14  `A shared Python interface for World Coordinate Systems`_        2018-Nov-09   Accepted   |APE 14 DOI|
+15  `An Updated Model for the Affiliated Package Ecosystem`_         2018-May-14   Accepted   |APE 15 DOI|
+17  `A roadmap for package infrastructure without astropy-helpers`_  2019-Dec-12   Accepted   |APE 17 DOI|
+18  `Adopt NEP 29 for CPython and Numpy Version Support`_            2024-Jul-12   Accepted   |APE 18 DOI|
+19  `Distributing Astropy Project Funding`_                          2022-Feb-28   Accepted   |APE 19 DOI|
+20  `Formatting Code with Black`_                                    2022-Sep-23   Accepted   |APE 20 DOI|
+21  `Ending Long Term Support Releases`_                             2023-May-31   Accepted   |APE 21 DOI|
+22  `Astropy Affiliated Packages with pyOpenSci`_                    2024-Jan-29   Accepted   |APE 22 DOI|
+=== ================================================================ =========== ============ ============
 
 .. _The Astropy Project Governance Charter: https://github.com/astropy/astropy-APEs/blob/main/APE0.rst
 .. _APE Purpose and Process: https://github.com/astropy/astropy-APEs/blob/main/APE1.rst
@@ -126,45 +124,26 @@ Accepted APEs
 Proposing a new APE
 ^^^^^^^^^^^^^^^^^^^
 
-New APEs should be created using the ``APEtemplate.rst`` file in this repository.
-Fork the repository, copy ``APEtemplate.rst`` to ``APE##.rst`` where ## is the next 
-free number on the list of APEs (don't forget to check the open PRs when finding 
-this number). Issue a Pull Request with that file once
-you've written it up (little explanation is required in the PR itself given that
-the document has all the content - usually it's easiest to just paste in the
-abstract).
+Please read the "Submitting an APE" section in `APE Purpose and Process`_.
 
-Note that there is not much point to making proposals unless someone or some
-group has signed up to implement it if the APE is accepted
-(typically this would involve the author or authors of the APE).  Just issuing
-an APE in order to spur others to do work is not generally going to be received
-well. Generally, an implementation is expected before an APE can be considered
-fully accepted. For proposals that require extensive work that few are willing
-to perform without some assurance it will be accepted, provisional acceptance
-is an option. For serious consideration it is usually good to show that detailed
-technical aspects have been played with in real code rather (even if it isn't a
-complete implementation).
+Tips:
+
+* Don't forget to check the open PRs when finding the
+  next free number for your APE.
+* For your PR description, usually it's the easiest to paste in the
+  abstract, and link to other existing GitHub Issues or PRs, if applicable.
 
 Finalizing APEs
 ^^^^^^^^^^^^^^^
 
-The final decision on accepting or rejecting APEs lies with the Astropy
-Coordination Committee (CoCo).  Once the community discussion on the APE has wound
-down, the committee discusses the APE and makes a final decision on acceptance
-or rejection.  One of the committee members should then:
+Please read the "APE Review" section in `APE Purpose and Process`_.
 
-#. Fill in the "Decision rationale" section of the APE with a description of why
-   the APE was accepted or rejected, including a summary of the community's
-   discussion as relevant.
-#. Update the "date-last-revised" to the day of merging and "status" to
-   "Accepted" or "Rejected".
-#. Leave a brief comment in the PR indicating the result.
-#. Merge the PR with the above changes.
-#. If the APE was accepted then continue with the remaining steps, otherwise 
-   stop now.
+If the APE was accepted, here are the archiving (Zenodo) instructions for
+the Coordination Committee:
+
 #. Upload the APE to Zenodo to give it a DOI.  Log into the astropy team Zenodo
    account (*not your personal account*), go to https://zenodo.org/deposit/new,
-   upload the .rst file, and set the fields to the following:
+   upload the RST file, and set the fields to the following:
 
    ============================= ======================================================
    Zenodo field                  Set to
@@ -177,7 +156,10 @@ or rejection.  One of the committee members should then:
    Authors                       The APE authors (directly from the APE text, but with ORCIDs if possible)
    Description                   The APE abstract (copy/paste the rendered HTML from GitHub)
    License                       CC-Attribution (default)
-   Related/alternate identifiers Github link to the APE file *at the specific merge commit* (e.g. https://github.com/astropy/astropy-APEs/blob/42951733ac42c0ea178d8df30705274a43c93091/APE1.rst) as "is supplemented by this upload". If this is a revised version, this should be the URL of the commit where the APE was revised.
+   Related/alternate identifiers GitHub link to the APE file *at the specific merge commit*
+                                 (e.g. https://github.com/astropy/astropy-APEs/blob/42951733ac42c0ea178d8df30705274a43c93091/APE1.rst)
+                                 as "is supplemented by this upload". If this is a revised version,
+                                 this should be the URL of the commit where the APE was revised.
    ============================= ======================================================
 
 #. Get the source for the DOI badge from the newly-created Zenodo record page by
@@ -185,22 +167,16 @@ or rejection.  One of the committee members should then:
    reStructuredText source. You will need to update that with the "all versions"
    DOI number, which you can see under the "versions" section of Zenodo. (It is
    typically the first version minus 1.)
-#. On GitHub (or locally) edit ``README.rst`` and add an entry for the new APE to the
-   "Accepted APEs" table.  Use the DOI link from the previous step.  Add
-   corresponding RST link refs for both the DOI link and the new APE.  Preview
-   the update and test the links to make sure they are all correct.  Then commit
-   directly to main (or PR if you prefer).
-#. Send an email to `astropy-dev <https://groups.google.com/forum/#!forum/astropy-dev/>`_
-   announcing the acceptance In general this should just point to the accepted
-   APE rather than providing additional decision rationale.
+#. (This step can be done directly on `main` or as a PR, as you prefer.)
+   Edit `README.rst` to add the DOI link from the previous step to the relevant
+   row for the APE in the "APEs" table. Preview the update and test the link
+   to make sure they are all correct. Then, commit the change.
 
 Updating APEs
 ^^^^^^^^^^^^^
 
-In the cases where an updated APE requires updating (e.g., references to a new
-APE that supercedes it, clarifying information that emerges after the APE is
-accepted, etc.), changes can be made directly via PR, but the
-"date-last-revised" should be updated in the APE. Additionally, the Zenodo entry
-will need to be updated with a new version of the APE (*not* a completely new
+Please read the "Modifications to an existing APE" section in `APE Purpose and Process`_.
+
+If applicable, the Zenodo entry needs to be updated with a new version of the APE (*not* a completely new
 Zenodo entry), by using the "New version" button and then filling out the forms
-as described above.
+as described in "Finalizing APEs" section above.
