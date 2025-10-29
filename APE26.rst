@@ -1,0 +1,331 @@
+Removing data storage (representations) from coordinate frames
+==============================================================
+
+Authors (alphabetical): Jeff Jennings, Adrian Price-Whelan, Nathaniel Starkman, Marten van Kerkwijk
+---------------------------------------------------------------------------------------------------
+
+:date-created: 2024 11 04
+:date-last-revised: 2025 04 28
+:date-accepted: 202x xx xx
+:type: Standard Track
+:status: Discussion
+
+Abstract
+--------
+Following the rationale presented in `APE 5 
+<https://github.com/astropy/astropy-APEs/blob/main/APE5.rst>`_, 
+coordinate frames in astropy.coordinates currently store metadata 
+used to construct the frame (i.e., for transforming between frames) 
+and may also store coordinate *data* itself. This duplicates 
+functionality with ``SkyCoord``, which acts as a container for both 
+coordinate data and reference frame information. We propose to 
+change the frame classes such that they only store metadata and 
+never coordinate data, superseding this aspect of the implementation 
+in `APE 5 <https://github.com/astropy/astropy-APEs/blob/main/APE5.rst>`_. 
+This would make the implementation more modular and performant, 
+remove ambiguity for users from having nearly duplicate functionality 
+with slightly different APIs, and better satisfy the principle of 
+`Separation of Concerns
+<https://en.wikipedia.org/wiki/Separation_of_concerns>`_.
+
+Detailed description
+--------------------
+The coordinate frame classes (subclasses of ``BaseCoordinateFrame``, 
+e.g., ``ICRS``, ``Galactic``, ``FK4``, etc.) are used to represent 
+astronomical reference frames. These may also contain position, 
+velocity, time, or other information about the reference frame 
+relative to another reference frame, which is used to transform 
+coordinates between the reference frames that exist in the 
+``astropy.coordinates`` ecosystem. For example, the ``AltAz`` frame 
+class, which is used when referencing sky coordinates in altitude 
+and azimuth, must contain a location on Earth and a time in order 
+to transform to and from an inertial reference frame like the ICRS. In 
+addition to reference frame information, these frame classes can 
+**also** contain coordinate data (positions, velocities, or other 
+differentials), which are stored internally using the 
+``Representation`` and ``Differential`` classes.
+
+The above reflects a design choice in the coordinate frame 
+implementation in `APE 5 
+<https://github.com/astropy/astropy-APEs/blob/main/APE5.rst>`_ 
+that, following several years of use, we have learned from and 
+think best to revise. We now view it as an insufficient 
+separation of concerns. The 
+coordinate frame class deals with two separate issues: the 
+definition of the frame and the storage of coordinate data within 
+that frame. Ideally the code would be more modularly structured, 
+where the coordinate frame class **only** defines the reference 
+frame. It would then be the purview of another class – like 
+``SkyCoord`` or the newly-proposed ``Coordinate`` – to bring these 
+concerns together and to represent data (using ``Representation`` 
+and ``Differential`` classes) in a given reference frame (using a 
+``CoordinateFrame`` class). As a demonstration of the current state 
+of duplicated functionality, these two initializations effectively 
+represent the same thing, but return different objects with similar 
+but not identical APIs:
+
+.. code-block:: python
+
+    c1 = SkyCoord(1., 2., frame="icrs", units="deg")
+    c2 = ICRS(1. * u.deg, 2. * u.deg)
+
+We suggest the situation should instead be analogous to what is the 
+case for units, which know how to transform from one to another, but 
+are not concerned with how the values are stored (that belongs to 
+``Quantity``). Translating to coordinates, units are like 
+``CoordinateFrame``, the values are the coordinate data 
+(``Representations``), and ``Quantity`` is like ``SkyCoord``.
+
+Having both the frame classes as well as ``SkyCoord`` be able to
+store and handle data has resulted in a large amount of code
+duplication. It has also required duplicated or even quadrupled 
+tests, in order to test both ``BaseCoordinateFrame`` and 
+``SkyCoord`` methods with both ``BaseCoordinateFrame`` and 
+``SkyCoord`` arguments - where the tests have not caught every 
+combination, problems have gone unnoticed. Restructuring the 
+``frame`` classes to remove data storage will allow for much more
+maintainable, de-duplicated code. It will also make it easier to
+contribute: if there is a problem one would like to solve in a
+given method, if one looks in ``SkyCoord``, one will likely find
+that it does not exist, and might struggle to find that instead 
+it is defined on ``BaseCoordinateFrame`` and gets dynamically 
+called via  ``SkyCoord.__getattr__``. Indeed, the construction of
+``BaseCoordinateFrame`` ends up complicating ``SkyCoord``, which
+has to manage the coordinate data **through** the stored
+``BaseCoordinateFrame``.
+
+Another issue with the current implementation of coordinate
+frames is that the optional inclusion of coordinate data makes
+the reference frames “multi-modal”. This creates different usage
+modes (with and without data), each exhibiting different
+behavior. For instance, some methods such as ``separation`` work
+fine with frames with data, while doing this on coordinate frames
+without data results in an error. While this multi-modal
+structure as motivated in `APE 5
+<https://github.com/astropy/astropy-APEs/blob/main/APE5.rst>`_
+can be seen as a benefit for interpretability of the logic, we
+also now see it from the perspective of an anti-pattern. It
+forces any code interacting with the frame classes to handle both
+cases (checking ``frame.has_data``), complicating the codebase.
+Moreover static analyzers cannot determine which case is being
+used; with separated frames and data static analyzers will be
+able to prevent this entire class of errors. We thus find it
+worthwhile to separate coordinate data from reference frames at
+the possible expense of developers having to learn this new
+framework.
+
+All the points discussed thus far – separation of concerns and
+code duplication – concern maintainers. However user experience
+is the more important consideration. In this arena too,
+separating frames from data storage has its advantages. Perhaps
+most importantly, documentation will be more obvious: the methods
+and attributes are defined on ``SkyCoord`` (and ``Coordinate``)
+proper, so `Sphinx <https://www.sphinx-doc.org/>`_ will know how 
+to typeset those, while type
+checkers can help users in finding and using them properly. It
+will also be easier: following the 
+`Zen of Python <https://peps.python.org/pep-0020/>`_, "There should 
+be one-- and preferably only one --obvious way to do it." The 
+present overlap leads to
+confusion wherein beginner users end up creating
+``BaseCoordinateFrame`` instances, when the docs
+are clear that these are for more advanced users and that
+``SkyCoord`` is to be preferred. The system will also be less
+fragile; with these proposed changes, users - and importantly 
+downstream developers who subclass ``SkyCoord`` - will have a 
+more clear, introspectable, and robust system.
+
+Finished Product
+----------------
+The end result of the implementation of this APE are be two separate
+hierarchies of classes: reference frame classes and coordinate
+classes which bring together a reference frame and coordinate
+data. We discuss each class type in turn.
+
+Coordinate frame classes only hold information pertaining to
+the reference frame they represent and never actual coordinate
+data in that reference frame. This is consistent with our
+mathematical framework, the reference frame mediates how
+coordinate data is understood (e.g., distance measures) or
+interacts (e.g., separation from other coordinates), but the
+coordinate data itself is actually independent of that
+information.
+
+Classes like ``SkyCoord`` will be composed structures bringing
+together the reference frame (an instance of a ``BaseFrame``
+subclass) and the coordinate data (``BaseRepresentation``
+objects). We also introduce a new class, ``Coordinate``, which
+is akin to ``SkyCoord`` (containing both frame and data), but
+without extra features like keeping frame attributes not
+associated with the current frame, caching and flexible input
+parsing. In this way ``Coordinate`` operates very similarly to
+the current ``BaseCoordinateFrame`` objects when they have
+data, and is meant to be their direct replacement in the new
+framework as well as a more lightweight and performant
+alternative to ``SkyCoord``.
+
+We illustrate the new framework with the following pseudocode.
+
+.. code-block:: python
+
+    class BaseFrame:
+        ...
+
+    class ICRSFrame(BaseFrame):
+        pass  # no frame attributes
+
+    class FK5Frame(BaseFrame):
+        equinox: TimeAttribute
+
+    # ------
+
+    class BaseCoordinate:
+        frame: BaseFrame
+        data: BaseRepresentation
+
+    class Coordinate(BaseCoordinate):
+        ...  # it's fast.
+
+    class SkyCoord(BaseCoordinate):
+
+        def __init__(...):  # flexible input parsing
+            ...
+
+Branches and pull requests
+--------------------------
+No direct progress on these changes has yet occurred. Discussion
+of these ideas has however arisen in multiple issues and pull
+requests, demonstrating the need for and utility of the proposed
+changes.
+
+Several issues have been raised regarding topics such as
+confusion differentiating the use of ``frame`` and ``SkyCoord``
+for data storage, and problems arising in other astropy
+subpackages when using frames that store data. For example:
+
+- `Comparing Frame with data and SkyCoord with same data raises 
+  exception #13476 
+  <https://github.com/astropy/astropy/issues/13476>`_
+- `Add Frame objects without data to a Table #16823 
+  <https://github.com/astropy/astropy/issues/16823>`_
+
+Additionally, multiple pull requests have factored out common 
+code between frames and ``SkyCoord``, showing that there is no 
+proper separation of concern:
+
+- `Allow BaseCoordinateFrames to be stored in tables (by giving 
+  them .info) #16831 <https://github.com/astropy/astropy/pull/16831>`_
+- `Masked frames and SkyCoord #17106 
+  <https://github.com/astropy/astropy/pull/17016>`_ (this was later 
+  removed and instead methods were duplicated)
+
+Further, pull requests have added methods to make frames and 
+``SkyCoord`` even more similar, underscoring that frames *with* 
+data should not be separate entities from ``SkyCoord``:
+
+- `Implement BaseCoordinateFrame.to_table() #17009 
+  <https://github.com/astropy/astropy/pull/17009>`_
+- `Implement BaseCoordinateFrame.frame property #16356 
+  <https://github.com/astropy/astropy/pull/16356>`_
+
+In addition, many of these ideas have been developed and tested in
+parallal in the JAX-oriented library `coordinax
+<https://github.com/GalacticDynamics/coordinax>`_. Many of the
+developers of that library are also active Astropy developers and
+the development effort towards ``coordinax`` informs, tests, and
+validates the ideas presented in this APE. In short, it works.
+
+
+Implementation
+--------------
+The direct use of coordinate frames instead of ``SkyCoord`` is 
+common. In particular ``ICRS`` objects are frequently created 
+with data. Given the prevalent use, it is imperative to maintain 
+backward compatibility and not break the API too quickly. 
+Therefore, we propose implementing this APE through 4 steps (and 
+substeps).
+
+1. Splitting the frame classes into two hierarchies: ones with 
+   and without data, with the data-less ones getting new names.
+
+2. Adding a new ``Coordinate`` class that is similar to 
+   ``SkyCoord``, but which does not keep any frame attributes not 
+   in the current frame, and does not have extra features like 
+   caching and flexible input parsing. It will only accept 
+   data-less frame classes.
+
+3. Switching ``SkyCoord`` to use the data-less frame classes, and 
+   enabling automatic conversion of the with-data frames into 
+   ``SkyCoord`` objects.
+
+4. Deprecating the legacy with-data frame classes, and eventually 
+   removing them after a deprecation period that adheres to 
+   `APE 2 <https://github.com/astropy/astropy-APEs/blob/main/APE2.rst>`_.
+
+   - Emitting warnings when instantiated.
+
+   - Still warn, but return a ``Coordinate``, not an instance of 
+     its class type (by overriding ``__new__``)
+
+   - Remove.
+
+The fourth step is illustrated in the following 
+pseudocode:
+
+.. code-block:: python
+
+    # === Reference Frame (no data) ===
+
+    class BaseFrame:
+        ...
+
+        # Like unit.to(new_unit, value)
+        def transform_data_to(self, frame: BaseFrame, data: BaseRepresentation) -> BaseRepresentation:
+            """Used by BaseCoordinate for transformation."""
+            ...
+
+    class ICRSFrame(BaseFrame):
+        pass  # no frame attributes
+
+    class FK5Frame(BaseFrame):
+        equinox: TimeAttribute
+
+    # === Coordinates (data + frame) ===
+
+    class BaseCoordinate:
+        """Base class for data in a reference frame."""
+        frame: BaseFrame
+        data: BaseRepresentation
+        ...
+
+    class SkyCoord(BaseCoordinate):
+         """Data in a reference frame, batteries included."""
+
+        def __init__(...):  # flexible input parsing
+            # If the frame is a LegacyBaseCoordinateFrame then it is
+            # split into a BaseFrame and BaseRepresentation.
+            ...
+
+        _cache: dict[str, Any]  # cache
+
+    class Coordinate(BaseCoordinate):
+        """Data in a reference frame."""
+        ...  # Direct and fast.
+
+    # === Legacy Coordinate Classes ===
+
+    class BaseCoordinateFrame(BaseCoordinate):
+        """Reference frames (with optional data storage)."""
+
+        def __new__(self):
+            warnings.warn("Please use SkyCoord")
+
+        @abstractpropery # implemented on subclasses
+        def frame(self) -> BaseFrame:
+            ...
+
+    class ICRS(BaseCoordinateFrame, ICRSFrame):
+        ...
+
+    class FK5(BaseCoordinateFrame, FK5Frame):
+        ...
