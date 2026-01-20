@@ -18,6 +18,7 @@ revised-by:
 * Lia Corrales, Thomas Robitaille, Erik Tollerud - 2021 February 26 - Added APE modification process
 * Pey Lian Lim - 2024 February 5 - Added APE numbering process
 * Thomas Robitaille, Pey Lian Lim - 2025 Oct 27 - Modify APE process to merge APEs that are in the discussion stage
+* Kyle Westfall - 2026 Jan 20 - Include minimum for discussion period, and estimated time for final CoCo review
 
 Abstract
 --------
@@ -111,7 +112,7 @@ the `@astropy/ape-editor-team <https://github.com/orgs/astropy/teams/ape-editor-
 should be mentioned in the pull request, and
 the APE will then undergo an editorial review which focuses on wording,
 spelling, grammar, and clarity, but does not focus on the substance of the APE.
-The editorial process ideally should not take longer than a month.
+**The editorial process ideally should not take longer than a month.**
 Once the APE editors are happy with the APE, they will:
 
 #. Make sure the APE has a status of "Discussion".
@@ -136,7 +137,7 @@ Once the APE editors are happy with the APE, they will:
 #. Send an email to `astropy-dev <https://groups.google.com/g/astropy-dev>`_
    with a link to the APE and a short summary to kick off the discssion period.
    Emphasize that the proposal should be discussed on the mailing list, not the
-   pull request.
+   pull request.  **The discussion period should be at least two weeks.**
 
 As the discussion proceeds, the authors can choose to update the APE at any point via
 new pull requests, which are as before, subject to editorial review before merging.
@@ -163,13 +164,18 @@ APE Review
 Once the authors feel that they have reached as close to a consensus as they
 will get (i.e., the community discussion on the APE has wound
 down), they can contact the Coordination Committee, who are
-responsible for making a final decision. The decision can be to:
+responsible for making a final decision.
+
+The review period is expected to be 2-3 weeks, beginning when the CoCo is
+notified by the APE authors that the APE is ready for final review.
+
+The decision can be to:
 
 * accept the APE,
 * reject the APE, or
 * suggest to the authors to continue the discussion before re-submitting the APE for a decision.
 
-One of the Coordination Committee members should then:
+One of the Coordination Committee members should create a new PR and then:
 
 #. Fill in the "Decision rationale" section of the APE with a description of why
    the status was chosen, including a summary of the community's discussion as relevant.
