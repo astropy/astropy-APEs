@@ -165,8 +165,8 @@ Once the authors feel that they have reached as close to a consensus as they
 will get (i.e., the community discussion on the APE has wound down), any final
 edits should be made and a PR should be submitted for editorial review.  They
 must then notify the Coordination Committee that the APE is ready for full
-review and a final decision.  Note that any APE to reviewed must be in the main
-branch of the repository with its status set to "Discussion."
+review and a final decision.  Note that any APE to be reviewed must be in the
+main branch of the repository with its status set to "Discussion."
 
 The review period is expected to be 2-3 weeks, beginning when the CoCo is
 notified by the APE authors.
