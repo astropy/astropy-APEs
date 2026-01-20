@@ -18,7 +18,7 @@ revised-by:
 * Lia Corrales, Thomas Robitaille, Erik Tollerud - 2021 February 26 - Added APE modification process
 * Pey Lian Lim - 2024 February 5 - Added APE numbering process
 * Thomas Robitaille, Pey Lian Lim - 2025 Oct 27 - Modify APE process to merge APEs that are in the discussion stage
-* Kyle Westfall - 2026 Jan 20 - Include minimum for discussion period, and estimated time for final CoCo review
+* Kyle Westfall - 2026 Jan 20 - Added relevant review periods and clarified start of final review process.
 
 Abstract
 --------
