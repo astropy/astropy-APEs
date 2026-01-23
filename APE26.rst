@@ -5,7 +5,7 @@ Authors (alphabetical): Jeff Jennings, Adrian Price-Whelan, Nathaniel Starkman, 
 ---------------------------------------------------------------------------------------------------
 
 :date-created: 2024 11 04
-:date-last-revised: 2025 04 28
+:date-last-revised: 2026 01 23
 :date-accepted: 202x xx xx
 :type: Standard Track
 :status: Discussion
@@ -77,8 +77,14 @@ are not concerned with how the values are stored (that belongs to
 (``BaseRepresentation``), and ``Quantity`` is like ``SkyCoord``.
 
 Having both the frame classes as well as ``SkyCoord`` be able to
-store and handle data has resulted in a large amount of code
-duplication. It has also required duplicated or even quadrupled 
+store and handle data has resulted in a few notable types of
+issues. First, it has results in a large amount of code
+duplication. Second, the reliance on `SkyCoord.__getattr__()` 
+has led to at least one method that `SkyCoord` implements 
+accidentally (`astropy/astropy#15643
+<https://github.com/astropy/astropy/issues/15643>`_), and there 
+may be more. Third, having both the frame classes and 
+`SkyCoord` has also required duplicated or even quadrupled 
 tests, in order to test both ``BaseCoordinateFrame`` and 
 ``SkyCoord`` methods with both ``BaseCoordinateFrame`` and 
 ``SkyCoord`` arguments - where the tests have not covered every 
@@ -108,7 +114,7 @@ also now see it from the perspective of an anti-pattern. It
 forces any code interacting with the frame classes to handle both
 cases (checking ``frame.has_data``), complicating the codebase.
 Moreover static analyzers cannot determine which case is being
-used; with separated frames and data static analyzers will be
+used; with separated frames and data, static analyzers will be
 able to prevent this entire class of errors. We thus find it
 worthwhile to separate coordinate data from reference frames at
 the possible expense of developers having to learn this new
@@ -137,7 +143,7 @@ more clear, introspectable, and robust system.
 
 Finished Product
 ----------------
-The end result of the implementation of this APE are be two separate
+The end result of the implementation of this APE will be two separate
 hierarchies of classes: reference frame classes and coordinate
 classes which bring together a reference frame and coordinate
 data. We discuss each class type in turn.
@@ -145,7 +151,7 @@ data. We discuss each class type in turn.
 Coordinate frame classes only hold information pertaining to
 the reference frame they represent and never actual coordinate
 data in that reference frame. This is consistent with our
-mathematical framework, the reference frame mediates how
+mathematical framework, as the reference frame mediates how
 coordinate data is understood (e.g., distance measures) or
 interacts (e.g., separation from other coordinates), but the
 coordinate data itself is actually independent of that
