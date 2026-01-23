@@ -271,7 +271,9 @@ substeps).
    - Emitting warnings when instantiated.
 
    - Still warn, but return a ``Coordinate``, not an instance of 
-     its class type (by overriding ``__new__``)
+     its class type (by overriding ``__new__``). If there are 
+     justified objections to overriding ``__new__``, an 
+     alternative would be to prolong the deprecation period.
 
    - Remove.
 
