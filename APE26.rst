@@ -55,12 +55,19 @@ coordinate frame class deals with two separate issues: the
 definition of the frame and the storage of coordinate data within 
 that frame. Ideally the code would be more modularly structured, 
 where the coordinate frame class **only** defines the reference 
-frame. It would then be the purview of another class – like 
+frame. This was considered in APE 5 (discussed as one
+`alternative <https://github.com/jeffjennings/ape26_scratch/blob/main/demo.ipynb>`_ 
+to the implementation pursued there), but it was deemed too difficult 
+to implement the 'high-level' classes as 
+`generics <https://typing.python.org/en/latest/reference/generics.html>`_.
+With the proposed framework in this APE, we no longer find such a 
+difficulty; the coordinate frame class only defines the 
+reference frame, and it becomes the purview of another class – like 
 ``SkyCoord`` or the newly-proposed ``Coordinate`` – to bring these 
 concerns together and to represent data (using ``BaseRepresentation`` 
 and ``BaseDifferential`` subclasses) in a given reference frame (using a 
-``CoordinateFrame`` class). As a demonstration of the current state 
-of duplicated functionality, these two initializations effectively 
+``CoordinateFrame`` class). As a demonstration of the current state of 
+duplicated functionality, these two initializations effectively 
 represent the same thing, but return different objects with similar 
 but not identical APIs:
 
@@ -69,8 +76,8 @@ but not identical APIs:
     c1 = SkyCoord(1., 2., frame="icrs", units="deg")
     c2 = ICRS(1. * u.deg, 2. * u.deg)
 
-Consequently user confusion can arise from an operation as common as
-transforming reference frames:
+Consequently, as one simple example, user confusion can arise from an 
+operation as common as transforming reference frames:
 
 .. code-block:: python     
 
@@ -349,9 +356,9 @@ pseudocode:
         ...
 
 We also provide a fuller `prototype 
-<https://github.com/user-attachments/files/24824365/ape26_prototype.py>` 
+<https://github.com/jeffjennings/ape26_scratch/blob/main/ape26_prototype.py>` 
 and a
-`demo notebook <https://github.com/user-attachments/files/24824366/demo.ipynb>`
+`demo notebook <https://github.com/jeffjennings/ape26_scratch/blob/main/demo.ipynb>`
 implementing these changes.
 
 Usage patterns
