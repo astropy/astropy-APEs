@@ -43,7 +43,7 @@ to transform to and from an inertial reference frame like the ICRS. In
 addition to reference frame information, these frame classes can 
 **also** contain coordinate data (positions, velocities, or other 
 differentials), which are stored internally using the 
-``Representation`` and ``Differential`` classes.
+``BaseRepresentation`` and ``BaseDifferential`` subclasses.
 
 The above reflects a design choice in the coordinate frame 
 implementation in `APE 5 
