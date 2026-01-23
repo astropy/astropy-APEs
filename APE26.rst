@@ -81,7 +81,7 @@ store and handle data has resulted in a large amount of code
 duplication. It has also required duplicated or even quadrupled 
 tests, in order to test both ``BaseCoordinateFrame`` and 
 ``SkyCoord`` methods with both ``BaseCoordinateFrame`` and 
-``SkyCoord`` arguments - where the tests have not caught every 
+``SkyCoord`` arguments - where the tests have not covered every 
 combination, problems have gone unnoticed. Restructuring the 
 ``frame`` classes to remove data storage will allow for much more
 maintainable, de-duplicated code. It will also make it easier to
