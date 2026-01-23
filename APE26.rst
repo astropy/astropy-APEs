@@ -347,3 +347,10 @@ pseudocode:
 
     class FK5(BaseCoordinateFrame, FK5Frame):
         ...
+
+We also provide a fuller `prototype 
+<https://github.com/user-attachments/files/24824365/ape26_prototype.py>` 
+and a
+`demo notebook <https://github.com/user-attachments/files/24824366/demo.ipynb>`
+implementing these changes.
+
