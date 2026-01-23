@@ -74,7 +74,7 @@ case for units, which know how to transform from one to another, but
 are not concerned with how the values are stored (that belongs to 
 ``Quantity``). Translating to coordinates, units are like 
 ``CoordinateFrame``, the values are the coordinate data 
-(``Representations``), and ``Quantity`` is like ``SkyCoord``.
+(``BaseRepresentation``), and ``Quantity`` is like ``SkyCoord``.
 
 Having both the frame classes as well as ``SkyCoord`` be able to
 store and handle data has resulted in a large amount of code
