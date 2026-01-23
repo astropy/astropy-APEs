@@ -86,12 +86,13 @@ operation as common as transforming reference frames:
     c1g = c1.transform_to("galactic")  # Works
     c2g = c2.transform_to("galactic")  # Raises ConvertError
 
-We suggest the situation should instead be analogous to what is the 
-case for units, which know how to transform from one to another, but 
-are not concerned with how the values are stored (that belongs to 
-``Quantity``). Translating to coordinates, units are like 
-``CoordinateFrame``, the values are the coordinate data 
-(``BaseRepresentation``), and ``Quantity`` is like ``SkyCoord``.
+We suggest the situation should instead be analogous to the structure 
+implemented for ``astropy.units``: the ``Unit`` class is able to 
+transform between units, but it is not concerned with how the 
+associated values are stored (which is instead handled by ``Quantity``).
+Translating to coordinates, units are like ``CoordinateFrame``, the 
+values are the coordinate data (``BaseRepresentation``), and ``Quantity`` 
+is like ``SkyCoord``.
 
 Having both the frame classes as well as ``SkyCoord`` be able to
 store and handle data has resulted in a few notable types of
@@ -122,8 +123,8 @@ frames is that the optional inclusion of coordinate data makes
 the reference frames “multi-modal”. This creates different usage
 modes (with and without data), each exhibiting different
 behavior. For instance, some methods such as ``separation`` work
-fine with frames with data, while doing this on coordinate frames
-without data results in an error. While this multi-modal
+for coordinate-frame instances that contain data, but they lead to 
+faults for instances without data. While this multi-modal
 structure as motivated in `APE 5
 <https://github.com/astropy/astropy-APEs/blob/main/APE5.rst>`_
 can be seen as a benefit for interpretability of the logic, we
@@ -165,7 +166,7 @@ hierarchies of classes: reference frame classes and coordinate
 classes which bring together a reference frame and coordinate
 data. We discuss each class type in turn.
 
-Coordinate frame classes only hold information pertaining to
+Reference frame classes only hold information pertaining to
 the reference frame they represent and never actual coordinate
 data in that reference frame. This is consistent with our
 mathematical framework, as the reference frame mediates how
@@ -265,8 +266,9 @@ The direct use of coordinate frames instead of ``SkyCoord`` is
 common. In particular ``ICRS`` objects are frequently created 
 with data. Given the prevalent use, it is imperative to maintain 
 backward compatibility and not break the API too quickly. 
-Therefore, we propose implementing this APE through 4 steps (and 
-substeps).
+Therefore, we propose implementing this APE through the 4 steps 
+(and substeps) below. See the *Usage patterns* section for 
+practical examples of how to use the new framework.
 
 1. Splitting the frame classes into two hierarchies: ones with 
    and without data, with the data-less ones getting new names.
