@@ -112,7 +112,7 @@ the `@astropy/ape-editor-team <https://github.com/orgs/astropy/teams/ape-editor-
 should be mentioned in the pull request, and
 the APE will then undergo an editorial review which focuses on wording,
 spelling, grammar, and clarity, but does not focus on the substance of the APE.
-**The editorial process ideally should not take longer than a month.**
+**Ideally, the editorial process should not take longer than a month.**
 Once the APE editors are happy with the APE, they will:
 
 #. Make sure the APE has a status of "Discussion".
@@ -168,7 +168,7 @@ must then notify the Coordination Committee that the APE is ready for full
 review and a final decision.  Note that any APE to be reviewed must be in the
 main branch of the repository with its status set to "Discussion."
 
-The review period is expected to be 2-3 weeks, beginning when the CoCo is
+**The review period is expected to be 2-3 weeks**, beginning when the CoCo is
 notified by the APE authors.
 
 The decision can be to:
