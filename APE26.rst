@@ -57,8 +57,8 @@ that frame. Ideally the code would be more modularly structured,
 where the coordinate frame class **only** defines the reference 
 frame. It would then be the purview of another class – like 
 ``SkyCoord`` or the newly-proposed ``Coordinate`` – to bring these 
-concerns together and to represent data (using ``Representation`` 
-and ``Differential`` classes) in a given reference frame (using a 
+concerns together and to represent data (using ``BaseRepresentation`` 
+and ``BaseDifferential`` subclasses) in a given reference frame (using a 
 ``CoordinateFrame`` class). As a demonstration of the current state 
 of duplicated functionality, these two initializations effectively 
 represent the same thing, but return different objects with similar 
