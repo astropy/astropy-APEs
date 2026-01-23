@@ -69,6 +69,16 @@ but not identical APIs:
     c1 = SkyCoord(1., 2., frame="icrs", units="deg")
     c2 = ICRS(1. * u.deg, 2. * u.deg)
 
+Consequently user confusion can arise from an operation as common as
+transforming reference frames:
+
+.. code-block:: python     
+
+    c1g = c1.transform_to(Galactic())  # Works
+    c2g = c2.transform_to(Galactic())  # Works
+    c1g = c1.transform_to("galactic")  # Works
+    c2g = c2.transform_to("galactic")  # Raises ConvertError
+
 We suggest the situation should instead be analogous to what is the 
 case for units, which know how to transform from one to another, but 
 are not concerned with how the values are stored (that belongs to 
@@ -120,7 +130,7 @@ worthwhile to separate coordinate data from reference frames at
 the possible expense of developers having to learn this new
 framework.
 
-All the points discussed thus far – separation of concerns and
+The major points discussed thus far – separation of concerns and
 code duplication – concern maintainers. However user experience
 is the more important consideration. In this arena too,
 separating frames from data storage has its advantages. Perhaps
