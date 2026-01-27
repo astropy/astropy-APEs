@@ -5,13 +5,15 @@ authors: Erik Tollerud, Adrian Price-Whelan, Thomas Aldcroft, Thomas Robitalle
 
 date-created: 2014 January 22
 
-date-last-revised: 2014 March 9
+date-last-revised: 2026 January 23
 
 date-accepted: 2014 March 9
 
 type: Standard Track
 
 status: Accepted
+
+revised-by: Jeff Jennings - 2026 January 23 - Added note on APE 26 alterations to APE 5.
 
 Abstract
 --------
@@ -28,6 +30,9 @@ provides a more user-friendly interface.  The transformation  framework will
 remain essentially unchanged, except that it will operate specifically on the
 low-level classes.
 
+.. note:: January 23, 2026: Portions of the implementation presented here are amended in `APE 26 
+  <https://github.com/astropy/astropy-APEs/blob/main/APE26.rst>`_. See that APE for 
+  further discussion.
 
 Detailed description
 --------------------
