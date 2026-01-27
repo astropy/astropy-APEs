@@ -135,7 +135,7 @@ Once the APE editors are happy with the APE, they will:
 #. Merge the pull request.
 
 #. Send an email to `astropy-dev <https://groups.google.com/g/astropy-dev>`_
-   with a link to the APE and a short summary to kick off the discssion period.
+   with a link to the APE and a short summary to kick off the discussion period.
    Emphasize that the proposal should be discussed on the mailing list, not the
    pull request.  **The discussion period should be at least two weeks.**
 
