@@ -9,32 +9,33 @@ formally. Please consult `APE Purpose and Process`_ for full details.
 APEs
 ^^^^
 
-=== ================================================================ =========== ============ ============
-#   Title                                                            Date (last  Status       DOI
-                                                                     revised)
-=== ================================================================ =========== ============ ============
-0   `The Astropy Project Governance Charter`_                        2021-Feb-19   Accepted   |APE 0 DOI|
-1   `APE Purpose and Process`_                                       2025-Oct-27   Accepted   |APE 1 DOI|
-2   `Astropy Release Cycle and Version Numbering`_                   2013-Dec-11   Accepted   |APE 2 DOI|
-3   `Configuration`_                                                 2013-Dec-10   Accepted   |APE 3 DOI|
-4   `Astropy Setup Helpers`_                                         2014-Jun-28   Accepted   |APE 4 DOI|
-5   `Coordinates Subpackage Plan`_                                   2014-Jan-22   Accepted   |APE 5 DOI|
-6   `Enhanced Character Separated Values table format`_              2015-Jan-26   Accepted   |APE 6 DOI|
-7   `NDData Plan`_                                                   2014-Dec-17   Accepted   |APE 7 DOI|
-8   `Astropy Community Code of Conduct`_                             2025-Oct-06  Superseded  |APE 8 DOI|
-9   `Timeseries object for Astropy`_                                 2023-Oct-20   Accepted   |APE 9 DOI|
-10  `Roadmap for Python 3-only support`_                             2016-Aug-22   Accepted   |APE 10 DOI|
-12  `Using Cookiecutter for the package-template`_                   2017-Mar-28   Accepted   |APE 12 DOI|
-13  `Vision for Astropy Spectroscopic Tools`_                        2017-Dec-12   Accepted   |APE 13 DOI|
-14  `A shared Python interface for World Coordinate Systems`_        2018-Nov-09   Accepted   |APE 14 DOI|
-15  `An Updated Model for the Affiliated Package Ecosystem`_         2018-May-14   Accepted   |APE 15 DOI|
-17  `A roadmap for package infrastructure without astropy-helpers`_  2019-Dec-12   Accepted   |APE 17 DOI|
-18  `Adopt NEP 29 for CPython and Numpy Version Support`_            2024-Jul-12   Accepted   |APE 18 DOI|
-19  `Distributing Astropy Project Funding`_                          2022-Feb-28   Accepted   |APE 19 DOI|
-20  `Formatting Code with Black`_                                    2022-Sep-23   Accepted   |APE 20 DOI|
-21  `Ending Long Term Support Releases`_                             2023-May-31   Accepted   |APE 21 DOI|
-22  `Astropy Affiliated Packages with pyOpenSci`_                    2024-Jan-29   Accepted   |APE 22 DOI|
-=== ================================================================ =========== ============ ============
+=== ================================================================= =========== ============ ============
+#   Title                                                             Date (last  Status       DOI
+                                                                      revised)
+=== ================================================================= =========== ============ ============
+0   `The Astropy Project Governance Charter`_                         2021-Feb-19   Accepted   |APE 0 DOI|
+1   `APE Purpose and Process`_                                        2025-Oct-27   Accepted   |APE 1 DOI|
+2   `Astropy Release Cycle and Version Numbering`_                    2013-Dec-11   Accepted   |APE 2 DOI|
+3   `Configuration`_                                                  2013-Dec-10   Accepted   |APE 3 DOI|
+4   `Astropy Setup Helpers`_                                          2014-Jun-28   Accepted   |APE 4 DOI|
+5   `Coordinates Subpackage Plan`_                                    2014-Jan-22   Accepted   |APE 5 DOI|
+6   `Enhanced Character Separated Values table format`_               2015-Jan-26   Accepted   |APE 6 DOI|
+7   `NDData Plan`_                                                    2014-Dec-17   Accepted   |APE 7 DOI|
+8   `Astropy Community Code of Conduct`_                              2025-Oct-06  Superseded  |APE 8 DOI|
+9   `Timeseries object for Astropy`_                                  2023-Oct-20   Accepted   |APE 9 DOI|
+10  `Roadmap for Python 3-only support`_                              2016-Aug-22   Accepted   |APE 10 DOI|
+12  `Using Cookiecutter for the package-template`_                    2017-Mar-28   Accepted   |APE 12 DOI|
+13  `Vision for Astropy Spectroscopic Tools`_                         2017-Dec-12   Accepted   |APE 13 DOI|
+14  `A shared Python interface for World Coordinate Systems`_         2018-Nov-09   Accepted   |APE 14 DOI|
+15  `An Updated Model for the Affiliated Package Ecosystem`_          2018-May-14   Accepted   |APE 15 DOI|
+17  `A roadmap for package infrastructure without astropy-helpers`_   2019-Dec-12   Accepted   |APE 17 DOI|
+18  `Adopt NEP 29 for CPython and Numpy Version Support`_             2024-Jul-12   Accepted   |APE 18 DOI|
+19  `Distributing Astropy Project Funding`_                           2022-Feb-28   Accepted   |APE 19 DOI|
+20  `Formatting Code with Black`_                                     2022-Sep-23   Accepted   |APE 20 DOI|
+21  `Ending Long Term Support Releases`_                              2023-May-31   Accepted   |APE 21 DOI|
+22  `Astropy Affiliated Packages with pyOpenSci`_                     2024-Jan-29   Accepted   |APE 22 DOI|
+23  `Removing data storage (representations) from coordinate frames`_ 2026-Jan-23  Discussion     
+=== ================================================================= =========== ============ ============
 
 .. _The Astropy Project Governance Charter: https://github.com/astropy/astropy-APEs/blob/main/APE0.rst
 .. _APE Purpose and Process: https://github.com/astropy/astropy-APEs/blob/main/APE1.rst
