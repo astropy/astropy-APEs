@@ -1,5 +1,5 @@
-Removing data storage (representations) from coordinate frames
-==============================================================
+Removing data storage representations from coordinate frames
+============================================================
 
 Authors (alphabetical): Jeff Jennings, Adrian Price-Whelan, Nathaniel Starkman, Marten van Kerkwijk
 ---------------------------------------------------------------------------------------------------

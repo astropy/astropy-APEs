@@ -34,7 +34,7 @@ APEs
 20  `Formatting Code with Black`_                                     2022-Sep-23   Accepted   |APE 20 DOI|
 21  `Ending Long Term Support Releases`_                              2023-May-31   Accepted   |APE 21 DOI|
 22  `Astropy Affiliated Packages with pyOpenSci`_                     2024-Jan-29   Accepted   |APE 22 DOI|
-23  `Removing data storage (representations) from coordinate frames`_ 2026-Jan-23  Discussion     
+23  `Removing data storage representations from coordinate frames`_   2026-Jan-23  Discussion     
 === ================================================================= =========== ============ ============
 
 .. _The Astropy Project Governance Charter: https://github.com/astropy/astropy-APEs/blob/main/APE0.rst
