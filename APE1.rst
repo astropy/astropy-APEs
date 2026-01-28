@@ -115,7 +115,10 @@ spelling, grammar, and clarity, but does not focus on the substance of the APE.
 **Ideally, the editorial process should not take longer than a month.**
 Once the APE editors are happy with the APE, they will:
 
-#. Make sure the APE has a status of "Discussion".
+#. Make sure the APE has a status of "Discussion".  In the status section of the
+   APE header, also include the earliest date when the discussion period can end
+   (at least two weeks from when the email is sent to astropy-dev that starts
+   the discussion period, see below).
 
 #. If additional files are attached with the APE in the PR, make sure the
    file sizes are reasonable.
