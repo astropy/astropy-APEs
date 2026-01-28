@@ -8,7 +8,7 @@ Authors (alphabetical): Jeff Jennings, Adrian Price-Whelan, Nathaniel Starkman, 
 :date-last-revised: 2026 01 23
 :date-accepted: 202x xx xx
 :type: Standard Track
-:status: Discussion
+:status: Discussion (earliest discussion end date: **13 Feb 2026**)
 
 Abstract
 --------
