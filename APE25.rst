@@ -29,23 +29,30 @@ after this APE is approved.
 Detailed description
 --------------------
 
+Background
+~~~~~~~~~~
+
 Python is a `dynamically typed language
 <https://en.wikipedia.org/wiki/Dynamic_programming_language>`__. In
-contrast to statically typed languages like Fortran, the type of a
-variable does not need to be declared and can change over time. Dynamic
-typing is more flexible than static typing, but has the disadvantage
-that type related errors may only be found at runtime. For this reason,
-`type annotations <https://typing.python.org/en/latest/spec/annotations.html>`__
-have become widely used in Python.
+contrast to statically typed languages like Fortran and Rust, the type
+of a variable does not need to be declared and can change over time.
+Dynamic typing is more flexible than static typing, but has the
+disadvantage that type related errors might not be discovered until
+runtime. For this reason, `type annotations
+<https://typing.python.org/en/latest/spec/annotations.html>`__
+have become widely adopted in the Python community.
 
-Type annotations allow us to specify the expected data types of
-function arguments, return values, and variable assignments. For
-example,
+Type annotations specify the expected types of function arguments,
+return values, and variable assignments. The function signature
 
 .. code-block::
 
    def f(x: int) -> float:
-       ...
+
+indicates that ``x`` should be an ``int`` while the return value should
+be a ``float``. Python itself does not enforce type annotations at
+runtime, although type annotations can be enforced via data validation
+libraries such as Pydantic.
 
 indicates that ``x`` should be an ``int`` and the return value should
 be a ``float``. Type hints are not enforced by Python during runtime by
