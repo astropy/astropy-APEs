@@ -1,5 +1,5 @@
-An initial roadmap for static type checking
--------------------------------------------
+Enable static type checking
+---------------------------
 
 author: Nick Murphy
 
