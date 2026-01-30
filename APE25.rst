@@ -29,7 +29,16 @@ the first 100 megaseconds after this APE is approved.
 Detailed description
 --------------------
 
-Type hint annotations allow us to specify the expected data types of
+Python is a `dynamically typed language
+<https://en.wikipedia.org/wiki/Dynamic_programming_language>`__. In
+contrast to statically typed languages like Fortran, the type of a
+variable does not need to be declared and can change over time. Dynamic
+typing is more flexible than static typing, but has the disadvantage
+that type related errors may only be found at runtime. For this reason,
+`type annotations <https://typing.python.org/en/latest/spec/annotations.html>`__
+have become widely used in Python.
+
+Type annotations allow us to specify the expected data types of
 function arguments, return values, and variable assignments. For
 example,
 
