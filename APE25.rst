@@ -55,16 +55,16 @@ development environments (IDEs) to help with code completion. Type
 hints also serve as a form of documentation in function and method
 signatures.
 
-For most of its history, type hint annotations have not been applied
+For most of its history, type annotations have not been applied
 within Astropy's source code (though annotations have been used to
 indicate the expected units or physical types of function arguments
-and return values). Only recently have type hint annotations begun to
+and return values). Only recently have type annotations begun to
 be applied to Astropy. However, no mechanism is in place to check the
-correctness and validity of type hint annotations. ...
+correctness and validity of type annotations. ...
 
-Most guides on adding type hint annotations and enabling static type
+Most guides on adding type annotations and enabling static type
 checking recommend starting small, running mypy consistently,
-prioritize annotating widely used imports, add type hint annotations
+prioritize annotating widely used imports, add type annotations
 for new code, gradually increase the fraction of the code base that is
 checked my mypy, and gradually increase the strictness of the checks
 performed by mypy.
@@ -89,7 +89,7 @@ Disadvantages of static type checking
 
 #. Requiring type 
 
-1. Requiring type hint annotations that mypy doesn't complain about
+1. Requiring type annotations that mypy doesn't complain about
    adds an extra step to contributing to Astropy...
 
 1. An additional step is required to contribute to Astropy.
@@ -125,7 +125,7 @@ Implementation
    Action for each pull request.
 
 #. Create a section in Astropy's developer documentation on the
-   process for adding type hint annotations to Astropy and using
+   process for adding type annotations to Astropy and using
    static type checking.
 
 #. Set the GitHub Action for running mypy as required for a pull
@@ -134,13 +134,13 @@ Implementation
 #. Gradually enable static type checking in ``astropy.cosmology`` and
    ``astropy.units`` by expanding the number of files checked by mypy,
    enabling new mypy rules on a per-file or per-subpackage basis,
-   adding type hint annotations, creating type stub files for
+   adding type annotations, creating type stub files for
    dynamically generated content, and using ``# type: ignore`` style
    comments to indicate when static type checking should be skipped on
    particular lines.
 
 #. Update the developer documentation with lessons learned and best
-   practices for adding type hint annotations.
+   practices for adding type annotations.
 
 At this point, subpackage maintainers may gradually enable static type
 checking for the subpackages that they maintain.
@@ -169,7 +169,7 @@ Alternatives
 
 1. **Do not enable static type checking of Astropy.** Type hint
    annotations have begun to be added to Astropy. At present, there is
-   no way to check the validity or accuracy of type hint annotations. 
+   no way to check the validity or accuracy of type annotations.
 2. **Take a more aggressive approach to static type checking.** Most
    recommendations
 3. **Delay adding a static type checker to Astropy's continuous
