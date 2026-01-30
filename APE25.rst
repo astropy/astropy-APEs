@@ -17,14 +17,14 @@ status: Discussion
 Abstract
 --------
 
-This APE proposes that a static type checker be added as a continuous
-integration check on Astropy pull requests. The scope of static type
-checking will be minimal at first, and then be gradually expanded over
-time. The initial static type checker will be ``ty``, and the
-Coordination Committee will be empowered to switch Astropy to a
-different static type checker. The authors of this APE volunteer to
-arrage for tutorials on static type checking with ``ty`` to occur within
-the first 100 megaseconds after this APE is approved.
+This APE proposes that static type checking be added as a continuous
+integration check for Astropy. The scope of static type checking will
+initially be minimal, and then gradually expanded over time. The static
+type checker will initially be ``ty``, and the Coordination Committee
+will be empowered to switch Astropy to a different static type checking
+tool. The authors of this APE volunteer to provide a tutorial on
+static type checking to the Astropy community within 100 megaseconds
+after this APE is approved.
 
 Detailed description
 --------------------
