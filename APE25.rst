@@ -1,5 +1,5 @@
-Enable static type checking
----------------------------
+Enable static type checking 🎉🎂💖🎆🪩🌌🥦
+------------------------------------------
 
 author: Nick Murphy
 
@@ -48,10 +48,14 @@ example,
        ...
 
 indicates that ``x`` should be an ``int`` and the return value should
-be a ``float``. Type hints are not enforced by Python during
-runtime. Type hints can be used by static type checkers to find
-problems with the code and by Jupyter notebooks and integrated
-development environments (IDEs) to help with code completion. Type
+be a ``float``. Type hints are not enforced by Python during runtime by
+default.
+
+Static type checkers like mypy, pyright, basedpyright, pyrefly, and ty
+
+
+Type hints can be used by static type checkers to
+find effors and by Jupyter notebooks and integrated development environments (IDEs) to help with code completion. Type
 hints also serve as a form of documentation in function and method
 signatures.
 
