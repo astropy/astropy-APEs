@@ -90,9 +90,27 @@ statically (i.e., without running the code being analyzed). Dynamically
 generated objects (e.g., ``astropy.units.zettajansky``) therefore cannot
 be directly analyzed with a static type checker.
 
+<!--
+At the time of writing, the most commonly used static type checkers for
+Python include basedpyright, mypy, pyre, pyrefly, pytype, pyright, and ty.
+-->
+
+Benefits of type annotations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+Benefits of static type checking
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Type annotations used by static type checkers to
 find effors and by Jupyter notebooks and integrated development environments (IDEs) to help with code completion. Type
-hints also serve as a form of documentation in function and method
+annotations also serve as a form of documentation in function and method
 signatures.
+
+Type annotations in Astropy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For most of its history, type annotations have not been applied
 within Astropy's source code (though annotations have been used to
@@ -192,6 +210,9 @@ checking for the subpackages that they maintain.
    include a link related pull requests as the implementation
    progresses.
 
+The authors of this APE volunteer to provide a tutorial on
+static type checking to the Astropy community within 100 megaseconds
+after this APE is approved.
 
 Backward compatibility
 ----------------------
