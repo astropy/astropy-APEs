@@ -13,7 +13,6 @@ type: Standard Track
 
 status: Discussion
 
-
 Abstract
 --------
 
@@ -25,6 +24,11 @@ will be empowered to switch Astropy to a different static type checking
 tool. The authors of this APE volunteer to provide a tutorial on
 static type checking to the Astropy community within 100 megaseconds
 after this APE is approved.
+initially be minimal, and then can be gradually expanded as time and
+resources permit. The static type checker will initially be ``ty``, and
+the Coordination Committee will be empowered to switch Astropy to a
+different static type checking tool.
+
 
 Detailed description
 --------------------
@@ -35,14 +39,14 @@ Background
 Python is a `dynamically typed language
 <https://en.wikipedia.org/wiki/Dynamic_programming_language>`__. In
 contrast to statically typed languages like Fortran and Rust, the type
-of a variable does not need to be declared and can change over time.
-Dynamic typing is more flexible than static typing, but has the
-disadvantage that type related errors might not be discovered until
-runtime. For this reason, `type annotations
+of a variable does not need to be declared, and variables can be
+redeclared as a different type. Dynamic typing is more flexible than
+static typing, but has the disadvantage that type related errors might
+not be discovered until runtime. For this reason, `type annotations
 <https://typing.python.org/en/latest/spec/annotations.html>`__
-have become widely adopted in the Python community.
+have become widely adopted by the Python community.
 
-Type annotations specify the expected types of function arguments,
+**Type annotations** specify the expected types of function arguments,
 return values, and variable assignments. The function signature
 
 .. code-block::
@@ -50,9 +54,13 @@ return values, and variable assignments. The function signature
    def f(x: int) -> float:
 
 indicates that ``x`` should be an ``int`` while the return value should
-be a ``float``. Python itself does not enforce type annotations at
-runtime, although type annotations can be enforced via data validation
-libraries such as Pydantic.
+be a ``float``. Python does not enforce type annotations at runtime.
+However, type annotations can be enforced via data validation libraries
+such as Pydantic.
+
+A **static type checker** is a tool that statically analyzes Python code
+for type related errors. As an example, running ``ty check`` on a file
+containing the function
 
 indicates that ``x`` should be an ``int`` and the return value should
 be a ``float``. Type hints are not enforced by Python during runtime by
