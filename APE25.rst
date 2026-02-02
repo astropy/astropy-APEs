@@ -73,7 +73,14 @@ will issue a warning because ``None`` does not have an attribute named
      |
    info: rule `possibly-missing-attribute` is enabled by default
 
-Type hints can be used by static type checkers to
+To get an idea of the issues that static type checkers can identify, one
+can refer to their documentation (e.g.,
+`ty rules <https://docs.astral.sh/ty/reference/rules/#rules>`__,
+`mypy error codes enabled by default
+<https://mypy.readthedocs.io/en/stable/error_code_list.html#error-codes-enabled-by-default>`__,
+`mypy error codes for optional checks
+<https://mypy.readthedocs.io/en/stable/error_code_list2.html>`__,
+`pyrefly error kinds <https://pyrefly.org/en/docs/error-kinds/>`__, etc.)
 find effors and by Jupyter notebooks and integrated development environments (IDEs) to help with code completion. Type
 hints also serve as a form of documentation in function and method
 signatures.
