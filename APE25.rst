@@ -73,6 +73,9 @@ will issue a warning because ``None`` does not have an attribute named
      |
    info: rule `possibly-missing-attribute` is enabled by default
 
+This warning could be suppressed by adding
+a ``# ty: ignore[possibly-missing-attribute]`` comment on the line.
+
 To get an idea of the issues that static type checkers can identify, one
 can refer to their documentation (e.g.,
 `ty rules <https://docs.astral.sh/ty/reference/rules/#rules>`__,
