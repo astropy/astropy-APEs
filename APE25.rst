@@ -18,12 +18,6 @@ Abstract
 
 This APE proposes that static type checking be added as a continuous
 integration check for Astropy. The scope of static type checking will
-initially be minimal, and then gradually expanded over time. The static
-type checker will initially be ``ty``, and the Coordination Committee
-will be empowered to switch Astropy to a different static type checking
-tool. The authors of this APE volunteer to provide a tutorial on
-static type checking to the Astropy community within 100 megaseconds
-after this APE is approved.
 initially be minimal, and then can be gradually expanded as time and
 resources permit. The static type checker will initially be ``ty``, and
 the Coordination Committee will be empowered to switch Astropy to a
@@ -62,12 +56,22 @@ A **static type checker** is a tool that statically analyzes Python code
 for type related errors. As an example, running ``ty check`` on a file
 containing the function
 
-indicates that ``x`` should be an ``int`` and the return value should
-be a ``float``. Type hints are not enforced by Python during runtime by
-default.
+.. code-block:: python
+   def f(arg: str | None):
+      return arg.removesuffix("...")
 
-Static type checkers like mypy, pyright, basedpyright, pyrefly, and ty
+will issue a warning because ``None`` does not have an attribute named
+``removesuffix``:
 
+.. code-block::
+   warning[possibly-missing-attribute]: Attribute `removesuffix` may be missing on object of type `str | None`
+    --> typecheckthis.py:2:12
+     |
+   1 | def f(arg: str | None):
+   2 |     return arg.removesuffix("...")
+     |            ^^^^^^^^^^^^^^^^
+     |
+   info: rule `possibly-missing-attribute` is enabled by default
 
 Type hints can be used by static type checkers to
 find effors and by Jupyter notebooks and integrated development environments (IDEs) to help with code completion. Type
