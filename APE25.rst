@@ -84,6 +84,12 @@ can refer to their documentation (e.g.,
 `mypy error codes for optional checks
 <https://mypy.readthedocs.io/en/stable/error_code_list2.html>`__,
 `pyrefly error kinds <https://pyrefly.org/en/docs/error-kinds/>`__, etc.)
+
+A limitation of static type checking is that the analysis is performed
+statically (i.e., without running the code being analyzed). Dynamically
+generated objects (e.g., ``astropy.units.zettajansky``) therefore cannot
+be directly analyzed with a static type checker.
+
 find effors and by Jupyter notebooks and integrated development environments (IDEs) to help with code completion. Type
 hints also serve as a form of documentation in function and method
 signatures.
