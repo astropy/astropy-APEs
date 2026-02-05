@@ -207,9 +207,6 @@ Initial setup
 Static type checking will be enabled in CI via a pull request that makes
 the following changes.
 
- - Add a ``tox`` environment to perform static type checking.
- - Configure the static type checker to only report a limited number of
-   errors from a single subpackage.
  - Add a dependency group called ``typing`` in ``pyproject.toml`` to
    include the static type checker and associated dependencies.
  - Add a ``tox`` environment to perform static type checking after
