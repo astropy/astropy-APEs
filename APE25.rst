@@ -201,14 +201,16 @@ with a consistent set of
  - Gradually expand the scope of static type checking to include
    stricter options on more files.
 
-#. Create a tox environment for running mypy.
+Initial steps
+~~~~~~~~~~~~~
 
-#. Create a GitHub Action that runs the tox environment as a GitHub
-   Action for each pull request.
+Static type checking will be enabled in CI via the following steps.
 
-#. Create a section in Astropy's developer documentation on the
-   process for adding type annotations to Astropy and using
-   static type checking.
+ - Add a ``tox`` environment to perform static type checking.
+ - Configure the static type checker to only report a limited number of
+   errors from a single subpackage.
+ - Set up a GitHub workflow to run the ``tox`` environment for static
+   type checking, and configure it as required.
 
 #. Set the GitHub Action for running mypy as required for a pull
    request to be merged.
