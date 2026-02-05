@@ -223,8 +223,6 @@ All type annotation fixes should be postponed into a follow-up pull
 request so that code review can focus on the static type checking
 infrastructure.
 
-#. Set the GitHub Action for running mypy as required for a pull
-   request to be merged.
 Automated type annotations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
