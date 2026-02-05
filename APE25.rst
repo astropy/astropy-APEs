@@ -110,6 +110,16 @@ Benefits of type annotations
 Benefits of static type checking
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Static type checking provides benefits to users, contributors, and
+developers of packages that depend on Astropy. Static type checking
+helps us to:
+
+- Improve correctness of type annotations, including in documentation.
+
+- Quickly find type-related errors.
+
+- Improve quality of error highlighting when using IDEs.
+
 
 Type annotations used by static type checkers to
 find effors and by Jupyter notebooks and integrated development environments (IDEs) to help with code completion. Type
