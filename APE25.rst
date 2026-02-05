@@ -97,7 +97,15 @@ Python include basedpyright, mypy, pyre, pyrefly, pytype, pyright, and ty.
 Benefits of type annotations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+- Improve readability and understandability of code.
 
+- Identify type-related errors, both in Astropy and packages
+
+- Find errors associated with type mismatches, potentially including
+  edge cases that might be skipped during testing.
+
+- Improve error highlighting in integrated
+  development environments
 
 Benefits of static type checking
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
