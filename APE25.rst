@@ -225,6 +225,18 @@ infrastructure.
 
 #. Set the GitHub Action for running mypy as required for a pull
    request to be merged.
+Automated type annotations
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Various tools exist to automatically add type annotations to existing
+code. For example, running ``autotyping --safe astropy`` in the
+top-level directory of the repository will automatically add type
+annotations for ``None`` returns, scalar returns, and special methods.
+The added type annotations are reliable enough to require only a cursory
+code review. On the other hand, ``autotyping --aggressive astropy``
+will add type annotations that will be mostly correct, but require some
+code review.
+
 
 #. Gradually enable static type checking in ``astropy.cosmology`` and
    ``astropy.units`` by expanding the number of files checked by mypy,
