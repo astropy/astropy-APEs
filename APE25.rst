@@ -201,16 +201,30 @@ with a consistent set of
  - Gradually expand the scope of static type checking to include
    stricter options on more files.
 
-Initial steps
+Initial setup
 ~~~~~~~~~~~~~
 
-Static type checking will be enabled in CI via the following steps.
+Static type checking will be enabled in CI via a pull request that makes
+the following changes.
 
  - Add a ``tox`` environment to perform static type checking.
  - Configure the static type checker to only report a limited number of
    errors from a single subpackage.
+ - Add a dependency group called ``typing`` in ``pyproject.toml`` to
+   include the static type checker and associated dependencies.
+ - Add a ``tox`` environment to perform static type checking after
+   installing the ``typing`` dependency group.
  - Set up a GitHub workflow to run the ``tox`` environment for static
-   type checking, and configure it as required.
+   type checking.
+ - Configure the static type checker to check a single high priority
+   file with a subset of rules enabled.
+ - Use ``ty check --add-ignore`` to suppress all errors in that file by
+   adding comments of the form ``# ty: ignore[...]`` to the offending
+   lines.
+
+All type annotation fixes should be postponed into a follow-up pull
+request so that code review can focus on the static type checking
+infrastructure.
 
 #. Set the GitHub Action for running mypy as required for a pull
    request to be merged.
