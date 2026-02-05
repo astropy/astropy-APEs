@@ -23,7 +23,6 @@ resources permit. The static type checker will initially be ``ty``, and
 the Coordination Committee will be empowered to switch Astropy to a
 different static type checking tool.
 
-
 Detailed description
 --------------------
 
@@ -77,13 +76,13 @@ This warning could be suppressed by adding
 a ``# ty: ignore[possibly-missing-attribute]`` comment on the line.
 
 To get an idea of the issues that static type checkers can identify, one
-can refer to their documentation (e.g.,
+can refer to their documentation pages on rule sets (e.g.,
 `ty rules <https://docs.astral.sh/ty/reference/rules/#rules>`__,
 `mypy error codes enabled by default
 <https://mypy.readthedocs.io/en/stable/error_code_list.html#error-codes-enabled-by-default>`__,
 `mypy error codes for optional checks
 <https://mypy.readthedocs.io/en/stable/error_code_list2.html>`__,
-`pyrefly error kinds <https://pyrefly.org/en/docs/error-kinds/>`__, etc.)
+`pyrefly error kinds <https://pyrefly.org/en/docs/error-kinds/>`__, etc.).
 
 A limitation of static type checking is that the analysis is performed
 statically (i.e., without running the code being analyzed). Dynamically
