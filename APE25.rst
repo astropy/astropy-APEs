@@ -188,10 +188,18 @@ Branches and pull requests
 Implementation
 --------------
 
-#. Create an initial ``mypy.ini`` configuration file that ignores all
-   existing errors and warnings from mypy. The configuration file must
-   enable static type checking on a single Python module, and disable
-   static type checking for all other modules and subpackages.
+The mypy documentation provides advice for enabling a static type
+checker on an existing codebase based on experiences from other projects.
+
+ - Start small.
+ - Run the static type checker frequently
+ - Ensure that all contributors are
+with a consistent set of
+   options.
+ - Prioritize annotating widely imported modules.
+ - Automate annotation with existing tools.
+ - Gradually expand the scope of static type checking to include
+   stricter options on more files.
 
 #. Create a tox environment for running mypy.
 
