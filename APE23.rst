@@ -5,10 +5,10 @@ Authors (alphabetical): Jeff Jennings, Adrian Price-Whelan, Nathaniel Starkman, 
 ---------------------------------------------------------------------------------------------------
 
 :date-created: 2024 11 04
-:date-last-revised: 2026 01 23
-:date-accepted: 202x xx xx
+:date-last-revised: 2026 05 27
+:date-accepted: 2026 05 27
 :type: Standard Track
-:status: Discussion
+:status: Accepted
 
 Abstract
 --------
@@ -451,3 +451,14 @@ previous section.
     sc = SkyCoord(rep, frame=frame)
     sc = SkyCoord(c)  # flexible
     sc = SkyCoord(ra_arr, dec_arr, frame=frame)  # flexible
+
+Decision rationale
+------------------
+
+The Coordination Committee is accepting this APE under the provisions that (1)
+the work can be completed within approximately the next year --- roughly Q1 2027
+--- and (2) the authors provide clear transition documentation that will enable
+users to update their code to the new coding patterns *before* the old patterns
+are fully deprecated.  Given that much of the coding work is already complete,
+our primary concern is the follow-on effect on users.
+
