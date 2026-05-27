@@ -456,9 +456,9 @@ Decision rationale
 ------------------
 
 The Coordination Committee is accepting this APE under the provisions that (1)
-the work can be completed within approximately the next year --- roughly Q1 2027
---- and (2) the authors provide clear transition documentation that will enable
-users to update their code to the new coding patterns *before* the old patterns
-are fully deprecated.  Given that much of the coding work is already complete,
-our primary concern is the follow-on effect on users.
+the work can be completed within approximately the next year --- roughly by Q2
+2027 --- and (2) the authors provide clear transition documentation that will
+enable users to update their code to the new coding patterns *before* the old
+patterns are fully deprecated.  Given that much of the coding work is already
+complete, our primary concern is the follow-on effect on users.
 
