@@ -123,8 +123,8 @@ APEs
 .. |APE 22 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.10581892.svg
    :target: https://doi.org/10.5281/zenodo.10581891
 
-.. |APE 23 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.10581892.svg
-   :target: https://doi.org/10.5281/zenodo.10581892
+.. |APE 23 DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.20451809.svg
+   :target: https://doi.org/10.5281/zenodo.20451809
 
 Proposing a new APE
 ^^^^^^^^^^^^^^^^^^^
