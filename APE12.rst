@@ -18,7 +18,7 @@ Abstract
 
 This APE proposes migrating the `package-template
 <https://github.com/astropy/package-template/>`_ to use the `Cookiecutter
-<http://cookiecutter.readthedocs.io/>`_ project to provide templating. This
+<https://cookiecutter.readthedocs.io/>`_ project to provide templating. This
 would enable users to be able to customise the package template for their
 package from the command line, in a much simpler manner than the current manual
 process. As well as this, having a templating system makes it easier for other
@@ -37,7 +37,7 @@ presents the user with a simple set of questions to populate predefined
 variables which are then used to render the Jinja2 templates and create the
 project. This workflow is a massive improvement on the manual workflow currently
 recommended to affiliated package authors in the
-`Astropy documentation <http://docs.astropy.org/en/latest/development/affiliated-packages.html>`_.
+`Astropy documentation <https://docs.astropy.org/en/latest/development/affiliated-packages.html>`_.
 
 The second advantage to using a templating system like Jinja2 is that it makes
 it possible for other projects (*e.g.* SunPy) to maintain a fork of the package
@@ -94,7 +94,7 @@ non-default branch.
     5 - Other
     Choose from 1, 2, 3, 4, 5 [1]:
 
-    project_url [http://astropy.org]: http://cadair.com
+    project_url [https://astropy.org]: https://cadair.com
 
     project_version [0.0.dev]: 0.0.1.dev
 

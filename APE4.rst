@@ -226,7 +226,7 @@ in the future:
 astropy_helpers as a Git submodule
 ++++++++++++++++++++++++++++++++++
 
-`Submodules <http://git-scm.com/docs/git-submodule>`_ are an officially
+`Submodules <https://git-scm.com/docs/git-submodule>`_ are an officially
 supported mechanism in Git for including an entire Git repository as a
 subdirectory of another Git repository as a means of "vendoring" other
 projects.  In this case, as astropy_helpers is developed in its own
@@ -540,8 +540,8 @@ No objections were raised to this idea. We merged in the pull requests relating
 to this, and after ironing out initial issues, this works well, so we decided
 to go ahead and use it for Astropy 0.4, and accept this APE.
 
-.. _distutils: http://docs.python.org/2/library/distutils.html
-.. _setuptools: http://pythonhosted.org/setuptools/
+.. _distutils: https://docs.python.org/2/library/distutils.html
+.. _setuptools: https://pythonhosted.org/setuptools/
 .. _d2to1: https://pypi.python.org/pypi/d2to1
 .. _pbr: https://pypi.python.org/pypi/pbr
 .. _stsci.distutils: https://pypi.python.org/pypi/stsci.distutils
