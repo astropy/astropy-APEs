@@ -1,0 +1,289 @@
+Enable static type checking 🎉🎂💖🎆🪩🌌🥦
+------------------------------------------
+
+author: Nick Murphy
+
+date-created:
+
+date-last-revised:
+
+date-accepted:
+
+type: Standard Track
+
+status: Discussion
+
+Abstract
+--------
+
+This APE proposes that static type checking be added as a continuous
+integration check for Astropy. The scope of static type checking will
+initially be minimal, and then can be gradually expanded as time and
+resources permit. The static type checker will initially be ``ty``, and
+the Coordination Committee will be empowered to switch Astropy to a
+different static type checking tool.
+
+Detailed description
+--------------------
+
+Background
+~~~~~~~~~~
+
+Python is a `dynamically typed language
+<https://en.wikipedia.org/wiki/Dynamic_programming_language>`__. In
+contrast to statically typed languages like Fortran and Rust, the type
+of a variable does not need to be declared, and variables can be
+redeclared as a different type. Dynamic typing is more flexible than
+static typing, but has the disadvantage that type related errors might
+not be discovered until runtime. For this reason, `type annotations
+<https://typing.python.org/en/latest/spec/annotations.html>`__
+have become widely adopted by the Python community.
+
+**Type annotations** specify the expected types of function arguments,
+return values, and variable assignments. The function signature
+
+.. code-block::
+
+   def f(x: int) -> float:
+
+indicates that ``x`` should be an ``int`` while the return value should
+be a ``float``. Python does not enforce type annotations at runtime.
+However, type annotations can be enforced via data validation libraries
+such as Pydantic.
+
+A **static type checker** is a tool that statically analyzes Python code
+for type related errors. As an example, running ``ty check`` on a file
+containing the function
+
+.. code-block:: python
+   def f(arg: str | None):
+      return arg.removesuffix("...")
+
+will issue a warning because ``None`` does not have an attribute named
+``removesuffix``:
+
+.. code-block::
+   warning[possibly-missing-attribute]: Attribute `removesuffix` may be missing on object of type `str | None`
+    --> typecheckthis.py:2:12
+     |
+   1 | def f(arg: str | None):
+   2 |     return arg.removesuffix("...")
+     |            ^^^^^^^^^^^^^^^^
+     |
+   info: rule `possibly-missing-attribute` is enabled by default
+
+This warning could be suppressed by adding
+a ``# ty: ignore[possibly-missing-attribute]`` comment on the line.
+
+To get an idea of the issues that static type checkers can identify, one
+can refer to their documentation pages on rule sets (e.g.,
+`ty rules <https://docs.astral.sh/ty/reference/rules/#rules>`__,
+`mypy error codes enabled by default
+<https://mypy.readthedocs.io/en/stable/error_code_list.html#error-codes-enabled-by-default>`__,
+`mypy error codes for optional checks
+<https://mypy.readthedocs.io/en/stable/error_code_list2.html>`__,
+`pyrefly error kinds <https://pyrefly.org/en/docs/error-kinds/>`__, etc.).
+
+A limitation of static type checking is that the analysis is performed
+statically (i.e., without running the code being analyzed). Dynamically
+generated objects (e.g., ``astropy.units.zettajansky``) therefore cannot
+be directly analyzed with a static type checker.
+
+<!--
+At the time of writing, the most commonly used static type checkers for
+Python include basedpyright, mypy, pyre, pyrefly, pytype, pyright, and ty.
+-->
+
+Benefits of type annotations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Improve readability and understandability of code.
+
+- Identify type-related errors, both in Astropy and packages
+
+- Find errors associated with type mismatches, potentially including
+  edge cases that might be skipped during testing.
+
+- Improve error highlighting in integrated
+  development environments
+
+Benefits of static type checking
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Static type checking provides benefits to users, contributors, and
+developers of packages that depend on Astropy. Static type checking
+helps us to:
+
+- Improve correctness of type annotations, including in documentation.
+
+- Quickly find type-related errors.
+
+- Improve quality of error highlighting when using IDEs.
+
+
+Type annotations used by static type checkers to
+find effors and by Jupyter notebooks and integrated development environments (IDEs) to help with code completion. Type
+annotations also serve as a form of documentation in function and method
+signatures.
+
+Type annotations in Astropy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For most of its history, type annotations have not been applied
+within Astropy's source code (though annotations have been used to
+indicate the expected units or physical types of function arguments
+and return values). Only recently have type annotations begun to
+be applied to Astropy. However, no mechanism is in place to check the
+correctness and validity of type annotations. ...
+
+Most guides on adding type annotations and enabling static type
+checking recommend starting small, running mypy consistently,
+prioritize annotating widely used imports, add type annotations
+for new code, gradually increase the fraction of the code base that is
+checked my mypy, and gradually increase the strictness of the checks
+performed by mypy.
+
+.. This section describes the need for the APE.  It should describe
+   the existing problem that it is trying to solve and why this APE
+   makes the situation better.  It should include examples of how the
+   new functionality would be used and perhaps some use cases.
+
+
+Benefits of static type checking
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Can find programming errors that would be difficult to find
+   otherwise
+#. Helps introspection and tab completion in Jupyter notebooks
+#. Helps IDEs to make things easier for humans
+#. Helpful for downstream package maintainers
+
+Disadvantages of static type checking
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Requiring type 
+
+1. Requiring type annotations that mypy doesn't complain about
+   adds an extra step to contributing to Astropy...
+
+1. An additional step is required to contribute to Astropy.
+
+1. Type hint annotations may add a barrier to entry for contributing
+   to Astropy.
+
+
+
+
+
+Branches and pull requests
+--------------------------
+
+.. Any pull requests or development branches containing work on this
+   APE should be linked to from here.  (An APE does not need to be
+   implemented in a single pull request if it makes sense to implement
+   it in discrete phases). If no code is yet implemented, just put
+   "N/A"
+
+
+Implementation
+--------------
+
+The mypy documentation provides advice for enabling a static type
+checker on an existing codebase based on experiences from other projects.
+
+ - Start small.
+ - Run the static type checker frequently
+ - Ensure that all contributors are
+with a consistent set of
+   options.
+ - Prioritize annotating widely imported modules.
+ - Automate annotation with existing tools.
+ - Gradually expand the scope of static type checking to include
+   stricter options on more files.
+
+Initial setup
+~~~~~~~~~~~~~
+
+Static type checking will be enabled in CI via a pull request that makes
+the following changes.
+
+ - Add a dependency group called ``typing`` in ``pyproject.toml`` to
+   include the static type checker and associated dependencies.
+ - Add a ``tox`` environment to perform static type checking after
+   installing the ``typing`` dependency group.
+ - Set up a GitHub workflow to run the ``tox`` environment for static
+   type checking.
+ - Configure the static type checker to check a single high priority
+   file with a subset of rules enabled.
+ - Use ``ty check --add-ignore`` to suppress all errors in that file by
+   adding comments of the form ``# ty: ignore[...]`` to the offending
+   lines.
+
+All type annotation fixes should be postponed into a follow-up pull
+request so that code review can focus on the static type checking
+infrastructure.
+
+Automated type annotations
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Various tools exist to automatically add type annotations to existing
+code. For example, running ``autotyping --safe astropy`` in the
+top-level directory of the repository will automatically add type
+annotations for ``None`` returns, scalar returns, and special methods.
+The added type annotations are reliable enough to require only a cursory
+code review. On the other hand, ``autotyping --aggressive astropy``
+will add type annotations that will be mostly correct, but require some
+code review.
+
+
+#. Gradually enable static type checking in ``astropy.cosmology`` and
+   ``astropy.units`` by expanding the number of files checked by mypy,
+   enabling new mypy rules on a per-file or per-subpackage basis,
+   adding type annotations, creating type stub files for
+   dynamically generated content, and using ``# type: ignore`` style
+   comments to indicate when static type checking should be skipped on
+   particular lines.
+
+#. Update the developer documentation with lessons learned and best
+   practices for adding type annotations.
+
+At this point, subpackage maintainers may gradually enable static type
+checking for the subpackages that they maintain.
+
+
+
+.. This section lists the major steps required to implement the APE.  Where
+   possible, it should be noted where one step is dependent on another, and which
+   steps may be optionally omitted.  Where it makes sense, each  step should
+   include a link related pull requests as the implementation
+   progresses.
+
+The authors of this APE volunteer to provide a tutorial on
+static type checking to the Astropy community within 100 megaseconds
+after this APE is approved.
+
+Backward compatibility
+----------------------
+
+This APE is expected to maintain backward compatibility.
+
+
+Alternatives
+------------
+
+.. If there were any alternative solutions to solving the same
+   problem, they should be discussed here, along with a justification
+   for the chosen approach.
+
+1. **Do not enable static type checking of Astropy.** Type hint
+   annotations have begun to be added to Astropy. At present, there is
+   no way to check the validity or accuracy of type annotations.
+2. **Take a more aggressive approach to static type checking.** Most
+   recommendations
+3. **Delay adding a static type checker to Astropy's continuous
+   integration suite.**
+
+Decision rationale
+------------------
+
+<To be filled in by the coordinating committee when the APE is accepted or rejected>
