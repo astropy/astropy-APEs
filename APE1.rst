@@ -18,6 +18,7 @@ revised-by:
 * Lia Corrales, Thomas Robitaille, Erik Tollerud - 2021 February 26 - Added APE modification process
 * Pey Lian Lim - 2024 February 5 - Added APE numbering process
 * Thomas Robitaille, Pey Lian Lim - 2025 Oct 27 - Modify APE process to merge APEs that are in the discussion stage
+* Kyle Westfall - 2026 Jan 20 - Added relevant review periods and clarified start of final review process.
 
 Abstract
 --------
@@ -68,8 +69,8 @@ There are three kinds of APE:
   or environment used in Astropy development. Any meta-APE is also considered a
   Process APE.
 
-Submitting an APE
-.................
+Preparing an APE
+................
 
 The APE process begins with a new idea for Astropy. It is highly recommended
 that a single APE contain a single key proposal or new idea. Small
@@ -97,10 +98,27 @@ group has signed up to implement it should the APE be accepted
 an APE in order to spur others to do work is not going to be received
 well, due to the open-source nature of the Astropy Project.
 
+Standard Track APEs consist of two parts:
+
+* a design document and
+* a reference implementation.
+
+For serious consideration, it is generally recommended that at least a prototype
+implementation be co-developed with the APE, as ideas that sound good in
+principle sometimes turn out to be impractical when subjected to the test of
+implementation. This is not required when too onerous, but some indication of
+implementation practicality is highly recommended by actual code. The best way
+to provide that code is via a GitHub draft pull request to the affected Astropy repository
+(usually `astropy/astropy <https://github.com/astropy/astropy>`_), as
+appropriate.
+
 While attaching additional files to an APE is discouraged, if there are no other
 options, these files could go under the `assets <https://github.com/astropy/astropy-APEs/tree/main/assets>`_
 sub-directory, with the filenames each starting with `ape<n>_` for clarity.
 Large files should be hosted externally and linked to the APE instead.
+
+Submitting an APE
+.................
 
 Following a discussion on `astropy-dev <https://groups.google.com/g/astropy-dev>`_,
 the proposal should be submitted as a
@@ -111,10 +129,13 @@ the `@astropy/ape-editor-team <https://github.com/orgs/astropy/teams/ape-editor-
 should be mentioned in the pull request, and
 the APE will then undergo an editorial review which focuses on wording,
 spelling, grammar, and clarity, but does not focus on the substance of the APE.
-The editorial process ideally should not take longer than a month.
+**Ideally, the editorial process should not take longer than a month.**
 Once the APE editors are happy with the APE, they will:
 
-#. Make sure the APE has a status of "Discussion".
+#. Make sure the APE has a status of "Discussion".  In the status section of the
+   APE header, also include the earliest date when the discussion period can end
+   (at least two weeks from when the email is sent to astropy-dev that starts
+   the discussion period, see below).
 
 #. If additional files are attached with the APE in the PR, make sure the
    file sizes are reasonable.
@@ -134,42 +155,41 @@ Once the APE editors are happy with the APE, they will:
 #. Merge the pull request.
 
 #. Send an email to `astropy-dev <https://groups.google.com/g/astropy-dev>`_
-   with a link to the APE and a short summary to kick off the discssion period.
+   with a link to the APE and a short summary to kick off the discussion period.
    Emphasize that the proposal should be discussed on the mailing list, not the
-   pull request.
+   pull request.  **The discussion period should be at least two weeks.**
+
+#. Add a link to the discussion in the text of the APE itself (for future reference).
 
 As the discussion proceeds, the authors can choose to update the APE at any point via
 new pull requests, which are as before, subject to editorial review before merging.
 If needed, editors should continue to stress that discussions about the substance of the APE
 should be kept on the mailing list as much as possible.
 
-Standard Track APEs consist of two parts:
-
-* a design document and
-* a reference implementation.
-
-For serious consideration, it is generally recommended that at least a prototype
-implementation be co-developed with the APE, as ideas that sound good in
-principle sometimes turn out to be impractical when subjected to the test of
-implementation. This is not required when too onerous, but some indication of
-implementation practicality is highly recommended by actual code. The best way
-to provide that code is via a GitHub draft pull request to the affected Astropy repository
-(usually `astropy/astropy <https://github.com/astropy/astropy>`_), as
-appropriate.
+Once the discussion period has ended, the APE editor should send another e-mail to
+astropy-dev acknowledging any changes to the APE and clarifying that the discussion is closed
+and awaiting Coordination Committee review.
 
 APE Review
 ..........
 
 Once the authors feel that they have reached as close to a consensus as they
-will get (i.e., the community discussion on the APE has wound
-down), they can contact the Coordination Committee, who are
-responsible for making a final decision. The decision can be to:
+will get (i.e., the community discussion on the APE has wound down), any final
+edits should be made and a PR should be submitted for editorial review.  They
+must then notify the Coordination Committee that the APE is ready for full
+review and a final decision.  Note that any APE to be reviewed must be in the
+main branch of the repository with its status set to "Discussion."
+
+**The review period is expected to be 2-3 weeks**, beginning when the CoCo is
+notified by the APE authors.
+
+The decision can be to:
 
 * accept the APE,
 * reject the APE, or
 * suggest to the authors to continue the discussion before re-submitting the APE for a decision.
 
-One of the Coordination Committee members should then:
+One of the Coordination Committee members should create a new PR and then:
 
 #. Fill in the "Decision rationale" section of the APE with a description of why
    the status was chosen, including a summary of the community's discussion as relevant.

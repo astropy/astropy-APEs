@@ -129,12 +129,10 @@ APEs
 Proposing a new APE
 ^^^^^^^^^^^^^^^^^^^
 
-Please read the "Submitting an APE" section in `APE Purpose and Process`_.
+Please read the "Preparing an APE" and "Submitting an APE" sections in `APE Purpose and Process`_.
 
 Tips:
 
-* Don't forget to check the open PRs when finding the
-  next free number for your APE.
 * For your PR description, usually it's the easiest to paste in the
   abstract, and link to other existing GitHub Issues or PRs, if applicable.
 
@@ -144,7 +142,7 @@ Finalizing APEs
 Please read the "APE Review" section in `APE Purpose and Process`_.
 
 If the APE was accepted, here are the archiving (Zenodo) instructions for
-the Coordination Committee:
+the APE Editor to perform:
 
 #. Upload the APE to Zenodo to give it a DOI.  Log into the astropy team Zenodo
    account (*not your personal account*), go to https://zenodo.org/deposit/new,
