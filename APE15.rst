@@ -18,7 +18,7 @@ Abstract
 A revision of the concept of Astropy-affiliated packages (hereafter "affiliated
 packages") is proposed. The idea of
 affiliated packages has continued mostly unaltered since the
-`original vision <http://docs.astropy.org/en/stable/development/vision.html>`_
+`original vision <https://docs.astropy.org/en/stable/development/vision.html>`_
 for Astropy. However, time has revealed some potential improvements in how the
 ecosystem is structured and the review process for affiliated packages. Hence,
 this APE proposes to make three changes:
@@ -43,7 +43,7 @@ Motivation
 
 From its inception, Astropy has included an ecosystem of astronomy packages
 beyond the ``astropy`` core package (see the
-`original vision <http://docs.astropy.org/en/stable/development/vision.html>`_).
+`original vision <https://docs.astropy.org/en/stable/development/vision.html>`_).
 The process by which these "affiliated" packages are reviewed and accepted has
 already changed a few times since the project's inception as the ecosystem has
 grown. However, the current state has several significant limitations.
@@ -106,7 +106,7 @@ coordinating committee) overseeing who is maintaining the package and taking
 responsibility for continued maintenance in the event the original author(s) no
 longer can do so. This means maintainer roles will be created for all the
 coordinated packages, and have status as
-`astropy roles <http://www.astropy.org/team.html>`_.
+`astropy roles <https://www.astropy.org/team.html>`_.
 
 This also means the development process for coordinated packages will generally
 track close to the core package model - e.g. they will usually follow the same
@@ -139,7 +139,7 @@ process. To counter these concerns, prior to this APE the coordination committee
 has informally adopted a checklist-based approach, checking if certain bullet
 points are met. While the formal criteria are listed in relatively vague terms
 on the
-`affiliated package web site <http://www.astropy.org/affiliated/index.html#affiliated-instructions>`_,
+`affiliated package web site <https://www.astropy.org/affiliated/index.html#affiliated-instructions>`_,
 the details of how those criteria are met
 have been fairly consistent using an unwritten but roughly standard list. In
 practice, in the past this has meant that affiliated packages are given
@@ -199,7 +199,7 @@ The changes outlined in this APE will be implemented as three distinct efforts:
 * A "peer-review" process will need to be set up to enable reviews by community
   members beyond the coordination committee. Such processes exist in
   other code contexts (e.g. the
-  `Journal of Open Source Software <http://joss.theoj.org/>`_ and
+  `Journal of Open Source Software <https://joss.theoj.org/>`_ and
   `Ropensci <https://ropensci.org/>`_) that may have tools that can be re-used
   to make the process smooth and efficient. Setting such tools up is likely to
   take some time, however, and needs to be adaptable enough to respond to the

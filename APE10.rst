@@ -30,7 +30,7 @@ and others have now signed the `Python 3 statement
 <https://python3statement.github.io>`_ which states that scientific Python
 packages will drop support for Python 2 no later than 2020. For instance, the
 IPython developers have now released `IPython 5.0
-<http://blog.jupyter.org/2016/07/08/ipython-5-0-released/>`_, which will be the
+<https://blog.jupyter.org/2016/07/08/ipython-5-0-released/>`_, which will be the
 last major release to support Python 2. This APE proposes that the Astropy
 project should also sign the Python 3 statement, and provides a
 target roadmap for future releases.
