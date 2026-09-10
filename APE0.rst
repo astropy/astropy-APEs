@@ -428,3 +428,7 @@ any parts of the document can be discussed further and amended,
 and the present version is just meant to be a starting point.
 
 The APE was formally accepted on 19th February 2021.
+
+Revision History
+================
+- Oct 2024. After discussion and voting, modificaitions were  made. Link to discussion threads.
