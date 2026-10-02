@@ -21,11 +21,6 @@ Open questions/decisions
   However, the wrapper classes such as ``SlicedLowLevelWCS`` in ``astropy`` and ``ResampledLowLevelWCS`` and ``ReorderedLowLevelWCS`` in ``ndcube`` only expose the low-level API, so applying them directly to a high-level WCS loses the high-level API.
   It might be a good opportunity to mandate returning high level if original was high level?
   For now this APE implements this version of things.
-* Should slicing (see `Manipulation and re-arranging of WCS`_) accept positive steps?
-  ``WCS.__getitem__`` and ``WCS.slice`` currently accept this, so we can't easily forbid it without breaking compatibility.
-  We can allow it and say that it is a shortcut for scaling by integer values (which is what ``WCS`` does).
-  But to be very clear, a step greater than 1 means the equivalent of binning, not striding (we already made that decision for ``WCS``).
-  For now this APE implements this version of things.
 * What should ``array_shape`` and ``pixel_shape`` be if rescaled by a non-integer amount?
   For now this APE specifies that the size along each axis is the number of rescaled pixels needed to cover the original pixels, that is ``ceil((n - offset) / factor)``, which matches what ``WCS`` currently does when slicing with a step.
   The alternative would be to only include rescaled pixels that are fully covered by the original pixels, that is to use ``floor``.
@@ -326,7 +321,7 @@ The methods are defined as follows:
 
    def pixel_sliced(self, slices: tuple[slice | int, ...]):
        """
-       Apply a pixel slice to the WCS to truncate, drop, or downsample pixel dimensions.
+       Apply a pixel slice to the WCS to truncate or drop pixel dimensions.
 
        Note that the input to this method is in *pixel* order.
 
@@ -340,10 +335,8 @@ The methods are defined as follows:
            for numpy arrays. If ``array_shape`` is not set, negative values cannot be interpreted and
            an exception shall be raised.
 
-           The ``step`` attribute of a `slice` object can be `None` or a positive integer. A slice with
-           a ``step`` is equivalent to applying the same slice without the ``step``, and then calling
-           ``pixel_rescaled`` with a factor of ``step`` for that pixel axis. Negative or zero values of
-           ``step`` are not allowed.
+           The ``step`` attribute of a `slice` object can be `None` or 1. The behavior for other
+           values of ``step`` is not defined by this API.
 
        Returns
        -------
@@ -354,7 +347,7 @@ The methods are defined as follows:
 
    def __getitem__(self, slices):
        """
-       Apply an array slice to the WCS to truncate, drop, or downsample array dimensions.
+       Apply an array slice to the WCS to truncate or drop array dimensions.
 
        Note that the input to this method is in *array* order.
 
@@ -406,12 +399,18 @@ The methods are defined as follows:
            size.
        """
 
+Only slices with a unit step, that is with a ``step`` of ``None`` or ``1``, are part of the API defined here, and all implementations shall support these.
+This APE does not forbid implementations from accepting other values of ``step``, so that existing behavior does not need to be removed.
+For example, ``astropy.wcs.WCS`` currently interprets a ``step`` greater than one as rescaling the pixel axis by that factor.
+However, code that needs to work with any WCS should not rely on this, and should instead use ``pixel_rescaled`` to rescale pixel axes.
+We recommend, but do not require, that implementations which accept other values of ``step`` consider deprecating this in favor of ``pixel_rescaled`` in cases where the values of step were treated as rescaling.
+
 Since defining ``__getitem__`` on a class causes Python to treat instances as iterable, ``BaseLowLevelWCS`` shall also define an ``__iter__`` method that raises a ``TypeError``.
 
 Current Status and Examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-At the moment, ``astropy.wcs.WCS`` implements ``__getitem__`` largely as specified above (the main difference being that steps cannot be combined with integers), including support for positive steps, as well as a ``slice`` method which is equivalent to ``pixel_sliced`` when called with ``numpy_order=False``, but other implementations do not.
+At the moment, ``astropy.wcs.WCS`` implements ``__getitem__`` largely as specified above, as well as a ``slice`` method which is equivalent to ``pixel_sliced`` when called with ``numpy_order=False``, but other implementations do not.
 In addition, ``astropy.wcs.WCS`` implements a ``sub`` method which is similar to ``with_axes``, although with an arguably more complex API.
 
 As an example, we can define a FITS-WCS for a spectral cube:
@@ -471,7 +470,7 @@ With the proposed specification, the following will return a ``WCS`` object, sin
    >>> rebinned.array_shape
    (20, 50, 50)
 
-and the same result will be obtained with ``wcs[::2, ::2, ::2]``.
+Note that ``astropy.wcs.WCS`` currently returns the same result for ``wcs[::2, ::2, ::2]``, but as described above, slicing with a ``step`` other than one is not part of the API defined here.
 
 Finally, the spectral part of the WCS can be extracted with ``with_axes``, since the spectral axis is independent of the celestial axes:
 
@@ -768,6 +767,10 @@ For the individual changes proposed here, we also considered the following alter
 
 * Providing the WCS manipulation operations as standalone functions rather than methods.
   Functions would work with existing WCS objects without any changes to the base classes, but would have no straightforward way of returning an object of the same type as the original WCS, since only the implementation of a given WCS class knows how to do this.
+
+* Making slices with a ``step`` other than one part of the API, as a shortcut for rescaling pixel axes.
+  This is what ``astropy.wcs.WCS`` currently does, but it is ambiguous, since for a numpy array a ``step`` selects every n-th element rather than combining elements, and ``pixel_rescaled`` provides an explicit way of doing the same thing.
+  We therefore only require support for unit steps, while not forbidding implementations from accepting other values.
 
 * Deriving the dependence of pixel coordinates on world coordinates from the existing ``axis_correlation_matrix`` rather than adding ``reverse_axis_correlation_matrix``.
   As described in `Reverse correlation matrix`_, the two are not equivalent when the world coordinates carry redundant information, so this would not allow unneeded world coordinates to be identified.
