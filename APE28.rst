@@ -707,8 +707,11 @@ Since user and downstream code consuming WCSes may not know if APE 14 WCSes impl
 While some of the changes here can easily be detected by consumers of WCSes, changes such as for example whether WCSes accept ``None`` (see `Omitting unneeded input coordinates`_) or being more flexible on input (see the `section on more permissive input <permissive-input_>`_) cannot be as easily inferred.
 In addition, since future changes may be introduced to the API, it is safest to start versioning it.
 
+Version attribute
+~~~~~~~~~~~~~~~~~
+
 WCSes implementing this APE shall define a ``wcsapi_version`` attribute which shall be set to the integer value ``2``.
-In addition, ``BaseLowLevelWCS`` and ``BaseHighLevelWCS`` shall also include the attribute and set it to ``1`` so that existing implementations will automatically be exposed as having the original APE 14 API.
+In addition, ``BaseLowLevelWCS`` and ``BaseHighLevelWCS`` shall also include the attribute and set it to ``1`` so that existing implementations will automatically be exposed as having the original APE 14 API (see `Changes to the API since APE 14`_ for what is considered to be included in version ``1``).
 
 A ``wcsapi_version`` of ``2`` indicates that a WCS implements all of the changes described in this APE, so a WCS shall only set it to ``2`` once this is the case.
 A WCS that only implements some of the changes shall continue to report a version of ``1``.
@@ -716,6 +719,31 @@ For example, a WCS that overrides ``reverse_axis_correlation_matrix`` but does n
 This does not prevent such a WCS from providing the parts that it does implement, since as described in `Backward compatibility`_, some of the changes can be used regardless of the version.
 
 Since a wrapper class can only provide the behavior described in this APE if the WCS it wraps does too, wrapper classes that implement this APE shall not set ``wcsapi_version`` to a fixed value, but shall instead return the ``wcsapi_version`` of the WCS they wrap, treating a WCS that does not have this attribute as having a version of ``1``.
+
+Changes to the API since APE 14
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`APE 14`_ stated that the authoritative version of the API would be given by the base classes in the core ``astropy`` package rather than by the text of the APE itself.
+Since APE 14 was accepted, a small number of changes have been made to the API as documented in ``BaseLowLevelWCS`` and ``BaseHighLevelWCS``, without the text of APE 14 being updated:
+
+* The methods that convert between pixel and world coordinates return a single scalar, array, or object rather than a tuple with one element when there is only one value to return (`astropy/astropy#8663 <https://github.com/astropy/astropy/pull/8663>`__).
+
+* The optional ``pixel_axis_names`` and ``world_axis_names`` properties were added to the low-level API.
+  These return the names of the pixel and world axes as strings, with an empty string for axes that do not have a name, and have default implementations in ``BaseLowLevelWCS`` (`astropy/astropy#9156 <https://github.com/astropy/astropy/pull/9156>`__).
+
+* The third element of each tuple in ``world_axis_object_components`` can be a callable which is passed the high-level object and returns the corresponding world values, instead of the name of a property (`astropy/astropy#9376 <https://github.com/astropy/astropy/pull/9376>`__).
+
+* The tuples in ``world_axis_object_classes`` can include an optional fourth element, which is a callable that is used instead of the class to construct the high-level object (`astropy/astropy#9376 <https://github.com/astropy/astropy/pull/9376>`__).
+
+* ``pixel_to_world_values`` and ``world_to_pixel_values`` should return NaN for coordinates for which the conversion is not defined, whereas APE 14 only stated that NaN could be returned (`astropy/astropy#16328 <https://github.com/astropy/astropy/pull/16328>`__).
+
+* ``pixel_bounds`` can contain ``None`` for pixel dimensions that do not have bounds, alongside ``(min, max)`` tuples for the dimensions that do (`astropy/astropy#16328 <https://github.com/astropy/astropy/pull/16328>`__).
+
+In addition, both APE 14 and the documentation of ``BaseLowLevelWCS`` state that the positional arguments in ``world_axis_object_classes`` should include ``None`` placeholders for the world coordinates that are passed as positional arguments.
+This has never been the case in practice, since the reference implementation of the high-level API inserts the world coordinates before the positional arguments given in ``world_axis_object_classes``, so these should not include placeholders.
+
+We consider all of the above to be part of version ``1`` of the API, which is therefore the API described in APE 14 together with these changes.
+From this APE onwards, any change to the API shall be accompanied by a change to ``wcsapi_version``, so that each version refers to a fixed definition of the API.
 
 Branches and pull requests
 --------------------------
