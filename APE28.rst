@@ -32,6 +32,11 @@ Open questions/decisions
   This APE specifies several cases where an exception shall be raised (when the conversion of a world coordinate object fails, when a WCS manipulation cannot be carried out, when a negative value is used for slicing without ``array_shape`` being set, and when ``None`` is passed for a coordinate that is needed), but does not currently say which type of exception should be used, other than ``TypeError`` for ``__iter__``.
   Mandating e.g. ``ValueError`` would allow downstream code to catch these reliably across implementations.
   For now this APE does not mandate the type, and the examples use ``ValueError`` for illustration.
+* Should ``reverse_axis_correlation_matrix`` (see `Reverse correlation matrix`_) be renamed to ``world_to_pixel_correlation_matrix``?
+  The name ``reverse_axis_correlation_matrix`` only makes sense if one already knows that the existing ``axis_correlation_matrix`` describes the pixel to world direction, which its name does not say, whereas ``world_to_pixel_correlation_matrix`` states the direction explicitly, using the same vocabulary as ``world_to_pixel_values``.
+  If we do this, we should also consider whether to introduce ``pixel_to_world_correlation_matrix`` as a more explicit name for the existing ``axis_correlation_matrix``, so that the two matrices have consistent names, and in that case whether ``axis_correlation_matrix`` should be deprecated or kept indefinitely as an alias.
+  Since ``axis_correlation_matrix`` is part of `APE 14`_ and is used by existing implementations and downstream packages, deprecating it would require a long transition period.
+  For now this APE uses ``reverse_axis_correlation_matrix`` and leaves ``axis_correlation_matrix`` unchanged.
 
 Abstract
 --------
@@ -231,7 +236,7 @@ As an example, defining the following WCS:
    from astropy.coordinates import SpectralCoord
    from astropy.wcs import WCS
 
-   wcs = WCS(naxis=1)
+   wcs = WCS(naxis=1, preserve_units=True)
    wcs.wcs.ctype = ["WAVE"]
    wcs.wcs.cunit = ["Angstrom"]
    wcs.wcs.crpix = [1]
@@ -243,7 +248,7 @@ we can do the same conversions as for the ``gwcs`` WCS above:
 .. code-block:: python
 
    >>> repr(wcs.pixel_to_world(56.3))
-   '<SpectralCoord 6.563e-07 m>'
+   '<SpectralCoord 6563. Angstrom>'
    >>> wcs.world_to_pixel(SpectralCoord(6563 * u.angstrom))
    array(56.3)
    >>> wcs.world_to_pixel(6563 * u.angstrom)
@@ -421,7 +426,7 @@ As an example, we can define a FITS-WCS for a spectral cube:
 
    from astropy.wcs import WCS
 
-   wcs = WCS(naxis=3)
+   wcs = WCS(naxis=3, preserve_units=True)
    wcs.wcs.ctype = "RA---TAN", "DEC--TAN", "WAVE"
    wcs.wcs.cunit = "deg", "deg", "nm"
    wcs.wcs.crpix = 50, 50, 1
@@ -468,11 +473,11 @@ With the proposed specification, the following will return a ``WCS`` object, sin
    >>> type(rebinned)
    <class 'astropy.wcs.wcs.WCS'>
    >>> rebinned.wcs.cdelt
-   array([-2.e-02,  2.e-02,  2.e-10])
+   array([-0.02,  0.02,  0.2 ])
    >>> rebinned.array_shape
    (20, 50, 50)
 
-Note that ``astropy.wcs.WCS`` currently returns the same result for ``wcs[::2, ::2, ::2]``, but as described above, slicing with a ``step`` other than one is not part of the API defined here.
+The pixel increments are doubled compared to the original WCS.
 
 Finally, the spectral part of the WCS can be extracted with ``with_axes``, since the spectral axis is independent of the celestial axes:
 
@@ -541,9 +546,10 @@ Since FITS-WCS requires the same number of pixel and world axes, the WCS has a f
 
    from astropy.wcs import WCS
 
-   wcs_4d = WCS(naxis=4)
+   wcs_4d = WCS(naxis=4, preserve_units=True)
    wcs_4d.wcs.ctype = "HPLN-TAN", "HPLT-TAN", "WAVE", "UTC"
    wcs_4d.wcs.cunit = "arcsec", "arcsec", "nm", "s"
+   wcs_4d.wcs.crpix = 1, 1, 1, 1
    wcs_4d.wcs.cdelt = 2, 0.5, 0.01, 1
    wcs_4d.wcs.crval = 0, 0, 500, 0
    wcs_4d.wcs.pc = [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [30, 0, 0, 1]]
@@ -615,7 +621,7 @@ Using the rastering slit spectrograph WCS defined in the examples for `Reverse c
 
    >>> lon, lat, wave, time = wcs.pixel_to_world_values(10, 20, 30)
    >>> time
-   array(331.)
+   array(300.)
    >>> wcs.world_to_pixel_values(lon, lat, wave, time)
    (array(10.), array(20.), array(30.))
    >>> wcs.world_to_pixel_values(lon, lat, wave, 12345)
@@ -703,6 +709,11 @@ In addition, since future changes may be introduced to the API, it is safest to 
 
 WCSes implementing this APE shall define a ``wcsapi_version`` attribute which shall be set to the integer value ``2``.
 In addition, ``BaseLowLevelWCS`` and ``BaseHighLevelWCS`` shall also include the attribute and set it to ``1`` so that existing implementations will automatically be exposed as having the original APE 14 API.
+
+A ``wcsapi_version`` of ``2`` indicates that a WCS implements all of the changes described in this APE, so a WCS shall only set it to ``2`` once this is the case.
+A WCS that only implements some of the changes shall continue to report a version of ``1``.
+For example, a WCS that overrides ``reverse_axis_correlation_matrix`` but does not accept ``None`` for unneeded input coordinates still has a version of ``1``.
+This does not prevent such a WCS from providing the parts that it does implement, since as described in `Backward compatibility`_, some of the changes can be used regardless of the version.
 
 Since a wrapper class can only provide the behavior described in this APE if the WCS it wraps does too, wrapper classes that implement this APE shall not set ``wcsapi_version`` to a fixed value, but shall instead return the ``wcsapi_version`` of the WCS they wrap, treating a WCS that does not have this attribute as having a version of ``1``.
 
