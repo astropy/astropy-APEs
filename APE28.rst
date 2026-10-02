@@ -156,8 +156,10 @@ Proposed specification
 
 When world coordinates are passed to ``world_to_pixel`` or ``world_to_array_index``, they are matched to the classes defined in ``world_axis_object_classes`` as follows:
 
-* If every object passed in is an instance of exactly one of the classes in ``world_axis_object_classes``, the objects are matched to the classes by type, and can be given in any order.
-  This is the existing APE 14 behavior and is unchanged.
+* If the objects passed in can be unambiguously matched by type to the entries in ``world_axis_object_classes``, they are matched in this way, and can be given in any order.
+  The match is unambiguous if every object is an instance of the class in exactly one of the entries, and every entry is matched by exactly one of the objects.
+  This in particular requires the classes in ``world_axis_object_classes`` to all be distinct, and none of them to be a subclass of another.
+  This is consistent with `APE 14`_, which allows ``world_to_pixel`` to accept objects that are not in the standard order provided that there is no ambiguity, and is the existing behavior in ``astropy``.
 
 * Otherwise, all objects are interpreted positionally, and must be given in the order in which the corresponding classes first appear in ``world_axis_object_components``.
   Any object that is not an instance of the class expected at its position shall be converted by passing it as the first and only argument to the initializer of that class.
